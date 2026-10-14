@@ -13,8 +13,6 @@
     .prob-input { flex: 1; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 16px; outline: none; }
     .prob-input:focus { border-color: #1890ff; }
     .prob-unit { font-size: 14px; color: #888; }
-    .prob-select { width: 100%; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 15px; background: #fff; outline: none; }
-    .prob-slider-row { margin-top: 10px; }
     .prob-slider-value { font-size: 24px; font-weight: 700; color: #1890ff; text-align: center; margin-bottom: 8px; }
     .prob-slider { width: 100%; height: 6px; -webkit-appearance: none; background: #e8e8e8; border-radius: 3px; outline: none; }
     .prob-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #1890ff; cursor: pointer; box-shadow: 0 2px 6px rgba(24,144,255,.4); }
@@ -33,6 +31,17 @@
     .prob-type-tabs { display: flex; gap: 10px; margin-bottom: 12px; }
     .prob-type-tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
     .prob-type-tab.active { background: #1890ff; color: #fff; }
+
+    /* 可搜索下拉 */
+    .search-select { position: relative; }
+    .search-select-input { width: 100%; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 15px; outline: none; box-sizing: border-box; }
+    .search-select-input:focus { border-color: #1890ff; }
+    .search-select-dropdown { position: absolute; top: 48px; left: 0; right: 0; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-height: 240px; overflow-y: auto; z-index: 100; display: none; }
+    .search-select-dropdown.open { display: block; }
+    .search-select-option { padding: 10px 12px; font-size: 14px; color: #333; cursor: pointer; border-bottom: 1px solid #f5f5f5; }
+    .search-select-option:last-child { border-bottom: none; }
+    .search-select-option:hover, .search-select-option.highlighted { background: #e6f7ff; }
+    .search-select-empty { padding: 20px; text-align: center; color: #999; font-size: 13px; }
   </style>
 </head>
 <body data-page="probability">
@@ -57,20 +66,22 @@
         </div>
       </div>
 
-      <!-- 学校选择 -->
+      <!-- 学校选择（可搜索） -->
       <div class="prob-card">
         <div class="prob-label">🏫 选择学校</div>
-        <select class="prob-select" id="prob-school" onchange="onProbSchoolChange()">
-          <option value="">请选择学校</option>
-        </select>
+        <div class="search-select" id="school-select">
+          <input type="text" class="search-select-input" id="school-search" placeholder="输入学校名搜索，如：芜湖职业" autocomplete="off">
+          <div class="search-select-dropdown" id="school-dropdown"></div>
+        </div>
       </div>
 
-      <!-- 专业选择 -->
+      <!-- 专业选择（可搜索） -->
       <div class="prob-card" id="prob-major-card" style="display:none">
         <div class="prob-label">📚 选择专业</div>
-        <select class="prob-select" id="prob-major" onchange="calcProb()">
-          <option value="">请选择专业</option>
-        </select>
+        <div class="search-select" id="major-select">
+          <input type="text" class="search-select-input" id="major-search" placeholder="输入专业名搜索，如：计算机" autocomplete="off">
+          <div class="search-select-dropdown" id="major-dropdown"></div>
+        </div>
       </div>
 
       <!-- 校考分数滑动条 -->
@@ -112,6 +123,10 @@
   <script src="js/low-score.js"></script>
   <script>
     let currentProbType = 'gaozhong';
+    let schoolList = [];
+    let majorList = [];
+    let selectedSchoolId = null;
+    let selectedMajorName = null;
 
     function switchProbType(type) {
       currentProbType = type;
@@ -122,54 +137,64 @@
       document.getElementById('prob-major-card').style.display = 'none';
       document.getElementById('prob-exam-card').style.display = 'none';
       document.getElementById('prob-result-area').style.display = 'none';
+      selectedSchoolId = null;
+      selectedMajorName = null;
+      document.getElementById('school-search').value = '';
+      document.getElementById('major-search').value = '';
     }
 
     function loadProbSchools() {
-      const select = document.getElementById('prob-school');
-      select.innerHTML = '<option value="">请选择学校</option>';
       // 只显示有2026招生计划的学校
-      const schools = COLLEGES.filter(c => {
+      schoolList = COLLEGES.filter(c => {
         if (currentProbType === 'gaozhong') return c.plan2026Gaozhong > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
         return c.plan2026Zhongzhi > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
       });
-      schools.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
-      schools.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c.id;
-        opt.textContent = c.name + '（' + c.city + '）';
-        select.appendChild(opt);
+      schoolList.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+      renderSchoolDropdown('');
+    }
+
+    function renderSchoolDropdown(kw) {
+      const dropdown = document.getElementById('school-dropdown');
+      const list = kw ? schoolList.filter(s => s.name.includes(kw)) : schoolList;
+      if (list.length === 0) {
+        dropdown.innerHTML = '<div class="search-select-empty">未找到相关学校</div>';
+        return;
+      }
+      dropdown.innerHTML = list.map(s => 
+        `<div class="search-select-option" data-id="${s.id}" data-name="${s.name}">${s.name}（${s.city}）</div>`
+      ).join('');
+      dropdown.querySelectorAll('.search-select-option').forEach(opt => {
+        opt.onclick = () => {
+          selectedSchoolId = opt.dataset.id;
+          document.getElementById('school-search').value = opt.dataset.name;
+          dropdown.classList.remove('open');
+          onProbSchoolChange();
+        };
       });
     }
 
     function onProbSchoolChange() {
-      const schoolId = document.getElementById('prob-school').value;
       const majorCard = document.getElementById('prob-major-card');
       const examCard = document.getElementById('prob-exam-card');
       const resultArea = document.getElementById('prob-result-area');
       
-      if (!schoolId) {
+      if (!selectedSchoolId) {
         majorCard.style.display = 'none';
         examCard.style.display = 'none';
         resultArea.style.display = 'none';
         return;
       }
 
-      const college = COLLEGES.find(c => c.id === Number(schoolId));
+      const college = COLLEGES.find(c => c.id === Number(selectedSchoolId));
       if (!college || !college.majors) return;
 
       // 加载专业
-      const majorSelect = document.getElementById('prob-major');
-      majorSelect.innerHTML = '<option value="">请选择专业</option>';
-      const majors = college.majors.filter(m => {
+      majorList = college.majors.filter(m => {
         if (currentProbType === 'gaozhong') return m.plan2026Gaozhong > 0;
         return m.plan2026Zhongzhi > 0;
       });
-      majors.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m.name;
-        opt.textContent = m.name;
-        majorSelect.appendChild(opt);
-      });
+      renderMajorDropdown('');
+      document.getElementById('major-search').value = '';
 
       // 设置校考满分
       const examMax = getExamMax(college);
@@ -184,8 +209,27 @@
       resultArea.style.display = 'none';
     }
 
+    function renderMajorDropdown(kw) {
+      const dropdown = document.getElementById('major-dropdown');
+      const list = kw ? majorList.filter(m => m.name.includes(kw)) : majorList;
+      if (list.length === 0) {
+        dropdown.innerHTML = '<div class="search-select-empty">未找到相关专业</div>';
+        return;
+      }
+      dropdown.innerHTML = list.map(m => 
+        `<div class="search-select-option" data-name="${m.name}">${m.name}</div>`
+      ).join('');
+      dropdown.querySelectorAll('.search-select-option').forEach(opt => {
+        opt.onclick = () => {
+          selectedMajorName = opt.dataset.name;
+          document.getElementById('major-search').value = opt.dataset.name;
+          dropdown.classList.remove('open');
+          calcProb();
+        };
+      });
+    }
+
     function getExamMax(college) {
-      // 根据学校数据判断校考满分
       const sc = college.scoreComposition || '';
       if (currentProbType === 'zhongzhi' && sc.includes('450')) return 450;
       if (currentProbType === 'zhongzhi') return 450;
@@ -200,16 +244,14 @@
 
     function calcProb() {
       const culture = Number(document.getElementById('prob-culture').value) || 0;
-      const schoolId = document.getElementById('prob-school').value;
-      const majorName = document.getElementById('prob-major').value;
       const examScore = Number(document.getElementById('prob-exam-slider').value) || 0;
 
-      if (!schoolId || !majorName) return;
+      if (!selectedSchoolId || !selectedMajorName) return;
 
-      const college = COLLEGES.find(c => c.id === Number(schoolId));
+      const college = COLLEGES.find(c => c.id === Number(selectedSchoolId));
       if (!college) return;
 
-      const major = college.majors.find(m => m.name === majorName);
+      const major = college.majors.find(m => m.name === selectedMajorName);
       if (!major) return;
 
       // 计算总分
@@ -219,7 +261,7 @@
       const estLine = estimateCutoff(college, major);
       
       // 120%预录取线
-      const preLine = estLine - 10; // 预录取线比正式线低约10分
+      const preLine = estLine - 10;
       
       // 招生计划
       const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
@@ -257,7 +299,6 @@
       } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
         return culture * 0.3 + exam * 0.7;
       } else {
-        // 默认直接相加
         return culture + exam;
       }
     }
@@ -271,24 +312,18 @@
     }
 
     function estimateCutoff(college, major) {
-      // 基于2024年分数和2026年计划估算
       const baseScore = college.minScore2024 || 200;
-      // 总分换算：2024年的分数是600分制的，我们按比例换算
       let est;
       if (currentProbType === 'zhongzhi') {
-        // 中职750分制
         est = baseScore / 600 * 750;
       } else {
-        // 普高600分制
         est = baseScore;
       }
-      // 根据招生计划调整：计划越多，分数线越低
       const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
       if (plan > 200) est -= 15;
       else if (plan > 100) est -= 8;
       else if (plan < 30) est += 10;
       
-      // 如果有2026年实际分数，用实际分数
       if (college.realScore2026) {
         const rs = Number(college.realScore2026.match(/\d+/)?.[0] || 0);
         if (rs > 0) est = rs;
@@ -298,7 +333,6 @@
     }
 
     function calcProbability(yourScore, estLine, preLine, plan, college) {
-      // 简单的概率模型
       const diff = yourScore - estLine;
       let prob;
       
@@ -310,15 +344,12 @@
       else if (diff >= -25) prob = 18;
       else prob = 5;
 
-      // 120%预录取加成
       if (yourScore >= preLine && yourScore < estLine) {
-        prob = Math.max(prob, 45); // 过了预录取线但没过正式线，概率约45%
+        prob = Math.max(prob, 45);
       }
 
-      // 根据学校热度调整
       if (college.hot) prob -= 5;
       
-      // 根据招生计划调整
       if (plan >= 200) prob += 5;
       else if (plan <= 30) prob -= 5;
 
@@ -328,6 +359,32 @@
     // 初始化
     loadProbSchools();
     document.getElementById('prob-culture').addEventListener('input', calcProb);
+
+    // 搜索框事件
+    document.getElementById('school-search').addEventListener('focus', () => {
+      document.getElementById('school-dropdown').classList.add('open');
+    });
+    document.getElementById('school-search').addEventListener('input', (e) => {
+      renderSchoolDropdown(e.target.value.trim());
+      document.getElementById('school-dropdown').classList.add('open');
+    });
+    document.getElementById('major-search').addEventListener('focus', () => {
+      document.getElementById('major-dropdown').classList.add('open');
+    });
+    document.getElementById('major-search').addEventListener('input', (e) => {
+      renderMajorDropdown(e.target.value.trim());
+      document.getElementById('major-dropdown').classList.add('open');
+    });
+
+    // 点击其他地方关闭下拉
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#school-select')) {
+        document.getElementById('school-dropdown').classList.remove('open');
+      }
+      if (!e.target.closest('#major-select')) {
+        document.getElementById('major-dropdown').classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>
