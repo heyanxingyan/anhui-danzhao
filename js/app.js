@@ -327,7 +327,17 @@ function renderCollegeList() {
 
 function applyFilters(category, kw) {
   let list = COLLEGES.slice();
-  if (category) list = list.filter(c => c.tags.includes(category));
+  if (category) {
+    list = list.filter(c => c.tags.includes(category));
+    // 根据类别过滤招生计划为0的学校
+    if (category === 'gaozhong') {
+      list = list.filter(c => (c.plan2026Gaozhong || 0) > 0);
+    } else if (category === 'zhongzhi') {
+      list = list.filter(c => (c.plan2026Zhongzhi || 0) > 0);
+    } else if (category === 'zhuanxiang') {
+      list = list.filter(c => (c.plan2026Zhuanxiang || 0) > 0);
+    }
+  }
   if (kw) {
     list = list.filter(c =>
       c.name.includes(kw) ||
@@ -972,60 +982,113 @@ function renderZhongzhi() {
   document.getElementById('zz-subjects').textContent = zc.subjects;
   document.getElementById('zz-rule').textContent = zc.rule;
 
-  // 中职专科：招收中职生的高职专科院校
-  const zhuanke = COLLEGES.filter(c => c.tags.includes('zhongzhi') && !c.isUndergraduate && !c.stoppedEnrollment);
+  // 中职专科：招收中职生的高职专科院校（过滤招生计划为0）
+  const allZhuanke = COLLEGES.filter(c => c.tags.includes('zhongzhi') && !c.isUndergraduate && !c.stoppedEnrollment && (c.plan2026Zhongzhi || 0) > 0);
   const zkEl = document.getElementById('zz-zhuanke-list');
-  zkEl.innerHTML = zhuanke.map(c => {
-    const plan = c.plan2026Zhongzhi || 0;
-    return `
-    <a href="college-detail.html?id=${c.id}&category=zhongzhi" class="college-card" style="display:block">
-      <div class="head">
-        <div class="name">${c.name}</div>
-      </div>
-      <div class="tags">
-        <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
-        <span class="tag tag-type">${c.city}</span>
-        <span class="tag tag-type">${c.type}</span>
-        ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
-      </div>
-      <div class="meta-row"><span>中职计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
-    </a>
-  `}).join('');
+  
+  function renderZhuankeList(keyword) {
+    let list = allZhuanke;
+    if (keyword) {
+      const kw = keyword.toLowerCase();
+      list = list.filter(c => c.name.toLowerCase().includes(kw));
+    }
+    zkEl.innerHTML = list.map(c => {
+      const plan = c.plan2026Zhongzhi || 0;
+      return `
+      <a href="college-detail.html?id=${c.id}&category=zhongzhi" class="college-card" style="display:block">
+        <div class="head">
+          <div class="name">${c.name}</div>
+        </div>
+        <div class="tags">
+          <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
+          <span class="tag tag-type">${c.city}</span>
+          <span class="tag tag-type">${c.type}</span>
+          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
+        </div>
+        <div class="meta-row"><span>中职计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
+      </a>
+    `}).join('');
+    
+    if (list.length === 0) {
+      zkEl.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999;font-size:14px">未找到相关院校</div>';
+    }
+  }
+  renderZhuankeList('');
+  
+  // 中职专科搜索
+  const zkSearchInput = document.getElementById('zz-zk-search-input');
+  const zkClearBtn = document.getElementById('zz-zk-search-clear');
+  if (zkSearchInput) {
+    zkSearchInput.addEventListener('input', function() {
+      renderZhuankeList(this.value.trim());
+    });
+  }
+  if (zkClearBtn) {
+    zkClearBtn.addEventListener('click', function() {
+      zkSearchInput.value = '';
+      renderZhuankeList('');
+    });
+  }
 
   // 对口本科：本站名单内招收中职的本科院校 + 全部10所对口本科招生院校
   const benke = COLLEGES.filter(c => c.tags.includes('zhongzhi') && c.isUndergraduate);
   const bkEl = document.getElementById('zz-benke-list');
-  let bkHtml = benke.map(c => `
-    <a href="college-detail.html?id=${c.id}" class="college-card" style="display:block;border:1px solid #d3adf7">
-      <div class="head">
-        <div class="name">🎓 ${c.name}</div>
-        <span class="score" style="color:#722ed1;font-weight:600">${c.city}</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-public">${c.nature}</span>
-        <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
-      </div>
-      <div class="meta-row"><span>${c.scoreComposition || '文化测试+职业技能测试'}</span><span class="score">${c.minScore2024} 分</span></div>
-    </a>
-  `).join('');
-  // 追加BENKE_SCHOOLS中不在本站COLLEGES里的对口本科院校
-  if (typeof BENKE_SCHOOLS !== 'undefined') {
-    const inListNames = benke.map(c => c.name);
-    bkHtml += BENKE_SCHOOLS.filter(s => !inListNames.includes(s.name)).map(s => `
-      <a href="${s.link}" target="_blank" rel="noopener" class="college-card" style="display:block;border:1px solid #d3adf7">
+  
+  function renderBenkeList(keyword) {
+    let bkList = benke;
+    let bkHtml = bkList.map(c => `
+      <a href="college-detail.html?id=${c.id}" class="college-card" style="display:block;border:1px solid #d3adf7">
         <div class="head">
-          <div class="name">🎓 ${s.name}</div>
-          <span class="score" style="color:#722ed1;font-weight:600">${s.city}</span>
+          <div class="name">🎓 ${c.name}</div>
+          <span class="score" style="color:#722ed1;font-weight:600">${c.city}</span>
         </div>
         <div class="tags">
-          <span class="tag tag-public">${s.nature}</span>
+          <span class="tag tag-public">${c.nature}</span>
           <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
         </div>
-        <div class="meta-row"><span style="font-size:12px">${s.note}</span></div>
+        <div class="meta-row"><span>${c.scoreComposition || '文化测试+职业技能测试'}</span><span class="score">${c.minScore2024} 分</span></div>
       </a>
     `).join('');
+    // 追加BENKE_SCHOOLS中不在本站COLLEGES里的对口本科院校
+    if (typeof BENKE_SCHOOLS !== 'undefined') {
+      const inListNames = bkList.map(c => c.name);
+      let extraSchools = BENKE_SCHOOLS.filter(s => !inListNames.includes(s.name));
+      if (keyword) {
+        const kw = keyword.toLowerCase();
+        extraSchools = extraSchools.filter(s => s.name.toLowerCase().includes(kw));
+      }
+      bkHtml += extraSchools.map(s => `
+        <a href="${s.link}" target="_blank" rel="noopener" class="college-card" style="display:block;border:1px solid #d3adf7">
+          <div class="head">
+            <div class="name">🎓 ${s.name}</div>
+            <span class="score" style="color:#722ed1;font-weight:600">${s.city}</span>
+          </div>
+          <div class="tags">
+            <span class="tag tag-public">${s.nature}</span>
+            <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
+          </div>
+          <div class="meta-row"><span style="font-size:12px">${s.note}</span></div>
+        </a>
+      `).join('');
+    }
+    bkEl.innerHTML = bkHtml || '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>暂无对口本科院校信息</div></div>';
   }
-  bkEl.innerHTML = bkHtml || '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>暂无对口本科院校信息</div></div>';
+  renderBenkeList('');
+  
+  // 对口本科搜索
+  const bkSearchInput = document.getElementById('zz-bk-search-input');
+  const bkClearBtn = document.getElementById('zz-bk-search-clear');
+  if (bkSearchInput) {
+    bkSearchInput.addEventListener('input', function() {
+      renderBenkeList(this.value.trim());
+    });
+  }
+  if (bkClearBtn) {
+    bkClearBtn.addEventListener('click', function() {
+      bkSearchInput.value = '';
+      renderBenkeList('');
+    });
+  }
 
   // 子标签切换（支持 ?tab=benke 深链）
   const tabs = document.querySelectorAll('#zz-tabs .subtab');
@@ -1050,25 +1113,54 @@ function renderGaozhong() {
   document.getElementById('gz-subjects').textContent = gc.subjects;
   document.getElementById('gz-rule').textContent = gc.rule;
 
-  // 招收普高生的院校（排除对口本科）
-  const list = COLLEGES.filter(c => c.tags.includes('gaozhong') && !c.isUndergraduate && !c.stoppedEnrollment);
+  // 招收普高生的院校（排除对口本科、停招、招生计划为0）
+  let allList = COLLEGES.filter(c => c.tags.includes('gaozhong') && !c.isUndergraduate && !c.stoppedEnrollment && (c.plan2026Gaozhong || 0) > 0);
   const el = document.getElementById('gz-list');
-  el.innerHTML = list.map(c => {
-    const plan = c.plan2026Gaozhong || 0;
-    return `
-    <a href="college-detail.html?id=${c.id}&category=gaozhong" class="college-card" style="display:block">
-      <div class="head">
-        <div class="name">${c.name}</div>
-      </div>
-      <div class="tags">
-        <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
-        <span class="tag tag-type">${c.city}</span>
-        <span class="tag tag-type">${c.type}</span>
-        ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
-      </div>
-      <div class="meta-row"><span>普高计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
-    </a>
-  `}).join('');
+  
+  function renderList(keyword) {
+    let list = allList;
+    if (keyword) {
+      const kw = keyword.toLowerCase();
+      list = list.filter(c => c.name.toLowerCase().includes(kw));
+    }
+    el.innerHTML = list.map(c => {
+      const plan = c.plan2026Gaozhong || 0;
+      return `
+      <a href="college-detail.html?id=${c.id}&category=gaozhong" class="college-card" style="display:block">
+        <div class="head">
+          <div class="name">${c.name}</div>
+        </div>
+        <div class="tags">
+          <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
+          <span class="tag tag-type">${c.city}</span>
+          <span class="tag tag-type">${c.type}</span>
+          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
+        </div>
+        <div class="meta-row"><span>普高计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
+      </a>
+    `}).join('');
+    
+    if (list.length === 0) {
+      el.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999;font-size:14px">未找到相关院校</div>';
+    }
+  }
+  
+  renderList('');
+  
+  // 搜索功能
+  const searchInput = document.getElementById('gz-search-input');
+  const clearBtn = document.getElementById('gz-search-clear');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      renderList(this.value.trim());
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      renderList('');
+    });
+  }
 }
 
 // ========== 专项计划页面 ==========
@@ -1082,6 +1174,7 @@ function renderZhuanxiang() {
   document.getElementById('zx-rule').textContent = zc.rule;
 
   let currentSub = 'all';
+  let currentKeyword = '';
 
   function renderList() {
     let list = [];
@@ -1115,6 +1208,12 @@ function renderZhuanxiang() {
       planLabel = '乡村医生';
       catParam = 'zhuanxiang-xiangcun';
     }
+    
+    // 搜索过滤
+    if (currentKeyword) {
+      const kw = currentKeyword.toLowerCase();
+      list = list.filter(c => c.name.toLowerCase().includes(kw));
+    }
 
     document.getElementById('zx-tip').textContent = tipText;
     const el = document.getElementById('zx-list');
@@ -1138,6 +1237,10 @@ function renderZhuanxiang() {
         ${yingluNote}
       </a>
     `}).join('');
+    
+    if (list.length === 0) {
+      el.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999;font-size:14px">未找到相关院校</div>';
+    }
   }
 
   // 子标签切换
@@ -1155,6 +1258,23 @@ function renderZhuanxiang() {
       renderList();
     });
   });
+  
+  // 搜索功能
+  const searchInput = document.getElementById('zx-search-input');
+  const clearBtn = document.getElementById('zx-search-clear');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      currentKeyword = this.value.trim();
+      renderList();
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      currentKeyword = '';
+      renderList();
+    });
+  }
 
   renderList();
 }
