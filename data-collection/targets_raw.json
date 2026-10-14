@@ -1,0 +1,1646 @@
+[
+  {
+    "id": 5,
+    "name": "桐城师范高等专科学校",
+    "website": "https://www.tcsz.edu.cn",
+    "city": "安庆",
+    "nature": "公办",
+    "type": "师范类",
+    "majors": [
+      {
+        "name": "小学教育",
+        "code": "570103K",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 60
+      },
+      {
+        "name": "大数据技术",
+        "code": "510205",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 100
+      },
+      {
+        "name": "软件技术",
+        "code": "510203",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 40
+      },
+      {
+        "name": "财税大数据应用",
+        "code": "530101",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 60
+      },
+      {
+        "name": "网络营销与直播电商",
+        "code": "530704",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 120
+      },
+      {
+        "name": "大数据与审计",
+        "code": "530303",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 60
+      },
+      {
+        "name": "人工智能技术应用",
+        "code": "510209",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 40
+      },
+      {
+        "name": "小学英语教育",
+        "code": "570106K",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 20
+      },
+      {
+        "name": "商务日语",
+        "code": "570205",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 20
+      },
+      {
+        "name": "旅游管理",
+        "code": "540101",
+        "category": "lvyou",
+        "fee": 3500,
+        "plan2026": 140
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "code": "540106",
+        "category": "lvyou",
+        "fee": 3500,
+        "plan2026": 45
+      },
+      {
+        "name": "高速铁路客运服务",
+        "code": "500113",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 60
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "code": "590302",
+        "category": "guanli",
+        "fee": 3500,
+        "plan2026": 120
+      },
+      {
+        "name": "研学旅行管理与服务",
+        "code": "540107",
+        "category": "lvyou",
+        "fee": 3500,
+        "plan2026": 85
+      },
+      {
+        "name": "音乐表演",
+        "code": "550201",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 20
+      },
+      {
+        "name": "美术教育",
+        "code": "570109K",
+        "category": "jiaoyu",
+        "fee": 5000,
+        "plan2026": 20
+      },
+      {
+        "name": "体育教育",
+        "code": "570110K",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 30
+      },
+      {
+        "name": "艺术设计",
+        "code": "550101",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 40
+      },
+      {
+        "name": "视觉传达设计",
+        "code": "550102",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 40
+      },
+      {
+        "name": "学前教育",
+        "code": "570102K",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 100
+      },
+      {
+        "name": "早期教育",
+        "code": "570101",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 80
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "code": "520802",
+        "category": "yiyao",
+        "fee": 3500,
+        "plan2026": 90
+      },
+      {
+        "name": "现代家政服务与管理",
+        "code": "590301",
+        "category": "guanli",
+        "fee": 3500,
+        "plan2026": 70
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "安庆医药高等专科学校",
+    "website": "https://www.aqyz.net",
+    "city": "安庆",
+    "nature": "公办",
+    "type": "医药类",
+    "majors": [
+      {
+        "name": "护理",
+        "code": "520201",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 356
+      },
+      {
+        "name": "助产",
+        "code": "520202",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 30
+      },
+      {
+        "name": "老年保健与管理",
+        "code": "520803",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 61
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "code": "520802",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 30
+      },
+      {
+        "name": "临床医学",
+        "code": "520101K",
+        "category": "yiyao",
+        "fee": 4800,
+        "plan2026": 22
+      },
+      {
+        "name": "康复治疗技术",
+        "code": "520601",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 90
+      },
+      {
+        "name": "医学检验技术",
+        "code": "520501",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 15
+      },
+      {
+        "name": "医学检验技术（淮南卫校）",
+        "code": "520501",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 60
+      },
+      {
+        "name": "医学影像技术",
+        "code": "520502",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 15
+      },
+      {
+        "name": "医学影像技术（淮南卫校）",
+        "code": "520502",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 60
+      },
+      {
+        "name": "预防医学",
+        "code": "520603",
+        "category": "yiyao",
+        "fee": 4800,
+        "plan2026": 40
+      },
+      {
+        "name": "口腔医学技术",
+        "code": "520504",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 40
+      },
+      {
+        "name": "药学",
+        "code": "520301",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 128
+      },
+      {
+        "name": "药学（淮南卫校）",
+        "code": "520301",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 60
+      },
+      {
+        "name": "中药学",
+        "code": "520410",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 75
+      },
+      {
+        "name": "食品营养与健康",
+        "code": "490103",
+        "category": "shipin",
+        "fee": 3900,
+        "plan2026": 40
+      },
+      {
+        "name": "药品质量与安全",
+        "code": "520304",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 100
+      },
+      {
+        "name": "药品经营与管理",
+        "code": "520303",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 30
+      },
+      {
+        "name": "生物制药技术",
+        "code": "490202",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 40
+      },
+      {
+        "name": "药物制剂技术",
+        "code": "520302",
+        "category": "yiyao",
+        "fee": 4200,
+        "plan2026": 50
+      },
+      {
+        "name": "食品检验检测技术",
+        "code": "490104",
+        "category": "shipin",
+        "fee": 3900,
+        "plan2026": 30
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "安徽国防科技职业学院",
+    "website": "https://www.ahgf.edu.cn",
+    "city": "六安",
+    "nature": "公办",
+    "type": "理工类",
+    "majors": [
+      {
+        "name": "机械制造及自动化",
+        "code": "460104",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 140
+      },
+      {
+        "name": "模具设计与制造",
+        "code": "460113",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 80
+      },
+      {
+        "name": "数控技术",
+        "code": "460103",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 85
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "code": "460102",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 45
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "code": "500211",
+        "category": "jiaotong",
+        "fee": 4900,
+        "plan2026": 130
+      },
+      {
+        "name": "新能源汽车技术",
+        "code": "460702",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 140
+      },
+      {
+        "name": "智能网联汽车技术",
+        "code": "460704",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 40
+      },
+      {
+        "name": "飞机机电设备维修",
+        "code": "500409",
+        "category": "jiaotong",
+        "fee": 4900,
+        "plan2026": 40
+      },
+      {
+        "name": "工程造价",
+        "code": "440501",
+        "category": "tumu",
+        "fee": 4900,
+        "plan2026": 76
+      },
+      {
+        "name": "智能建造技术",
+        "code": "440304",
+        "category": "tumu",
+        "fee": 4900,
+        "plan2026": 69
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 4300,
+        "plan2026": 122
+      },
+      {
+        "name": "电子商务",
+        "code": "530701",
+        "category": "caijing",
+        "fee": 4300,
+        "plan2026": 90
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "code": "500606",
+        "category": "jiaotong",
+        "fee": 4900,
+        "plan2026": 90
+      },
+      {
+        "name": "网络营销与直播电商",
+        "code": "530704",
+        "category": "caijing",
+        "fee": 4300,
+        "plan2026": 61
+      },
+      {
+        "name": "现代物流管理",
+        "code": "530802",
+        "category": "caijing",
+        "fee": 4300,
+        "plan2026": 54
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "code": "540106",
+        "category": "lvyou",
+        "fee": 4300,
+        "plan2026": 58
+      },
+      {
+        "name": "机电一体化技术",
+        "code": "460301",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 185
+      },
+      {
+        "name": "工业机器人技术",
+        "code": "460305",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 45
+      },
+      {
+        "name": "电气自动化技术",
+        "code": "460306",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 105
+      },
+      {
+        "name": "物联网应用技术",
+        "code": "510102",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 30
+      },
+      {
+        "name": "集成电路技术",
+        "code": "510401",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 25
+      },
+      {
+        "name": "船舶电气工程技术",
+        "code": "460503",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 30
+      },
+      {
+        "name": "计算机应用技术",
+        "code": "510201",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 70
+      },
+      {
+        "name": "计算机网络技术",
+        "code": "510202",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 100
+      },
+      {
+        "name": "软件技术",
+        "code": "510203",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 75
+      },
+      {
+        "name": "大数据技术",
+        "code": "510205",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 60
+      },
+      {
+        "name": "信息安全技术应用",
+        "code": "510207",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 50
+      },
+      {
+        "name": "人工智能技术应用",
+        "code": "510209",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 55
+      },
+      {
+        "name": "机械制造及自动化（合肥理工学校）",
+        "code": "460104",
+        "category": "zhuangbei",
+        "fee": 4900,
+        "plan2026": 200
+      },
+      {
+        "name": "计算机网络技术（安徽科技贸易学校）",
+        "code": "510202",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机应用技术（安徽科技贸易学校）",
+        "code": "510201",
+        "category": "dianxin",
+        "fee": 4900,
+        "plan2026": 95
+      },
+      {
+        "name": "汽车检测与维修技术（皖西经济技术学校）",
+        "code": "500211",
+        "category": "jiaotong",
+        "fee": 4900,
+        "plan2026": 155
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "安徽黄梅戏艺术职业学院",
+    "website": "https://www.ahmxyy.net",
+    "city": "安庆",
+    "nature": "公办",
+    "type": "艺术类",
+    "majors": [
+      {
+        "name": "戏曲表演",
+        "code": "550203",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 22
+      },
+      {
+        "name": "音乐表演",
+        "code": "550201",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 50
+      },
+      {
+        "name": "现代流行音乐",
+        "code": "550210",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 30
+      },
+      {
+        "name": "舞蹈表演",
+        "code": "550202",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 55
+      },
+      {
+        "name": "艺术设计",
+        "code": "550101",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 35
+      },
+      {
+        "name": "舞台艺术设计与制作",
+        "code": "550218",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 16
+      },
+      {
+        "name": "人物形象设计",
+        "code": "550117",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 30
+      },
+      {
+        "name": "视觉传达设计",
+        "code": "550102",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 10
+      },
+      {
+        "name": "戏剧影视表演",
+        "code": "550205",
+        "category": "yishu",
+        "fee": 6500,
+        "plan2026": 30
+      },
+      {
+        "name": "播音与主持",
+        "code": "560201",
+        "category": "wenjiao",
+        "fee": 6500,
+        "plan2026": 22
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "安庆职业技术学院",
+    "website": "https://www.aqvtc.edu.cn",
+    "city": "安庆",
+    "nature": "公办",
+    "type": "综合类",
+    "majors": [
+      {
+        "name": "建筑装饰工程技术",
+        "code": "440102",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 107
+      },
+      {
+        "name": "建筑工程技术",
+        "code": "440301",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 122
+      },
+      {
+        "name": "市政工程技术",
+        "code": "440601",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 52
+      },
+      {
+        "name": "智能建造技术",
+        "code": "440504",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 37
+      },
+      {
+        "name": "数控技术",
+        "code": "460103",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 107
+      },
+      {
+        "name": "机电一体化技术",
+        "code": "460301",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 127
+      },
+      {
+        "name": "工业机器人技术",
+        "code": "460305",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 117
+      },
+      {
+        "name": "新能源汽车技术",
+        "code": "460702",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 137
+      },
+      {
+        "name": "分析检验技术",
+        "code": "470208",
+        "category": "huaong",
+        "fee": 3900,
+        "plan2026": 77
+      },
+      {
+        "name": "化工智能制造技术",
+        "code": "470209",
+        "category": "huaong",
+        "fee": 3900,
+        "plan2026": 147
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "code": "500211",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 158
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "code": "500606",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 47
+      },
+      {
+        "name": "植物保护与检疫技术",
+        "code": "410106",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 112
+      },
+      {
+        "name": "园艺技术",
+        "code": "410105",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 77
+      },
+      {
+        "name": "食品质量与安全",
+        "code": "490102",
+        "category": "shipin",
+        "fee": 3900,
+        "plan2026": 67
+      },
+      {
+        "name": "物联网应用技术",
+        "code": "510102",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 47
+      },
+      {
+        "name": "计算机应用技术",
+        "code": "510201",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 20
+      },
+      {
+        "name": "市场营销",
+        "code": "530605",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 15
+      },
+      {
+        "name": "旅游管理",
+        "code": "540101",
+        "category": "lvyou",
+        "fee": 3500,
+        "plan2026": 15
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "滁州城市职业学院",
+    "website": "https://www.czcvc.edu.cn",
+    "city": "滁州",
+    "nature": "公办",
+    "type": "师范类",
+    "majors": [
+      {
+        "name": "旅游管理",
+        "code": "540101",
+        "category": "lvyou",
+        "fee": 3900,
+        "plan2026": 150
+      },
+      {
+        "name": "学前教育",
+        "code": "570102K",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 44
+      },
+      {
+        "name": "早期教育",
+        "code": "570101",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 100
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "code": "590302",
+        "category": "gonggong",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "医学生物技术",
+        "code": "520509",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 70
+      },
+      {
+        "name": "医学检验技术",
+        "code": "520501",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "药物制剂技术",
+        "code": "520304",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 110
+      },
+      {
+        "name": "药学",
+        "code": "520301",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "医学美容技术",
+        "code": "520804",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 170
+      },
+      {
+        "name": "康复治疗技术",
+        "code": "520601",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 150
+      },
+      {
+        "name": "临床医学",
+        "code": "520101K",
+        "category": "yiyao",
+        "fee": 0,
+        "plan2026": 26
+      },
+      {
+        "name": "中医康复技术",
+        "code": "520416",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 92
+      },
+      {
+        "name": "口腔医学技术",
+        "code": "520504",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 60
+      },
+      {
+        "name": "护理",
+        "code": "520201",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 258
+      },
+      {
+        "name": "助产",
+        "code": "520202",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "现代家政服务与管理",
+        "code": "590303",
+        "category": "gonggong",
+        "fee": 3900,
+        "plan2026": 70
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "code": "590301",
+        "category": "gonggong",
+        "fee": 3900,
+        "plan2026": 105
+      },
+      {
+        "name": "老年保健与管理",
+        "code": "520803",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 95
+      },
+      {
+        "name": "高速铁路客运服务",
+        "code": "500113",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 130
+      },
+      {
+        "name": "交通运营管理",
+        "code": "500111",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "空中乘务",
+        "code": "500405",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 140
+      },
+      {
+        "name": "电子商务",
+        "code": "530701",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 190
+      },
+      {
+        "name": "网络营销与直播电商",
+        "code": "530704",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 110
+      },
+      {
+        "name": "大数据技术",
+        "code": "510205",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 200
+      },
+      {
+        "name": "信息安全技术应用",
+        "code": "510207",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 220
+      },
+      {
+        "name": "人工智能技术应用",
+        "code": "510209",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 200
+      },
+      {
+        "name": "艺术设计",
+        "code": "550101",
+        "category": "wenyi",
+        "fee": 6500,
+        "plan2026": 25
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "code": "550103",
+        "category": "wenyi",
+        "fee": 6500,
+        "plan2026": 120
+      },
+      {
+        "name": "音乐表演",
+        "code": "550201",
+        "category": "wenyi",
+        "fee": 6500,
+        "plan2026": 25
+      },
+      {
+        "name": "数字图文信息处理技术",
+        "code": "510210",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 110
+      },
+      {
+        "name": "美术教育",
+        "code": "570109K",
+        "category": "wenyi",
+        "fee": 6500,
+        "plan2026": 20
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "滁州职业技术学院",
+    "website": "https://www.czc.net.cn",
+    "city": "滁州",
+    "nature": "公办",
+    "type": "综合类",
+    "majors": [
+      {
+        "name": "传播与策划",
+        "code": "560215",
+        "category": "yishu",
+        "fee": 3500,
+        "plan2026": 110
+      },
+      {
+        "name": "动漫制作技术",
+        "code": "510215",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "工业设计",
+        "code": "460105",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "艺术设计",
+        "code": "550101",
+        "category": "yishu",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "电气自动化技术",
+        "code": "460306",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "工业机器人技术",
+        "code": "460305",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 80
+      },
+      {
+        "name": "光伏工程技术",
+        "code": "430307",
+        "category": "nengyuan",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "机电一体化技术",
+        "code": "460301",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 55
+      },
+      {
+        "name": "数控技术",
+        "code": "460103",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "新能源材料应用技术",
+        "code": "430605",
+        "category": "nengyuan",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "大数据与财务管理",
+        "code": "530301",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 90
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 100
+      },
+      {
+        "name": "工商企业管理",
+        "code": "530601",
+        "category": "guanli",
+        "fee": 3500,
+        "plan2026": 90
+      },
+      {
+        "name": "旅游管理",
+        "code": "540101",
+        "category": "lvyou",
+        "fee": 3500,
+        "plan2026": 145
+      },
+      {
+        "name": "电子商务",
+        "code": "530701",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 110
+      },
+      {
+        "name": "商务英语",
+        "code": "570201",
+        "category": "jiaoyu",
+        "fee": 3500,
+        "plan2026": 50
+      },
+      {
+        "name": "市场营销",
+        "code": "530605",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 100
+      },
+      {
+        "name": "现代物流管理",
+        "code": "530802",
+        "category": "caijing",
+        "fee": 3500,
+        "plan2026": 105
+      },
+      {
+        "name": "机械设计与制造",
+        "code": "460101",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "模具设计与制造",
+        "code": "460113",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "code": "500210",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "code": "460701",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "新能源汽车技术",
+        "code": "460702",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "道路与桥梁工程技术",
+        "code": "500201",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "工程造价",
+        "code": "440501",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 90
+      },
+      {
+        "name": "建筑工程技术",
+        "code": "440301",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 110
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "code": "440102",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 80
+      },
+      {
+        "name": "绿色食品生产技术",
+        "code": "410117",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "食品检验检测技术",
+        "code": "490104",
+        "category": "shipin",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "应用化工技术",
+        "code": "470201",
+        "category": "huaong",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "园林技术",
+        "code": "410202",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机应用技术",
+        "code": "510201",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 85
+      },
+      {
+        "name": "人工智能技术应用",
+        "code": "510209",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "软件技术",
+        "code": "510203",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "物联网应用技术",
+        "code": "510102",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "应用电子技术",
+        "code": "510103",
+        "category": "dianzi",
+        "fee": 3900,
+        "plan2026": 50
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "六安职业技术学院",
+    "website": "https://www.lvtc.edu.cn",
+    "city": "六安",
+    "nature": "公办",
+    "type": "综合类",
+    "majors": [
+      {
+        "name": "园艺技术",
+        "code": "410105",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 100
+      },
+      {
+        "name": "中草药栽培与加工技术",
+        "code": "410108",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 75
+      },
+      {
+        "name": "园林技术",
+        "code": "410202",
+        "category": "nonglin",
+        "fee": 3900,
+        "plan2026": 89
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "code": "440102",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 55
+      },
+      {
+        "name": "建筑工程技术",
+        "code": "440301",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 105
+      },
+      {
+        "name": "智能建造技术",
+        "code": "440304",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 85
+      },
+      {
+        "name": "建筑消防技术",
+        "code": "440406",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 75
+      },
+      {
+        "name": "工程造价",
+        "code": "440501",
+        "category": "tumu",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "code": "460102",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "数控技术",
+        "code": "460103",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 49
+      },
+      {
+        "name": "机械制造及自动化",
+        "code": "460104",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 71
+      },
+      {
+        "name": "增材制造技术",
+        "code": "460112",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "机电一体化技术",
+        "code": "460301",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 140
+      },
+      {
+        "name": "工业机器人技术",
+        "code": "460305",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 70
+      },
+      {
+        "name": "电气自动化技术",
+        "code": "460306",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 85
+      },
+      {
+        "name": "无人机应用技术",
+        "code": "460609",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 120
+      },
+      {
+        "name": "智能网联汽车技术",
+        "code": "460704",
+        "category": "zhuangbei",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "服装设计与工艺",
+        "code": "480402",
+        "category": "wenyi",
+        "fee": 3900,
+        "plan2026": 85
+      },
+      {
+        "name": "新能源汽车检测与维修技术",
+        "code": "500212",
+        "category": "jiaotong",
+        "fee": 3900,
+        "plan2026": 275
+      },
+      {
+        "name": "物联网应用技术",
+        "code": "510102",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "计算机应用技术",
+        "code": "510201",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 135
+      },
+      {
+        "name": "软件技术",
+        "code": "510203",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 200
+      },
+      {
+        "name": "人工智能技术应用",
+        "code": "510209",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 70
+      },
+      {
+        "name": "动漫制作技术",
+        "code": "510215",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "集成电路技术",
+        "code": "510401",
+        "category": "dianxin",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "code": "520802",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 150
+      },
+      {
+        "name": "财税大数据应用",
+        "code": "530101",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 55
+      },
+      {
+        "name": "大数据与财务管理",
+        "code": "530301",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 45
+      },
+      {
+        "name": "大数据与会计",
+        "code": "530302",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 115
+      },
+      {
+        "name": "电子商务",
+        "code": "530701",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 195
+      },
+      {
+        "name": "现代物流管理",
+        "code": "530802",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 55
+      },
+      {
+        "name": "旅游管理",
+        "code": "540101",
+        "category": "lvyou",
+        "fee": 3900,
+        "plan2026": 110
+      },
+      {
+        "name": "广告艺术设计",
+        "code": "550113",
+        "category": "wenyi",
+        "fee": 3900,
+        "plan2026": 65
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "皖西卫生职业学院",
+    "website": "https://www.wahvc.edu.cn",
+    "city": "六安",
+    "nature": "公办",
+    "type": "医药类",
+    "majors": [
+      {
+        "name": "护理",
+        "code": "520201",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 313
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "code": "590302",
+        "category": "gonggong",
+        "fee": 3900,
+        "plan2026": 65
+      },
+      {
+        "name": "统计与会计核算",
+        "code": "530304",
+        "category": "caijing",
+        "fee": 3900,
+        "plan2026": 35
+      },
+      {
+        "name": "医学检验技术",
+        "code": "520501",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "康复治疗技术",
+        "code": "520601",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 70
+      },
+      {
+        "name": "医学美容技术",
+        "code": "520803",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 60
+      },
+      {
+        "name": "食品检验检测技术",
+        "code": "490104",
+        "category": "shipin",
+        "fee": 3900,
+        "plan2026": 30
+      },
+      {
+        "name": "中医养生保健",
+        "code": "520417",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 86
+      },
+      {
+        "name": "药学",
+        "code": "520301",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 105
+      },
+      {
+        "name": "中药学",
+        "code": "520410",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 84
+      },
+      {
+        "name": "临床医学（村医定向）",
+        "code": "520101K",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 101
+      },
+      {
+        "name": "中医学（村医定向）",
+        "code": "520401K",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 26
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "code": "520802",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 50
+      },
+      {
+        "name": "口腔医学技术",
+        "code": "520504",
+        "category": "yiyao",
+        "fee": 3900,
+        "plan2026": 80
+      }
+    ]
+  }
+]
