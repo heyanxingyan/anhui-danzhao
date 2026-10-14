@@ -1,0 +1,3022 @@
+{
+  "schools": [
+    {
+      "id": 17,
+      "name": "安徽广播影视职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（掌上高考转载）；data.js中部分专业（如数字媒体技术、动漫制作技术、市场营销等）在2026章程中未出现，按0计",
+      "majors": [
+        {
+          "name": "新闻采编与制作",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "播音与主持",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 7,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广播影视节目制作",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "影视编导",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "摄影摄像技术",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 7,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "影视动画",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 6,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "软件技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境艺术设计",
+          "retiredMilitary": 1,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人物形象设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 7,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "休闲体育",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体能训练",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "健身指导与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "安徽国防科技职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生专业及计划表（学校信息公开网）",
+      "majors": [
+        {
+          "name": "机械制造及自动化",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "模具设计与制造",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字化设计与制造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车检测与维修技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能网联汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "飞机机电设备维修",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能建造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 8,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电气自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "集成电路技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "船舶电气工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "软件技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "信息安全技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机械制造及自动化（合肥理工学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术（安徽科技贸易学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术（安徽科技贸易学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车检测与维修技术（皖西经济技术学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "安徽国际商务职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（掌上高考转载，含分专业计划表）",
+      "majors": [
+        {
+          "name": "国际经济与贸易",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "国际贸易实务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "国际商务",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "跨境电子商务",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 40,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "供应链运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与财务管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "财税大数据应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "金融服务与管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 39,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "保险实务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "商务英语",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 39,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "商务日语",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "应用韩语",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "烹调工艺与营养",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "软件技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "高速铁路客运服务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "空中乘务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物业管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人力资源管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "商务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "报关与国际货运",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "关务与外贸服务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "安徽黄梅戏艺术职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程；该校无退役军人专项计划列，仅设革命老区建档立卡专项",
+      "majors": [
+        {
+          "name": "戏曲表演",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "音乐表演",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代流行音乐",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "舞蹈表演",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "舞台艺术设计与制作",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 1,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人物形象设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "视觉传达设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 1,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "戏剧影视表演",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "播音与主持",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "安徽应用技术职业大学",
+      "hasPerMajorBreakdown": false,
+      "note": "该校2026年6月由安徽机电职业技术学院与安徽商贸职业技术学院合并设立，2026年分类考试招生仍以两校原章程执行；未采集到合并后统一的分专业三项专项计划细分数据",
+      "majors": [
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能控制技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电气自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "应用电子技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机械设计与制造",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机械制造及自动化",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业产品质量检测技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能制造装备技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车制造与试验技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能网联汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "云计算技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业互联网技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能焊接技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "增材制造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "模具设计与制造",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电设备技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "飞机机电设备维修",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与财务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "跨境电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "金融服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术（宁国专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术（宁国专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务（宁国专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术（蒙城专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术（蒙城专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术（滁州专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术（滁州专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用（涡阳专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术（涡阳专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "全媒体广告策划与营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络直播与运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能物流技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "跨境电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "跨境电子商务（临泉专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "国际经济与贸易",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人力资源管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "民宿管理与运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计（临泉专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "会计信息管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与财务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与审计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "财税大数据应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "金融服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "法律事务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络新闻与传播",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代文秘",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术（安庆专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子信息工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子信息工程技术（宁国专业学院）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "移动互联应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "产品艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑装饰工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "安徽交通职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（学校官网，含分专业计划表）",
+      "majors": [
+        {
+          "name": "道路与桥梁工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 20,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "道路养护与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市政工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建设工程监理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车检测与维修技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 20,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车技术服务与营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能网联汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 15,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "道路机械化施工技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程机械运用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电气自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源装备技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "软件技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "道路运输管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 15,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "高速铁路客运服务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "空中乘务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "邮轮乘务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体育运营与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体能训练",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "健身指导与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "安全技术与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "无人机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 15,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "跨境电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "安徽警官职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程分专业计划表（掌上高考转载）；data.js中部分专业（如刑事执行、行政执行等）在2026章程中未出现，按0计",
+      "majors": [
+        {
+          "name": "法律事务",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 14,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "法律文秘",
+          "retiredMilitary": 7,
+          "revolutionaryArea": 18,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "刑事执行",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "行政执行",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "司法警务",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 18,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "社区矫正",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "安全防范技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能安防运营服务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 10,
+          "revolutionaryArea": 16,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "信息安全技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "司法信息技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 8,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 7,
+          "revolutionaryArea": 14,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 8,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酒店管理与数字化运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "公共事务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人力资源管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "商务英语",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体育运营与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "安全技术与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "安徽粮食工程职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（高校之窗PDF转载）",
+      "majors": [
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 37,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与财务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "休闲服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 38,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机械制造及自动化",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车制造与试验技术",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通机电技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字化设计与制造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 37,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "粮食工程技术与管理",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "粮食储运与质量安全",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建设工程管理",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑室内设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代农业技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "摄影测量与遥感技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 40,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "食品检验检测技术",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "食品智能加工技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "食品质量与安全",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "烹饪工艺与营养",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "酿酒技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 4,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 37,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 3,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 2,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "包装艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 3,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "安徽林业职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（学校招生处官网）",
+      "majors": [
+        {
+          "name": "园艺技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "绿色食品生产技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 1,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "绿色食品生产技术（天长工业学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 6,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "林业技术",
+          "retiredMilitary": 30,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "园林技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "园林技术（天柱山旅游学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "林业信息技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代竹木产品设计与制造",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "生态保护技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "森林草原防火技术",
+          "retiredMilitary": 30,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建设工程监理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能控制技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "无人机应用技术",
+          "retiredMilitary": 30,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "视觉传达设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "森林生态旅游与康养",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "森林生态旅游与康养（天柱山旅游学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 4,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 3,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "茶艺与茶文化",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 2,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "安徽汽车职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（学校官网）",
+      "majors": [
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 6,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车制造与试验技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能网联汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车电子技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 25,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车智能技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车检测与维修技术",
+          "retiredMilitary": 6,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车技术服务与营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车检测与维修技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道车辆应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 25,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 6,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能控制技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 25,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字化设计与制造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业过程自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "集成电路技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 22,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 6,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子信息工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "安徽审计职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（掌上高考转载）",
+      "majors": [
+        {
+          "name": "大数据与审计",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 15,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "法律事务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 15,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与财务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "会计信息管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "财税大数据应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "中小企业创业与经营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑装饰工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑室内设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物业管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "资产评估与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "风景园林设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能建造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "无人机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建设工程管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "财富管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "汽车技术服务与营销",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "金融服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "商务管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市场营销",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "党务工作",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "安徽水利水电职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（学校招生网）",
+      "majors": [
+        {
+          "name": "现代物业管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "现代物流管理",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人力资源管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "应用电子技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机网络技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "人工智能技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "市政工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "给排水工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通机电技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "城市轨道交通运营管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电力系统自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "供用电技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工业机器人技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "无人机测绘技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境监测技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "环境工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "水文与水资源技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "水利水电工程智能管理",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "水土保持技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "水利工程",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧水利技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "水利水电工程技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑装饰工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑工程技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能建造技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建设工程管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数控技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机械制造及自动化",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "模具设计与制造",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智能网联汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车检测与维修技术",
+          "retiredMilitary": 5,
+          "revolutionaryArea": 5,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "安徽体育运动职业技术学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生章程（掌上高考转载）",
+      "majors": [
+        {
+          "name": "体育教育",
+          "retiredMilitary": 10,
+          "revolutionaryArea": 25,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "康复治疗技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "国际标准舞",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "社会体育",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "休闲体育",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "运动训练",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "民族传统体育",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体育保健与康复",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "健身指导与管理",
+          "retiredMilitary": 10,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "运动健康指导",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "运动数据分析",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体能训练",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 27,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体育运营与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子竞技运动与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "冰雪运动与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "体育艺术表演",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 25,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "休闲服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "安徽卫生健康职业学院",
+      "hasPerMajorBreakdown": true,
+      "note": "数据来源：2026分类考试招生计划（学校招生信息网）；乡村医生定向培养计划20人全部在临床医学专业",
+      "majors": [
+        {
+          "name": "职业健康安全技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "药品生产技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "药品经营与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "医疗器械维护与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "临床医学",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 20
+        },
+        {
+          "name": "护理（淮北卫生学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "护理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "助产",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 30,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "药学",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "中医养生保健",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 12,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "医学检验技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "医学影像技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "口腔医学技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "医学美容技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "卫生检验与检疫技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 10,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "康复治疗技术（安徽中药科技学校）",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "康复治疗技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "卫生信息管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "预防医学",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 20,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "健康管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "婴幼儿托育服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "医学营养",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 20,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "眼视光技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "社区管理与服务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "智慧健康养老服务与管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 22,
+          "ruralDoctor": 0
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "安徽新闻出版职业技术学院",
+      "hasPerMajorBreakdown": false,
+      "note": "未采集到2026年分类考试分专业三项专项计划细分数据，该校专项计划未按专业细分或章程未公开分专业表",
+      "majors": [
+        {
+          "name": "新闻采编与制作",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "摄影摄像技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "播音与主持",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "舞台艺术设计与制作",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "影视编导",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "影视动画",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "融媒体技术与运营",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "广告艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "动漫制作技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "视觉传达设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体艺术设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "建筑室内设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "数字媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "计算机应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "物联网应用技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "信息安全技术应用",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "机电一体化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电气自动化技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "新能源汽车技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "印刷媒体技术",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "包装策划与设计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "大数据与会计",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "电子商务",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "旅游管理",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "党务工作",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "工程造价",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        },
+        {
+          "name": "网络营销与直播电商",
+          "retiredMilitary": 0,
+          "revolutionaryArea": 0,
+          "ruralDoctor": 0
+        }
+      ]
+    }
+  ]
+}
