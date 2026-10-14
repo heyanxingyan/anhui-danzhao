@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>低分上公办攻略 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ls-view { display: none; }
+    .ls-view.active { display: block; }
+    .ls-proscons { padding: 12px 16px; }
+    .ls-proscons-card { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .ls-proscons-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .ls-proscons-item { font-size: 13px; color: #555; line-height: 1.7; padding: 4px 0; border-bottom: 1px dashed #f0f0f0; }
+    .ls-proscons-item:last-child { border-bottom: none; }
+    .ls-section-tabs { display: flex; gap: 10px; padding: 0 16px 12px; }
+    .ls-section-tab { flex: 1; text-align: center; padding: 12px; border-radius: 10px; font-size: 15px; font-weight: 600; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.06); cursor: pointer; transition: all .2s; }
+    .ls-section-tab.active { background: linear-gradient(135deg,#1890ff,#36cfc9); color: #fff; }
+    .ls-school-list { padding: 0 16px 20px; }
+    .ls-school-card { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); cursor: pointer; transition: all .2s; }
+    .ls-school-card:active { transform: scale(.98); }
+    .ls-school-name { font-size: 15px; font-weight: 700; color: #222; margin-bottom: 6px; }
+    .ls-school-meta { font-size: 12px; color: #888; display: flex; gap: 12px; flex-wrap: wrap; }
+    .ls-school-meta span { display: flex; align-items: center; gap: 3px; }
+    .ls-detail-header { background: linear-gradient(135deg,#1890ff,#36cfc9); color: #fff; padding: 16px; }
+    .ls-detail-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .ls-detail-sub { font-size: 13px; opacity: .9; }
+    .ls-detail-body { padding: 12px 16px 20px; }
+    .ls-detail-info { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .ls-detail-info-row { font-size: 13px; color: #555; line-height: 1.8; }
+    .ls-detail-info-row b { color: #222; }
+    .ls-partner-card { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .ls-partner-name { font-size: 14px; font-weight: 700; color: #1890ff; margin-bottom: 8px; cursor: pointer; }
+    .ls-partner-name:active { opacity: .7; }
+    .ls-major-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #f0f0f0; font-size: 13px; }
+    .ls-major-item:last-child { border-bottom: none; }
+    .ls-major-name { color: #333; flex: 1; }
+    .ls-major-plan { background: #e6f7ff; color: #1890ff; padding: 2px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+    .ls-back-btn { display: inline-flex; align-items: center; gap: 4px; color: #fff; font-size: 14px; cursor: pointer; margin-bottom: 8px; opacity: .9; }
+    .ls-empty { text-align: center; padding: 40px 20px; color: #999; font-size: 14px; }
+    .ls-badge { display: inline-block; background: #fff2e8; color: #d46b08; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 6px; }
+  </style>
+</head>
+<body data-page="low-score">
+  <div class="page">
+    <!-- 顶部导航 -->
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">低分上公办攻略</div>
+    </div>
+
+    <!-- 主视图 -->
+    <div class="ls-view active" id="view-main">
+      <div class="ls-banner">
+        <div class="ls-banner-emoji">🆘</div>
+        <div class="ls-banner-text">
+          <div class="ls-banner-title">分数特别低？别放弃，公办还有机会！</div>
+          <div class="ls-banner-sub">高职专业学院 · 单招可报 · 中职就读 · 拿高职文凭</div>
+        </div>
+      </div>
+
+      <!-- 利弊分析（简洁版） -->
+      <div class="ls-proscons">
+        <div class="ls-proscons-card">
+          <div class="ls-proscons-title" style="color:#389e0d">✅ 联合办学好处</div>
+          <div class="ls-proscons-item">1. 录取分数更低，低分也能上公办高职</div>
+          <div class="ls-proscons-item">2. 学费与校本部相同，2026年新标准：文科4300/理科4900/艺术7000元/年</div>
+          <div class="ls-proscons-item">3. 毕业拿高职院校全日制专科文凭</div>
+          <div class="ls-proscons-item">4. 在中职学校就读，离家近、生活成本低</div>
+        </div>
+        <div class="ls-proscons-card">
+          <div class="ls-proscons-title" style="color:#d46b08">⚠️ 需要注意</div>
+          <div class="ls-proscons-item">1. 办学地点在中职学校，不是高职本部校园</div>
+          <div class="ls-proscons-item">2. 实训资源和校园氛围与本部有差异</div>
+          <div class="ls-proscons-item">3. 专业选择有限，仅开设指定联合培养专业</div>
+          <div class="ls-proscons-item">4. 部分专业可能有转专业限制</div>
+        </div>
+      </div>
+
+      <!-- 高职/中职切换 -->
+      <div class="ls-section-tabs">
+        <div class="ls-section-tab active" data-section="gaozhi" onclick="lsSwitchSection('gaozhi')">🏫 高职院校</div>
+        <div class="ls-section-tab" data-section="zhongzhi" onclick="lsSwitchSection('zhongzhi')">📍 中职学校</div>
+      </div>
+
+      <!-- 高职列表 -->
+      <div class="ls-school-list" id="ls-gaozhi-list"></div>
+      <!-- 中职列表 -->
+      <div class="ls-school-list" id="ls-zhongzhi-list" style="display:none"></div>
+    </div>
+
+    <!-- 高职详情视图 -->
+    <div class="ls-view" id="view-gaozhi-detail">
+      <div class="ls-detail-header">
+        <div class="ls-back-btn" onclick="lsBackToMain()">‹ 返回列表</div>
+        <div class="ls-detail-title" id="ls-gaozhi-detail-name"></div>
+        <div class="ls-detail-sub" id="ls-gaozhi-detail-sub"></div>
+      </div>
+      <div class="ls-detail-body" id="ls-gaozhi-detail-body"></div>
+    </div>
+
+    <!-- 中职详情视图 -->
+    <div class="ls-view" id="view-zhongzhi-detail">
+      <div class="ls-detail-header" style="background:linear-gradient(135deg,#52c41a,#95de64)">
+        <div class="ls-back-btn" onclick="lsBackToMain()">‹ 返回列表</div>
+        <div class="ls-detail-title" id="ls-zhongzhi-detail-name"></div>
+        <div class="ls-detail-sub" id="ls-zhongzhi-detail-sub"></div>
+      </div>
+      <div class="ls-detail-body" id="ls-zhongzhi-detail-body"></div>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/low-score.js"></script>
+</body>
+</html>
