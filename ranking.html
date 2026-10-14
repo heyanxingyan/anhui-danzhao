@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>报考人数排行 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="ranking">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">报考人数排行</div>
+    </div>
+
+    <!-- 年份切换 -->
+    <div class="sub-tabs" style="display:flex;gap:8px;margin:10px 12px;overflow-x:auto">
+      <button class="year-tab active" data-year="2026" style="flex:1;padding:10px 8px;border:2px solid var(--primary);background:var(--primary);color:#fff;border-radius:10px;font-size:14px;font-weight:700;white-space:nowrap">2026年报考排行</button>
+      <button class="year-tab" data-year="2025" style="flex:1;padding:10px 8px;border:2px solid #e8e8e8;background:#fff;color:#666;border-radius:10px;font-size:14px;font-weight:700;white-space:nowrap">2025年报考排行</button>
+    </div>
+
+    <!-- 全省数据概览 -->
+    <div class="about-section" style="margin:0 12px 10px">
+      <div id="province-overview"></div>
+    </div>
+
+    <!-- 排行榜 -->
+    <div id="ranking-list"></div>
+
+    <!-- 数据来源说明 -->
+    <div class="about-section" style="margin:10px 12px 20px">
+      <h3>📌 数据来源说明</h3>
+      <p style="font-size:13px;color:#666;line-height:1.8">
+        本排行榜数据来自互联网公开信息整理，包括：<br>
+        ✅ <b>官方数据</b>：安徽省教育厅、安徽省教育招生考试院、各院校官网/招生网发布的校考新闻稿<br>
+        📱 <b>网络整理</b>：抖音、B站等升学博主整理的报考数据（多方交叉验证后取最可信值）<br><br>
+        <b>注意</b>：报考人数≠实际参考人数≠录取人数。部分院校公布的是报名人数，部分是到校参考人数，口径可能不同。2026年数据为主，2025年数据供对比参考。实际数据以各院校官方公布为准。
+      </p>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
