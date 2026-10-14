@@ -1,0 +1,446 @@
+{
+  "region": "皖中皖西",
+  "note": "覆盖安庆、六安、滁州三市公办高职院校共9所。二级学院名称及专业归属依据各校官网'机构设置/教学机构/院系设置/专业介绍'栏目采集，采集日期2026-10-14。部分院校data.js中website字段与实际访问域名不一致（已在note中标注）。",
+  "colleges": [
+    {
+      "id": 5,
+      "name": "桐城师范高等专科学校",
+      "website": "https://www.tctc.edu.cn",
+      "websiteInData": "https://www.tcsz.edu.cn",
+      "note": "data.js中website为tcsz.edu.cn，实际官网已迁移至tctc.edu.cn。",
+      "secondaryColleges": [
+        {
+          "name": "小学教育系",
+          "majors": ["小学教育", "美术教育", "体育教育"],
+          "source": "http://www.tctc.edu.cn/jgsz/list.htm"
+        },
+        {
+          "name": "学前教育系",
+          "majors": ["学前教育", "早期教育", "婴幼儿托育服务与管理"],
+          "source": "http://www.tctc.edu.cn/jgsz/list.htm"
+        },
+        {
+          "name": "商贸与电子信息系",
+          "majors": ["大数据技术", "软件技术", "人工智能技术应用", "大数据与会计", "财税大数据应用", "大数据与审计", "网络营销与直播电商"],
+          "source": "http://www.tctc.edu.cn/jgsz/list.htm"
+        },
+        {
+          "name": "旅游与公共管理系",
+          "majors": ["小学英语教育", "商务日语", "旅游管理", "酒店管理与数字化运营", "高速铁路客运服务", "智慧健康养老服务与管理", "研学旅行管理与服务", "现代家政服务与管理"],
+          "source": "https://www.tctc.edu.cn/lgx/xbgk/listm.htm"
+        },
+        {
+          "name": "艺术与设计系",
+          "majors": ["音乐表演", "艺术设计", "视觉传达设计"],
+          "source": "http://www.tctc.edu.cn/jgsz/list.htm"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "http://www.tctc.edu.cn/jgsz/list.htm",
+          "note": "公共课教学单位，不单独开设专科专业。"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "安庆医药高等专科学校",
+      "website": "https://www.aqmc.edu.cn",
+      "websiteInData": "https://www.aqyz.net",
+      "note": "data.js中website为aqyz.net，实际官网已迁移至aqmc.edu.cn。",
+      "secondaryColleges": [
+        {
+          "name": "医学院",
+          "majors": ["临床医学", "预防医学", "康复治疗技术", "医学检验技术", "医学检验技术（淮南卫校）", "医学影像技术", "医学影像技术（淮南卫校）", "口腔医学技术"],
+          "source": "https://www.aqmc.edu.cn/lcx/xygk.htm"
+        },
+        {
+          "name": "药学院",
+          "majors": ["药学", "药学（淮南卫校）", "中药学", "药品质量与安全", "药品经营与管理", "生物制药技术", "药物制剂技术", "食品营养与健康", "食品检验检测技术"],
+          "source": "https://www.aqmc.edu.cn/bmwz1.htm"
+        },
+        {
+          "name": "护理学院",
+          "majors": ["护理", "助产", "老年保健与管理", "婴幼儿托育服务与管理"],
+          "source": "https://www.aqmc.edu.cn/hlx/xyjj.htm"
+        },
+        {
+          "name": "基础医学院",
+          "majors": [],
+          "source": "https://www.aqmc.edu.cn/bmwz1.htm",
+          "note": "承担医学基础课教学，不单独开设招生专业。"
+        },
+        {
+          "name": "公共基础学院",
+          "majors": [],
+          "source": "https://www.aqmc.edu.cn/bmwz1.htm",
+          "note": "公共课教学单位。"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.aqmc.edu.cn/bmwz1.htm",
+          "note": "思政课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "安徽国防科技职业学院",
+      "website": "https://www.acdt.edu.cn",
+      "websiteInData": "https://www.ahgf.edu.cn",
+      "note": "data.js中website为ahgf.edu.cn，实际官网域名为acdt.edu.cn。",
+      "secondaryColleges": [
+        {
+          "name": "机械技术学院",
+          "majors": ["机械制造及自动化", "模具设计与制造", "数控技术", "数字化设计与制造技术", "机械制造及自动化（合肥理工学校）"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm"
+        },
+        {
+          "name": "电气技术学院",
+          "majors": ["机电一体化技术", "工业机器人技术", "电气自动化技术", "物联网应用技术", "集成电路技术", "船舶电气工程技术"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm"
+        },
+        {
+          "name": "汽车技术学院",
+          "majors": ["汽车检测与维修技术", "新能源汽车技术", "智能网联汽车技术", "飞机机电设备维修", "汽车检测与维修技术（皖西经济技术学校）"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm"
+        },
+        {
+          "name": "信息技术学院",
+          "majors": ["计算机应用技术", "计算机网络技术", "软件技术", "大数据技术", "信息安全技术应用", "人工智能技术应用", "计算机网络技术（安徽科技贸易学校）", "计算机应用技术（安徽科技贸易学校）"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm"
+        },
+        {
+          "name": "经贸管理学院",
+          "majors": ["电子商务", "网络营销与直播电商", "现代物流管理", "酒店管理与数字化运营", "城市轨道交通运营管理"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm"
+        },
+        {
+          "name": "城市建设学院",
+          "majors": ["工程造价", "智能建造技术", "大数据与会计"],
+          "source": "https://www.acdt.edu.cn/jxky/zysz.htm",
+          "note": "该校大数据与会计专业划归城市建设学院（官网专业设置页如此归类）。"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.acdt.edu.cn/szb/xygk/bmjj.htm",
+          "note": "思政课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "安徽黄梅戏艺术职业学院",
+      "website": "https://www.hmxxy.edu.cn",
+      "websiteInData": "https://www.ahmxyy.net",
+      "note": "data.js中website为ahmxyy.net，实际官网域名为hmxxy.edu.cn。",
+      "secondaryColleges": [
+        {
+          "name": "表演系",
+          "majors": ["戏曲表演"],
+          "source": "https://www.hmxxy.edu.cn/recruit_office/professional_introduction?1=1&menuId=10177"
+        },
+        {
+          "name": "音乐系",
+          "majors": ["音乐表演", "现代流行音乐"],
+          "source": "https://www.hmxxy.edu.cn/recruit_office/professional_introduction?1=1&menuId=10177"
+        },
+        {
+          "name": "舞蹈系",
+          "majors": ["舞蹈表演"],
+          "source": "https://www.hmxxy.edu.cn/recruit_office/professional_introduction?1=1&menuId=10177"
+        },
+        {
+          "name": "美术系",
+          "majors": ["艺术设计", "舞台艺术设计与制作", "人物形象设计", "视觉传达设计"],
+          "source": "https://www.hmxxy.edu.cn/recruit_office/professional_introduction?1=1&menuId=10177"
+        },
+        {
+          "name": "综艺系",
+          "majors": ["戏剧影视表演", "播音与主持"],
+          "source": "https://www.hmxxy.edu.cn/recruit_office/professional_introduction?1=1&menuId=10177"
+        },
+        {
+          "name": "公共基础部（中专部）",
+          "majors": [],
+          "source": "https://www.hmxxy.edu.cn/hmxxy/organization?secondMenuId=11017",
+          "note": "公共课及中专教学单位。"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.hmxxy.edu.cn/hmxxy/organization?secondMenuId=11017",
+          "note": "思政课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "安庆职业技术学院",
+      "website": "https://www.aqvtc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "机电工程学院",
+          "majors": ["数控技术", "机电一体化技术", "工业机器人技术", "新能源汽车技术", "汽车检测与维修技术", "城市轨道交通运营管理"],
+          "source": "https://www.aqvtc.edu.cn/jdgcx/82/list.htm"
+        },
+        {
+          "name": "建筑工程学院",
+          "majors": ["建筑装饰工程技术", "建筑工程技术", "市政工程技术", "智能建造技术"],
+          "source": "https://www.aqvtc.edu.cn/jzgcx/main.psp"
+        },
+        {
+          "name": "信息技术学院",
+          "majors": ["物联网应用技术", "计算机应用技术"],
+          "source": "https://www.aqvtc.edu.cn/sit/1942/listm.htm"
+        },
+        {
+          "name": "现代商务学院",
+          "majors": ["大数据与会计", "市场营销"],
+          "source": "https://www.aqvtc.edu.cn/jjmyx/_t1/2023/0322/c58a74737/page.htm"
+        },
+        {
+          "name": "管理服务学院",
+          "majors": ["旅游管理"],
+          "source": "https://www.aqvtc.edu.cn/shsyx/945/listm.htm"
+        },
+        {
+          "name": "农林与服装学院",
+          "majors": ["植物保护与检疫技术", "园艺技术", "食品质量与安全"],
+          "source": "https://www.aqvtc.edu.cn/ylyyx/2021/0926/c1798a66353/pagem.htm"
+        },
+        {
+          "name": "化工产业学院",
+          "majors": ["分析检验技术", "化工智能制造技术"],
+          "source": "https://www.aqvtc.edu.cn/hgcyxy/"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.aqvtc.edu.cn/639/list.htm",
+          "note": "思政课教学单位。"
+        },
+        {
+          "name": "公共基础部",
+          "majors": [],
+          "source": "https://www.aqvtc.edu.cn/639/list.htm",
+          "note": "公共课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "滁州城市职业学院",
+      "website": "https://www.czcvc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "教育学院",
+          "majors": ["学前教育", "早期教育", "婴幼儿托育服务与管理", "旅游管理"],
+          "source": "https://www.czcvc.edu.cn/jyxy/xygk/xyjj.htm"
+        },
+        {
+          "name": "护理学院",
+          "majors": ["护理", "助产", "老年保健与管理", "智慧健康养老服务与管理", "现代家政服务与管理"],
+          "source": "https://www.czcvc.edu.cn/hlx/ybgk/xbjj.htm"
+        },
+        {
+          "name": "医学院",
+          "majors": ["临床医学", "康复治疗技术", "中医康复技术", "医学美容技术", "口腔医学技术"],
+          "source": "http://www.czcvc.edu.cn/yxx/xygk/xyjj.htm"
+        },
+        {
+          "name": "生物医药学院",
+          "majors": ["医学检验技术", "医学生物技术", "药学", "药物制剂技术"],
+          "source": "https://www.czcvc.edu.cn/swyyxy/xygk/xyjj.htm"
+        },
+        {
+          "name": "现代信息与人工智能学院",
+          "majors": ["大数据技术", "信息安全技术应用", "人工智能技术应用", "数字图文信息处理技术"],
+          "source": "https://www.czcvc.edu.cn/jgsz/jxjg.htm"
+        },
+        {
+          "name": "管理学院",
+          "majors": ["大数据与会计", "电子商务", "网络营销与直播电商", "高速铁路客运服务", "交通运营管理", "空中乘务"],
+          "source": "http://www.czcvc.edu.cn/glx/xygk/xyjj.htm",
+          "note": "管理学院下设交通运输系与财贸管理系。"
+        },
+        {
+          "name": "艺术与传媒学院",
+          "majors": ["艺术设计", "数字媒体艺术设计", "音乐表演", "美术教育"],
+          "source": "https://www.czcvc.edu.cn/jgsz/jxjg.htm"
+        },
+        {
+          "name": "公共教学部（创新创业学院）",
+          "majors": [],
+          "source": "https://www.czcvc.edu.cn/jgsz/jxjg.htm",
+          "note": "公共课教学单位。"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.czcvc.edu.cn/jgsz/jxjg.htm",
+          "note": "思政课教学单位。"
+        },
+        {
+          "name": "体育教学部",
+          "majors": [],
+          "source": "https://www.czcvc.edu.cn/jgsz/jxjg.htm",
+          "note": "体育课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "滁州职业技术学院",
+      "website": "https://www.chzc.edu.cn",
+      "websiteInData": "https://www.czc.net.cn",
+      "note": "data.js中website为czc.net.cn，实际官网域名为chzc.edu.cn。",
+      "secondaryColleges": [
+        {
+          "name": "机械与汽车工程学院",
+          "majors": ["机械设计与制造", "模具设计与制造", "汽车检测与维修技术", "汽车制造与试验技术", "新能源汽车技术"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "电气工程学院",
+          "majors": ["电气自动化技术", "工业机器人技术", "光伏工程技术", "机电一体化技术", "数控技术", "新能源材料应用技术"],
+          "source": "https://www.chzc.edu.cn/jdx/xygk.htm"
+        },
+        {
+          "name": "食品与环境工程学院",
+          "majors": ["绿色食品生产技术", "食品检验检测技术", "应用化工技术", "园林技术"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "传媒与设计学院",
+          "majors": ["传播与策划", "动漫制作技术", "工业设计", "艺术设计"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "建筑工程学院",
+          "majors": ["道路与桥梁工程技术", "工程造价", "建筑工程技术", "建筑装饰工程技术"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "信息工程学院",
+          "majors": ["计算机应用技术", "人工智能技术应用", "软件技术", "物联网应用技术", "应用电子技术"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "商学院",
+          "majors": ["电子商务", "商务英语", "市场营销", "现代物流管理"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "管理学院",
+          "majors": ["大数据与财务管理", "大数据与会计", "工商企业管理", "旅游管理"],
+          "source": "https://zs.chzc.edu.cn/details/collegeListV3"
+        },
+        {
+          "name": "马克思主义学院",
+          "majors": [],
+          "source": "https://www.chzc.edu.cn/gxxxgkw/info/1429/26476.htm",
+          "note": "思政课教学单位。"
+        },
+        {
+          "name": "基础部",
+          "majors": [],
+          "source": "https://www.chzc.edu.cn/gxxxgkw/info/1429/26476.htm",
+          "note": "公共课教学单位。"
+        },
+        {
+          "name": "体育部",
+          "majors": [],
+          "source": "https://www.chzc.edu.cn/gxxxgkw/info/1429/26476.htm",
+          "note": "体育课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "六安职业技术学院",
+      "website": "https://www.lvtc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "汽车与机电工程学院",
+          "majors": ["数字化设计与制造技术", "数控技术", "机械制造及自动化", "增材制造技术", "机电一体化技术", "工业机器人技术", "电气自动化技术", "无人机应用技术", "智能网联汽车技术", "新能源汽车检测与维修技术"],
+          "source": "https://www.lvtc.edu.cn/53/list.htm"
+        },
+        {
+          "name": "城市建设学院",
+          "majors": ["建筑装饰工程技术", "建筑工程技术", "智能建造技术", "建筑消防技术", "工程造价"],
+          "source": "https://www.lvtc.edu.cn/53/list.htm"
+        },
+        {
+          "name": "经济管理学院",
+          "majors": ["财税大数据应用", "大数据与财务管理", "大数据与会计", "电子商务", "现代物流管理"],
+          "source": "https://www.lvtc.edu.cn/53/list.htm"
+        },
+        {
+          "name": "信息与电子工程学院",
+          "majors": ["物联网应用技术", "计算机应用技术", "软件技术", "人工智能技术应用", "动漫制作技术", "集成电路技术"],
+          "source": "https://www.lvtc.edu.cn/53/list.htm"
+        },
+        {
+          "name": "人文艺术学院",
+          "majors": ["园艺技术", "中草药栽培与加工技术", "园林技术", "服装设计与工艺", "婴幼儿托育服务与管理", "旅游管理", "广告艺术设计"],
+          "source": "https://rwx.lvtc.edu.cn/567/list.htm",
+          "note": "该校未单独设立农林学院，园艺技术/中草药栽培与加工技术/园林技术按现有5个二级学院结构归入人文艺术学院（待确认）；另有'幼儿教育与旅游管理学院（筹）'正在筹建中。"
+        },
+        {
+          "name": "基础部",
+          "majors": [],
+          "source": "https://www.lvtc.edu.cn/53/list.htm",
+          "note": "公共课教学单位。"
+        },
+        {
+          "name": "思政部",
+          "majors": [],
+          "source": "https://www.lvtc.edu.cn/53/list.htm",
+          "note": "思政课教学单位。"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "皖西卫生职业学院",
+      "website": "https://www.wahvc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "护理系",
+          "majors": ["护理", "智慧健康养老服务与管理", "婴幼儿托育服务与管理"],
+          "source": "https://www.wahvc.edu.cn/hlx/info/1071/6543.htm"
+        },
+        {
+          "name": "临床医学系（基础部）",
+          "majors": ["临床医学（村医定向）", "中医学（村医定向）", "中医养生保健", "口腔医学技术"],
+          "source": "https://www.wahvc.edu.cn/jcb/"
+        },
+        {
+          "name": "药学系",
+          "majors": ["药学", "中药学"],
+          "source": "https://www.wahvc.edu.cn/yxx/xbgk/xjj.htm"
+        },
+        {
+          "name": "医学技术系",
+          "majors": ["医学检验技术", "康复治疗技术", "医学美容技术", "食品检验检测技术"],
+          "source": "https://www.wahvc.edu.cn/xygk/xyjj.htm"
+        },
+        {
+          "name": "公共部",
+          "majors": ["统计与会计核算"],
+          "source": "https://www.wahvc.edu.cn/jgsz/jxjg.htm",
+          "note": "统计与会计核算为非医学类专业，按现有系部结构归入公共部（待确认）。"
+        },
+        {
+          "name": "思想政治理论课教学科研部",
+          "majors": [],
+          "source": "https://www.wahvc.edu.cn/jgsz/jxjg.htm",
+          "note": "思政课教学单位。"
+        }
+      ]
+    }
+  ]
+}
