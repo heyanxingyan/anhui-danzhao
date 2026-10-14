@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="index">
+  <div class="page">
+    <!-- 顶部标题栏 -->
+    <div class="navbar">
+      <div class="title">安徽单招信息查询</div>
+    </div>
+
+    <!-- Banner 轮播 -->
+    <div class="banner" id="banner"></div>
+
+    <!-- 2027备考提示 -->
+    <div style="margin:10px 12px 0;padding:10px 12px;background:#fff7e6;border:1px solid #ffd591;border-radius:8px;font-size:12px;color:#d46b08;line-height:1.7">
+      🎯 <strong>2027年安徽单招备考已启动</strong><br>
+      📌 高考报名：<strong>10月17日10:00–21日17:00</strong>（✅官方已公布，gkbm.ahzsks.cn）<br>
+      📅 单招报名：预计2027年1月下旬（参考2026年1月26-30日）<br>
+      ✍️ 文化素质测试：预计2027年3月上旬（元宵节后周末，参考2026年3月8日）<br>
+      📝 志愿填报：预计2027年3月中旬（参考2026年3月14-17日）<br>
+      ✅ 录取确认：预计2027年4月中旬（参考2026年4月11-13日）<br>
+      📚 共收录<strong>74所</strong>院校2026年录取数据供参考，2027年招生章程预计2027年3月公布。单招时间为预估，以官方公布为准。
+    </div>
+
+    <!-- 板块入口（仅三大板块：高中起点 / 中职起点 / 专项计划） -->
+    <div class="section-title">招生板块</div>
+    <div class="category-grid" id="category-grid"></div>
+    <div style="padding:0 12px;font-size:11px;color:var(--text-light);margin-top:6px">
+      🛠️ 中职起点内含「中职专科」与「对口本科」两条通道，点击进入后切换
+    </div>
+
+    <!-- 热门院校 -->
+    <div class="section-title">
+      热门院校推荐
+      <a href="college-list.html" class="more">查看全部 ›</a>
+    </div>
+    <div class="h-scroll" id="hot-colleges"></div>
+
+    <!-- 实用工具快捷入口 -->
+    <div class="section-title">实用工具</div>
+    <div class="tool-grid">
+      <a href="recommend.html" class="tool-card"><div class="icon">🎯</div><div class="name">分数推荐</div></a>
+      <a href="guide.html" class="tool-card"><div class="icon">📖</div><div class="name">报考指南</div></a>
+      <a href="ranking.html" class="tool-card"><div class="icon">🏆</div><div class="name">报考排行</div></a>
+      <a href="faq.html" class="tool-card"><div class="icon">❓</div><div class="name">常见问题</div></a>
+      <a href="compare.html" class="tool-card"><div class="icon">⚖️</div><div class="name">院校对比</div></a>
+      <a href="low-score.html" class="tool-card"><div class="icon">🆘</div><div class="name">低分上公办</div></a>
+    </div>
+
+    <!-- 分数查询入口 -->
+    <div class="section-title">分数线查询</div>
+    <div class="search-bar">
+      <span class="icon">🔍</span>
+      <input type="text" id="score-search-input" placeholder="输入院校名或专业名查询分数线">
+      <button class="clear" id="score-search-btn">搜索</button>
+    </div>
+    <div style="padding:0 12px">
+      <a href="score-trend.html" class="btn-primary" style="margin:0;display:block">📈 查看五年分数走势</a>
+    </div>
+
+    <div style="height:20px"></div>
+
+    <!-- 底部 Tab -->
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
