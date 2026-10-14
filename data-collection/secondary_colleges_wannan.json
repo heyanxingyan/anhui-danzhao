@@ -1,0 +1,991 @@
+{
+  "region": "皖南",
+  "colleges": [
+    {
+      "id": 3,
+      "name": "马鞍山师范高等专科学校",
+      "website": "https://www.massz.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "学前教育学院",
+          "majors": [
+            "学前教育"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "教师教育学院",
+          "majors": [
+            "音乐教育",
+            "美术教育"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "外国语学院",
+          "majors": [
+            "商务英语",
+            "应用英语",
+            "应用日语"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "艺术设计学院",
+          "majors": [
+            "服装与服饰设计",
+            "环境艺术设计",
+            "艺术设计",
+            "产品艺术设计",
+            "建筑装饰工程技术"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "计算机与信息工程学院",
+          "majors": [
+            "动漫制作技术",
+            "大数据技术",
+            "计算机网络技术",
+            "数字媒体技术"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "食品工程学院",
+          "majors": [
+            "食品检验检测技术",
+            "食品营养与健康",
+            "食品智能加工技术"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "经济与管理学院",
+          "majors": [
+            "大数据与会计",
+            "电子商务",
+            "跨境电子商务",
+            "市场营销",
+            "现代物业管理",
+            "旅游管理",
+            "酒店管理与数字化运营",
+            "研学旅行管理与服务"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        },
+        {
+          "name": "文化与传媒学院",
+          "majors": [
+            "现代文秘",
+            "融媒体技术与运营"
+          ],
+          "source": "https://www.massz.edu.cn/jxdw/list.htm"
+        }
+      ],
+      "note": "建筑装饰工程技术归入艺术设计学院（环境艺术方向）；来源：学校官网教学单位页+招生网专业介绍"
+    },
+    {
+      "id": 7,
+      "name": "安徽中医药高等专科学校",
+      "website": "https://www.ahzyygz.com",
+      "secondaryColleges": [
+        {
+          "name": "中医学院",
+          "majors": [
+            "中医学"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        },
+        {
+          "name": "药学院（中药学院）",
+          "majors": [
+            "药学",
+            "中药学",
+            "药物制剂技术",
+            "药品质量与安全",
+            "中药制药"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        },
+        {
+          "name": "针灸推拿学院（养生康复学院）",
+          "majors": [
+            "康复治疗技术",
+            "中医养生保健",
+            "健康管理",
+            "老年保健与管理",
+            "医学美容技术"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        },
+        {
+          "name": "口腔医学院",
+          "majors": [
+            "口腔医学技术"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        },
+        {
+          "name": "临床医学院",
+          "majors": [
+            "医学检验技术",
+            "医学影像技术"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        },
+        {
+          "name": "护理学院",
+          "majors": [
+            "智慧健康养老服务与管理"
+          ],
+          "source": "https://www.ahzyygz.edu.cn/page/1434"
+        }
+      ],
+      "note": "学校设8个教学学院（中医学院、药学院、针灸推拿学院/养生康复学院、护理学院、口腔医学院、临床医学院、基础医学院/公共基础学院、马克思主义学院）；2026单招专业中无护理、临床医学、口腔医学等国控专业。智慧健康养老服务与管理暂归护理学院（待确认）；医学美容技术归针灸推拿学院（养生康复学院）（待确认）。"
+    },
+    {
+      "id": 16,
+      "name": "安徽工业职业技术学院",
+      "website": "https://www.ahipvtc.com",
+      "secondaryColleges": [
+        {
+          "name": "机械工程系",
+          "majors": [
+            "数控技术",
+            "机械制造及自动化",
+            "模具设计与制造",
+            "机电设备技术",
+            "智能制造装备技术",
+            "新能源汽车技术",
+            "汽车检测与维修技术"
+          ],
+          "source": "https://www.ahip.cn/pxb/2026/0422/c322a18407/page.htm"
+        },
+        {
+          "name": "电气工程系",
+          "majors": [
+            "电气自动化技术",
+            "工业机器人技术",
+            "机电一体化技术"
+          ],
+          "source": "https://www.ahip.cn/pxb/2026/0422/c322a18407/page.htm"
+        },
+        {
+          "name": "信息工程系",
+          "majors": [
+            "计算机应用技术",
+            "计算机网络技术",
+            "软件技术",
+            "信息安全技术应用",
+            "大数据技术",
+            "数字媒体技术",
+            "动漫制作技术",
+            "物联网应用技术",
+            "智能产品开发与应用"
+          ],
+          "source": "https://www.ahip.cn/pxb/2026/0422/c322a18407/page.htm"
+        },
+        {
+          "name": "资源开发系",
+          "majors": [
+            "工程测量技术",
+            "环境监测技术",
+            "矿山智能开采技术",
+            "矿物加工技术",
+            "建筑工程技术",
+            "工程造价",
+            "建筑装饰工程技术",
+            "应用化工技术"
+          ],
+          "source": "https://www.ahip.cn/pxb/2026/0422/c322a18407/page.htm"
+        },
+        {
+          "name": "管理工程系",
+          "majors": [
+            "大数据与会计",
+            "电子商务",
+            "大数据与财务管理",
+            "现代物流管理",
+            "市场营销",
+            "烹饪工艺与营养",
+            "广告艺术设计",
+            "空中乘务",
+            "高速铁路客运服务"
+          ],
+          "source": "https://www.ahip.cn/pxb/2026/0422/c322a18407/page.htm"
+        }
+      ],
+      "note": "学校2026年下设6个系部：信息工程系、机械工程系、电气工程系、资源开发系、管理工程系、基础部。空中乘务、高速铁路客运服务暂归管理工程系（待确认）；应用化工技术归资源开发系（待确认）。"
+    },
+    {
+      "id": 21,
+      "name": "安徽应用技术职业大学",
+      "website": "https://www.ahcme.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "机械工程学院（原安徽机电）",
+          "majors": [
+            "机械设计与制造",
+            "数控技术",
+            "数控技术（宁国专业学院）",
+            "数控技术（蒙城专业学院）",
+            "机械制造及自动化",
+            "工业产品质量检测技术",
+            "智能制造装备技术",
+            "智能焊接技术",
+            "增材制造技术",
+            "模具设计与制造",
+            "机电设备技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "电气工程学院（原安徽机电）",
+          "majors": [
+            "机电一体化技术",
+            "机电一体化技术（蒙城专业学院）",
+            "机电一体化技术（滁州专业学院）",
+            "智能控制技术",
+            "工业机器人技术",
+            "工业机器人技术（宁国专业学院）",
+            "工业机器人技术（滁州专业学院）",
+            "电气自动化技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "汽车与轨道学院（原安徽机电）",
+          "majors": [
+            "汽车制造与试验技术",
+            "新能源汽车技术",
+            "新能源汽车技术（涡阳专业学院）",
+            "智能网联汽车技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "互联网与通信学院（原安徽机电）",
+          "majors": [
+            "应用电子技术",
+            "物联网应用技术",
+            "计算机应用技术",
+            "计算机网络技术",
+            "计算机网络技术（安庆专业学院）",
+            "云计算技术应用",
+            "人工智能技术应用",
+            "人工智能技术应用（涡阳专业学院）",
+            "工业互联网技术",
+            "数字媒体技术",
+            "动漫制作技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "航空与材料学院（原安徽机电）",
+          "majors": [
+            "飞机机电设备维修"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "经济与贸易学院（原安徽机电）",
+          "majors": [
+            "大数据与财务管理",
+            "跨境电子商务",
+            "跨境电子商务（临泉专业学院）",
+            "现代物流管理",
+            "金融服务与管理",
+            "大数据与会计",
+            "大数据与会计（临泉专业学院）",
+            "电子商务",
+            "电子商务（宁国专业学院）",
+            "网络营销与直播电商"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "工商管理学院（原安徽机电）",
+          "majors": [
+            "旅游管理"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "艺术设计学院（原安徽机电）",
+          "majors": [
+            "广告艺术设计"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "电子商务学院（原安徽商贸）",
+          "majors": [
+            "电子商务",
+            "电子商务（宁国专业学院）",
+            "网络营销与直播电商",
+            "跨境电子商务",
+            "跨境电子商务（临泉专业学院）",
+            "网络直播与运营",
+            "全媒体广告策划与营销"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "会计学院（原安徽商贸）",
+          "majors": [
+            "大数据与财务管理",
+            "大数据与会计",
+            "大数据与会计（临泉专业学院）",
+            "会计信息管理",
+            "大数据与审计",
+            "财税大数据应用"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "国际商务与旅游学院（原安徽商贸）",
+          "majors": [
+            "国际经济与贸易",
+            "旅游管理",
+            "人力资源管理",
+            "酒店管理与数字化运营",
+            "民宿管理与运营",
+            "现代物流管理",
+            "智能物流技术",
+            "市场营销"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "信息与人工智能学院（原安徽商贸）",
+          "majors": [
+            "计算机网络技术",
+            "计算机网络技术（安庆专业学院）",
+            "电子信息工程技术",
+            "电子信息工程技术（宁国专业学院）",
+            "大数据技术",
+            "计算机应用技术",
+            "物联网应用技术",
+            "移动互联应用技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "金融科技学院（迪科金服学院）（原安徽商贸）",
+          "majors": [
+            "金融服务与管理"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "文化与法律学院（原安徽商贸）",
+          "majors": [
+            "法律事务",
+            "网络新闻与传播",
+            "现代文秘"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        },
+        {
+          "name": "艺术设计学院（原安徽商贸）",
+          "majors": [
+            "产品艺术设计",
+            "建筑装饰工程技术"
+          ],
+          "source": "https://zs.ahcme.edu.cn/index/xyjj.htm ; https://www.abc.edu.cn/jwc/report/images/2024-zlnb.pdf"
+        }
+      ],
+      "note": "2026年5月由原安徽机电职业技术学院、安徽商贸职业技术学院合并升格。2026年单招时两校尚未正式合并，仍以各自名义招生，故专业列表存在重复（同一专业在两校均开设）。下表按两校原二级学院分别归类；括号标注'宁国/蒙城/滁州/涡阳/临泉/安庆专业学院'的教学点专业随主专业归入学籍所在学院。合并后正式二级学院名称以学校揭牌后公布为准（待确认）。"
+    },
+    {
+      "id": 31,
+      "name": "安徽卫生健康职业学院",
+      "website": "https://www.ahwsxy.com",
+      "secondaryColleges": [
+        {
+          "name": "护理系",
+          "majors": [
+            "护理（淮北卫生学校）",
+            "护理",
+            "助产"
+          ],
+          "source": "https://www.ahwsjkxy.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "健康服务系",
+          "majors": [
+            "药品生产技术",
+            "药品经营与管理",
+            "药学",
+            "中医养生保健",
+            "康复治疗技术（安徽中药科技学校）",
+            "康复治疗技术",
+            "健康管理",
+            "婴幼儿托育服务与管理",
+            "社区管理与服务",
+            "智慧健康养老服务与管理",
+            "旅游管理",
+            "医学营养"
+          ],
+          "source": "https://www.ahwsjkxy.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "医学系",
+          "majors": [
+            "临床医学",
+            "预防医学"
+          ],
+          "source": "https://www.ahwsjkxy.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "医疗卫生技术系",
+          "majors": [
+            "职业健康安全技术",
+            "医疗器械维护与管理",
+            "医学检验技术",
+            "医学影像技术",
+            "口腔医学技术",
+            "医学美容技术",
+            "卫生检验与检疫技术",
+            "卫生信息管理",
+            "眼视光技术"
+          ],
+          "source": "https://www.ahwsjkxy.edu.cn/jgsz.htm"
+        }
+      ],
+      "note": "学校设6个教学系部：护理系、健康服务系、医学系、医疗卫生技术系、基础部、思政部。健康服务系官网明确列出：药学、药品经营与管理、康复治疗技术、智慧健康养老服务与管理、社区管理与服务、健康管理、中医养生保健、婴幼儿托育服务与管理、药品生产技术、旅游管理。医学营养暂归健康服务系（待确认）。"
+    },
+    {
+      "id": 39,
+      "name": "池州职业技术学院",
+      "website": "https://www.czvtc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "电子信息与传媒系",
+          "majors": [
+            "计算机应用技术",
+            "计算机网络技术",
+            "电子信息工程技术",
+            "人工智能技术应用",
+            "微电子技术",
+            "工业互联网应用"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "机电与汽车系",
+          "majors": [
+            "机电一体化技术",
+            "机电一体化技术（安徽交通）",
+            "新能源汽车技术",
+            "新能源汽车技术（安徽交通）",
+            "数控技术",
+            "机械制造及自动化",
+            "工业机器人技术",
+            "智能网联汽车技术",
+            "金属智能加工技术"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "旅游系",
+          "majors": [
+            "旅游管理",
+            "酒店管理与数字化运营",
+            "民宿管理与运营",
+            "高速铁路客运服务"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "经济与管理系",
+          "majors": [
+            "大数据与会计",
+            "电子商务",
+            "现代物流管理"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "建筑与园林系",
+          "majors": [
+            "建筑装饰工程技术",
+            "装配式建筑工程技术",
+            "工程造价",
+            "园林技术",
+            "园艺技术",
+            "森林生态旅游与康养"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "生物与健康系",
+          "majors": [
+            "护理",
+            "老年保健与管理",
+            "动物医学",
+            "宠物医疗技术",
+            "应用化工技术",
+            "应用化工技术（池州工业）"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        },
+        {
+          "name": "教育系",
+          "majors": [
+            "学前教育"
+          ],
+          "source": "https://www.czvtc.edu.cn/Content/showList/11/page_1.html"
+        }
+      ],
+      "note": "学校设教学单位：基础教学部、经济与管理系、建筑与园林系、电子信息与传媒系、机电与汽车系、旅游系、教育系、生物与健康系、马克思主义学院。高速铁路客运服务暂归旅游系（待确认）；应用化工技术暂归生物与健康系（待确认）；带'（安徽交通）'后缀的专业为东校区合作办学，随主专业归属。"
+    },
+    {
+      "id": 48,
+      "name": "黄山职业技术学院",
+      "website": "https://www.hszyxy.com",
+      "secondaryColleges": [
+        {
+          "name": "国际护理学院",
+          "majors": [
+            "护理"
+          ],
+          "source": "https://www.hszy.edu.cn/info/1016/7916.htm"
+        },
+        {
+          "name": "新安医学院",
+          "majors": [
+            "药学",
+            "医学影像技术",
+            "临床医学",
+            "智慧健康养老服务与管理"
+          ],
+          "source": "https://www.hszy.edu.cn/info/1016/7916.htm"
+        },
+        {
+          "name": "大数据与智能工程学院",
+          "majors": [
+            "智能控制技术",
+            "电气自动化技术",
+            "电气自动化技术（行知学校）",
+            "应用电子技术",
+            "计算机应用技术",
+            "大数据与会计",
+            "大数据与会计（行知学校）",
+            "电子商务"
+          ],
+          "source": "https://www.hszy.edu.cn/info/1016/7916.htm"
+        },
+        {
+          "name": "文化与旅游学院",
+          "majors": [
+            "茶叶生产与加工技术",
+            "园林技术",
+            "建设工程管理",
+            "旅游管理",
+            "旅游管理（黄山旅游管理学校）",
+            "研学旅行管理与服务",
+            "酒店管理与数字化运营",
+            "民宿管理与运营",
+            "茶艺与茶文化",
+            "烹饪工艺与营养",
+            "烹饪工艺与营养（黄山旅游管理学校）"
+          ],
+          "source": "https://www.hszy.edu.cn/info/1016/7916.htm"
+        },
+        {
+          "name": "教育与艺术传媒学院",
+          "majors": [
+            "数字媒体艺术设计",
+            "雕刻艺术设计",
+            "融媒体技术与运营",
+            "学前教育"
+          ],
+          "source": "https://www.hszy.edu.cn/info/1016/7916.htm"
+        }
+      ],
+      "note": "2025年起学校设6个二级学院：马克思主义学院（基础部）、国际护理学院、新安医学院、大数据与智能工程学院、文化与旅游学院、教育与艺术传媒学院。大数据与会计、电子商务暂归大数据与智能工程学院（待确认）；智慧健康养老服务与管理暂归新安医学院（待确认）。带'（行知学校/黄山旅游管理学校）'后缀为合作办学，随主专业归属。"
+    },
+    {
+      "id": 51,
+      "name": "马鞍山职业技术学院",
+      "website": "https://www.mastc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "电子信息系",
+          "majors": [
+            "计算机应用技术",
+            "计算机网络技术",
+            "动漫制作技术",
+            "广告艺术设计",
+            "产品艺术设计"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "电气工程系",
+          "majors": [
+            "机电一体化技术",
+            "电气自动化技术",
+            "电气自动化技术（当涂经贸）",
+            "工业机器人技术",
+            "智能控制技术"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "机械工程系",
+          "majors": [
+            "数控技术",
+            "机械设计与制造",
+            "模具设计与制造",
+            "数字化设计与制造技术",
+            "汽车检测与维修技术",
+            "汽车检测与维修技术（马鞍山理工）",
+            "新能源汽车技术",
+            "无人机应用技术",
+            "空中乘务"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "经济贸易系",
+          "majors": [
+            "会计信息管理",
+            "大数据与会计",
+            "大数据与财务管理",
+            "市场营销",
+            "电子商务",
+            "现代物流管理"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "管理工程系",
+          "majors": [
+            "食品检验检测技术",
+            "烹饪工艺与营养",
+            "西式烹饪工艺",
+            "工程造价",
+            "智慧健康养老服务与管理",
+            "会展策划与管理",
+            "旅游管理",
+            "酒店管理与数字化运营"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "应用外语系",
+          "majors": [
+            "商务英语"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        },
+        {
+          "name": "医学护理系",
+          "majors": [
+            "护理",
+            "药学",
+            "婴幼儿托育服务与管理"
+          ],
+          "source": "https://www.mastc.edu.cn/zzjg/jxbm.htm"
+        }
+      ],
+      "note": "学校设7个教学系（电子信息、电气工程、机械工程、经济贸易、管理工程、应用外语、医学护理）+马克思主义学院/基础教学部。空中乘务暂归机械工程系（待确认）；带'（当涂经贸/马鞍山理工）'后缀为合作办学，随主专业归属。"
+    },
+    {
+      "id": 52,
+      "name": "铜陵职业技术学院",
+      "website": "https://www.tlpt.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "机械工程系",
+          "majors": [
+            "汽车检测与维修技术",
+            "模具设计与制造",
+            "数控技术"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "电气工程系",
+          "majors": [
+            "电气自动化技术",
+            "工业机器人技术",
+            "机电一体化技术",
+            "智能控制技术"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "信息工程系",
+          "majors": [
+            "大数据技术",
+            "电子信息工程技术",
+            "应用电子技术",
+            "计算机网络技术",
+            "计算机应用技术",
+            "软件技术",
+            "数字媒体技术",
+            "信息安全技术应用"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "经贸系",
+          "majors": [
+            "大数据与会计",
+            "电子商务",
+            "跨境电子商务",
+            "现代物流管理"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "管理系",
+          "majors": [
+            "学前教育",
+            "烹饪工艺与营养",
+            "酒店管理与数字化运营",
+            "旅游管理",
+            "智慧健康养老服务与管理"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "医学系",
+          "majors": [
+            "康复治疗技术",
+            "药学",
+            "医学检验技术",
+            "医学影像技术",
+            "应用化工技术"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "护理系",
+          "majors": [
+            "护理",
+            "婴幼儿托育服务与管理"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        },
+        {
+          "name": "艺术传媒系",
+          "majors": [
+            "动漫设计",
+            "工艺美术品设计",
+            "广告艺术设计",
+            "环境艺术设计"
+          ],
+          "source": "http://www.tlpt.edu.cn/xygk/xyjj/index.html"
+        }
+      ],
+      "note": "学校设12个教学单位：管理系、经贸系、医学系、护理系、信息工程系、艺术传媒系、机械工程系、电气工程系、基础部、思政部等。管理系官网明确开设旅游管理、酒店管理与数字化运营、烹饪工艺与营养、学前教育4个专业。应用化工技术暂归医学系（待确认）。"
+    },
+    {
+      "id": 55,
+      "name": "芜湖职业技术大学",
+      "website": "https://www.whit.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "园林园艺学院",
+          "majors": [
+            "现代农业技术",
+            "园艺技术",
+            "园林技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "材料工程学院",
+          "majors": [
+            "环境监测技术",
+            "储能材料技术",
+            "高分子材料智能制造技术",
+            "复合材料智能制造技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "建筑工程学院",
+          "majors": [
+            "园林工程技术",
+            "建筑工程技术",
+            "工程造价",
+            "建设工程管理",
+            "现代物业管理"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "智能制造学院",
+          "majors": [
+            "数控技术",
+            "模具设计与制造",
+            "智能制造装备技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "电气与自动化学院",
+          "majors": [
+            "电气自动化技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "汽车与航空学院",
+          "majors": [
+            "空中乘务",
+            "城市轨道交通机电技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "信息与人工智能学院",
+          "majors": [
+            "物联网应用技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "经济管理学院",
+          "majors": [
+            "大数据与会计",
+            "电子商务",
+            "港口物流管理",
+            "智能物流技术"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "国际经贸学院",
+          "majors": [
+            "关务与外贸服务",
+            "跨境电子商务"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "人文旅游学院",
+          "majors": [
+            "旅游管理",
+            "酒店管理与数字化运营",
+            "学前教育",
+            "婴幼儿托育服务与管理"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "艺术传媒学院",
+          "majors": [
+            "融媒体技术与运营"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "应用外语学院",
+          "majors": [
+            "应用英语",
+            "商务日语"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        },
+        {
+          "name": "公共管理学院",
+          "majors": [
+            "人力资源管理"
+          ],
+          "source": "https://www.whit.edu.cn/jgsz.htm"
+        }
+      ],
+      "note": "学校设15个二级学院。2025年由原芜湖职业技术学院升格为职业本科。婴幼儿托育服务与管理暂归人文旅游学院（待确认）；环境监测技术暂归材料工程学院（待确认）。"
+    },
+    {
+      "id": 57,
+      "name": "宣城职业技术学院",
+      "website": "https://www.xcvtc.edu.cn",
+      "secondaryColleges": [
+        {
+          "name": "汽车学院",
+          "majors": [
+            "汽车制造与试验技术",
+            "新能源汽车技术",
+            "智能网联汽车技术"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "智能机器人学院",
+          "majors": [
+            "机电一体化技术",
+            "机械设计与制造",
+            "智能制造装备技术",
+            "工业互联网应用"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "信息工程系",
+          "majors": [
+            "计算机网络技术",
+            "软件技术",
+            "数字媒体技术"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "旅游商贸系",
+          "majors": [
+            "大数据与财务管理",
+            "大数据与会计",
+            "电子商务",
+            "现代物流管理",
+            "市场营销",
+            "酒店管理与数字化运营",
+            "旅游管理",
+            "研学旅行管理与服务",
+            "学前教育"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "建筑艺术系",
+          "majors": [
+            "工程造价",
+            "环境艺术设计",
+            "建筑工程技术",
+            "林业技术",
+            "园林技术",
+            "艺术设计"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "护理系",
+          "majors": [
+            "护理",
+            "康复治疗技术",
+            "口腔医学技术",
+            "药学",
+            "医学检验技术",
+            "智慧健康养老服务与管理"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        },
+        {
+          "name": "其他/公共教学部",
+          "majors": [
+            "新能源材料应用技术",
+            "储能材料技术"
+          ],
+          "source": "https://www.xcvtc.edu.cn/org/index.html"
+        }
+      ],
+      "note": "学校组织机构页（2026-09）列出：汽车学院、智能机器人学院、护理系、旅游商贸系、建筑艺术系、信息工程系、基础教学部；职院简介页表述为信息与财经学院、教育与管理学院、医护学院、建筑与园林学院、汽车学院。两处表述不一致，本表以组织机构页为准（待确认）。新能源材料应用技术、储能材料技术无明确归属学院，暂列其他/公共教学部（待确认）。"
+    }
+  ]
+}
