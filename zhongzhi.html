@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>中职起点 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="zhongzhi">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">中职起点</div>
+    </div>
+
+    <!-- 板块介绍 -->
+    <div class="about-section" style="margin:10px 12px">
+      <h3>🛠️ 中职起点招生说明</h3>
+      <p id="zz-desc"></p>
+      <p><b>报考条件：</b><span id="zz-condition"></span></p>
+      <p><b>考试科目：</b><span id="zz-subjects"></span></p>
+      <p><b>录取规则：</b><span id="zz-rule"></span></p>
+    </div>
+
+    <!-- 子标签：中职专科 / 对口本科 -->
+    <div class="subtabs" id="zz-tabs">
+      <button class="subtab active" data-tab="zhuanke">🛠️ 中职专科</button>
+      <button class="subtab" data-tab="benke">🎓 对口本科</button>
+    </div>
+
+    <!-- 中职专科面板 -->
+    <div id="panel-zhuanke">
+      <div class="zz-tip">面向中职毕业生的高职（专科）分类考试，下列院校招收中职专科生。</div>
+      <div id="zz-zhuanke-list"></div>
+      <a href="college-list.html?category=zhongzhi" class="btn-primary">在院校列表中查看全部并筛选 ›</a>
+    </div>
+
+    <!-- 对口本科面板 -->
+    <div id="panel-benke" style="display:none">
+      <div class="zz-tip">中职生也可升入全日制本科（应用型本科对口招生），单独划线、单独录取。</div>
+      <div id="zz-benke-list"></div>
+      <a href="benke.html" class="btn-primary" style="background:#722ed1;box-shadow:0 2px 8px rgba(114,46,209,0.3)">查看完整对口本科招生信息（时间轴·其他本科院校）›</a>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
