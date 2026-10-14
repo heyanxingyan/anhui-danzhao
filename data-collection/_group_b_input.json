@@ -1,0 +1,2492 @@
+{
+  "17": {
+    "name": "安徽广播影视职业技术学院",
+    "majors": [
+      {
+        "name": "新闻采编与制作",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "播音与主持",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "广播影视节目制作",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 90
+      },
+      {
+        "name": "影视编导",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "摄影摄像技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 70
+      },
+      {
+        "name": "影视动画",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "软件技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "环境艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "人物形象设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "休闲体育",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "体能训练",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "健身指导与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      }
+    ]
+  },
+  "18": {
+    "name": "安徽国防科技职业学院",
+    "majors": [
+      {
+        "name": "机械制造及自动化",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 140
+      },
+      {
+        "name": "模具设计与制造",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "数控技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 85
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 45
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 130
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 140
+      },
+      {
+        "name": "智能网联汽车技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "飞机机电设备维修",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 76
+      },
+      {
+        "name": "智能建造技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 69
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 122
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 8,
+        "plan2026": 90
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 90
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 61
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 54
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 58
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 185
+      },
+      {
+        "name": "工业机器人技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 45
+      },
+      {
+        "name": "电气自动化技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 105
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "集成电路技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 25
+      },
+      {
+        "name": "船舶电气工程技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 30
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 70
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "软件技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 75
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "信息安全技术应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 55
+      },
+      {
+        "name": "机械制造及自动化（合肥理工学校）",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 200
+      },
+      {
+        "name": "计算机网络技术（安徽科技贸易学校）",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机应用技术（安徽科技贸易学校）",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 95
+      },
+      {
+        "name": "汽车检测与维修技术（皖西经济技术学校）",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 155
+      }
+    ]
+  },
+  "19": {
+    "name": "安徽国际商务职业学院",
+    "majors": [
+      {
+        "name": "国际经济与贸易",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 150
+      },
+      {
+        "name": "国际贸易实务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "国际商务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "跨境电子商务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 200
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 180
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 120
+      },
+      {
+        "name": "供应链运营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 200
+      },
+      {
+        "name": "大数据与财务管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "财税大数据应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "金融服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "保险实务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "商务英语",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 120
+      },
+      {
+        "name": "商务日语",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "应用韩语",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "烹调工艺与营养",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "软件技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "环境艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "高速铁路客运服务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 80
+      },
+      {
+        "name": "空中乘务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "现代物业管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "人力资源管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "商务管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "报关与国际货运",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "关务与外贸服务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      }
+    ]
+  },
+  "20": {
+    "name": "安徽黄梅戏艺术职业学院",
+    "majors": [
+      {
+        "name": "戏曲表演",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 22
+      },
+      {
+        "name": "音乐表演",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 50
+      },
+      {
+        "name": "现代流行音乐",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "舞蹈表演",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 55
+      },
+      {
+        "name": "艺术设计",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 35
+      },
+      {
+        "name": "舞台艺术设计与制作",
+        "plan2026Zhuanxiang": 1,
+        "plan2026": 16
+      },
+      {
+        "name": "人物形象设计",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "视觉传达设计",
+        "plan2026Zhuanxiang": 1,
+        "plan2026": 10
+      },
+      {
+        "name": "戏剧影视表演",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "播音与主持",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 22
+      }
+    ]
+  },
+  "21": {
+    "name": "安徽应用技术职业大学",
+    "majors": [
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "智能控制技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 50
+      },
+      {
+        "name": "工业机器人技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "电气自动化技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "应用电子技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 50
+      },
+      {
+        "name": "机械设计与制造",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 145
+      },
+      {
+        "name": "数控技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 120
+      },
+      {
+        "name": "机械制造及自动化",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "工业产品质量检测技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 65
+      },
+      {
+        "name": "智能制造装备技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 70
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "plan2026Zhuanxiang": 40,
+        "plan2026": 100
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 200
+      },
+      {
+        "name": "智能网联汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "云计算技术应用",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "工业互联网技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 100
+      },
+      {
+        "name": "智能焊接技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 115
+      },
+      {
+        "name": "增材制造技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "模具设计与制造",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "机电设备技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 130
+      },
+      {
+        "name": "飞机机电设备维修",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 60
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 65
+      },
+      {
+        "name": "大数据与财务管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 70
+      },
+      {
+        "name": "跨境电子商务",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 100
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 90
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 95
+      },
+      {
+        "name": "金融服务与管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 55
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 80
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 80
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 60
+      },
+      {
+        "name": "数控技术（宁国专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "工业机器人技术（宁国专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "电子商务（宁国专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "数控技术（蒙城专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "机电一体化技术（蒙城专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "机电一体化技术（滁州专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "工业机器人技术（滁州专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 100
+      },
+      {
+        "name": "人工智能技术应用（涡阳专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "新能源汽车技术（涡阳专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "全媒体广告策划与营销",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "网络直播与运营",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "智能物流技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 90
+      },
+      {
+        "name": "跨境电子商务",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "跨境电子商务（临泉专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "国际经济与贸易",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "人力资源管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 90
+      },
+      {
+        "name": "民宿管理与运营",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "大数据与会计（临泉专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "会计信息管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 135
+      },
+      {
+        "name": "大数据与财务管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 135
+      },
+      {
+        "name": "大数据与审计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "财税大数据应用",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "金融服务与管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 90
+      },
+      {
+        "name": "法律事务",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 45
+      },
+      {
+        "name": "网络新闻与传播",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 95
+      },
+      {
+        "name": "现代文秘",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 95
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "计算机网络技术（安庆专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "电子信息工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "电子信息工程技术（宁国专业学院）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "移动互联应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "产品艺术设计",
+        "plan2026Zhuanxiang": 13,
+        "plan2026": 40
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 105
+      }
+    ]
+  },
+  "22": {
+    "name": "安徽交通职业技术学院",
+    "majors": [
+      {
+        "name": "道路与桥梁工程技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 200
+      },
+      {
+        "name": "道路养护与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "城市轨道交通工程技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "市政工程技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "建设工程监理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 150
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 120
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "智能网联汽车技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "道路机械化施工技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "工程机械运用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "电气自动化技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "新能源装备技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "软件技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "道路运输管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "交通运营管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "高速铁路客运服务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "空中乘务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "邮轮乘务管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "环境艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "体育运营与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "体能训练",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "健身指导与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "安全技术与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "无人机应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "工业机器人技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "跨境电子商务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      }
+    ]
+  },
+  "23": {
+    "name": "安徽警官职业学院",
+    "majors": [
+      {
+        "name": "法律事务",
+        "plan2026Zhuanxiang": 30,
+        "plan2026": 300
+      },
+      {
+        "name": "法律文秘",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "刑事执行",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 150
+      },
+      {
+        "name": "行政执行",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "司法警务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 150
+      },
+      {
+        "name": "社区矫正",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "安全防范技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "智能安防运营服务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 150
+      },
+      {
+        "name": "信息安全技术应用",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "司法信息技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "公共事务管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "人力资源管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "商务英语",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "体育运营与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "安全技术与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      }
+    ]
+  },
+  "24": {
+    "name": "安徽粮食工程职业学院",
+    "majors": [
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 53
+      },
+      {
+        "name": "建筑工程技术",
+        "plan2026Zhuanxiang": 37,
+        "plan2026": 71
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 43
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 43
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 113
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 73
+      },
+      {
+        "name": "大数据与财务管理",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 46
+      },
+      {
+        "name": "休闲服务与管理",
+        "plan2026Zhuanxiang": 38,
+        "plan2026": 75
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 43
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 113
+      },
+      {
+        "name": "机械制造及自动化",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 73
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 45
+      },
+      {
+        "name": "城市轨道交通机电技术",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 63
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "plan2026Zhuanxiang": 37,
+        "plan2026": 80
+      },
+      {
+        "name": "智能机器人技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "粮食工程技术与管理",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 83
+      },
+      {
+        "name": "粮食储运与质量安全",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 83
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 44
+      },
+      {
+        "name": "建设工程管理",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 28
+      },
+      {
+        "name": "建筑室内设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 43
+      },
+      {
+        "name": "现代农业技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "摄影测量与遥感技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 75
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 40,
+        "plan2026": 84
+      },
+      {
+        "name": "食品检验检测技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 88
+      },
+      {
+        "name": "食品智能加工技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 88
+      },
+      {
+        "name": "食品质量与安全",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 86
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 46
+      },
+      {
+        "name": "烹饪工艺与营养",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 76
+      },
+      {
+        "name": "酿酒技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 78
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 80
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "plan2026Zhuanxiang": 37,
+        "plan2026": 82
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 85
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 55
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 43
+      },
+      {
+        "name": "包装艺术设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 87
+      }
+    ]
+  },
+  "25": {
+    "name": "安徽林业职业技术学院",
+    "majors": [
+      {
+        "name": "园艺技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "绿色食品生产技术",
+        "plan2026Zhuanxiang": 1,
+        "plan2026": 20
+      },
+      {
+        "name": "绿色食品生产技术（天长工业学校）",
+        "plan2026Zhuanxiang": 6,
+        "plan2026": 80
+      },
+      {
+        "name": "林业技术",
+        "plan2026Zhuanxiang": 35,
+        "plan2026": 80
+      },
+      {
+        "name": "园林技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 60
+      },
+      {
+        "name": "园林技术（天柱山旅游学校）",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 120
+      },
+      {
+        "name": "林业信息技术应用",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 35
+      },
+      {
+        "name": "现代竹木产品设计与制造",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 25
+      },
+      {
+        "name": "生态保护技术",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 35
+      },
+      {
+        "name": "森林草原防火技术",
+        "plan2026Zhuanxiang": 35,
+        "plan2026": 60
+      },
+      {
+        "name": "建设工程监理",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 40
+      },
+      {
+        "name": "智能控制技术",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 40
+      },
+      {
+        "name": "智能机器人技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 55
+      },
+      {
+        "name": "无人机应用技术",
+        "plan2026Zhuanxiang": 35,
+        "plan2026": 55
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 45
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 45
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 45
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 50
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 45
+      },
+      {
+        "name": "视觉传达设计",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "环境艺术设计",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 30
+      },
+      {
+        "name": "森林生态旅游与康养",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 42
+      },
+      {
+        "name": "森林生态旅游与康养（天柱山旅游学校）",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 50
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 70
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 56
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 56
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 4,
+        "plan2026": 56
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 3,
+        "plan2026": 42
+      },
+      {
+        "name": "茶艺与茶文化",
+        "plan2026Zhuanxiang": 2,
+        "plan2026": 28
+      }
+    ]
+  },
+  "26": {
+    "name": "安徽汽车职业技术学院",
+    "majors": [
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 6,
+        "plan2026": 211
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "智能网联汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "汽车电子技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 35
+      },
+      {
+        "name": "汽车智能技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "plan2026Zhuanxiang": 6,
+        "plan2026": 36
+      },
+      {
+        "name": "新能源汽车检测与维修技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 120
+      },
+      {
+        "name": "城市轨道车辆应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 35
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 6,
+        "plan2026": 126
+      },
+      {
+        "name": "数控技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "工业机器人技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "智能控制技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 30
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "工业过程自动化技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "集成电路技术",
+        "plan2026Zhuanxiang": 22,
+        "plan2026": 40
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 6,
+        "plan2026": 71
+      },
+      {
+        "name": "电子信息工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      }
+    ]
+  },
+  "28": {
+    "name": "安徽审计职业学院",
+    "majors": [
+      {
+        "name": "大数据与审计",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 215
+      },
+      {
+        "name": "法律事务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 150
+      },
+      {
+        "name": "大数据与财务管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "会计信息管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "财税大数据应用",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "中小企业创业与经营",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "建筑室内设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "现代物业管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "资产评估与管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "风景园林设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "智能建造技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "无人机应用技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "建设工程管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 40
+      },
+      {
+        "name": "财富管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "金融服务与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 55
+      },
+      {
+        "name": "商务管理",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "市场营销",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 50
+      },
+      {
+        "name": "大数据技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 100
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "党务工作",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 45
+      }
+    ]
+  },
+  "29": {
+    "name": "安徽水利水电职业技术学院",
+    "majors": [
+      {
+        "name": "现代物业管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 65
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 85
+      },
+      {
+        "name": "现代物流管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 80
+      },
+      {
+        "name": "人力资源管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 40
+      },
+      {
+        "name": "应用电子技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 5,
+        "plan2026": 100
+      },
+      {
+        "name": "计算机网络技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "人工智能技术应用",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 40
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "市政工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "给排水工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "城市轨道交通机电技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 95
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 90
+      },
+      {
+        "name": "电力系统自动化技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "供用电技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 40
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 160
+      },
+      {
+        "name": "工业机器人技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 40
+      },
+      {
+        "name": "无人机测绘技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "环境监测技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "环境工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "水文与水资源技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "水利水电工程智能管理",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 90
+      },
+      {
+        "name": "水土保持技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "水利工程",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 130
+      },
+      {
+        "name": "智慧水利技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "水利水电工程技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 130
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 75
+      },
+      {
+        "name": "建筑工程技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 70
+      },
+      {
+        "name": "智能建造技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 70
+      },
+      {
+        "name": "建设工程管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 75
+      },
+      {
+        "name": "数控技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 45
+      },
+      {
+        "name": "机械制造及自动化",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "模具设计与制造",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 45
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 90
+      },
+      {
+        "name": "智能网联汽车技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 30
+      },
+      {
+        "name": "新能源汽车检测与维修技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      }
+    ]
+  },
+  "30": {
+    "name": "安徽体育运动职业技术学院",
+    "majors": [
+      {
+        "name": "体育教育",
+        "plan2026Zhuanxiang": 35,
+        "plan2026": 121
+      },
+      {
+        "name": "康复治疗技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "国际标准舞",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "社会体育",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 70
+      },
+      {
+        "name": "休闲体育",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "运动训练",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 85
+      },
+      {
+        "name": "民族传统体育",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "体育保健与康复",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "健身指导与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 75
+      },
+      {
+        "name": "运动健康指导",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "运动数据分析",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "体能训练",
+        "plan2026Zhuanxiang": 27,
+        "plan2026": 79
+      },
+      {
+        "name": "体育运营与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "电子竞技运动与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "冰雪运动与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "体育艺术表演",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 55
+      },
+      {
+        "name": "休闲服务与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 25
+      }
+    ]
+  },
+  "31": {
+    "name": "安徽卫生健康职业学院",
+    "majors": [
+      {
+        "name": "职业健康安全技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 50
+      },
+      {
+        "name": "药品生产技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 35
+      },
+      {
+        "name": "药品经营与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 35
+      },
+      {
+        "name": "医疗器械维护与管理",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 40
+      },
+      {
+        "name": "临床医学",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 20
+      },
+      {
+        "name": "护理（淮北卫生学校）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 200
+      },
+      {
+        "name": "护理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 423
+      },
+      {
+        "name": "助产",
+        "plan2026Zhuanxiang": 30,
+        "plan2026": 90
+      },
+      {
+        "name": "药学",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 120
+      },
+      {
+        "name": "中医养生保健",
+        "plan2026Zhuanxiang": 12,
+        "plan2026": 42
+      },
+      {
+        "name": "医学检验技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 110
+      },
+      {
+        "name": "医学影像技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 80
+      },
+      {
+        "name": "口腔医学技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 120
+      },
+      {
+        "name": "医学美容技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 80
+      },
+      {
+        "name": "卫生检验与检疫技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 40
+      },
+      {
+        "name": "康复治疗技术（安徽中药科技学校）",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "康复治疗技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "卫生信息管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "预防医学",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 50
+      },
+      {
+        "name": "健康管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "医学营养",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 60
+      },
+      {
+        "name": "眼视光技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 25
+      },
+      {
+        "name": "社区管理与服务",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "plan2026Zhuanxiang": 22,
+        "plan2026": 70
+      }
+    ]
+  },
+  "32": {
+    "name": "安徽新闻出版职业技术学院",
+    "majors": [
+      {
+        "name": "新闻采编与制作",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 70
+      },
+      {
+        "name": "摄影摄像技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 75
+      },
+      {
+        "name": "播音与主持",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "舞台艺术设计与制作",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "影视编导",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "影视动画",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "融媒体技术与运营",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "广告艺术设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 60
+      },
+      {
+        "name": "动漫制作技术",
+        "plan2026Zhuanxiang": 20,
+        "plan2026": 90
+      },
+      {
+        "name": "视觉传达设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 55
+      },
+      {
+        "name": "建筑室内设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "数字媒体技术",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 55
+      },
+      {
+        "name": "计算机应用技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 80
+      },
+      {
+        "name": "物联网应用技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "信息安全技术应用",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 30
+      },
+      {
+        "name": "机电一体化技术",
+        "plan2026Zhuanxiang": 25,
+        "plan2026": 95
+      },
+      {
+        "name": "电气自动化技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 60
+      },
+      {
+        "name": "新能源汽车技术",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "印刷媒体技术",
+        "plan2026Zhuanxiang": 10,
+        "plan2026": 42
+      },
+      {
+        "name": "包装策划与设计",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 40
+      },
+      {
+        "name": "大数据与会计",
+        "plan2026Zhuanxiang": 30,
+        "plan2026": 100
+      },
+      {
+        "name": "电子商务",
+        "plan2026Zhuanxiang": 15,
+        "plan2026": 65
+      },
+      {
+        "name": "旅游管理",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      },
+      {
+        "name": "党务工作",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 35
+      },
+      {
+        "name": "工程造价",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 45
+      },
+      {
+        "name": "网络营销与直播电商",
+        "plan2026Zhuanxiang": 0,
+        "plan2026": 50
+      }
+    ]
+  }
+}
