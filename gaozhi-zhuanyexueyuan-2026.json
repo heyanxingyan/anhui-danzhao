@@ -1,0 +1,263 @@
+[
+  {
+    "gaozhiSchool": "安徽职业技术大学",
+    "zhongzhiSchool": "皖北经济技术学校",
+    "major": "新能源汽车技术",
+    "plan2026": 50,
+    "fee": "按省价格主管部门核定标准执行",
+    "location": "安徽省阜阳市临泉县霞光大道398号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185130_991.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽职业技术大学",
+    "zhongzhiSchool": "安徽天柱山旅游学校",
+    "major": "计算机网络技术",
+    "plan2026": 50,
+    "fee": "按省价格主管部门核定标准执行",
+    "location": "安徽省安庆市潜山市皖国东路0098号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185130_991.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "阜阳科技工程学校",
+    "major": "机电一体化技术",
+    "plan2026": 50,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "阜阳科技工程学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "阜阳科技工程学校",
+    "major": "工业机器人技术",
+    "plan2026": 50,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "阜阳科技工程学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "安庆大别山科技学校",
+    "major": "电子商务",
+    "plan2026": 50,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "安庆大别山科技学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "安庆大别山科技学校",
+    "major": "大数据与会计",
+    "plan2026": 50,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "安庆大别山科技学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "太湖职业技术学校",
+    "major": "人工智能技术应用",
+    "plan2026": 30,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "太湖职业技术学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽工商职业学院",
+    "zhongzhiSchool": "太湖职业技术学校",
+    "major": "计算机网络技术",
+    "plan2026": 30,
+    "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+    "location": "太湖职业技术学校",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽财贸职业学院",
+    "zhongzhiSchool": "宣城市工业学校",
+    "major": "电子商务",
+    "plan2026": 60,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽泾县泾川镇太美青狮路1号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽财贸职业学院",
+    "zhongzhiSchool": "灵璧县高级职业技术学校",
+    "major": "园林技术",
+    "plan2026": 40,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省宿州市灵璧县灵城镇钟灵大道西段（中共灵璧县委党校对面）",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽财贸职业学院",
+    "zhongzhiSchool": "池州工业学校",
+    "major": "大数据技术",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省池州市东至县尧渡镇舜德大道7号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽审计职业学院",
+    "zhongzhiSchool": "铜陵理工学校",
+    "major": "大数据与会计",
+    "plan2026": 300,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "铜陵市铜官区翠湖四路3999号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽审计职业学院",
+    "zhongzhiSchool": "铜陵理工学校",
+    "major": "电子商务",
+    "plan2026": 300,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "铜陵市铜官区翠湖四路3999号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽审计职业学院",
+    "zhongzhiSchool": "铜陵理工学校",
+    "major": "大数据技术",
+    "plan2026": 300,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "铜陵市铜官区翠湖四路3999号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽审计职业学院",
+    "zhongzhiSchool": "滁州市机械工业学校",
+    "major": "大数据与审计",
+    "plan2026": 300,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "明光市淮河大道166号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽审计职业学院",
+    "zhongzhiSchool": "濉溪职业技术学校",
+    "major": "大数据与财务管理",
+    "plan2026": 200,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "淮北市濉溪县百善现代农业综合开发示范区雁鸣大道与青阳路交叉口",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽城市管理职业学院",
+    "zhongzhiSchool": "蚌埠工业与商贸职业技术学校",
+    "major": "室内艺术设计",
+    "plan2026": 100,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "蚌埠市淮上区双墩路1199号蚌埠职教园",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310204853_258.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽城市管理职业学院",
+    "zhongzhiSchool": "宿州应用技术学校",
+    "major": "计算机应用技术",
+    "plan2026": 100,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省宿州市埇桥区求实路555号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310204853_258.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽交通职业技术学院",
+    "zhongzhiSchool": "铜陵理工学校",
+    "major": "航海技术",
+    "plan2026": 100,
+    "fee": "按省价格主管部门核定标准执行",
+    "location": "安徽省铜陵市翠湖四路东段3999号（培养方向：内河船员）",
+    "source": "https://www.acvtc.edu.cn/zs/info/1031/7571.htm"
+  },
+  {
+    "gaozhiSchool": "安徽交通职业技术学院",
+    "zhongzhiSchool": "淮南经济技术学校",
+    "major": "新能源汽车技术",
+    "plan2026": 60,
+    "fee": "按省价格主管部门核定标准执行",
+    "location": "安徽省淮南市山南新区职教园",
+    "source": "https://www.acvtc.edu.cn/zs/info/1031/7571.htm"
+  },
+  {
+    "gaozhiSchool": "安徽国际商务职业学院",
+    "zhongzhiSchool": "阜阳工业经济学校",
+    "major": "数字媒体技术",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省阜阳市阜南路889号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽国际商务职业学院",
+    "zhongzhiSchool": "当涂经贸学校",
+    "major": "计算机应用技术",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省马鞍山市当涂县姑孰镇太白东路1号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽国际商务职业学院",
+    "zhongzhiSchool": "当涂经贸学校",
+    "major": "电子商务",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "安徽省马鞍山市当涂县姑孰镇太白东路1号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽新闻出版职业技术学院",
+    "zhongzhiSchool": "合肥工业学校",
+    "major": "广告艺术设计",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "合肥市新站区学林路与烈山路交口",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽新闻出版职业技术学院",
+    "zhongzhiSchool": "淮北工业和艺术学校",
+    "major": "视觉传达设计",
+    "plan2026": 50,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "淮北市烈山区太山路1号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽新闻出版职业技术学院",
+    "zhongzhiSchool": "淮北工业和艺术学校",
+    "major": "婴幼儿托育服务与管理",
+    "plan2026": 150,
+    "fee": "按省价格主管等相关部门核定标准执行",
+    "location": "淮北市烈山区太山路1号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽林业职业技术学院",
+    "zhongzhiSchool": "天长市工业学校",
+    "major": "绿色食品生产技术",
+    "plan2026": 80,
+    "fee": "按省价格主管等部门核定标准执行",
+    "location": "天长市西城经济开发区纬三路50号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽林业职业技术学院",
+    "zhongzhiSchool": "天长市工业学校",
+    "major": "园林技术",
+    "plan2026": 120,
+    "fee": "按省价格主管等部门核定标准执行",
+    "location": "天长市西城经济开发区纬三路50号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+  },
+  {
+    "gaozhiSchool": "安徽林业职业技术学院",
+    "zhongzhiSchool": "安徽天柱山旅游学校",
+    "major": "森林生态旅游与康养",
+    "plan2026": 50,
+    "fee": "按省价格主管等部门核定标准执行",
+    "location": "潜山市皖国东路0098号",
+    "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+  }
+]
