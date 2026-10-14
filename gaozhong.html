@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>高中起点 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="gaozhong">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">高中起点</div>
+    </div>
+
+    <!-- 板块介绍 -->
+    <div class="about-section" style="margin:10px 12px">
+      <h3>🎓 高中起点招生说明</h3>
+      <p id="gz-desc"></p>
+      <p><b>报考条件：</b><span id="gz-condition"></span></p>
+      <p><b>考试科目：</b><span id="gz-subjects"></span></p>
+      <p><b>录取规则：</b><span id="gz-rule"></span></p>
+    </div>
+
+    <!-- 院校列表 -->
+    <div class="zz-tip">面向普通高中毕业生的高职（专科）分类考试，下列院校招收普高生。</div>
+    <div id="gz-list"></div>
+    <a href="college-list.html?category=gaozhong" class="btn-primary">在院校列表中查看全部并筛选 ›</a>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
