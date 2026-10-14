@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>院校详情 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/echarts@5.5.1/dist/echarts.min.js"></script>
+</head>
+<body data-page="college-detail">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">院校详情</div>
+    </div>
+
+    <!-- 院校头部 -->
+    <div class="detail-header" id="detail-head" style="position:relative"></div>
+
+    <!-- 基本信息 -->
+    <div class="info-grid" id="basic-info"></div>
+
+    <!-- Tab 切换 -->
+    <div class="tab-switch">
+      <div class="tab-item active" data-tab="plan">招生计划</div>
+      <div class="tab-item" data-tab="rule">录取规则</div>
+      <div class="tab-item" data-tab="score">历年分数</div>
+      <div class="tab-item" data-tab="intro">学校简介</div>
+    </div>
+
+    <!-- Tab 面板 -->
+    <div class="tab-panel active" id="panel-plan"></div>
+    <div class="tab-panel" id="panel-rule"></div>
+    <div class="tab-panel" id="panel-score">
+      <div class="chart-box">
+        <div class="chart-title">2021-2025 录取<strong>参考分数</strong>走势</div>
+        <div class="chart" id="score-chart"></div>
+      </div>
+      <div class="note">数据说明：图中分数为历年录取参考值，部分为基于院校类型、城市及公办/民办性质的估算参考值。安徽省2024-2025年文化素质合格线为82分，职业技能测试满分300—450分，总分按600分制参考。2026年录取数据供2027考生参考，2027年招生章程预计2027年3月公布。实际录取分以安徽省教育招生考试院及院校官方公布为准。</div>
+    </div>
+    <div class="tab-panel" id="panel-intro"></div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
