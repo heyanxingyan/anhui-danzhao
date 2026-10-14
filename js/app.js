@@ -727,7 +727,6 @@ function renderMajorList(kw, cat) {
           <a href="college-detail.html?id=${s.collegeId}" class="school-row">
             <span class="s-name">${s.collegeName}（${s.city}）</span>
             <span>学费 ${s.fee}元/年</span>
-            <span class="s-score">${s.minScore2024}分</span>
           </a>
         `).join('')}
       </div>
