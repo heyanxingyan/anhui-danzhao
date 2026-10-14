@@ -288,8 +288,8 @@ function renderCollegeList() {
   const ruleFilter = document.getElementById('rule-filter');
   ruleFilter.innerHTML = `
     <button class="filter-chip active" data-rule="">全部规则</button>
-    <button class="filter-chip" data-rule="专业优先">专业优先(专业清)</button>
-    <button class="filter-chip" data-rule="志愿优先">志愿优先(分数清)</button>
+    <button class="filter-chip" data-rule="分数优先">分数优先</button>
+    <button class="filter-chip" data-rule="志愿优先">志愿优先</button>
   `;
 
   // 面试筛选
