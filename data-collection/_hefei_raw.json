@@ -1,0 +1,3350 @@
+{
+  "2": {
+    "id": 2,
+    "name": "合肥幼儿师范高等专科学校",
+    "website": "https://www.hfpec.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "图书档案管理",
+        "category": "gonggong",
+        "code": "590602"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "音乐表演",
+        "category": "wenyi",
+        "code": "550201"
+      },
+      {
+        "name": "美术教育",
+        "category": "jiaoyu",
+        "code": "570109K"
+      },
+      {
+        "name": "艺术设计",
+        "category": "wenyi",
+        "code": "550101"
+      },
+      {
+        "name": "书画艺术",
+        "category": "wenyi",
+        "code": "550107"
+      },
+      {
+        "name": "舞蹈表演",
+        "category": "wenyi",
+        "code": "550202"
+      },
+      {
+        "name": "体能训练",
+        "category": "jiaoyu",
+        "code": "570310"
+      }
+    ]
+  },
+  "6": {
+    "id": 6,
+    "name": "安徽第二医学院",
+    "website": "https://www.ahyz.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "临床医学",
+        "category": "yiyao",
+        "code": "520101K"
+      },
+      {
+        "name": "护理",
+        "category": "yiyao",
+        "code": "520201"
+      },
+      {
+        "name": "老年保健与管理",
+        "category": "yiyao",
+        "code": "520803"
+      },
+      {
+        "name": "药学",
+        "category": "yiyao",
+        "code": "520301"
+      },
+      {
+        "name": "中药学",
+        "category": "yiyao",
+        "code": "520410"
+      }
+    ]
+  },
+  "9": {
+    "id": 9,
+    "name": "安徽财贸职业学院",
+    "website": "https://www.ahaife.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "财税大数据应用",
+        "category": "caijing",
+        "code": "530101"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "财富管理",
+        "category": "caijing",
+        "code": "530205"
+      },
+      {
+        "name": "金融科技应用",
+        "category": "caijing",
+        "code": "530207"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "人力资源管理",
+        "category": "guanli",
+        "code": "590202"
+      },
+      {
+        "name": "传播与策划",
+        "category": "yishu",
+        "code": "560215"
+      },
+      {
+        "name": "茶艺与茶文化",
+        "category": "nonglin",
+        "code": "510109"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianzi",
+        "code": "510201"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianzi",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianzi",
+        "code": "510205"
+      }
+    ]
+  },
+  "10": {
+    "id": 10,
+    "name": "安徽城市管理职业学院",
+    "website": "https://www.cua.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "计算机应用技术（宿州应用技术学校）",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "学前教育",
+        "category": "jiaoyu",
+        "code": "570102K"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "无人机应用技术",
+        "category": "zhuangbei",
+        "code": "460609"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "城市轨道车辆应用技术",
+        "category": "jiaotong",
+        "code": "500607"
+      },
+      {
+        "name": "城市轨道交通机电技术",
+        "category": "jiaotong",
+        "code": "500613"
+      },
+      {
+        "name": "城市轨道交通通信信号技术",
+        "category": "jiaotong",
+        "code": "500604"
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "category": "zhuangbei",
+        "code": "460701"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "护理",
+        "category": "yiyao",
+        "code": "520201"
+      },
+      {
+        "name": "康复治疗技术",
+        "category": "yiyao",
+        "code": "520601"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "老年保健与管理",
+        "category": "yiyao",
+        "code": "520803"
+      },
+      {
+        "name": "特殊教育",
+        "category": "jiaoyu",
+        "code": "570105K"
+      },
+      {
+        "name": "烹饪工艺与营养",
+        "category": "lvyou",
+        "code": "540202"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "虚拟现实技术应用",
+        "category": "dianxin",
+        "code": "510208"
+      },
+      {
+        "name": "服装设计与工艺",
+        "category": "qinggong",
+        "code": "480402"
+      },
+      {
+        "name": "室内艺术设计",
+        "category": "wenyi",
+        "code": "550114"
+      },
+      {
+        "name": "室内艺术设计（蚌埠工业与商贸）",
+        "category": "wenyi",
+        "code": "550114"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "电子信息工程技术",
+        "category": "dianxin",
+        "code": "510101"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "现代殡葬技术与管理",
+        "category": "gonggong",
+        "code": "590306"
+      },
+      {
+        "name": "人力资源管理",
+        "category": "gonggong",
+        "code": "590202"
+      },
+      {
+        "name": "社会工作",
+        "category": "gonggong",
+        "code": "590101"
+      },
+      {
+        "name": "现代家政服务与管理",
+        "category": "gonggong",
+        "code": "590303"
+      },
+      {
+        "name": "园林技术",
+        "category": "nonglin",
+        "code": "410202"
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "智慧城市管理技术",
+        "category": "tumu",
+        "code": "440602"
+      },
+      {
+        "name": "环境工程技术",
+        "category": "ziyuan",
+        "code": "420801"
+      }
+    ]
+  },
+  "11": {
+    "id": 11,
+    "name": "安徽电气工程职业技术学院",
+    "website": "https://www.ahdq.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "数控技术",
+        "category": "zhuangbei",
+        "code": "460103"
+      },
+      {
+        "name": "水利水电建筑工程",
+        "category": "shuili",
+        "code": "450201"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500210"
+      },
+      {
+        "name": "电子信息工程技术",
+        "category": "dianxin",
+        "code": "510101"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "电力系统自动化技术",
+        "category": "nengyuan",
+        "code": "430101"
+      },
+      {
+        "name": "民航运输服务",
+        "category": "jiaotong",
+        "code": "500401"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      }
+    ]
+  },
+  "14": {
+    "id": 14,
+    "name": "安徽工商职业学院",
+    "website": "https://www.ahbvc.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "网络营销与直播电商",
+        "category": "caijing",
+        "code": "530704"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "财税大数据应用",
+        "category": "caijing",
+        "code": "530101"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "跨境电子商务",
+        "category": "caijing",
+        "code": "530702"
+      },
+      {
+        "name": "商务英语",
+        "category": "jiaoyu",
+        "code": "570201"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "烹饪工艺与营养",
+        "category": "lvyou",
+        "code": "540202"
+      },
+      {
+        "name": "健康管理",
+        "category": "yiyao",
+        "code": "520801"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "工业软件开发技术",
+        "category": "dianxin",
+        "code": "510214"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "产品艺术设计",
+        "category": "wenyi",
+        "code": "550104"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "智能网联汽车技术",
+        "category": "zhuangbei",
+        "code": "460704"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "category": "zhuangbei",
+        "code": "460701"
+      }
+    ]
+  },
+  "15": {
+    "id": 15,
+    "name": "安徽工业经济职业技术学院",
+    "website": "https://www.ahiec.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "建设工程管理",
+        "category": "tumu",
+        "code": "440401"
+      },
+      {
+        "name": "数控技术",
+        "category": "zhuangbei",
+        "code": "460103"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "应用电子技术",
+        "category": "dianxin",
+        "code": "510103"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "移动商务",
+        "category": "caijing",
+        "code": "530703"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "工商企业管理",
+        "category": "caijing",
+        "code": "530601"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "跨境电子商务",
+        "category": "caijing",
+        "code": "530702"
+      },
+      {
+        "name": "艺术设计",
+        "category": "wenyi",
+        "code": "550101"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "wenyi",
+        "code": "550103"
+      },
+      {
+        "name": "宝玉石鉴定与加工",
+        "category": "gonggong",
+        "code": "420801"
+      },
+      {
+        "name": "国土资源调查与管理",
+        "category": "gonggong",
+        "code": "420101"
+      },
+      {
+        "name": "地质调查与矿产普查",
+        "category": "gonggong",
+        "code": "420102"
+      },
+      {
+        "name": "工程地质勘查",
+        "category": "gonggong",
+        "code": "420201"
+      },
+      {
+        "name": "测绘地理信息技术",
+        "category": "gonggong",
+        "code": "420301"
+      }
+    ]
+  },
+  "17": {
+    "id": 17,
+    "name": "安徽广播影视职业技术学院",
+    "website": "https://www.ahbtu.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "新闻采编与制作",
+        "category": "wenyi",
+        "code": "560205"
+      },
+      {
+        "name": "播音与主持",
+        "category": "wenyi",
+        "code": "560201"
+      },
+      {
+        "name": "广播影视节目制作",
+        "category": "wenyi",
+        "code": "560202"
+      },
+      {
+        "name": "影视编导",
+        "category": "wenyi",
+        "code": "560204"
+      },
+      {
+        "name": "摄影摄像技术",
+        "category": "wenyi",
+        "code": "560203"
+      },
+      {
+        "name": "影视动画",
+        "category": "wenyi",
+        "code": "560206"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "艺术设计",
+        "category": "wenyi",
+        "code": "550101"
+      },
+      {
+        "name": "人物形象设计",
+        "category": "wenyi",
+        "code": "550117"
+      },
+      {
+        "name": "休闲体育",
+        "category": "jiaoyu",
+        "code": "570302"
+      },
+      {
+        "name": "体能训练",
+        "category": "jiaoyu",
+        "code": "570301"
+      },
+      {
+        "name": "健身指导与管理",
+        "category": "jiaoyu",
+        "code": "570307"
+      }
+    ]
+  },
+  "19": {
+    "id": 19,
+    "name": "安徽国际商务职业学院",
+    "website": "https://www.ahibvc.net",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "国际经济与贸易",
+        "category": "caijing",
+        "code": "530501"
+      },
+      {
+        "name": "国际贸易实务",
+        "category": "caijing",
+        "code": "530503"
+      },
+      {
+        "name": "国际商务",
+        "category": "caijing",
+        "code": "530502"
+      },
+      {
+        "name": "跨境电子商务",
+        "category": "caijing",
+        "code": "530702"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "网络营销与直播电商",
+        "category": "caijing",
+        "code": "530704"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "供应链运营",
+        "category": "caijing",
+        "code": "530804"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "财税大数据应用",
+        "category": "caijing",
+        "code": "530101"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "保险实务",
+        "category": "caijing",
+        "code": "530205"
+      },
+      {
+        "name": "商务英语",
+        "category": "jiaoyu",
+        "code": "570201"
+      },
+      {
+        "name": "商务日语",
+        "category": "jiaoyu",
+        "code": "570202"
+      },
+      {
+        "name": "应用韩语",
+        "category": "jiaoyu",
+        "code": "570203"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "烹调工艺与营养",
+        "category": "lvyou",
+        "code": "540202"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "艺术设计",
+        "category": "wenyi",
+        "code": "550101"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "高速铁路客运服务",
+        "category": "jiaotong",
+        "code": "500113"
+      },
+      {
+        "name": "空中乘务",
+        "category": "jiaotong",
+        "code": "500405"
+      },
+      {
+        "name": "现代物业管理",
+        "category": "gonggong",
+        "code": "590304"
+      },
+      {
+        "name": "人力资源管理",
+        "category": "gonggong",
+        "code": "590202"
+      },
+      {
+        "name": "商务管理",
+        "category": "caijing",
+        "code": "530602"
+      },
+      {
+        "name": "报关与国际货运",
+        "category": "caijing",
+        "code": "530504"
+      },
+      {
+        "name": "关务与外贸服务",
+        "category": "caijing",
+        "code": "530505"
+      }
+    ]
+  },
+  "22": {
+    "id": 22,
+    "name": "安徽交通职业技术学院",
+    "website": "https://www.acvtc.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "道路与桥梁工程技术",
+        "category": "jiaotong",
+        "code": "400101"
+      },
+      {
+        "name": "道路养护与管理",
+        "category": "jiaotong",
+        "code": "400104"
+      },
+      {
+        "name": "城市轨道交通工程技术",
+        "category": "jiaotong",
+        "code": "400601"
+      },
+      {
+        "name": "市政工程技术",
+        "category": "tumu",
+        "code": "440402"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "建设工程监理",
+        "category": "tumu",
+        "code": "440504"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "category": "jiaotong",
+        "code": "500210"
+      },
+      {
+        "name": "智能网联汽车技术",
+        "category": "zhuangbei",
+        "code": "460704"
+      },
+      {
+        "name": "道路机械化施工技术",
+        "category": "jiaotong",
+        "code": "400106"
+      },
+      {
+        "name": "工程机械运用技术",
+        "category": "zhuangbei",
+        "code": "460203"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "新能源装备技术",
+        "category": "zhuangbei",
+        "code": "460308"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "道路运输管理",
+        "category": "jiaotong",
+        "code": "500206"
+      },
+      {
+        "name": "交通运营管理",
+        "category": "jiaotong",
+        "code": "500201"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "高速铁路客运服务",
+        "category": "jiaotong",
+        "code": "500113"
+      },
+      {
+        "name": "空中乘务",
+        "category": "jiaotong",
+        "code": "500405"
+      },
+      {
+        "name": "邮轮乘务管理",
+        "category": "jiaotong",
+        "code": "500109"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "体育运营与管理",
+        "category": "jiaoyu",
+        "code": "570312"
+      },
+      {
+        "name": "体能训练",
+        "category": "jiaoyu",
+        "code": "570301"
+      },
+      {
+        "name": "健身指导与管理",
+        "category": "jiaoyu",
+        "code": "570307"
+      },
+      {
+        "name": "安全技术与管理",
+        "category": "gonggong",
+        "code": "420901"
+      },
+      {
+        "name": "无人机应用技术",
+        "category": "zhuangbei",
+        "code": "460609"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "跨境电子商务",
+        "category": "caijing",
+        "code": "530702"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      }
+    ]
+  },
+  "23": {
+    "id": 23,
+    "name": "安徽警官职业学院",
+    "website": "https://www.ahjgxy.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "法律事务",
+        "category": "falv",
+        "code": "580401"
+      },
+      {
+        "name": "法律文秘",
+        "category": "falv",
+        "code": "580402"
+      },
+      {
+        "name": "刑事执行",
+        "category": "falv",
+        "code": "580406"
+      },
+      {
+        "name": "行政执行",
+        "category": "falv",
+        "code": "580409"
+      },
+      {
+        "name": "司法警务",
+        "category": "falv",
+        "code": "580404"
+      },
+      {
+        "name": "社区矫正",
+        "category": "falv",
+        "code": "580408"
+      },
+      {
+        "name": "安全防范技术",
+        "category": "falv",
+        "code": "580411"
+      },
+      {
+        "name": "智能安防运营服务",
+        "category": "falv",
+        "code": "580412"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "信息安全技术应用",
+        "category": "dianxin",
+        "code": "510207"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "司法信息技术",
+        "category": "dianxin",
+        "code": "580405"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "公共事务管理",
+        "category": "gonggong",
+        "code": "590101"
+      },
+      {
+        "name": "人力资源管理",
+        "category": "gonggong",
+        "code": "590202"
+      },
+      {
+        "name": "商务英语",
+        "category": "jiaoyu",
+        "code": "570201"
+      },
+      {
+        "name": "体育运营与管理",
+        "category": "jiaoyu",
+        "code": "570312"
+      },
+      {
+        "name": "安全技术与管理",
+        "category": "gonggong",
+        "code": "420901"
+      }
+    ]
+  },
+  "24": {
+    "id": 24,
+    "name": "安徽粮食工程职业学院",
+    "website": "https://www.ahgagz.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "休闲服务与管理",
+        "category": "lvyou",
+        "code": "540110"
+      },
+      {
+        "name": "网络营销与直播电商",
+        "category": "caijing",
+        "code": "530704"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "机械制造及自动化",
+        "category": "zhuangbei",
+        "code": "460104"
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "category": "zhuangbei",
+        "code": "460701"
+      },
+      {
+        "name": "城市轨道交通机电技术",
+        "category": "jiaotong",
+        "code": "500613"
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "category": "zhuangbei",
+        "code": "460102"
+      },
+      {
+        "name": "智能机器人技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "粮食工程技术与管理",
+        "category": "shipin",
+        "code": "490301"
+      },
+      {
+        "name": "粮食储运与质量安全",
+        "category": "shipin",
+        "code": "490302"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "建设工程管理",
+        "category": "tumu",
+        "code": "440502"
+      },
+      {
+        "name": "建筑室内设计",
+        "category": "tumu",
+        "code": "440106"
+      },
+      {
+        "name": "现代农业技术",
+        "category": "nonglin",
+        "code": "410101"
+      },
+      {
+        "name": "摄影测量与遥感技术",
+        "category": "ziyuan",
+        "code": "420301"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "食品检验检测技术",
+        "category": "shipin",
+        "code": "490104"
+      },
+      {
+        "name": "食品智能加工技术",
+        "category": "shipin",
+        "code": "490101"
+      },
+      {
+        "name": "食品质量与安全",
+        "category": "shipin",
+        "code": "490102"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "烹饪工艺与营养",
+        "category": "lvyou",
+        "code": "540202"
+      },
+      {
+        "name": "酿酒技术",
+        "category": "shipin",
+        "code": "490105"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "wenyi",
+        "code": "550103"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550113"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "包装艺术设计",
+        "category": "wenyi",
+        "code": "550115"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      }
+    ]
+  },
+  "25": {
+    "id": 25,
+    "name": "安徽林业职业技术学院",
+    "website": "https://www.ahlyxy.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "园艺技术",
+        "category": "nonglin",
+        "code": "410105"
+      },
+      {
+        "name": "绿色食品生产技术",
+        "category": "nonglin",
+        "code": "410117"
+      },
+      {
+        "name": "绿色食品生产技术（天长工业学校）",
+        "category": "nonglin",
+        "code": "410117"
+      },
+      {
+        "name": "林业技术",
+        "category": "nonglin",
+        "code": "410201"
+      },
+      {
+        "name": "园林技术",
+        "category": "nonglin",
+        "code": "410202"
+      },
+      {
+        "name": "园林技术（天柱山旅游学校）",
+        "category": "nonglin",
+        "code": "410202"
+      },
+      {
+        "name": "林业信息技术应用",
+        "category": "nonglin",
+        "code": "410207"
+      },
+      {
+        "name": "现代竹木产品设计与制造",
+        "category": "nonglin",
+        "code": "410213"
+      },
+      {
+        "name": "生态保护技术",
+        "category": "nonglin",
+        "code": "410203"
+      },
+      {
+        "name": "森林草原防火技术",
+        "category": "nonglin",
+        "code": "410212"
+      },
+      {
+        "name": "建设工程监理",
+        "category": "tumu",
+        "code": "440504"
+      },
+      {
+        "name": "智能控制技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "智能机器人技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "无人机应用技术",
+        "category": "zhuangbei",
+        "code": "460609"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "dianxin",
+        "code": "510215"
+      },
+      {
+        "name": "视觉传达设计",
+        "category": "wenyi",
+        "code": "550102"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "森林生态旅游与康养",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "森林生态旅游与康养（天柱山旅游学校）",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "茶艺与茶文化",
+        "category": "nonglin",
+        "code": "510109"
+      }
+    ]
+  },
+  "26": {
+    "id": 26,
+    "name": "安徽汽车职业技术学院",
+    "website": "https://www.ahavtc.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "category": "zhuangbei",
+        "code": "460701"
+      },
+      {
+        "name": "智能网联汽车技术",
+        "category": "zhuangbei",
+        "code": "460704"
+      },
+      {
+        "name": "汽车电子技术",
+        "category": "zhuangbei",
+        "code": "460703"
+      },
+      {
+        "name": "汽车智能技术",
+        "category": "zhuangbei",
+        "code": "460705"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500211"
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "category": "jiaotong",
+        "code": "500209"
+      },
+      {
+        "name": "新能源汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500212"
+      },
+      {
+        "name": "城市轨道车辆应用技术",
+        "category": "jiaotong",
+        "code": "500607"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "数控技术",
+        "category": "zhuangbei",
+        "code": "460103"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "智能控制技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "数字化设计与制造技术",
+        "category": "zhuangbei",
+        "code": "460102"
+      },
+      {
+        "name": "工业过程自动化技术",
+        "category": "zhuangbei",
+        "code": "460307"
+      },
+      {
+        "name": "集成电路技术",
+        "category": "dianxin",
+        "code": "510401"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "电子信息工程技术",
+        "category": "dianxin",
+        "code": "510101"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      }
+    ]
+  },
+  "28": {
+    "id": 28,
+    "name": "安徽审计职业学院",
+    "website": "https://www.ahsjxy.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "大数据与审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "法律事务",
+        "category": "gonggong",
+        "code": "580401"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      },
+      {
+        "name": "会计信息管理",
+        "category": "caijing",
+        "code": "530304"
+      },
+      {
+        "name": "财税大数据应用",
+        "category": "caijing",
+        "code": "530401"
+      },
+      {
+        "name": "中小企业创业与经营",
+        "category": "caijing",
+        "code": "530604"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "建筑室内设计",
+        "category": "tumu",
+        "code": "440106"
+      },
+      {
+        "name": "现代物业管理",
+        "category": "gonggong",
+        "code": "540703"
+      },
+      {
+        "name": "资产评估与管理",
+        "category": "caijing",
+        "code": "530602"
+      },
+      {
+        "name": "风景园林设计",
+        "category": "tumu",
+        "code": "440105"
+      },
+      {
+        "name": "智能建造技术",
+        "category": "tumu",
+        "code": "440504"
+      },
+      {
+        "name": "无人机应用技术",
+        "category": "zhuangbei",
+        "code": "460609"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "wenyi",
+        "code": "550103"
+      },
+      {
+        "name": "建设工程管理",
+        "category": "tumu",
+        "code": "440502"
+      },
+      {
+        "name": "财富管理",
+        "category": "caijing",
+        "code": "530205"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "汽车技术服务与营销",
+        "category": "jiaotong",
+        "code": "500210"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "商务管理",
+        "category": "caijing",
+        "code": "530606"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "网络营销与直播电商",
+        "category": "caijing",
+        "code": "530704"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "党务工作",
+        "category": "gonggong",
+        "code": "590101"
+      }
+    ]
+  },
+  "29": {
+    "id": 29,
+    "name": "安徽水利水电职业技术学院",
+    "website": "https://www.ahsdy.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "现代物业管理",
+        "category": "gonggong",
+        "code": "540703"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "人力资源管理",
+        "category": "gonggong",
+        "code": "590102"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "应用电子技术",
+        "category": "dianxin",
+        "code": "510103"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "市政工程技术",
+        "category": "tumu",
+        "code": "440601"
+      },
+      {
+        "name": "给排水工程技术",
+        "category": "tumu",
+        "code": "440602"
+      },
+      {
+        "name": "城市轨道交通机电技术",
+        "category": "jiaotong",
+        "code": "460307"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "电力系统自动化技术",
+        "category": "nengyuan",
+        "code": "430101"
+      },
+      {
+        "name": "供用电技术",
+        "category": "nengyuan",
+        "code": "430108"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "无人机测绘技术",
+        "category": "ziyuan",
+        "code": "420302"
+      },
+      {
+        "name": "环境监测技术",
+        "category": "ziyuan",
+        "code": "420801"
+      },
+      {
+        "name": "环境工程技术",
+        "category": "ziyuan",
+        "code": "420802"
+      },
+      {
+        "name": "水文与水资源技术",
+        "category": "shuili",
+        "code": "450101"
+      },
+      {
+        "name": "水利水电工程智能管理",
+        "category": "shuili",
+        "code": "450104"
+      },
+      {
+        "name": "水土保持技术",
+        "category": "shuili",
+        "code": "450105"
+      },
+      {
+        "name": "水利工程",
+        "category": "shuili",
+        "code": "450201"
+      },
+      {
+        "name": "智慧水利技术",
+        "category": "shuili",
+        "code": "450207"
+      },
+      {
+        "name": "水利水电工程技术",
+        "category": "shuili",
+        "code": "450202"
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "智能建造技术",
+        "category": "tumu",
+        "code": "440504"
+      },
+      {
+        "name": "建设工程管理",
+        "category": "tumu",
+        "code": "440502"
+      },
+      {
+        "name": "数控技术",
+        "category": "zhuangbei",
+        "code": "460103"
+      },
+      {
+        "name": "机械制造及自动化",
+        "category": "zhuangbei",
+        "code": "460101"
+      },
+      {
+        "name": "模具设计与制造",
+        "category": "zhuangbei",
+        "code": "460113"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "智能网联汽车技术",
+        "category": "zhuangbei",
+        "code": "460704"
+      },
+      {
+        "name": "新能源汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500212"
+      }
+    ]
+  },
+  "30": {
+    "id": 30,
+    "name": "安徽体育运动职业技术学院",
+    "website": "https://www.ahty.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "体育教育",
+        "category": "jiaoyu",
+        "code": "570103K"
+      },
+      {
+        "name": "康复治疗技术",
+        "category": "yiyao",
+        "code": "520601"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "jiaoyu",
+        "code": "590302"
+      },
+      {
+        "name": "国际标准舞",
+        "category": "wenyi",
+        "code": "550209"
+      },
+      {
+        "name": "社会体育",
+        "category": "jiaoyu",
+        "code": "570304"
+      },
+      {
+        "name": "休闲体育",
+        "category": "jiaoyu",
+        "code": "570302"
+      },
+      {
+        "name": "运动训练",
+        "category": "jiaoyu",
+        "code": "570303"
+      },
+      {
+        "name": "民族传统体育",
+        "category": "jiaoyu",
+        "code": "570305"
+      },
+      {
+        "name": "体育保健与康复",
+        "category": "jiaoyu",
+        "code": "570306"
+      },
+      {
+        "name": "健身指导与管理",
+        "category": "jiaoyu",
+        "code": "570301"
+      },
+      {
+        "name": "运动健康指导",
+        "category": "jiaoyu",
+        "code": "570307"
+      },
+      {
+        "name": "运动数据分析",
+        "category": "jiaoyu",
+        "code": "570308"
+      },
+      {
+        "name": "体能训练",
+        "category": "jiaoyu",
+        "code": "570309"
+      },
+      {
+        "name": "体育运营与管理",
+        "category": "jiaoyu",
+        "code": "570310"
+      },
+      {
+        "name": "电子竞技运动与管理",
+        "category": "jiaoyu",
+        "code": "570312"
+      },
+      {
+        "name": "冰雪运动与管理",
+        "category": "jiaoyu",
+        "code": "570314"
+      },
+      {
+        "name": "体育艺术表演",
+        "category": "wenyi",
+        "code": "570315"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "gonggong",
+        "code": "590301"
+      },
+      {
+        "name": "休闲服务与管理",
+        "category": "lvyou",
+        "code": "540106"
+      }
+    ]
+  },
+  "32": {
+    "id": 32,
+    "name": "安徽新闻出版职业技术学院",
+    "website": "https://www.acp.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "新闻采编与制作",
+        "category": "xinwen",
+        "code": "560701"
+      },
+      {
+        "name": "摄影摄像技术",
+        "category": "xinwen",
+        "code": "560201"
+      },
+      {
+        "name": "播音与主持",
+        "category": "xinwen",
+        "code": "560202"
+      },
+      {
+        "name": "舞台艺术设计与制作",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "影视编导",
+        "category": "xinwen",
+        "code": "560204"
+      },
+      {
+        "name": "影视动画",
+        "category": "xinwen",
+        "code": "560206"
+      },
+      {
+        "name": "融媒体技术与运营",
+        "category": "xinwen",
+        "code": "560208"
+      },
+      {
+        "name": "广告艺术设计",
+        "category": "wenyi",
+        "code": "550109"
+      },
+      {
+        "name": "动漫制作技术",
+        "category": "wenyi",
+        "code": "510215"
+      },
+      {
+        "name": "视觉传达设计",
+        "category": "wenyi",
+        "code": "550102"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "wenyi",
+        "code": "550103"
+      },
+      {
+        "name": "建筑室内设计",
+        "category": "tumu",
+        "code": "440106"
+      },
+      {
+        "name": "数字媒体技术",
+        "category": "dianxin",
+        "code": "510204"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "信息安全技术应用",
+        "category": "dianxin",
+        "code": "510207"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "印刷媒体技术",
+        "category": "qinggong",
+        "code": "480301"
+      },
+      {
+        "name": "包装策划与设计",
+        "category": "qinggong",
+        "code": "480202"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "党务工作",
+        "category": "gonggong",
+        "code": "590101"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "网络营销与直播电商",
+        "category": "caijing",
+        "code": "530704"
+      }
+    ]
+  },
+  "33": {
+    "id": 33,
+    "name": "安徽艺术职业学院",
+    "website": "https://www.ahartschool.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "高速铁路客运服务",
+        "category": "jiaotong",
+        "code": "500113"
+      },
+      {
+        "name": "国际邮轮乘务管理",
+        "category": "jiaotong",
+        "code": "500102"
+      },
+      {
+        "name": "空中乘务",
+        "category": "jiaotong",
+        "code": "500405"
+      },
+      {
+        "name": "艺术设计",
+        "category": "wenyi",
+        "code": "550101"
+      },
+      {
+        "name": "视觉传达设计",
+        "category": "wenyi",
+        "code": "550102"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "wenyi",
+        "code": "550103"
+      },
+      {
+        "name": "服装与服饰设计",
+        "category": "wenyi",
+        "code": "550105"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "wenyi",
+        "code": "550106"
+      },
+      {
+        "name": "书画艺术",
+        "category": "wenyi",
+        "code": "550107"
+      },
+      {
+        "name": "动漫设计",
+        "category": "wenyi",
+        "code": "550116"
+      },
+      {
+        "name": "人物形象设计",
+        "category": "wenyi",
+        "code": "550117"
+      },
+      {
+        "name": "音乐表演",
+        "category": "wenyi",
+        "code": "550201"
+      },
+      {
+        "name": "表演艺术",
+        "category": "wenyi",
+        "code": "550204"
+      },
+      {
+        "name": "戏剧影视表演",
+        "category": "wenyi",
+        "code": "550205"
+      },
+      {
+        "name": "音乐剧表演",
+        "category": "wenyi",
+        "code": "550206"
+      },
+      {
+        "name": "播音与主持",
+        "category": "xinwen",
+        "code": "560201"
+      },
+      {
+        "name": "影视编导",
+        "category": "xinwen",
+        "code": "560204"
+      },
+      {
+        "name": "影视多媒体技术",
+        "category": "xinwen",
+        "code": "560208"
+      },
+      {
+        "name": "摄影摄像技术",
+        "category": "xinwen",
+        "code": "560209"
+      },
+      {
+        "name": "舞蹈表演",
+        "category": "wenyi",
+        "code": "550202"
+      }
+    ]
+  },
+  "34": {
+    "id": 34,
+    "name": "安徽邮电职业技术学院",
+    "website": "https://www.ahptec.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "通信技术",
+        "category": "dianxin",
+        "code": "510301"
+      },
+      {
+        "name": "现代移动通信技术",
+        "category": "dianxin",
+        "code": "510302"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianxin",
+        "code": "510202"
+      },
+      {
+        "name": "软件技术",
+        "category": "dianxin",
+        "code": "510203"
+      },
+      {
+        "name": "大数据技术",
+        "category": "dianxin",
+        "code": "510205"
+      },
+      {
+        "name": "信息安全技术应用",
+        "category": "dianxin",
+        "code": "510207"
+      },
+      {
+        "name": "人工智能技术应用",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "云计算技术应用",
+        "category": "dianxin",
+        "code": "510206"
+      },
+      {
+        "name": "物联网应用技术",
+        "category": "dianxin",
+        "code": "510102"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "会计信息管理",
+        "category": "caijing",
+        "code": "530304"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "智能产品开发与应用",
+        "category": "dianxin",
+        "code": "510108"
+      },
+      {
+        "name": "机电设备技术",
+        "category": "zhuangbei",
+        "code": "460202"
+      },
+      {
+        "name": "电梯工程技术",
+        "category": "zhuangbei",
+        "code": "460201"
+      },
+      {
+        "name": "建筑消防技术",
+        "category": "tumu",
+        "code": "440406"
+      },
+      {
+        "name": "无人机应用技术",
+        "category": "zhuangbei",
+        "code": "460609"
+      },
+      {
+        "name": "光伏工程技术",
+        "category": "nengyuan",
+        "code": "430107"
+      }
+    ]
+  },
+  "35": {
+    "id": 35,
+    "name": "安徽职业技术大学",
+    "website": "https://www.uta.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "护理",
+        "category": "yiyao",
+        "code": "520201"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500210"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "学前教育",
+        "category": "jiaoyu",
+        "code": "570102K"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      }
+    ]
+  },
+  "36": {
+    "id": 36,
+    "name": "安徽中澳科技职业学院",
+    "website": "https://www.acac.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "学前教育",
+        "category": "jiaoyu",
+        "code": "570102K"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "汽车检测与维修技术",
+        "category": "jiaotong",
+        "code": "500210"
+      },
+      {
+        "name": "护理",
+        "category": "yiyao",
+        "code": "520201"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      }
+    ]
+  },
+  "43": {
+    "id": 43,
+    "name": "合肥通用职业技术学院",
+    "website": "https://www.hftyxy.com",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "安全技术与管理",
+        "category": "nengyuan",
+        "code": "430205"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "机械制造及自动化",
+        "category": "zhuangbei",
+        "code": "460104"
+      },
+      {
+        "name": "数控技术",
+        "category": "zhuangbei",
+        "code": "460103"
+      },
+      {
+        "name": "制冷与空调技术",
+        "category": "zhuangbei",
+        "code": "460201"
+      },
+      {
+        "name": "氢能技术应用",
+        "category": "nengyuan",
+        "code": "430108"
+      },
+      {
+        "name": "电气自动化技术",
+        "category": "zhuangbei",
+        "code": "460306"
+      },
+      {
+        "name": "工业机器人技术",
+        "category": "zhuangbei",
+        "code": "460305"
+      },
+      {
+        "name": "光电显示技术",
+        "category": "dianxin",
+        "code": "510209"
+      },
+      {
+        "name": "应用电子技术",
+        "category": "dianxin",
+        "code": "510103"
+      },
+      {
+        "name": "智能控制技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "计算机应用技术",
+        "category": "dianxin",
+        "code": "510201"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "婴幼儿托育服务与管理",
+        "category": "gonggong",
+        "code": "590302"
+      },
+      {
+        "name": "工业产品质量检测技术",
+        "category": "zhuangbei",
+        "code": "460105"
+      },
+      {
+        "name": "计量测试与应用技术",
+        "category": "zhuangbei",
+        "code": "460106"
+      },
+      {
+        "name": "质量管理与认证",
+        "category": "zhuangbei",
+        "code": "460107"
+      }
+    ]
+  },
+  "44": {
+    "id": 44,
+    "name": "合肥职业技术学院",
+    "website": "https://www.hfvtc.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "储能材料技术",
+        "category": "nengyuan",
+        "code": "430602"
+      },
+      {
+        "name": "机械设计与制造",
+        "category": "zhuangbei",
+        "code": "460101"
+      },
+      {
+        "name": "智能焊接技术",
+        "category": "zhuangbei",
+        "code": "460110"
+      },
+      {
+        "name": "模具设计与制造",
+        "category": "zhuangbei",
+        "code": "460113"
+      },
+      {
+        "name": "机电一体化技术",
+        "category": "zhuangbei",
+        "code": "460301"
+      },
+      {
+        "name": "智能控制技术",
+        "category": "zhuangbei",
+        "code": "460303"
+      },
+      {
+        "name": "建筑装饰工程技术",
+        "category": "tumu",
+        "code": "440102"
+      },
+      {
+        "name": "建筑工程技术",
+        "category": "tumu",
+        "code": "440301"
+      },
+      {
+        "name": "工程造价",
+        "category": "tumu",
+        "code": "440501"
+      },
+      {
+        "name": "建设工程管理",
+        "category": "tumu",
+        "code": "440502"
+      },
+      {
+        "name": "环境艺术设计",
+        "category": "tumu",
+        "code": "440106"
+      },
+      {
+        "name": "金融科技应用",
+        "category": "caijing",
+        "code": "530207"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "旅游管理",
+        "category": "lvyou",
+        "code": "540101"
+      },
+      {
+        "name": "酒店管理与数字化运营",
+        "category": "lvyou",
+        "code": "540106"
+      },
+      {
+        "name": "汽车制造与试验技术",
+        "category": "zhuangbei",
+        "code": "460701"
+      },
+      {
+        "name": "新能源汽车技术",
+        "category": "zhuangbei",
+        "code": "460702"
+      },
+      {
+        "name": "智能网联汽车技术",
+        "category": "zhuangbei",
+        "code": "460704"
+      },
+      {
+        "name": "城市轨道车辆应用技术",
+        "category": "jiaotong",
+        "code": "500602"
+      },
+      {
+        "name": "城市轨道交通通信信号技术",
+        "category": "jiaotong",
+        "code": "500604"
+      },
+      {
+        "name": "城市轨道交通运营管理",
+        "category": "jiaotong",
+        "code": "500606"
+      },
+      {
+        "name": "园林技术",
+        "category": "nonglin",
+        "code": "410202"
+      },
+      {
+        "name": "食品检验检测技术",
+        "category": "shipin",
+        "code": "490104"
+      },
+      {
+        "name": "药品生产技术",
+        "category": "yiyao",
+        "code": "490201"
+      },
+      {
+        "name": "药品质量与安全",
+        "category": "yiyao",
+        "code": "490204"
+      },
+      {
+        "name": "药学",
+        "category": "yiyao",
+        "code": "520301"
+      },
+      {
+        "name": "计算机网络技术",
+        "category": "dianzi",
+        "code": "510202"
+      },
+      {
+        "name": "数字媒体艺术设计",
+        "category": "yishu",
+        "code": "550103"
+      },
+      {
+        "name": "临床医学",
+        "category": "yiyao",
+        "code": "520101K"
+      },
+      {
+        "name": "护理",
+        "category": "yiyao",
+        "code": "520201"
+      },
+      {
+        "name": "医学检验技术",
+        "category": "yiyao",
+        "code": "520501"
+      },
+      {
+        "name": "康复治疗技术",
+        "category": "yiyao",
+        "code": "520601"
+      },
+      {
+        "name": "智慧健康养老服务与管理",
+        "category": "guanli",
+        "code": "590302"
+      }
+    ]
+  },
+  "49": {
+    "id": 49,
+    "name": "徽商职业学院",
+    "website": "https://www.huishangxy.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "审计",
+        "category": "caijing",
+        "code": "530303"
+      },
+      {
+        "name": "国际经济与贸易",
+        "category": "caijing",
+        "code": "530501"
+      },
+      {
+        "name": "市场营销",
+        "category": "caijing",
+        "code": "530605"
+      },
+      {
+        "name": "金融服务与管理",
+        "category": "caijing",
+        "code": "530201"
+      },
+      {
+        "name": "现代物流管理",
+        "category": "caijing",
+        "code": "530802"
+      },
+      {
+        "name": "电子商务",
+        "category": "caijing",
+        "code": "530701"
+      },
+      {
+        "name": "商务英语",
+        "category": "jiaoyu",
+        "code": "570201"
+      },
+      {
+        "name": "跨境电子商务",
+        "category": "caijing",
+        "code": "530702"
+      },
+      {
+        "name": "大数据与会计",
+        "category": "caijing",
+        "code": "530302"
+      },
+      {
+        "name": "大数据与财务管理",
+        "category": "caijing",
+        "code": "530301"
+      }
+    ]
+  },
+  "75": {
+    "id": 75,
+    "name": "安徽艺术学院",
+    "website": "https://www.ahart.edu.cn",
+    "city": "合肥",
+    "majors": [
+      {
+        "name": "非物质文化遗产保护",
+        "category": "wenyi",
+        "code": "550108"
+      },
+      {
+        "name": "舞蹈表演",
+        "category": "wenyi",
+        "code": "550202"
+      },
+      {
+        "name": "表演（黄梅戏方向）",
+        "category": "wenyi",
+        "code": "550205"
+      }
+    ]
+  }
+}
