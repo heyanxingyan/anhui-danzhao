@@ -3464,7 +3464,7 @@ const COLLEGES = [
 
 function getCollegeById(id){return COLLEGES.find(c=>c.id===Number(id));}
 function getMajorCategoryName(key){const m=MAJOR_CATEGORIES.find(c=>c.key===key);return m?m.name:key;}
-function getAllMajors(){const map={};COLLEGES.forEach(c=>{c.majors.forEach(m=>{if(!map[m.name])map[m.name]={name:m.name,code:m.code,category:m.category,schools:[]};map[m.name].schools.push({collegeId:c.id,collegeName:c.name,fee:m.fee,minScore2024:c.minScore2024,city:c.city,nature:c.nature});});});return Object.values(map);}
+function getAllMajors(){const map={};COLLEGES.forEach(c=>{c.majors.forEach(m=>{if(!map[m.name])map[m.name]={name:m.name,code:m.code,category:m.category,schools:[]};map[m.name].schools.push({collegeId:c.id,collegeName:c.name,fee:m.fee,minScore2024:c.minScore2024,city:c.city,nature:c.nature});});});if(typeof ZHONGZHI_DATA!=='undefined'&&ZHONGZHI_DATA.lianheMajors){ZHONGZHI_DATA.lianheMajors.forEach(item=>{if(!item.major)return;const mname=item.major;if(!map[mname])map[mname]={name:mname,code:'-',category:'gonggong',schools:[]};const college=COLLEGES.find(c=>c.name===item.gaozhiSchool);map[mname].schools.push({collegeId:college?college.id:0,collegeName:item.gaozhiSchool+'（专业学院）',fee:item.fee||'-',minScore2024:0,city:college?college.city:'-',nature:college?college.nature:'公办'});});}return Object.values(map);}
 
 /* ============================================================
  * 字段补全（74所全覆盖）：校考占比 / 就业率 / 专升本率 /
