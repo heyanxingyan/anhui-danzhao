@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>专业查询 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="major-search">
+  <div class="page">
+    <div class="navbar">
+      <div class="title">专业查询</div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-bar">
+      <span class="icon">🔍</span>
+      <input type="text" id="major-search" placeholder="输入专业名称，如：护理、计算机">
+    </div>
+
+    <!-- 专业大类筛选 -->
+    <div class="filter-bar" id="major-cat-filter"></div>
+
+    <!-- 专业列表 -->
+    <div id="major-list" style="padding-bottom:20px"></div>
+
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
