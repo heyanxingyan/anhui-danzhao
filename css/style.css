@@ -1,0 +1,1098 @@
+/* ============================================================
+ * 安徽单招信息查询 - 全局样式
+ * 移动端优先
+ * ============================================================ */
+
+:root {
+  --primary: #1677ff;
+  --primary-light: #e6f4ff;
+  --success: #52c41a;
+  --warning: #faad14;
+  --danger: #ff4d4f;
+  --text: #1f1f1f;
+  --text-secondary: #666;
+  --text-light: #999;
+  --bg: #f5f6f8;
+  --card-bg: #ffffff;
+  --border: #ebedf0;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 4px 16px rgba(22, 119, 255, 0.12);
+  --tabbar-height: 56px;
+  --header-height: 48px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, select {
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  border: none;
+}
+
+/* ========== 页面容器 ========== */
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px));
+  animation: pageIn 0.25s ease-out;
+}
+
+.page.no-tabbar {
+  padding-bottom: 0;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== 顶部标题栏 ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  box-shadow: 0 1px 4px rgba(22, 119, 255, 0.2);
+}
+
+.navbar .back-btn {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+}
+
+.navbar .title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.navbar .right-action {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* ========== 底部 Tab 导航 ========== */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: #fff;
+  border-top: 1px solid var(--border);
+  display: flex;
+  z-index: 100;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--text-light);
+  font-size: 11px;
+  transition: color 0.2s;
+}
+
+.tabbar-item .icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.tabbar-item.active {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ========== 通用卡片 ========== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  margin: 10px 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/* ========== 首页 Banner ========== */
+.banner {
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  height: 140px;
+  box-shadow: var(--shadow);
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.banner-slide.active {
+  opacity: 1;
+}
+
+.banner-slide .banner-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.banner-slide .banner-sub {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.banner-dots {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  display: flex;
+  gap: 5px;
+}
+
+.banner-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: all 0.3s;
+}
+
+.banner-dots .dot.active {
+  background: #fff;
+  width: 16px;
+  border-radius: 3px;
+}
+
+/* ========== 板块入口卡片 ========== */
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 16px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title .more {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: normal;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.category-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 18px 8px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.category-card:active {
+  transform: scale(0.96);
+}
+
+.category-card .icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.category-card .name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ========== 横向滚动列表 ========== */
+.h-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 4px 12px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.h-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.h-scroll .college-chip {
+  flex: 0 0 auto;
+  width: 140px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.h-scroll .college-chip .name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 36px;
+}
+
+.h-scroll .college-chip .meta {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.h-scroll .college-chip .score {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ========== 搜索框 ========== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 12px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 8px 14px;
+  box-shadow: var(--shadow);
+}
+
+.search-bar .icon {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+
+.search-bar .clear {
+  color: var(--text-light);
+  font-size: 16px;
+  padding: 2px 6px;
+  display: none;
+}
+
+/* ========== 筛选栏 ========== */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 4px 12px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text-secondary);
+  font-size: 13px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.filter-chip.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ========== 院校卡片 ========== */
+.college-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 14px;
+  margin: 0 12px 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.college-card:active {
+  transform: scale(0.99);
+}
+
+.college-card .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.college-card .name {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.college-card .tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tag-public { background: var(--primary-light); color: var(--primary); }
+.tag-private { background: #fff7e6; color: var(--warning); }
+.tag-hot { background: #fff1f0; color: var(--danger); }
+.tag-type { background: #f6ffed; color: var(--success); }
+
+.college-card .meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.college-card .meta-row .score {
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.college-card .meta-row .plan {
+  color: var(--text-light);
+}
+
+/* ========== 详情页 ========== */
+.detail-header {
+  background: linear-gradient(135deg, var(--primary), #4096ff);
+  color: #fff;
+  padding: 20px 16px;
+}
+
+.detail-header .name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.detail-header .sub {
+  font-size: 13px;
+  opacity: 0.9;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fav-btn {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.fav-btn.active {
+  color: var(--warning);
+}
+
+.info-grid {
+  background: #fff;
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.info-grid .row {
+  display: flex;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.info-grid .row:last-child { border-bottom: none; }
+
+.info-grid .label {
+  width: 80px;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.info-grid .value {
+  flex: 1;
+  color: var(--text);
+  word-break: break-all;
+}
+
+.info-grid .value a {
+  color: var(--primary);
+}
+
+/* ========== Tab 切换 ========== */
+.tab-switch {
+  display: flex;
+  background: #fff;
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tab-switch .tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  position: relative;
+  transition: all 0.2s;
+}
+
+.tab-switch .tab-item.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.tab-switch .tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: pageIn 0.25s ease-out;
+}
+
+/* ========== 表格 ========== */
+.table-wrap {
+  background: #fff;
+  margin: 0 12px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table-wrap th, .table-wrap td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-wrap th {
+  background: #fafafa;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.table-wrap tr:last-child td { border-bottom: none; }
+
+/* ========== 图表容器 ========== */
+.chart-box {
+  background: #fff;
+  margin: 0 12px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+}
+
+.chart-box .chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.chart {
+  width: 100%;
+  height: 280px;
+}
+
+.chart-tall {
+  height: 320px;
+}
+
+/* ========== 专业列表 ========== */
+.major-item {
+  background: #fff;
+  margin: 0 12px 8px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.major-item .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.major-item .m-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.major-item .m-code {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.major-item .m-cat {
+  font-size: 11px;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.major-item .schools-toggle {
+  font-size: 12px;
+  color: var(--primary);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.major-item .schools-list {
+  display: none;
+  margin-top: 8px;
+}
+
+.major-item .schools-list.open {
+  display: block;
+}
+
+.school-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.school-row:last-child { border-bottom: none; }
+
+.school-row .s-name {
+  flex: 1;
+  color: var(--text);
+}
+
+.school-row .s-score {
+  color: var(--danger);
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ========== 空状态 ========== */
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.empty .icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* ========== 加载更多 ========== */
+.load-more {
+  text-align: center;
+  padding: 16px;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* ========== 板块说明页 ========== */
+.category-detail {
+  background: #fff;
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.category-detail .cat-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.category-detail .cat-head .icon {
+  font-size: 36px;
+}
+
+.category-detail .cat-head .name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.info-block {
+  margin-bottom: 14px;
+}
+
+.info-block .info-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.info-block .info-content {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========== 按钮 ========== */
+.btn-primary {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 12px;
+  padding: 12px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 22px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(22, 119, 255, 0.3);
+}
+
+.btn-primary:active {
+  opacity: 0.9;
+}
+
+/* ========== 选择框 ========== */
+.select-wrap {
+  margin: 10px 12px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-wrap label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.select-wrap select {
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ========== 说明文字 ========== */
+.note {
+  font-size: 12px;
+  color: var(--text-light);
+  padding: 8px 16px 16px;
+  line-height: 1.6;
+}
+
+.about-section {
+  background: #fff;
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.about-section h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.about-section p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* ========== Toast ========== */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ========== 中职板块子标签 ========== */
+.subtabs {
+  display: flex;
+  gap: 10px;
+  margin: 12px 12px 4px;
+}
+
+.subtab {
+  flex: 1;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.subtab.active {
+  color: #389e0d;
+  font-weight: 600;
+  border-color: #b7eb8f;
+  background: linear-gradient(135deg, #f6ffed, #d9f7be);
+}
+
+.subtab[data-tab="benke"].active {
+  color: #531dab;
+  border-color: #d3adf7;
+  background: linear-gradient(135deg, #f9f0ff, #efdbff);
+}
+
+.zz-tip {
+  margin: 10px 12px;
+  padding: 8px 12px;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #389e0d;
+  line-height: 1.5;
+}
+
+#panel-benke .zz-tip {
+  background: #f9f0ff;
+  border-color: #d3adf7;
+  color: #531dab;
+}
+
+/* ========== 全站底部署名水印 ========== */
+.site-footer {
+  padding: 16px 12px 8px;
+  text-align: center;
+  font-size: 11px;
+  color: #c0c4cc;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+}
+
+/* ========== 首页 Banner 半透明水印 ========== */
+.banner-watermark {
+  position: absolute;
+  bottom: 8px;
+  left: 14px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ========== 详情页：加入对比按钮 ========== */
+.cmp-btn {
+  position: absolute;
+  right: 60px;
+  top: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 14px;
+}
+
+.cmp-btn.active {
+  background: #fff;
+  color: #722ed1;
+  font-weight: 600;
+}
+
+/* ========== 首页实用工具格 ========== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.tool-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 14px 4px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.tool-card:active { transform: scale(0.96); }
+.tool-card .icon { font-size: 24px; }
+.tool-card .name { font-size: 12px; margin-top: 6px; color: var(--text-secondary); }
+
+/* ========== 页脚快捷导航 ========== */
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 14px 12px 4px;
+}
+
+.foot-nav a {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 14px;
+}
+
+/* ========== 院校对比表 ========== */
+.compare-table {
+  min-width: 420px;
+  font-size: 12px;
+}
+
+.compare-table th.dim,
+.compare-table td.dim {
+  color: var(--text-light);
+  font-weight: normal;
+  background: #fafafa;
+  width: 84px;
+  white-space: nowrap;
+}
+
+.compare-table .cmp-remove {
+  margin-left: 6px;
+  color: #ff4d4f;
+  font-size: 11px;
+}
+
+/* ========== 常见问题折叠 ========== */
+.faq-item {
+  background: #fff;
+  margin: 0 12px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.faq-arrow {
+  color: var(--text-light);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 14px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* ========== 分数推荐分组 ========== */
+.rec-group { margin-bottom: 6px; }
+.rec-title {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 12px 6px;
+}
+
+/* ========== 低分上公办攻略页 ========== */
+.ls-banner { margin: 10px 12px; padding: 14px; border-radius: var(--radius); background: linear-gradient(135deg,#ff4d4f,#fa8c16); color:#fff; display:flex; gap:10px; align-items:center; box-shadow:0 4px 12px rgba(250,140,22,.35); }
+.ls-banner-emoji { font-size:32px; }
+.ls-banner-title { font-size:16px; font-weight:700; }
+.ls-banner-sub { font-size:11px; opacity:.9; margin-top:3px; }
+.ls-tip { margin:0 12px 10px; padding:10px 12px; background:#e6f4ff; border-left:3px solid #1677ff; border-radius:6px; font-size:12px; color:#0958d9; line-height:1.7; }
+.ls-card { margin:0 12px 8px; padding:12px 14px; background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); border-left:4px solid; }
+.ls-card.ls-pro { border-color:#52c41a; }
+.ls-card.ls-con { border-color:#fa8c16; }
+.ls-card-title { font-size:14px; margin-bottom:4px; }
+.ls-card-body { font-size:12px; color:var(--text-secondary); line-height:1.7; }
+.ls-cat-card { margin:0 12px 10px; background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+.ls-cat-head { padding:12px 14px; cursor:pointer; }
+.ls-cat-title { font-size:15px; font-weight:600; }
+.ls-cat-meta { display:flex; justify-content:space-between; margin:6px 0; font-size:12px; color:var(--text-secondary); }
+.ls-badge { background:#e6f4ff; color:#1677ff; padding:2px 8px; border-radius:10px; }
+.ls-cat-rep { font-size:11px; color:var(--text-light); line-height:1.8; }
+.ls-tag { display:inline-block; background:#f5f5f5; color:var(--text-secondary); font-size:11px; padding:2px 8px; border-radius:4px; margin:2px 4px 2px 0; }
+.ls-cat-arrow { font-size:12px; color:#1677ff; margin-top:6px; }
+.ls-cat-body { border-top:1px dashed var(--border); padding:10px 14px; background:#fafafa; }
+.ls-college-block { margin-bottom:10px; }
+.ls-college-name { font-size:13px; font-weight:600; color:var(--text); }
+.ls-sc-block { margin:6px 0 6px 8px; }
+.ls-sc-name { font-size:12px; color:#1677ff; margin-bottom:3px; }
+.ls-city-chips { display:flex; flex-wrap:wrap; gap:6px; padding:0 12px 8px; }
+.ls-chip { font-size:12px; padding:5px 12px; border-radius:14px; background:#fff; border:1px solid var(--border); color:var(--text-secondary); }
+.ls-chip.active { background:#1677ff; color:#fff; border-color:#1677ff; }
+.ls-city-block { margin:0 12px 12px; }
+.ls-city-title { font-size:14px; font-weight:600; padding:6px 0; }
+.ls-school-card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:10px 12px; margin-bottom:8px; }
+.ls-school-name { font-size:13px; font-weight:600; }
+.ls-school-addr { font-size:12px; color:var(--text-secondary); margin-top:4px; line-height:1.6; }
+.ls-school-prog { font-size:11px; color:#389e0d; margin-top:6px; line-height:1.7; }
+.ls-school-src { font-size:10px; color:var(--text-light); margin-top:6px; word-break:break-all; }
+.ls-empty { text-align:center; color:var(--text-light); padding:30px 0; font-size:13px; }
