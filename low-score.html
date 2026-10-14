@@ -82,6 +82,13 @@
         <div class="ls-section-tab active" data-section="gaozhi" onclick="lsSwitchSection('gaozhi')">🏫 高职院校</div>
         <div class="ls-section-tab" data-section="zhongzhi" onclick="lsSwitchSection('zhongzhi')">📍 中职学校</div>
       </div>
+      
+      <!-- 搜索栏 -->
+      <div class="search-bar" style="margin:0 16px 12px">
+        <span class="icon">🔍</span>
+        <input type="text" id="ls-search-input" placeholder="输入学校名搜索">
+        <button class="clear" id="ls-search-clear">✕</button>
+      </div>
 
       <!-- 高职列表 -->
       <div class="ls-school-list" id="ls-gaozhi-list"></div>
