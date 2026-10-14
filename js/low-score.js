@@ -118,23 +118,36 @@ function lsGetZhongzhiCity(name) {
 }
 
 // ===== 切换高职/中职板块 =====
+let lsCurrentSection = 'gaozhi';
+let lsCurrentKeyword = '';
+
 function lsSwitchSection(section) {
+  lsCurrentSection = section;
   document.querySelectorAll('.ls-section-tab').forEach(t => t.classList.remove('active'));
   document.querySelector(`.ls-section-tab[data-section="${section}"]`).classList.add('active');
   document.getElementById('ls-gaozhi-list').style.display = section === 'gaozhi' ? 'block' : 'none';
   document.getElementById('ls-zhongzhi-list').style.display = section === 'zhongzhi' ? 'block' : 'none';
+  // 切换板块后重新渲染（应用搜索关键词）
+  lsRenderAll();
 }
 
 // ===== 渲染高职列表 =====
 function lsRenderGaozhiList() {
   const map = lsBuildGaozhiMap();
-  const list = Object.entries(map).map(([name, items]) => {
+  let list = Object.entries(map).map(([name, items]) => {
     const zhongzhiSet = new Set(items.map(i => i.zhongzhiSchool));
     const totalPlan = items.reduce((s, i) => s + (i.plan2026 || 0), 0);
     return { name, zhongzhiCount: zhongzhiSet.size, majorCount: items.length, totalPlan, items };
   }).sort((a, b) => b.totalPlan - a.totalPlan);
+  
+  // 搜索过滤
+  if (lsCurrentKeyword) {
+    const kw = lsCurrentKeyword.toLowerCase();
+    list = list.filter(s => s.name.toLowerCase().includes(kw));
+  }
 
-  document.getElementById('ls-gaozhi-list').innerHTML = list.map(s => `
+  const el = document.getElementById('ls-gaozhi-list');
+  el.innerHTML = list.map(s => `
     <div class="ls-school-card" onclick="lsShowGaozhiDetail('${s.name.replace(/'/g, "\\'")}')">
       <div class="ls-school-name">🏫 ${s.name}</div>
       <div class="ls-school-meta">
@@ -143,20 +156,31 @@ function lsRenderGaozhiList() {
         <span>👥 2026计划 ${s.totalPlan} 人</span>
       </div>
     </div>`).join('');
+  
+  if (list.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999;font-size:14px">未找到相关学校</div>';
+  }
 }
 
 // ===== 渲染中职列表 =====
 function lsRenderZhongzhiList() {
   const map = lsBuildZhongzhiMap();
-  const list = Object.entries(map).map(([name, items]) => {
+  let list = Object.entries(map).map(([name, items]) => {
     const gaozhiSet = new Set(items.map(i => i.gaozhiSchool));
     const totalPlan = items.reduce((s, i) => s + (i.plan2026 || 0), 0);
     const addr = lsGetZhongzhiAddr(name);
     const city = lsGetZhongzhiCity(name);
     return { name, gaozhiCount: gaozhiSet.size, majorCount: items.length, totalPlan, addr, city, items };
   }).sort((a, b) => b.totalPlan - a.totalPlan);
+  
+  // 搜索过滤
+  if (lsCurrentKeyword) {
+    const kw = lsCurrentKeyword.toLowerCase();
+    list = list.filter(s => s.name.toLowerCase().includes(kw));
+  }
 
-  document.getElementById('ls-zhongzhi-list').innerHTML = list.map(s => `
+  const el = document.getElementById('ls-zhongzhi-list');
+  el.innerHTML = list.map(s => `
     <div class="ls-school-card" onclick="lsShowZhongzhiDetail('${s.name.replace(/'/g, "\\'")}')">
       <div class="ls-school-name">📍 ${s.name}</div>
       <div class="ls-school-meta">
@@ -166,6 +190,35 @@ function lsRenderZhongzhiList() {
       </div>
       ${s.addr ? `<div style="font-size:12px;color:#999;margin-top:6px">${s.city ? s.city + ' · ' : ''}${s.addr}</div>` : ''}
     </div>`).join('');
+  
+  if (list.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999;font-size:14px">未找到相关学校</div>';
+  }
+}
+
+// ===== 渲染所有列表 =====
+function lsRenderAll() {
+  lsRenderGaozhiList();
+  lsRenderZhongzhiList();
+}
+
+// ===== 初始化搜索功能 =====
+function lsInitSearch() {
+  const searchInput = document.getElementById('ls-search-input');
+  const clearBtn = document.getElementById('ls-search-clear');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      lsCurrentKeyword = this.value.trim();
+      lsRenderAll();
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      lsCurrentKeyword = '';
+      lsRenderAll();
+    });
+  }
 }
 
 // ===== 高职详情视图 =====
@@ -269,4 +322,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFooter();
   lsRenderGaozhiList();
   lsRenderZhongzhiList();
+  lsInitSearch();
 });
