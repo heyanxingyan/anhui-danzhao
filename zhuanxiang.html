@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>专项计划 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="zhuanxiang">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">专项计划</div>
+    </div>
+
+    <!-- 板块介绍 -->
+    <div class="about-section" style="margin:10px 12px">
+      <h3>⭐ 专项计划招生说明</h3>
+      <p id="zx-desc"></p>
+      <p><b>报考条件：</b><span id="zx-condition"></span></p>
+      <p><b>考试科目：</b><span id="zx-subjects"></span></p>
+      <p><b>录取规则：</b><span id="zx-rule"></span></p>
+    </div>
+
+    <!-- 三个子类别标签 -->
+    <div class="sub-tabs" style="display:flex;gap:8px;margin:0 12px 10px;overflow-x:auto">
+      <button class="sub-tab active" data-sub="all" style="flex:1;padding:10px 8px;border:2px solid var(--primary);background:var(--primary);color:#fff;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap">全部专项</button>
+      <button class="sub-tab" data-sub="tuiyi" style="flex:1;padding:10px 8px;border:2px solid #e8e8e8;background:#fff;color:#666;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap">🎖️ 退役军人</button>
+      <button class="sub-tab" data-sub="laoxiang" style="flex:1;padding:10px 8px;border:2px solid #e8e8e8;background:#fff;color:#666;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap">🏔️ 革命老区</button>
+      <button class="sub-tab" data-sub="xiangcun" style="flex:1;padding:10px 8px;border:2px solid #e8e8e8;background:#fff;color:#666;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap">🏥 乡村医生</button>
+    </div>
+
+    <!-- 院校列表 -->
+    <div class="zz-tip" id="zx-tip">面向退役士兵、革命老区考生等专项群体，下列院校招收专项计划生。</div>
+    <div id="zx-list"></div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
