@@ -1,0 +1,1382 @@
+{
+  "zhongzhiSchools": [
+    {
+      "name": "合肥工业学校",
+      "city": "合肥市",
+      "address": "合肥市新站高新区学林路与烈山路交口",
+      "jointPrograms": [
+        "3+4: 人工智能技术与应用→合肥师范学院(人工智能)",
+        "3+4: 服装设计与工艺→合肥师范学院(服装与服饰设计)"
+      ],
+      "source": "https://www.hefei.gov.cn/content/article/111087256; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "合肥市经贸旅游学校",
+      "city": "合肥市",
+      "address": "合肥市新站高新区大众路与学林路交叉口",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/content/article/111087256; https://www.hfsjmlyxx.com/lxfs.html"
+    },
+    {
+      "name": "安徽建设学校",
+      "city": "合肥市",
+      "address": "合肥市包河区包河大道188号",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/content/article/111087256"
+    },
+    {
+      "name": "安徽电气工程学校",
+      "city": "合肥市",
+      "address": "合肥市新站高新区文忠路926号（文忠路校区）；蜀山区长江西路539号（长江路校区）",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/content/article/111087256"
+    },
+    {
+      "name": "合肥铁路工程学校",
+      "city": "合肥市",
+      "address": "合肥市新站高新区淮海大道（磨店职教城）",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/zwgk/public/1741/108615890.html"
+    },
+    {
+      "name": "安徽能源技术学校",
+      "city": "合肥市",
+      "address": "合肥市新站区高教基地淮海大道799号（文忠路与浍南路交口）",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/zwgk/public/1741/108615890.html"
+    },
+    {
+      "name": "安徽汽车工业技师学院",
+      "city": "合肥市",
+      "address": "合肥经济技术开发区紫云路99号",
+      "jointPrograms": [],
+      "source": "https://rsj.hefei.gov.cn/bmcx/bsjg/jgyx/15446891.html"
+    },
+    {
+      "name": "合肥体育运动学校",
+      "city": "合肥市",
+      "address": "合肥市蜀山区青阳路7号",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/content/article/111087256"
+    },
+    {
+      "name": "安徽省特殊教育中专学校",
+      "city": "合肥市",
+      "address": "合肥市新站高新区淮海大道90号",
+      "jointPrograms": [],
+      "source": "https://www.hefei.gov.cn/content/article/111087256"
+    },
+    {
+      "name": "芜湖高级职业技术学校",
+      "city": "芜湖市",
+      "address": "芜湖市弋江区花津南路4号站（白马山路18号）",
+      "jointPrograms": [
+        "3+4: 汽车运用与维修→芜湖职业技术大学(汽车工程技术)",
+        "3+2+2: 电子技术应用→芜湖职业技术大学(电气自动化技术)"
+      ],
+      "source": "https://jyj.wuhu.gov.cn/openness/public/6596321/39070756.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "安徽电子工程学校",
+      "city": "蚌埠市",
+      "address": "蚌埠市燕山路1647号",
+      "jointPrograms": [],
+      "source": "https://jyj.bengbu.gov.cn/zfxxgk/public/22041/53249152.html"
+    },
+    {
+      "name": "安徽科技贸易学校",
+      "city": "蚌埠市",
+      "address": "蚌埠市淮上区龙华路699号",
+      "jointPrograms": [
+        "3+2+2: 机电技术应用→安徽国防科技职业学院(电气自动化技术)→皖西学院"
+      ],
+      "source": "https://jyj.bengbu.gov.cn/zfxxgk/public/22041/53249152.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "安徽省第一轻工业学校",
+      "city": "蚌埠市",
+      "address": "蚌埠市燕山路1611号",
+      "jointPrograms": [],
+      "source": "https://jyj.bengbu.gov.cn/zfxxgk/public/22041/53249152.html; http://www.ahyqx.com"
+    },
+    {
+      "name": "蚌埠工业与商贸职业技术学校",
+      "city": "蚌埠市",
+      "address": "蚌埠市淮上区双墩路1199号（蚌埠职教园）",
+      "jointPrograms": [],
+      "source": "https://jyj.bengbu.gov.cn/zfxxgk/public/22041/53249152.html"
+    },
+    {
+      "name": "蚌埠科技工程学校（蚌埠技师学院）",
+      "city": "蚌埠市",
+      "address": "蚌埠市淮上区双墩路1199号（蚌埠职教园）",
+      "jointPrograms": [],
+      "source": "https://jyj.bengbu.gov.cn/zfxxgk/public/22041/53249152.html; https://hrss.ah.gov.cn/zxzx/ztzl/jgyxzq/jxfc/80594931.html"
+    },
+    {
+      "name": "安徽理工学校",
+      "city": "安庆市",
+      "address": "安庆市大观区集贤南路148号（南校区）；安庆市大观区十狮路106号（北校区）",
+      "jointPrograms": [],
+      "source": "http://www.ahlgxx.cn/col/001002; https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "安徽化工学校",
+      "city": "安庆市",
+      "address": "安庆市大观区十狮路97号",
+      "jointPrograms": [],
+      "source": "http://ahhuaxiao.gtjiaoyu.com/contact.htm; https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "安庆工业学校",
+      "city": "安庆市",
+      "address": "安庆市集贤北路394号",
+      "jointPrograms": [],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "安徽黄梅戏艺术职业学院（中专部）",
+      "city": "安庆市",
+      "address": "安庆市宜秀区凤鸣路8号",
+      "jointPrograms": [],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "江淮工业学校",
+      "city": "安庆市",
+      "address": "安庆市桐城市桐安北路171号",
+      "jointPrograms": [],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "怀宁县中等专业学校",
+      "city": "安庆市",
+      "address": "安庆市怀宁县高河镇206国道万兴路口",
+      "jointPrograms": [],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "安徽天柱山旅游学校",
+      "city": "安庆市",
+      "address": "安庆市潜山市皖国东路0098号",
+      "jointPrograms": [
+        "3+4: 旅游服务与管理→安庆师范大学(旅游管理)"
+      ],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "安庆大别山科技学校",
+      "city": "安庆市",
+      "address": "安庆市岳西县天堂西路58号",
+      "jointPrograms": [
+        "高职专业学院: 与安徽工商职业学院财经商贸专业学院联合培养"
+      ],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html; https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "name": "太湖职业技术学校",
+      "city": "安庆市",
+      "address": "安庆市太湖县晋湖路340号",
+      "jointPrograms": [],
+      "source": "https://jtj.anqing.gov.cn/public/4018138/2007394202.html"
+    },
+    {
+      "name": "安徽省马鞍山工业学校",
+      "city": "马鞍山市",
+      "address": "马鞍山市雨山区泰山大道2号（西山中路88号）",
+      "jointPrograms": [
+        "3+2: 对接马鞍山职业技术学院"
+      ],
+      "source": "http://masgyedu.gtjiaoyu.com/n481020.htm; https://edu.xuancheng.gov.cn/News/show/1722612.html"
+    },
+    {
+      "name": "淮南经济技术中等专业学校",
+      "city": "淮南市",
+      "address": "淮南市高新区（山南新区）职教园",
+      "jointPrograms": [],
+      "source": "https://sjtj.huainan.gov.cn/public/118319840/1259675873.html"
+    },
+    {
+      "name": "安徽机械工业学校",
+      "city": "淮南市",
+      "address": "淮南市八公山区春申大街（004乡道与春申大街交叉口西）",
+      "jointPrograms": [
+        "3+4: 智能网联汽车技术→淮南师范学院(新能源汽车工程)"
+      ],
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "阜阳工业经济学校",
+      "city": "阜阳市",
+      "address": "阜阳市阜南路889号（南校区）；阜阳市顺昌路37号（北校区）；颍州区沙河路34号（东校区）",
+      "jointPrograms": [],
+      "source": "http://www.fycx.com.cn/; http://www.fygyjjxx.com/zh-cn/xxyw/31397.html"
+    },
+    {
+      "name": "阜阳科技工程学校",
+      "city": "阜阳市",
+      "address": "界首市界光路160号",
+      "jointPrograms": [
+        "高职专业学院: 与安徽工商职业学院智能制造专业学院联合培养"
+      ],
+      "source": "http://www.fykjgcxx.com/; https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "name": "宿州应用技术学校",
+      "city": "宿州市",
+      "address": "宿州市埇桥区宿州大道（宿州市委党校西门斜对面）",
+      "jointPrograms": [],
+      "source": "https://www.szyq.gov.cn/group1/M00/43/14/Cpc8VmXwK_GAYBI8AAB4tLmXCL0841.pdf"
+    },
+    {
+      "name": "宿州环保工程学校",
+      "city": "宿州市",
+      "address": "泗县泗城镇虹乡路001号（北二环路与虹乡路交叉口）",
+      "jointPrograms": [
+        "五年制高职专业2个"
+      ],
+      "source": "https://www.sixian.gov.cn/public/25102/162427461.html; https://www.ahsz.gov.cn/site/tpl/150905501"
+    },
+    {
+      "name": "安徽工程技术学校",
+      "city": "宿州市",
+      "address": "宿州市埇桥区浍水西路",
+      "jointPrograms": [],
+      "source": "https://www.ahsz.gov.cn/site/tpl/150905521"
+    },
+    {
+      "name": "六安市职业学校（六安职业技术学院中专部）",
+      "city": "六安市",
+      "address": "六安市金安区解放北路1488号（正阳路1号）",
+      "jointPrograms": [
+        "五年一贯制培养"
+      ],
+      "source": "https://zsw.lvtc.edu.cn/lxwm/listm.htm; https://zzb.lvtc.edu.cn/2023/0526/c638a48284/page.htm"
+    },
+    {
+      "name": "滁州市应用技术学校",
+      "city": "滁州市",
+      "address": "滁州市全椒县大石潭路999号",
+      "jointPrograms": [
+        "3+4: 新能源汽车制造与检测→安徽职业技术大学(新能源汽车工程技术)",
+        "3+4: 机电技术应用→安徽职业技术大学(集成电路工程技术)"
+      ],
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "滁州市信息工程学校",
+      "city": "滁州市",
+      "address": "滁州市来安县黎明路45号",
+      "jointPrograms": [
+        "3+2+2: 机电技术应用→滁州职业技术学院(工业设计)→安徽科技工程大学"
+      ],
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "铜陵理工学校",
+      "city": "铜陵市",
+      "address": "铜陵市翠湖四路东段3999号",
+      "jointPrograms": [
+        "3+2+2: 机电技术应用→铜陵职业技术学院(机电一体化技术)→铜陵学院",
+        "3+2+2: 汽车运用与维修→铜陵职业技术学院(汽车检测与维修技术)→铜陵学院"
+      ],
+      "source": "https://tl.gov.cn/openness/OpennessContent/show/1073285.html; https://jtj.tl.gov.cn/tlsjyhtyj/c00126/pc/content/content_2059814849480548352.html"
+    },
+    {
+      "name": "安徽材料工程学校",
+      "city": "宣城市",
+      "address": "宁国市汪溪街道落花荡路99号",
+      "jointPrograms": [
+        "3+4: 数控技术应用→铜陵学院(机械设计制造及其自动化)",
+        "3+2: 机电技术应用→宣城职业技术学院(机电一体化技术)",
+        "3+2: 物联网技术应用→安徽国际商务职业学院(物联网应用技术)",
+        "3+2: 智慧健康养老服务→安徽国际商务职业学院(智慧健康养老服务与管理)"
+      ],
+      "source": "https://www.ahclgc.com/; https://edu.xuancheng.gov.cn/News/show/1719174.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "宣城市工业学校",
+      "city": "宣城市",
+      "address": "宣城市泾县泾川镇北郊青狮路1号",
+      "jointPrograms": [
+        "3+2: 新能源汽车运用与维修→宣城职业技术学院(汽车制造与试验技术)",
+        "3+2: 计算机应用→宣城职业技术学院(计算机网络技术)",
+        "3+2: 旅游服务与管理→宣城职业技术学院(旅游管理)"
+      ],
+      "source": "https://www.xcsgyxx.com/; https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "name": "郎溪县中等专业学校",
+      "city": "宣城市",
+      "address": "郎溪县建平镇天子湖路东段",
+      "jointPrograms": [
+        "3+2: 机电技术应用→宣城职业技术学院(机电一体化技术)",
+        "3+2: 会计事务→宣城职业技术学院(大数据与会计)"
+      ],
+      "source": "https://www.jnzyxx.com/; https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "name": "宣城市信息工程学校",
+      "city": "宣城市",
+      "address": "宣城市经济技术开发区梅溪路902号",
+      "jointPrograms": [
+        "3+2: 机电技术应用→宣城职业技术学院(机电一体化技术)"
+      ],
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "name": "宣城旅游学校",
+      "city": "宣城市",
+      "address": "宣城市旌德县旌阳镇篁嘉开发区99号",
+      "jointPrograms": [
+        "3+2: 计算机应用→淮南联合大学(计算机应用技术)",
+        "3+2: 机电技术应用→宣城职业技术学院(机电一体化技术)"
+      ],
+      "source": "https://www.ahjd.gov.cn/Jczwgk/show/3616326.html; https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "name": "安徽交通中等职业技术学校",
+      "city": "池州市",
+      "address": "池州市贵池区牧之路教育园区89号",
+      "jointPrograms": [
+        "3+2+2: 旅游服务与管理→池州职业技术学院(旅游管理)→池州学院"
+      ],
+      "source": "http://www.ahczzj.cn/contents/7/421.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "淮北工业和艺术学校",
+      "city": "淮北市",
+      "address": "淮北市烈山区太山路1号（淮北市职教园区）",
+      "jointPrograms": [
+        "3+4: 电子技术应用→安徽职业技术大学(集成电路工程技术)"
+      ],
+      "source": "https://www.huaibei.gov.cn/zwgk/hbsggqsydwxxgkzt/jyly/62995120.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "安徽中药科技学校",
+      "city": "亳州市",
+      "address": "亳州市高新区莲花路1号",
+      "jointPrograms": [
+        "3+4: 中药→亳州学院(中药学)",
+        "3+4: 药剂→亳州学院(药物制剂)"
+      ],
+      "source": "https://www.bzzyxy.com/index.htm; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "name": "黄山旅游管理学校",
+      "city": "黄山市",
+      "address": "黄山市黄山区仙源东路S322省道东侧",
+      "jointPrograms": [
+        "3+4: 旅游服务与管理→黄山学院(旅游管理)"
+      ],
+      "source": "https://www.hslx.org.cn/index.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    }
+  ],
+  "lianheMajors": [
+    {
+      "gaozhiSchool": "亳州职业技术学院",
+      "zhongzhiSchool": "安徽中药科技学校",
+      "major": "中药制药",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省亳州市高新区莲花路1号（安徽中药科技学校）",
+      "source": "https://www.ahzsks.cn/zyyx/8723.htm"
+    },
+    {
+      "gaozhiSchool": "亳州职业技术学院",
+      "zhongzhiSchool": "安徽中药科技学校",
+      "major": "中药学",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省亳州市高新区莲花路1号（安徽中药科技学校）",
+      "source": "https://www.ahzsks.cn/zyyx/8723.htm"
+    },
+    {
+      "gaozhiSchool": "六安职业技术学院",
+      "zhongzhiSchool": "舒城职业学校",
+      "major": "新能源汽车检测与维修技术",
+      "mode": "高职专业学院",
+      "plan2026": 200,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "六安市舒城县经开区陈三堰路（舒城职业学校）",
+      "source": "https://zsw.lvtc.edu.cn/2026/0311/c310a58949/pagem.htm"
+    },
+    {
+      "gaozhiSchool": "安庆职业技术学院",
+      "zhongzhiSchool": "太湖职业技术学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 30,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安庆市太湖县晋熙镇晋湖路340号（太湖职业技术学校）",
+      "source": "https://m.gaokao.cn/school/1836/229033/admission/68002"
+    },
+    {
+      "gaozhiSchool": "安徽交通职业技术学院",
+      "zhongzhiSchool": "淮南经济技术学校",
+      "major": "新能源汽车技术",
+      "mode": "高职专业学院",
+      "plan2026": 60,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省淮南市山南新区职教园",
+      "source": "https://www.acvtc.edu.cn/zs/info/1031/7571.htm"
+    },
+    {
+      "gaozhiSchool": "安徽交通职业技术学院",
+      "zhongzhiSchool": "铜陵理工学校",
+      "major": "航海技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省铜陵市翠湖四路东段3999号（培养方向：内河船员）",
+      "source": "https://www.acvtc.edu.cn/zs/info/1031/7571.htm"
+    },
+    {
+      "gaozhiSchool": "安徽商贸职业技术学院",
+      "zhongzhiSchool": "安徽材料工程学校",
+      "major": "电子信息工程技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "宁国市汪溪办事处落花荡路99号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310191804_438.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽商贸职业技术学院",
+      "zhongzhiSchool": "安徽理工学校",
+      "major": "计算机网络技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安庆市十狮路106号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310191804_438.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽商贸职业技术学院",
+      "zhongzhiSchool": "皖北经济技术学校",
+      "major": "大数据与会计",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "临泉县霞光大道398号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310191804_438.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽商贸职业技术学院",
+      "zhongzhiSchool": "皖北经济技术学校",
+      "major": "跨境电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "临泉县霞光大道398号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310191804_438.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽国防科技职业学院",
+      "zhongzhiSchool": "合肥理工学校",
+      "major": "机械制造及自动化",
+      "mode": "高职专业学院",
+      "plan2026": 200,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "合肥市肥东县城双桥（合肥理工学校）",
+      "source": "https://www.acdt.edu.cn/zs/info/1063/3456.htm"
+    },
+    {
+      "gaozhiSchool": "安徽国防科技职业学院",
+      "zhongzhiSchool": "安徽科技贸易学校",
+      "major": "计算机应用技术",
+      "mode": "高职专业学院",
+      "plan2026": 95,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "蚌埠市淮上区龙华路699号（安徽科技贸易学校）",
+      "source": "https://www.acdt.edu.cn/zs/info/1063/3456.htm"
+    },
+    {
+      "gaozhiSchool": "安徽国防科技职业学院",
+      "zhongzhiSchool": "安徽科技贸易学校",
+      "major": "计算机网络技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "蚌埠市淮上区龙华路699号（安徽科技贸易学校）",
+      "source": "https://www.acdt.edu.cn/zs/info/1063/3456.htm"
+    },
+    {
+      "gaozhiSchool": "安徽国防科技职业学院",
+      "zhongzhiSchool": "皖西经济技术学校",
+      "major": "汽车检测与维修技术",
+      "mode": "高职专业学院",
+      "plan2026": 155,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "六安市霍邱县蓼东大道58号（皖西经济技术学校）",
+      "source": "https://www.acdt.edu.cn/zs/info/1063/3456.htm"
+    },
+    {
+      "gaozhiSchool": "安徽国际商务职业学院",
+      "zhongzhiSchool": "当涂经贸学校",
+      "major": "电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省马鞍山市当涂县姑孰镇太白东路1号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽国际商务职业学院",
+      "zhongzhiSchool": "当涂经贸学校",
+      "major": "计算机应用技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省马鞍山市当涂县姑孰镇太白东路1号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽国际商务职业学院",
+      "zhongzhiSchool": "阜阳工业经济学校",
+      "major": "数字媒体技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省阜阳市阜南路889号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310184954_763.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽城市管理职业学院",
+      "zhongzhiSchool": "宿州应用技术学校",
+      "major": "计算机应用技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省宿州市埇桥区求实路555号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310204853_258.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽城市管理职业学院",
+      "zhongzhiSchool": "蚌埠工业与商贸职业技术学校",
+      "major": "室内艺术设计",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "蚌埠市淮上区双墩路1199号蚌埠职教园",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310204853_258.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽审计职业学院",
+      "zhongzhiSchool": "滁州市机械工业学校",
+      "major": "大数据与审计",
+      "mode": "高职专业学院",
+      "plan2026": 300,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "明光市淮河大道166号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽审计职业学院",
+      "zhongzhiSchool": "濉溪职业技术学校",
+      "major": "大数据与财务管理",
+      "mode": "高职专业学院",
+      "plan2026": 200,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "淮北市濉溪县百善现代农业综合开发示范区雁鸣大道与青阳路交叉口",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽审计职业学院",
+      "zhongzhiSchool": "铜陵理工学校",
+      "major": "大数据与会计",
+      "mode": "高职专业学院",
+      "plan2026": 300,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "铜陵市铜官区翠湖四路3999号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽审计职业学院",
+      "zhongzhiSchool": "铜陵理工学校",
+      "major": "大数据技术",
+      "mode": "高职专业学院",
+      "plan2026": 300,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "铜陵市铜官区翠湖四路3999号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽审计职业学院",
+      "zhongzhiSchool": "铜陵理工学校",
+      "major": "电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 300,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "铜陵市铜官区翠湖四路3999号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193135_59.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工业经济职业技术学院",
+      "zhongzhiSchool": "舒城职业学校",
+      "major": "工业机器人技术",
+      "mode": "高职专业学院",
+      "plan2026": 150,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "六安市舒城县经济技术开发区陈三堰路（舒城职业学校）",
+      "source": "https://www.ahiec.edu.cn/xxgkw/info/1060/1783.htm"
+    },
+    {
+      "gaozhiSchool": "安徽工业经济职业技术学院",
+      "zhongzhiSchool": "黄山旅游管理学校",
+      "major": "计算机网络技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "黄山市黄山区仙源东路S322省道东侧（黄山旅游管理学校）",
+      "source": "https://www.ahiec.edu.cn/xxgkw/info/1060/1783.htm"
+    },
+    {
+      "gaozhiSchool": "安徽工业经济职业技术学院",
+      "zhongzhiSchool": "黄山旅游管理学校",
+      "major": "酒店管理与数字化运营",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "黄山市黄山区仙源东路S322省道东侧（黄山旅游管理学校）",
+      "source": "https://www.ahiec.edu.cn/xxgkw/info/1060/1783.htm"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "太湖职业技术学校",
+      "major": "人工智能技术应用",
+      "mode": "高职专业学院",
+      "plan2026": 30,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "太湖职业技术学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "太湖职业技术学校",
+      "major": "计算机网络技术",
+      "mode": "高职专业学院",
+      "plan2026": 30,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "太湖职业技术学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "安庆大别山科技学校",
+      "major": "大数据与会计",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "安庆大别山科技学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "安庆大别山科技学校",
+      "major": "电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "安庆大别山科技学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "阜阳科技工程学校",
+      "major": "工业机器人技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "阜阳科技工程学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽工商职业学院",
+      "zhongzhiSchool": "阜阳科技工程学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省核定标准执行（公办一般3500-3900元/年）",
+      "location": "阜阳科技工程学校",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310192927_905.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽新闻出版职业技术学院",
+      "zhongzhiSchool": "合肥工业学校",
+      "major": "广告艺术设计",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "合肥市新站区学林路与烈山路交口",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽新闻出版职业技术学院",
+      "zhongzhiSchool": "淮北工业和艺术学校",
+      "major": "婴幼儿托育服务与管理",
+      "mode": "高职专业学院",
+      "plan2026": 150,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "淮北市烈山区太山路1号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽新闻出版职业技术学院",
+      "zhongzhiSchool": "淮北工业和艺术学校",
+      "major": "视觉传达设计",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "淮北市烈山区太山路1号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193200_918.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "安徽材料工程学校",
+      "major": "工业机器人技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "宁国市汪溪办事处落花荡路99号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "安徽材料工程学校",
+      "major": "数控技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "宁国市汪溪办事处落花荡路99号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "安徽材料工程学校",
+      "major": "电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "宁国市汪溪办事处落花荡路99号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "安徽省蒙城建筑工业中等专业学校",
+      "major": "数控技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "亳州市蒙城县濮水路241号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "安徽省蒙城建筑工业中等专业学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "亳州市蒙城县濮水路241号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽机电职业技术学院",
+      "zhongzhiSchool": "滁州市应用技术学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "滁州市全椒县襄河镇大石潭路999号",
+      "source": "https://zs.ahcme.edu.cn/info/1077/3627.htm"
+    },
+    {
+      "gaozhiSchool": "安徽林业职业技术学院",
+      "zhongzhiSchool": "天长市工业学校",
+      "major": "园林技术",
+      "mode": "高职专业学院",
+      "plan2026": 120,
+      "fee": "按省价格主管等部门核定标准执行",
+      "location": "天长市西城经济开发区纬三路50号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽林业职业技术学院",
+      "zhongzhiSchool": "天长市工业学校",
+      "major": "绿色食品生产技术",
+      "mode": "高职专业学院",
+      "plan2026": 80,
+      "fee": "按省价格主管等部门核定标准执行",
+      "location": "天长市西城经济开发区纬三路50号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽林业职业技术学院",
+      "zhongzhiSchool": "安徽天柱山旅游学校",
+      "major": "森林生态旅游与康养",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等部门核定标准执行",
+      "location": "潜山市皖国东路0098号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193105_937.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽水利水电职业技术学院",
+      "zhongzhiSchool": "皖西经济技术学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "六安市霍邱县蓼东大道58号（皖西经济技术学校）",
+      "source": "https://zsxxw.ahsdxy.edu.cn/info/1006/3928.htm"
+    },
+    {
+      "gaozhiSchool": "安徽电子信息职业技术学院",
+      "zhongzhiSchool": "宣城市信息工程学校",
+      "major": "计算机应用技术",
+      "mode": "高职专业学院",
+      "plan2026": 100,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省宣城市梅溪路902号（宣城市信息工程学校）",
+      "source": "https://www.ahdy.edu.cn/zsxx/_t67/2026/0310/c927a44240/page.htm"
+    },
+    {
+      "gaozhiSchool": "安徽粮食工程职业学院",
+      "zhongzhiSchool": "安徽省蒙城建筑工业中等专业学校",
+      "major": "食品智能加工技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "亳州市蒙城县濮水路241号（蒙城建筑工业中等专业学校）",
+      "source": "https://www.gx211.cn/ueditor/php/upload/video/20260311/1773195189517371.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽职业技术大学",
+      "zhongzhiSchool": "安徽天柱山旅游学校",
+      "major": "计算机网络技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省安庆市潜山市皖国东路0098号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185130_991.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽职业技术大学",
+      "zhongzhiSchool": "皖北经济技术学校",
+      "major": "新能源汽车技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省阜阳市临泉县霞光大道398号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185130_991.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽财贸职业学院",
+      "zhongzhiSchool": "宣城市工业学校",
+      "major": "电子商务",
+      "mode": "高职专业学院",
+      "plan2026": 60,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽泾县泾川镇太美青狮路1号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽财贸职业学院",
+      "zhongzhiSchool": "池州工业学校",
+      "major": "大数据技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省池州市东至县尧渡镇舜德大道7号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+    },
+    {
+      "gaozhiSchool": "安徽财贸职业学院",
+      "zhongzhiSchool": "灵璧县高级职业技术学校",
+      "major": "园林技术",
+      "mode": "高职专业学院",
+      "plan2026": 40,
+      "fee": "按省价格主管等相关部门核定标准执行",
+      "location": "安徽省宿州市灵璧县灵城镇钟灵大道西段（中共灵璧县委党校对面）",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310193031_315.pdf"
+    },
+    {
+      "gaozhiSchool": "宣城职业技术学院",
+      "zhongzhiSchool": "宣城市信息工程学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "宣城市经济技术开发区梅溪路902号",
+      "source": "https://zs.xcvtc.edu.cn/"
+    },
+    {
+      "gaozhiSchool": "宣城职业技术学院",
+      "zhongzhiSchool": "宣城市工业学校",
+      "major": "智能制造装备技术",
+      "mode": "高职专业学院",
+      "plan2026": 60,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省宣城市泾县泾川镇北郊青狮路1号",
+      "source": "https://zs.xcvtc.edu.cn/"
+    },
+    {
+      "gaozhiSchool": "宿州职业技术学院",
+      "zhongzhiSchool": "宿州工业学校",
+      "major": "汽车检测与维修技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省宿州市教育园区凤至路500号",
+      "source": "https://szzy.edu.cn/zsxxw/629/info.aspx?itemid=51126"
+    },
+    {
+      "gaozhiSchool": "宿州职业技术学院",
+      "zhongzhiSchool": "灵璧县高级职业技术学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 70,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省宿州市灵璧县钟灵大道西延伸段",
+      "source": "https://szzy.edu.cn/zsxxw/629/info.aspx?itemid=51126"
+    },
+    {
+      "gaozhiSchool": "池州职业技术学院",
+      "zhongzhiSchool": "安徽交通中等职业技术学校",
+      "major": "新能源汽车技术",
+      "mode": "高职专业学院",
+      "plan2026": 45,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "池州市教育园区牧之路89号",
+      "source": "https://www.czvtc.edu.cn/uploads/file/20260312/1773285507188702.pdf"
+    },
+    {
+      "gaozhiSchool": "池州职业技术学院",
+      "zhongzhiSchool": "安徽交通中等职业技术学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 90,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "池州市教育园区牧之路89号",
+      "source": "https://www.czvtc.edu.cn/uploads/file/20260312/1773285507188702.pdf"
+    },
+    {
+      "gaozhiSchool": "池州职业技术学院",
+      "zhongzhiSchool": "池州工业学校",
+      "major": "应用化工技术",
+      "mode": "高职专业学院",
+      "plan2026": 40,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "池州市东至县尧渡镇舜德大道7号",
+      "source": "https://www.czvtc.edu.cn/uploads/file/20260312/1773285507188702.pdf"
+    },
+    {
+      "gaozhiSchool": "淮南职业技术学院",
+      "zhongzhiSchool": "阜阳科技工程学校",
+      "major": "新能源汽车技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省阜阳市界首市陶庙镇学府路1号（阜阳科技工程学校）",
+      "source": "https://zsxxw.hnvtc.edu.cn/info/1060/2270.htm"
+    },
+    {
+      "gaozhiSchool": "淮南职业技术学院",
+      "zhongzhiSchool": "阜阳科技工程学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省阜阳市界首市陶庙镇学府路1号（阜阳科技工程学校）",
+      "source": "https://zsxxw.hnvtc.edu.cn/info/1060/2270.htm"
+    },
+    {
+      "gaozhiSchool": "淮南联合大学",
+      "zhongzhiSchool": "阜阳职业技术学校",
+      "major": "应用化工技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省阜阳市颍东区（阜阳职业技术学校）",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185903_776.pdf"
+    },
+    {
+      "gaozhiSchool": "滁州城市职业学院",
+      "zhongzhiSchool": "安徽省淮南卫生学校",
+      "major": "助产",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "淮南市山南新区职教园区春申大街1号（淮南卫生学校）",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310190834_51.pdf"
+    },
+    {
+      "gaozhiSchool": "滁州城市职业学院",
+      "zhongzhiSchool": "安徽省淮南卫生学校",
+      "major": "婴幼儿托育服务与管理",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "淮南市山南新区职教园区春申大街1号（淮南卫生学校）",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310190834_51.pdf"
+    },
+    {
+      "gaozhiSchool": "滁州职业技术学院",
+      "zhongzhiSchool": "滁州市信息工程学校",
+      "major": "机电一体化技术",
+      "mode": "高职专业学院",
+      "plan2026": 200,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "滁州市来安县黎明路45号（滁州市信息工程学校）",
+      "source": "https://zs.chzc.edu.cn/details/article?id=652198"
+    },
+    {
+      "gaozhiSchool": "芜湖职业技术大学",
+      "zhongzhiSchool": "天长市工业学校",
+      "major": "数控技术",
+      "mode": "高职专业学院",
+      "plan2026": 70,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "天长市西城经济开发区纬三路18号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185220_417.pdf"
+    },
+    {
+      "gaozhiSchool": "芜湖职业技术大学",
+      "zhongzhiSchool": "宣城市机械电子工程学校",
+      "major": "智能制造装备技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "广德市祠山街道团结西路77号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185220_417.pdf"
+    },
+    {
+      "gaozhiSchool": "芜湖职业技术大学",
+      "zhongzhiSchool": "淮南经济技术学校",
+      "major": "电气自动化技术",
+      "mode": "高职专业学院",
+      "plan2026": 60,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "淮南市山南新区职教园",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185220_417.pdf"
+    },
+    {
+      "gaozhiSchool": "芜湖职业技术大学",
+      "zhongzhiSchool": "阜阳科技工程学校",
+      "major": "物联网应用技术",
+      "mode": "高职专业学院",
+      "plan2026": 40,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "界首市界光路160号",
+      "source": "https://www.ahzsks.cn/pic/file/20260310/20260310185220_417.pdf"
+    },
+    {
+      "gaozhiSchool": "马鞍山职业技术学院",
+      "zhongzhiSchool": "当涂经贸学校",
+      "major": "电气自动化技术",
+      "mode": "高职专业学院",
+      "plan2026": 45,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省马鞍山市当涂县太白东路1号",
+      "source": "https://zsb.mastc.edu.cn/info/1012/5811.htm"
+    },
+    {
+      "gaozhiSchool": "马鞍山职业技术学院",
+      "zhongzhiSchool": "马鞍山理工学校",
+      "major": "汽车检测与维修技术",
+      "mode": "高职专业学院",
+      "plan2026": 95,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省马鞍山市雨山区霍里山中路326号",
+      "source": "https://zsb.mastc.edu.cn/info/1012/5811.htm"
+    },
+    {
+      "gaozhiSchool": "黄山职业技术学院",
+      "zhongzhiSchool": "安徽省行知学校",
+      "major": "大数据与会计",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "黄山市歙县歙州大道",
+      "source": "https://www.gx211.cn/ueditor/php/upload/video/20260312/1773283065387287.pdf"
+    },
+    {
+      "gaozhiSchool": "黄山职业技术学院",
+      "zhongzhiSchool": "安徽省行知学校",
+      "major": "电气自动化技术",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "黄山市歙县歙州大道",
+      "source": "https://www.gx211.cn/ueditor/php/upload/video/20260312/1773283065387287.pdf"
+    },
+    {
+      "gaozhiSchool": "黄山职业技术学院",
+      "zhongzhiSchool": "黄山旅游管理学校",
+      "major": "旅游管理",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省黄山市黄山区仙源东路S322省道东侧",
+      "source": "https://www.gx211.cn/ueditor/php/upload/video/20260312/1773283065387287.pdf"
+    },
+    {
+      "gaozhiSchool": "黄山职业技术学院",
+      "zhongzhiSchool": "黄山旅游管理学校",
+      "major": "烹饪工艺与营养",
+      "mode": "高职专业学院",
+      "plan2026": 50,
+      "fee": "按省价格主管部门核定标准执行",
+      "location": "安徽省黄山市黄山区仙源东路S322省道东侧",
+      "source": "https://www.gx211.cn/ueditor/php/upload/video/20260312/1773283065387287.pdf"
+    },
+    {
+      "zhongzhiSchool": "合肥工业学校",
+      "gaozhiSchool": "合肥师范学院",
+      "major": "人工智能技术与应用（中职）→人工智能（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "合肥工业学校",
+      "gaozhiSchool": "合肥师范学院",
+      "major": "服装设计与工艺（中职）→服装与服饰设计（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "芜湖高级职业技术学校",
+      "gaozhiSchool": "芜湖职业技术大学",
+      "major": "汽车运用与维修（中职）→汽车工程技术（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "芜湖高级职业技术学校",
+      "gaozhiSchool": "芜湖职业技术大学",
+      "major": "电子技术应用（中职）→电气自动化技术（高职）→自动化技术与应用（本科）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/xydt/8930919.html; https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽机械工业学校",
+      "gaozhiSchool": "淮南师范学院",
+      "major": "智能网联汽车技术（中职）→新能源汽车工程（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "灵璧县高级职业技术学校",
+      "gaozhiSchool": "宿州学院",
+      "major": "机电技术应用（中职）→机械设计制造及其自动化（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽中药科技学校",
+      "gaozhiSchool": "亳州学院",
+      "major": "中药（中职）→中药学（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽中药科技学校",
+      "gaozhiSchool": "亳州学院",
+      "major": "药剂（中职）→药物制剂（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "阜阳职业技术学校",
+      "gaozhiSchool": "安徽职业技术大学",
+      "major": "智能化生产线安装与运维（中职）→智能制造工程技术（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "淮北工业和艺术学校",
+      "gaozhiSchool": "安徽职业技术大学",
+      "major": "电子技术应用（中职）→集成电路工程技术（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽材料工程学校",
+      "gaozhiSchool": "铜陵学院",
+      "major": "数控技术应用（中职）→机械设计制造及其自动化（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "黄山旅游管理学校",
+      "gaozhiSchool": "黄山学院",
+      "major": "旅游服务与管理（中职）→旅游管理（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "滁州市应用技术学校",
+      "gaozhiSchool": "安徽职业技术大学",
+      "major": "新能源汽车制造与检测（中职）→新能源汽车工程技术（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "滁州市应用技术学校",
+      "gaozhiSchool": "安徽职业技术大学",
+      "major": "机电技术应用（中职）→集成电路工程技术（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽天柱山旅游学校",
+      "gaozhiSchool": "安庆师范大学",
+      "major": "旅游服务与管理（中职）→旅游管理（本科）",
+      "mode": "3+4",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽科技贸易学校",
+      "gaozhiSchool": "安徽国防科技职业学院→皖西学院",
+      "major": "机电技术应用（中职）→电气自动化技术（高职）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "安徽交通中等职业技术学校",
+      "gaozhiSchool": "池州职业技术学院→池州学院",
+      "major": "旅游服务与管理（中职）→旅游管理（高职）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "淮南世际艺术学校",
+      "gaozhiSchool": "安徽艺术职业学院→安徽艺术学院",
+      "major": "舞蹈表演（中职）→舞蹈表演（高职）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "铜陵理工学校",
+      "gaozhiSchool": "铜陵职业技术学院→铜陵学院",
+      "major": "机电技术应用（中职）→机电一体化技术（高职）",
+      "mode": "3+2+2",
+      "source": "https://jtj.tl.gov.cn/tlsjyhtyj/c00126/pc/content/content_2059814849480548352.html"
+    },
+    {
+      "zhongzhiSchool": "铜陵理工学校",
+      "gaozhiSchool": "铜陵职业技术学院→铜陵学院",
+      "major": "汽车运用与维修（中职）→汽车检测与维修技术（高职）",
+      "mode": "3+2+2",
+      "source": "https://jtj.tl.gov.cn/tlsjyhtyj/c00126/pc/content/content_2059814849480548352.html"
+    },
+    {
+      "zhongzhiSchool": "宣城市机械电子工程学校",
+      "gaozhiSchool": "芜湖职业技术大学",
+      "major": "数控技术应用（中职）→数控技术（高职/本科）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "滁州市信息工程学校",
+      "gaozhiSchool": "滁州职业技术学院→安徽科技工程大学",
+      "major": "机电技术应用（中职）→工业设计（高职）",
+      "mode": "3+2+2",
+      "source": "https://jyj.wuhu.gov.cn/xwzx/bmyw/8932335.html"
+    },
+    {
+      "zhongzhiSchool": "宣城旅游学校",
+      "gaozhiSchool": "淮南联合大学",
+      "major": "计算机应用（中职）→计算机应用技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "安徽材料工程学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "机电技术应用（中职）→机电一体化技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "郎溪县中等专业学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "机电技术应用（中职）→机电一体化技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "郎溪县中等专业学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "会计事务（中职）→大数据与会计（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "宣城旅游学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "机电技术应用（中职）→机电一体化技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "宣城市工业学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "新能源汽车运用与维修（中职）→汽车制造与试验技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "宣城市工业学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "计算机应用（中职）→计算机网络技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "宣城市工业学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "旅游服务与管理（中职）→旅游管理（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "宣城市信息工程学校",
+      "gaozhiSchool": "宣城职业技术学院",
+      "major": "机电技术应用（中职）→机电一体化技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "安徽材料工程学校",
+      "gaozhiSchool": "安徽国际商务职业学院",
+      "major": "物联网技术应用（中职）→物联网应用技术（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "安徽材料工程学校",
+      "gaozhiSchool": "安徽国际商务职业学院",
+      "major": "智慧健康养老服务（中职）→智慧健康养老服务与管理（高职）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1719174.html"
+    },
+    {
+      "zhongzhiSchool": "安徽省马鞍山工业学校",
+      "gaozhiSchool": "马鞍山职业技术学院",
+      "major": "电子商务/数字媒体技术应用/会计事务等（三二分段）",
+      "mode": "3+2",
+      "source": "https://edu.xuancheng.gov.cn/News/show/1722612.html"
+    },
+    {
+      "zhongzhiSchool": "六安市职业学校（六安职业技术学院中专部）",
+      "gaozhiSchool": "六安职业技术学院",
+      "major": "五年一贯制高职专业",
+      "mode": "五年一贯制",
+      "source": "https://zsw.lvtc.edu.cn/2026/0819/c191a60718/pagem.htm"
+    }
+  ]
+}
