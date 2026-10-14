@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>录取概率测算 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .prob-container { padding: 12px; }
+    .prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .prob-label { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 10px; }
+    .prob-input-row { display: flex; align-items: center; gap: 10px; }
+    .prob-input { flex: 1; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 16px; outline: none; }
+    .prob-input:focus { border-color: #1890ff; }
+    .prob-unit { font-size: 14px; color: #888; }
+    .prob-select { width: 100%; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 15px; background: #fff; outline: none; }
+    .prob-slider-row { margin-top: 10px; }
+    .prob-slider-value { font-size: 24px; font-weight: 700; color: #1890ff; text-align: center; margin-bottom: 8px; }
+    .prob-slider { width: 100%; height: 6px; -webkit-appearance: none; background: #e8e8e8; border-radius: 3px; outline: none; }
+    .prob-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #1890ff; cursor: pointer; box-shadow: 0 2px 6px rgba(24,144,255,.4); }
+    .prob-result { background: linear-gradient(135deg,#1890ff,#36cfc9); color: #fff; border-radius: 12px; padding: 20px; text-align: center; margin-top: 12px; }
+    .prob-result-title { font-size: 14px; opacity: .9; margin-bottom: 8px; }
+    .prob-percent { font-size: 48px; font-weight: 700; line-height: 1; }
+    .prob-desc { font-size: 13px; opacity: .9; margin-top: 10px; line-height: 1.6; }
+    .prob-detail { background: #fff; border-radius: 12px; padding: 16px; margin-top: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .prob-detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #f0f0f0; font-size: 13px; }
+    .prob-detail-row:last-child { border-bottom: none; }
+    .prob-detail-row b { color: #222; }
+    .prob-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 6px; }
+    .prob-badge.high { background: #f6ffed; color: #52c41a; }
+    .prob-badge.mid { background: #fff7e6; color: #fa8c16; }
+    .prob-badge.low { background: #fff2e8; color: #f5222d; }
+    .prob-type-tabs { display: flex; gap: 10px; margin-bottom: 12px; }
+    .prob-type-tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .prob-type-tab.active { background: #1890ff; color: #fff; }
+  </style>
+</head>
+<body data-page="probability">
+  <div class="page">
+    <div class="navbar">
+      <div class="title">录取概率测算</div>
+    </div>
+
+    <div class="prob-container">
+      <!-- 学生类型选择 -->
+      <div class="prob-type-tabs">
+        <div class="prob-type-tab active" data-type="gaozhong" onclick="switchProbType('gaozhong')">普高生</div>
+        <div class="prob-type-tab" data-type="zhongzhi" onclick="switchProbType('zhongzhi')">中职生</div>
+      </div>
+
+      <!-- 文化分输入 -->
+      <div class="prob-card">
+        <div class="prob-label">📝 统考文化分（满分300）</div>
+        <div class="prob-input-row">
+          <input type="number" class="prob-input" id="prob-culture" min="0" max="300" value="200" placeholder="输入你的文化分数">
+          <span class="prob-unit">分</span>
+        </div>
+      </div>
+
+      <!-- 学校选择 -->
+      <div class="prob-card">
+        <div class="prob-label">🏫 选择学校</div>
+        <select class="prob-select" id="prob-school" onchange="onProbSchoolChange()">
+          <option value="">请选择学校</option>
+        </select>
+      </div>
+
+      <!-- 专业选择 -->
+      <div class="prob-card" id="prob-major-card" style="display:none">
+        <div class="prob-label">📚 选择专业</div>
+        <select class="prob-select" id="prob-major" onchange="calcProb()">
+          <option value="">请选择专业</option>
+        </select>
+      </div>
+
+      <!-- 校考分数滑动条 -->
+      <div class="prob-card" id="prob-exam-card" style="display:none">
+        <div class="prob-label">🎯 校考分数</div>
+        <div class="prob-slider-value"><span id="prob-exam-value">200</span> 分</div>
+        <input type="range" class="prob-slider" id="prob-exam-slider" min="0" max="300" value="200" oninput="onProbExamInput()">
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:#999;margin-top:6px">
+          <span>0</span>
+          <span id="prob-exam-max">满分 300</span>
+        </div>
+      </div>
+
+      <!-- 计算结果 -->
+      <div id="prob-result-area" style="display:none">
+        <div class="prob-result">
+          <div class="prob-result-title">录取概率</div>
+          <div class="prob-percent" id="prob-percent">--%</div>
+          <div class="prob-desc" id="prob-desc"></div>
+        </div>
+
+        <div class="prob-detail">
+          <div class="prob-detail-row"><span>你的总分</span><b id="pr-your-score">--</b></div>
+          <div class="prob-detail-row"><span>该校2026预估线</span><b id="pr-est-line">--</b></div>
+          <div class="prob-detail-row"><span>120%预录取线</span><b id="pr-120-line">--</b></div>
+          <div class="prob-detail-row"><span>招生计划</span><b id="pr-plan">--</b></div>
+          <div class="prob-detail-row"><span>分数计算方式</span><b id="pr-calc-rule" style="font-size:12px">--</b></div>
+        </div>
+      </div>
+
+      <div style="height:20px"></div>
+    </div>
+
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/low-score.js"></script>
+  <script>
+    let currentProbType = 'gaozhong';
+
+    function switchProbType(type) {
+      currentProbType = type;
+      document.querySelectorAll('.prob-type-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-type="${type}"]`).classList.add('active');
+      // 重新加载学校列表
+      loadProbSchools();
+      document.getElementById('prob-major-card').style.display = 'none';
+      document.getElementById('prob-exam-card').style.display = 'none';
+      document.getElementById('prob-result-area').style.display = 'none';
+    }
+
+    function loadProbSchools() {
+      const select = document.getElementById('prob-school');
+      select.innerHTML = '<option value="">请选择学校</option>';
+      // 只显示有2026招生计划的学校
+      const schools = COLLEGES.filter(c => {
+        if (currentProbType === 'gaozhong') return c.plan2026Gaozhong > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
+        return c.plan2026Zhongzhi > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
+      });
+      schools.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+      schools.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name + '（' + c.city + '）';
+        select.appendChild(opt);
+      });
+    }
+
+    function onProbSchoolChange() {
+      const schoolId = document.getElementById('prob-school').value;
+      const majorCard = document.getElementById('prob-major-card');
+      const examCard = document.getElementById('prob-exam-card');
+      const resultArea = document.getElementById('prob-result-area');
+      
+      if (!schoolId) {
+        majorCard.style.display = 'none';
+        examCard.style.display = 'none';
+        resultArea.style.display = 'none';
+        return;
+      }
+
+      const college = COLLEGES.find(c => c.id === Number(schoolId));
+      if (!college || !college.majors) return;
+
+      // 加载专业
+      const majorSelect = document.getElementById('prob-major');
+      majorSelect.innerHTML = '<option value="">请选择专业</option>';
+      const majors = college.majors.filter(m => {
+        if (currentProbType === 'gaozhong') return m.plan2026Gaozhong > 0;
+        return m.plan2026Zhongzhi > 0;
+      });
+      majors.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.name;
+        opt.textContent = m.name;
+        majorSelect.appendChild(opt);
+      });
+
+      // 设置校考满分
+      const examMax = getExamMax(college);
+      const slider = document.getElementById('prob-exam-slider');
+      slider.max = examMax;
+      slider.value = Math.floor(examMax * 0.67);
+      document.getElementById('prob-exam-value').textContent = slider.value;
+      document.getElementById('prob-exam-max').textContent = '满分 ' + examMax;
+
+      majorCard.style.display = 'block';
+      examCard.style.display = 'block';
+      resultArea.style.display = 'none';
+    }
+
+    function getExamMax(college) {
+      // 根据学校数据判断校考满分
+      const sc = college.scoreComposition || '';
+      if (currentProbType === 'zhongzhi' && sc.includes('450')) return 450;
+      if (currentProbType === 'zhongzhi') return 450;
+      return 300;
+    }
+
+    function onProbExamInput() {
+      const slider = document.getElementById('prob-exam-slider');
+      document.getElementById('prob-exam-value').textContent = slider.value;
+      calcProb();
+    }
+
+    function calcProb() {
+      const culture = Number(document.getElementById('prob-culture').value) || 0;
+      const schoolId = document.getElementById('prob-school').value;
+      const majorName = document.getElementById('prob-major').value;
+      const examScore = Number(document.getElementById('prob-exam-slider').value) || 0;
+
+      if (!schoolId || !majorName) return;
+
+      const college = COLLEGES.find(c => c.id === Number(schoolId));
+      if (!college) return;
+
+      const major = college.majors.find(m => m.name === majorName);
+      if (!major) return;
+
+      // 计算总分
+      const totalScore = calcTotalScore(college, culture, examScore);
+      
+      // 估算该校录取线
+      const estLine = estimateCutoff(college, major);
+      
+      // 120%预录取线
+      const preLine = estLine - 10; // 预录取线比正式线低约10分
+      
+      // 招生计划
+      const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
+
+      // 计算录取概率
+      const probability = calcProbability(totalScore, estLine, preLine, plan, college);
+
+      // 显示结果
+      document.getElementById('prob-result-area').style.display = 'block';
+      document.getElementById('prob-percent').textContent = Math.round(probability) + '%';
+      
+      // 概率描述
+      let desc = '';
+      let badgeClass = '';
+      if (probability >= 80) { desc = '录取希望很大，正常发挥即可'; badgeClass = 'high'; }
+      else if (probability >= 60) { desc = '录取概率较大，建议做好保底'; badgeClass = 'mid'; }
+      else if (probability >= 40) { desc = '有一定机会，建议同时考虑其他学校'; badgeClass = 'mid'; }
+      else { desc = '录取难度较大，建议选择更稳妥的学校'; badgeClass = 'low'; }
+      document.getElementById('prob-desc').innerHTML = desc + ' <span class="prob-badge ' + badgeClass + '">' + (probability >= 60 ? '较稳' : probability >= 40 ? '可冲' : '较悬') + '</span>';
+
+      // 详情
+      document.getElementById('pr-your-score').textContent = totalScore.toFixed(1) + ' 分';
+      document.getElementById('pr-est-line').textContent = estLine + ' 分';
+      document.getElementById('pr-120-line').textContent = preLine + ' 分';
+      document.getElementById('pr-plan').textContent = plan + ' 人';
+      document.getElementById('pr-calc-rule').textContent = getCalcRuleText(college);
+    }
+
+    function calcTotalScore(college, culture, exam) {
+      const sc = college.scoreComposition || '';
+      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) {
+        return culture * 0.4 + exam * 0.6;
+      } else if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) {
+        return culture * 0.5 + exam * 0.5;
+      } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
+        return culture * 0.3 + exam * 0.7;
+      } else {
+        // 默认直接相加
+        return culture + exam;
+      }
+    }
+
+    function getCalcRuleText(college) {
+      const sc = college.scoreComposition || '';
+      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) return '文化×40% + 校考×60%';
+      if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) return '文化×50% + 校考×50%';
+      if (sc.includes('文化×30%+职业技能×70%')) return '文化×30% + 校考×70%';
+      return '文化 + 校考（直接相加）';
+    }
+
+    function estimateCutoff(college, major) {
+      // 基于2024年分数和2026年计划估算
+      const baseScore = college.minScore2024 || 200;
+      // 总分换算：2024年的分数是600分制的，我们按比例换算
+      let est;
+      if (currentProbType === 'zhongzhi') {
+        // 中职750分制
+        est = baseScore / 600 * 750;
+      } else {
+        // 普高600分制
+        est = baseScore;
+      }
+      // 根据招生计划调整：计划越多，分数线越低
+      const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
+      if (plan > 200) est -= 15;
+      else if (plan > 100) est -= 8;
+      else if (plan < 30) est += 10;
+      
+      // 如果有2026年实际分数，用实际分数
+      if (college.realScore2026) {
+        const rs = Number(college.realScore2026.match(/\d+/)?.[0] || 0);
+        if (rs > 0) est = rs;
+      }
+      
+      return Math.round(est);
+    }
+
+    function calcProbability(yourScore, estLine, preLine, plan, college) {
+      // 简单的概率模型
+      const diff = yourScore - estLine;
+      let prob;
+      
+      if (diff >= 30) prob = 95;
+      else if (diff >= 15) prob = 85;
+      else if (diff >= 5) prob = 72;
+      else if (diff >= -5) prob = 55;
+      else if (diff >= -15) prob = 35;
+      else if (diff >= -25) prob = 18;
+      else prob = 5;
+
+      // 120%预录取加成
+      if (yourScore >= preLine && yourScore < estLine) {
+        prob = Math.max(prob, 45); // 过了预录取线但没过正式线，概率约45%
+      }
+
+      // 根据学校热度调整
+      if (college.hot) prob -= 5;
+      
+      // 根据招生计划调整
+      if (plan >= 200) prob += 5;
+      else if (plan <= 30) prob -= 5;
+
+      return Math.max(2, Math.min(98, prob));
+    }
+
+    // 初始化
+    loadProbSchools();
+    document.getElementById('prob-culture').addEventListener('input', calcProb);
+  </script>
+</body>
+</html>
