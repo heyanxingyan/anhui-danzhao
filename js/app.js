@@ -625,6 +625,17 @@ function renderCollegeDetail() {
     });
   });
 
+  // ===== 专项计划模块：把「历年分数」板块换成该专项的政策 =====
+  // 从专项计划页进来时（?category=zhuanxiang-*），学生关心的是"这个专项怎么录"，
+  // 而不是该校历年分数线；因此「历年分数」整体替换为对应专项的政策说明。
+  const specialKind = (fromCat === 'zhuanxiang-tuiyi' || fromCat === 'zhuanxiang')
+    ? 'tuiyi'
+    : (fromCat === 'zhuanxiang-laoxiang' ? 'laoxiang'
+      : (fromCat === 'zhuanxiang-xiangcun' ? 'xiangcun' : null));
+  if (specialKind) {
+    renderSpecialPolicyPanel(c, specialKind);
+  }
+
   // 2026录取规则
   const scoreCompHtml = c.scoreComposition ? `
     <div style="background:linear-gradient(135deg,#fff7e6,#ffe7ba);border:2px solid #fa8c16;border-radius:12px;padding:14px 16px;margin:10px 0">
@@ -1244,6 +1255,84 @@ function renderGaozhong() {
   }
 }
 
+/**
+ * 专项子页面（退役军人 / 革命老区 / 乡村医生）：把政策说明渲染进 #zx-policy。
+ * 文案来自 js/special-policy.js，未收录时显示占位提示而不是空白。
+ */
+function renderSpecialPolicyPage(kind) {
+  const el = document.getElementById('zx-policy');
+  if (!el) return;
+  if (typeof SPECIAL_POLICY === 'undefined') {
+    el.innerHTML = '<div style="color:#d46b08">政策数据未加载（special-policy.js 缺失）。</div>';
+    return;
+  }
+  el.innerHTML = specialPolicyBlocksHtml(kind);
+}
+
+/**
+ * 专项计划页：生成各子板块的政策说明 HTML。
+ *
+ * · currentSub === 'all'     → 三个专项（退役军人/革命老区/乡村医生）的政策各写一段
+ * · 其余（tuiyi/laoxiang/xiangcun） → 只写对应那一项的政策
+ *
+ * 政策文案来自 js/special-policy.js（官方来源，见各条 sources）。
+ */
+function specialPolicyBlocksHtml(currentSub) {
+  const kinds = currentSub === 'all' ? ['tuiyi', 'laoxiang', 'xiangcun'] : [currentSub];
+  const esc = (s) => String(s == null ? '' : s);
+
+  // 运行时统计：各专项 2026 年实际招生院校数
+  const countOf = (k) => {
+    const field = k === 'tuiyi' ? 'plan2026RetiredMilitary'
+      : k === 'laoxiang' ? 'plan2026RevolutionaryArea' : 'plan2026RuralDoctor';
+    return COLLEGES.filter((c) => c[field] > 0 && !c.stoppedEnrollment).length;
+  };
+  const yingluCountOf = () =>
+    COLLEGES.filter((c) => c.retiredMilitaryPolicy &&
+      (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
+       c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
+       c.retiredMilitaryPolicy.indexOf('全部录取') >= 0)).length;
+
+  const block = (P) => {
+    if (!P) return '';
+    const rows = [];
+    if (P.condition) rows.push(['报考条件', esc(P.condition)]);
+    if (P.regions && P.regions.list && P.regions.list.length) {
+      rows.push([
+        '适用地区',
+        (P.regions.batchNote ? `<div style="margin-bottom:4px">${esc(P.regions.batchNote)}</div>` : '') +
+          `<div style="background:#f6f8ff;border:1px solid #d6e4ff;border-radius:8px;padding:8px 10px;line-height:1.9">${P.regions.list.map(esc).join('、')}</div>` +
+          `<div style="font-size:12px;color:var(--text-light);margin-top:3px">共 ${P.regions.list.length} 个</div>`,
+      ]);
+    } else if (P.regions && P.regions.note) {
+      rows.push(['适用地区', esc(P.regions.note)]);
+    }
+    if (P.exam) rows.push(['考试办法', esc(P.exam)]);
+    if (P.admission) rows.push(['录取政策', esc(P.admission)]);
+    if (P.agreement) rows.push(['定向协议与毕业去向', esc(P.agreement)]);
+
+    return `
+      <div style="border-left:4px solid var(--primary);background:#fafafa;border-radius:8px;padding:10px 12px;margin-bottom:10px">
+        <div style="font-size:15px;font-weight:700;margin-bottom:2px">${esc(P.icon)} ${esc(P.fullName || P.name)}</div>
+        <div style="font-size:12px;color:var(--text-light);margin-bottom:6px">2026年招收院校 ${countOf(P.key)} 所${P.key === 'tuiyi' ? `，其中 ${yingluCountOf()} 所明确「应录尽录」` : ''}</div>
+        ${P.intro ? `<div style="font-size:13px;color:#595959;line-height:1.7;margin-bottom:8px">${esc(P.intro)}</div>` : ''}
+        ${(P.yinglu && P.yinglu.text) ? (P.yinglu.has
+          ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:1px solid #52c41a;border-radius:8px;padding:8px 10px;margin-bottom:8px">
+               <div style="font-size:12px;font-weight:700;color:#389e0d;margin-bottom:3px">⭐ 应录尽录</div>
+               <div style="font-size:13px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>
+             </div>`
+          : `<div style="background:#f5f5f5;border:1px solid #d9d9d9;border-radius:8px;padding:8px 10px;margin-bottom:8px">
+               <div style="font-size:12px;font-weight:700;color:#595959;margin-bottom:3px">录取方式</div>
+               <div style="font-size:13px;color:#262626;line-height:1.7">${esc(P.yinglu.text)}</div>
+             </div>`) : ''}
+        ${rows.map(([k, v]) => `<div style="margin-bottom:6px"><span style="font-size:12px;font-weight:700;color:var(--primary)">${k}：</span><span style="font-size:13px;color:#262626;line-height:1.7">${v}</span></div>`).join('')}
+        ${(P.sources && P.sources.length) ? `<div style="font-size:11px;color:var(--text-light);margin-top:6px;line-height:1.5">来源：${P.sources.map((s) => `<a href="${esc(s)}" target="_blank" rel="noopener" style="color:var(--primary);word-break:break-all">${esc(s)}</a>`).join('<br>')}</div>` : ''}
+      </div>`;
+  };
+
+  return kinds.map((k) => block(SPECIAL_POLICY[k])).join('');
+}
+
 // ========== 专项计划页面 ==========
 function renderZhuanxiang() {
   renderTabbar('college');
@@ -1297,6 +1386,15 @@ function renderZhuanxiang() {
     }
 
     document.getElementById('zx-tip').textContent = tipText;
+
+    // ===== 各子板块展示对应专项的政策 =====
+    // 全部专项：三个专项的政策各写一段；其余子板块：写自己那一项的政策。
+    const descEl = document.getElementById('zx-desc');
+    if (descEl) {
+      descEl.innerHTML = (typeof SPECIAL_POLICY !== 'undefined')
+        ? specialPolicyBlocksHtml(currentSub)
+        : '';
+    }
     const el = document.getElementById('zx-list');
     el.innerHTML = list.map(c => {
       const plan = c[planField] || 0;
@@ -1363,6 +1461,7 @@ function renderZhuanxiang() {
 // 退役军人专项页面
 function renderZhuanxiangTuiyi() {
   renderTabbar('college');
+  renderSpecialPolicyPage('tuiyi');
   const list = COLLEGES.filter(c => c.plan2026RetiredMilitary > 0 && !c.stoppedEnrollment);
   const el = document.getElementById('zx-list');
   el.innerHTML = list.map(c => {
@@ -1388,6 +1487,7 @@ function renderZhuanxiangTuiyi() {
 // 革命老区建档立卡专项页面
 function renderZhuanxiangLaoxiang() {
   renderTabbar('college');
+  renderSpecialPolicyPage('laoxiang');
   const list = COLLEGES.filter(c => c.plan2026RevolutionaryArea > 0 && !c.stoppedEnrollment);
   const el = document.getElementById('zx-list');
   el.innerHTML = list.map(c => {
@@ -1410,6 +1510,7 @@ function renderZhuanxiangLaoxiang() {
 // 乡村医生定向培养页面
 function renderZhuanxiangXiangcun() {
   renderTabbar('college');
+  renderSpecialPolicyPage('xiangcun');
   const list = COLLEGES.filter(c => c.plan2026RuralDoctor > 0 && !c.stoppedEnrollment);
   const el = document.getElementById('zx-list');
   el.innerHTML = list.map(c => {
@@ -1689,6 +1790,96 @@ function dedupeByMajorName(rows) {
     seen.add(key);
     return true;
   });
+}
+
+/**
+ * 专项计划模块：把院校详情页的「历年分数」板块替换为该专项的政策说明。
+ *
+ * @param {object} c   院校对象
+ * @param {string} kind 'tuiyi' | 'laoxiang' | 'xiangcun'
+ */
+function renderSpecialPolicyPanel(c, kind) {
+  const panel = document.getElementById('panel-score');
+  if (!panel) return;
+  const P = (typeof SPECIAL_POLICY !== 'undefined') ? SPECIAL_POLICY[kind] : null;
+
+  // tab 文案也换掉，避免"历年分数"下面却是政策
+  const tabEl = document.querySelector('.tab-switch .tab-item[data-tab="score"]');
+  if (tabEl) tabEl.textContent = (P && P.icon ? P.icon + ' ' : '') + '专项政策';
+
+  const esc = (s) => String(s == null ? '' : s);
+  const sec = (title, body) => body
+    ? `<div style="margin-bottom:12px"><div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:4px">${title}</div>
+       <div style="font-size:14px;color:#262626;line-height:1.7">${body}</div></div>`
+    : '';
+
+  // 逐校政策：退役军人有 per-school 文本；其余专项暂无逐校字段
+  const schoolPolicy = (kind === 'tuiyi' && c.retiredMilitaryPolicy) ? c.retiredMilitaryPolicy : '';
+  const schoolYinglu = schoolPolicy && schoolPolicy.indexOf('应录尽录') >= 0;
+  const schoolYinglu2 = schoolPolicy &&
+    (schoolPolicy.indexOf('参加测试即录取') >= 0 || schoolPolicy.indexOf('全部录取') >= 0);
+
+  // 地区名单（革命老区）
+  let regionHtml = '';
+  if (P && P.regions && ((P.regions.list && P.regions.list.length) || P.regions.note)) {
+    const list = (P.regions.list || []);
+    regionHtml = sec('适用地区（仅这些地方的考生可报考）',
+      (P.regions.batchNote ? `<div style="margin-bottom:6px">${esc(P.regions.batchNote)}</div>` : '') +
+      (list.length
+        ? `<div style="background:#f6f8ff;border:1px solid #d6e4ff;border-radius:8px;padding:10px 12px;line-height:1.9">${list.map(esc).join('、')}</div>
+           <div style="font-size:12px;color:var(--text-light);margin-top:4px">共 ${list.length} 个</div>`
+        : `<div style="color:#d46b08">${esc(P.regions.note)}</div>`));
+  }
+
+  const header = P
+    ? `<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+         <span style="font-size:26px">${esc(P.icon)}</span>
+         <div>
+           <div style="font-size:17px;font-weight:700">${esc(P.fullName || P.name)}</div>
+           ${P.fullName && P.fullName !== P.name ? `<div style="font-size:12px;color:var(--text-light)">简称「${esc(P.name)}」</div>` : ''}
+         </div>
+       </div>`
+    : `<div style="font-size:15px;color:#d46b08">该专项政策暂未收录。</div>`;
+
+  const yingluBlock = (P && P.yinglu && P.yinglu.text)
+    ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:2px solid #52c41a;border-radius:12px;padding:12px 14px;margin-bottom:12px">
+         <div style="font-size:13px;font-weight:700;color:#389e0d;margin-bottom:6px">⭐ 应录尽录</div>
+         <div style="font-size:14px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>
+       </div>`
+    : '';
+
+  // 该校的具体政策（仅当有逐校数据时）
+  const schoolBlock = schoolPolicy
+    ? `<div style="background:${(schoolYinglu || schoolYinglu2) ? 'linear-gradient(135deg,#f6ffed,#d9f7be)' : '#f5f5f5'};
+              border:${(schoolYinglu || schoolYinglu2) ? '2px solid #52c41a' : '1px solid #d9d9d9'};
+              border-radius:12px;padding:12px 14px;margin-bottom:12px">
+         <div style="font-size:13px;font-weight:700;color:${(schoolYinglu || schoolYinglu2) ? '#389e0d' : '#595959'};margin-bottom:6px">
+           ${(schoolYinglu || schoolYinglu2) ? '⭐ ' : ''}${esc(c.name)} · 2026年章程原文${(schoolYinglu || schoolYinglu2) ? '（应录尽录）' : ''}
+         </div>
+         <div style="font-size:14px;color:#262626;line-height:1.7">${esc(schoolPolicy)}</div>
+       </div>`
+    : '';
+
+  const srcBlock = (P && P.sources && P.sources.length)
+    ? `<div style="font-size:12px;color:var(--text-light);margin-top:8px;line-height:1.6">
+         来源：${P.sources.map((s) => `<a href="${esc(s)}" target="_blank" rel="noopener" style="color:var(--primary);word-break:break-all">${esc(s)}</a>`).join('<br>')}
+       </div>`
+    : '';
+
+  panel.innerHTML = `
+    <div class="about-section" style="margin:8px 12px">
+      ${header}
+      ${yingluBlock}
+      ${schoolBlock}
+      ${sec('政策说明', esc(P && P.intro))}
+      ${sec('报考条件', esc(P && P.condition))}
+      ${regionHtml}
+      ${sec('考试办法', esc(P && P.exam))}
+      ${sec('录取政策', esc(P && P.admission))}
+      ${sec('定向协议与毕业去向', esc(P && P.agreement))}
+      ${srcBlock}
+      <div class="note" style="margin-top:10px">以上为该专项的政策说明；各院校具体测试科目、分值以院校当年招生章程为准。</div>
+    </div>`;
 }
 
 function renderCompare() {
