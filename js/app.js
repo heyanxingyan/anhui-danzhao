@@ -1270,6 +1270,26 @@ function renderSpecialPolicyPage(kind) {
 }
 
 /**
+ * 专项政策醒目提示卡片（如革命老区「可多报 3 所院校」）。
+ * 放在每块政策内容最上方，用金色高亮，便于学生一眼看到关键报考优势。
+ */
+function specialHighlightHtml(P, esc) {
+  const e = esc || ((s) => String(s == null ? '' : s));
+  if (!P || !P.highlight) return '';
+  const h = P.highlight;
+  return `
+    <div style="background:linear-gradient(135deg,#fffbe6,#ffe58f);border:2px solid #faad14;border-radius:10px;padding:10px 12px;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span style="font-size:20px">🎯</span>
+        <span style="font-size:17px;font-weight:800;color:#ad4e00">${e(h.title)}</span>
+        ${h.big ? `<span style="background:#fa8c16;color:#fff;font-size:13px;font-weight:800;padding:2px 9px;border-radius:20px;letter-spacing:.5px">${e(h.big)}</span>` : ''}
+      </div>
+      ${h.desc ? `<div style="font-size:13px;color:#613400;line-height:1.7;margin-top:6px">${e(h.desc)}</div>` : ''}
+      ${h.note ? `<div style="font-size:11px;color:#ad6800;line-height:1.5;margin-top:5px">${e(h.note)}</div>` : ''}
+    </div>`;
+}
+
+/**
  * 专项计划页：生成各子板块的政策说明 HTML。
  *
  * · currentSub === 'all'     → 三个专项（退役军人/革命老区/乡村医生）的政策各写一段
@@ -1315,6 +1335,7 @@ function specialPolicyBlocksHtml(currentSub) {
       <div style="border-left:4px solid var(--primary);background:#fafafa;border-radius:8px;padding:10px 12px;margin-bottom:10px">
         <div style="font-size:15px;font-weight:700;margin-bottom:2px">${esc(P.icon)} ${esc(P.fullName || P.name)}</div>
         <div style="font-size:12px;color:var(--text-light);margin-bottom:6px">2026年招收院校 ${countOf(P.key)} 所${P.key === 'tuiyi' ? `，其中 ${yingluCountOf()} 所明确「应录尽录」` : ''}</div>
+        ${specialHighlightHtml(P, esc)}
         ${P.intro ? `<div style="font-size:13px;color:#595959;line-height:1.7;margin-bottom:8px">${esc(P.intro)}</div>` : ''}
         ${(P.yinglu && (P.yinglu.text || P.yinglu.scaleNote)) ? (P.yinglu.has
           ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:1px solid #52c41a;border-radius:8px;padding:8px 10px;margin-bottom:8px">
@@ -1332,6 +1353,8 @@ function specialPolicyBlocksHtml(currentSub) {
       </div>`;
   };
 
+  // 每个专项的关键报考优势（如革命老区「可多报 3 所院校」）都会在各自区块顶部显示；
+  // 「全部专项」并列三个专项时同样显示——学生正需要看到这个优势。
   return kinds.map((k) => block(SPECIAL_POLICY[k])).join('');
 }
 
@@ -1879,6 +1902,7 @@ function renderSpecialPolicyPanel(c, kind) {
   panel.innerHTML = `
     <div class="about-section" style="margin:8px 12px">
       ${header}
+      ${specialHighlightHtml(P, esc)}
       ${yingluBlock}
       ${schoolBlock}
       ${sec('政策说明', esc(P && P.intro))}
