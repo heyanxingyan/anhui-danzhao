@@ -1909,19 +1909,34 @@ function renderSpecialPolicyPanel(c, kind) {
        </div>`
     : '';
 
+  // 收纳：关键结论（应录尽录 / 可多报）留在外面始终可见，政策正文折进 <details>
   panel.innerHTML = `
     <div class="about-section" style="margin:8px 12px">
       ${header}
       ${specialHighlightHtml(P, esc)}
-      ${yingluBlock}
-      ${schoolBlock}
-      ${sec('政策说明', esc(P && P.intro))}
-      ${sec('报考条件', esc(P && P.condition))}
-      ${regionHtml}
-      ${sec('考试办法', esc(P && P.exam))}
-      ${sec('录取政策', esc(P && P.admission))}
-      ${sec('定向协议与毕业去向', esc(P && P.agreement))}
-      ${srcBlock}
+      <div class="zx-fold-below">
+        ${yingluBlock}
+        ${schoolBlock}
+      </div>
+      <details class="zx-fold zx-fold-inline">
+        <summary>
+          <span>📖 详细政策说明</span>
+          <span class="zx-fold-hint">
+            <span class="zx-fold-hint-text">点击展开</span>
+            <span class="zx-fold-collapse-text">点击收起</span>
+            <span class="zx-fold-arrow">▼</span>
+          </span>
+        </summary>
+        <div class="zx-fold-body" style="padding:12px 0 0">
+          ${sec('政策说明', esc(P && P.intro))}
+          ${sec('报考条件', esc(P && P.condition))}
+          ${regionHtml}
+          ${sec('考试办法', esc(P && P.exam))}
+          ${sec('录取政策', esc(P && P.admission))}
+          ${sec('定向协议与毕业去向', esc(P && P.agreement))}
+          ${srcBlock}
+        </div>
+      </details>
       <div class="note" style="margin-top:10px">以上为该专项的政策说明；各院校具体测试科目、分值以院校当年招生章程为准。</div>
     </div>`;
 }
@@ -1986,26 +2001,37 @@ function renderAllSpecialPolicyPanel(c) {
          </div>`
       : '';
 
+    // 收纳：每个专项一块可折叠。标题 + 关键结论（应录尽录/可多报）留在外面，
+    // 详细的报考条件/地区名单/考试办法/录取政策折进 <details>。
     return `
-      <div style="border:1px solid #eee;border-radius:10px;padding:12px 14px;margin-bottom:12px;background:#fff">
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px">${esc(P.icon)} ${esc(P.fullName || P.name)}</div>
-        ${specialHighlightHtml(P, esc)}
-        ${yingluBlock}
-        ${schoolBlock}
-        ${sec('政策说明', esc(P.intro))}
-        ${sec('报考条件', esc(P.condition))}
-        ${regionHtml}
-        ${sec('考试办法', esc(P.exam))}
-        ${sec('录取政策', esc(P.admission))}
-        ${sec('定向协议与毕业去向', esc(P.agreement))}
-      </div>`;
+      <details class="zx-fold zx-fold-inline" style="margin:0 0 10px;box-shadow:none;border:1px solid #eee">
+        <summary>
+          <span>${esc(P.icon)} ${esc(P.fullName || P.name)}</span>
+          <span class="zx-fold-hint">
+            <span class="zx-fold-hint-text">点击展开</span>
+            <span class="zx-fold-collapse-text">点击收起</span>
+            <span class="zx-fold-arrow">▼</span>
+          </span>
+        </summary>
+        <div class="zx-fold-body">
+          ${specialHighlightHtml(P, esc)}
+          ${yingluBlock}
+          ${schoolBlock}
+          ${sec('政策说明', esc(P.intro))}
+          ${sec('报考条件', esc(P.condition))}
+          ${regionHtml}
+          ${sec('考试办法', esc(P.exam))}
+          ${sec('录取政策', esc(P.admission))}
+          ${sec('定向协议与毕业去向', esc(P.agreement))}
+        </div>
+      </details>`;
   };
 
   panel.innerHTML = `
     <div class="about-section" style="margin:8px 12px">
       <div style="font-size:15px;font-weight:700;margin-bottom:8px">⭐ 专项计划招生说明</div>
       <div style="font-size:13px;color:#595959;line-height:1.7;margin-bottom:12px">
-        以下为三类专项计划各自的招生说明。该校 2026 年招收哪些专项，见「招生计划」标签页。
+        以下为三类专项计划各自的招生说明，点击可展开。该校 2026 年招收哪些专项，见「招生计划」标签页。
       </div>
       ${kinds.map(blockOf).join('')}
       <div class="note" style="margin-top:4px">各院校具体测试科目、分值以院校当年招生章程为准。</div>
