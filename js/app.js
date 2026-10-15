@@ -217,7 +217,7 @@ function renderIndex() {
   // 热门院校（横向滚动）
   const hotEl = document.getElementById('hot-colleges');
   if (hotEl) {
-    const hot = COLLEGES.filter(c => c.hot).slice(0, 6);
+    const hot = COLLEGES.filter(c => c.hot && !c.stoppedEnrollment).slice(0, 6);
     hotEl.innerHTML = hot.map(c => `
       <a href="college-detail.html?id=${c.id}" class="college-chip">
         <div class="name">${c.name}${c.stoppedEnrollment ? ' <span style="font-size:10px;background:#ff4d4f;color:#fff;padding:1px 5px;border-radius:8px">停招</span>' : ''}</div>
