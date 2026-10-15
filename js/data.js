@@ -26110,7 +26110,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 480, "dibu": 475, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 440, "dibu": 435, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 455, "dibu": 450, "source": "预估"},
     },
         {
       "name": "烹饪工艺与营养",
@@ -26128,7 +26128,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 465, "dibu": 460, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 420, "dibu": 415, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 445, "dibu": 440, "source": "预估"},
     },
         {
       "name": "酒店管理与数字化运营",
@@ -26164,7 +26164,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 468, "dibu": 463, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 425, "dibu": 420, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 455, "dibu": 450, "source": "预估"},
     },
         {
       "name": "汽车检测与维修技术",
@@ -26343,7 +26343,7 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
-      "score2026Gaozhong": {"pre": 490, "dibu": 485, "source": "预估"},
+      "score2026Gaozhong": {"pre": 492, "dibu": 487, "source": "预估"},
       "score2026Zhongzhi": {"pre": 494, "dibu": 487, "source": "2026预录取公示"},
     },
         {
@@ -26361,7 +26361,7 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
-      "score2026Zhongzhi": {"pre": 445, "dibu": 440, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 478, "dibu": 473, "source": "预估"},
       "score2026Gaozhong": {"pre": 485, "dibu": 480, "source": "2026预录取公示"},
     },
         {
@@ -26380,7 +26380,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 470, "dibu": 465, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 458, "dibu": 453, "source": "预估"},
     },
         {
       "name": "大数据技术",
@@ -26578,7 +26578,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 460, "dibu": 455, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 410, "dibu": 405, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
     },
         {
       "name": "康复治疗技术",
