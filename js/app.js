@@ -479,23 +479,33 @@ function renderCollegeDetail() {
   // 对口本科新增院校缺地址/电话/规模等资料时，如实显示「待补」而不是空白，
   // 也不显示站内估算层按公式拼出来的占位号码（那种号码打不通）。
   const bkPh = c._bkPlaceholder || {};
+  // 双轨院校：对口本科条目（如 id=94）把「院校本身属性」留空，指向同校的分类考试条目
+  // （_sameSchoolAs）。这些属性对同一所学校是同一个值，所以缺值时回退到原条目取，
+  // 否则页面会显示「待补」，让人误以为这所学校完全没有数据。
+  const twin = c._sameSchoolAs ? COLLEGES.find((x) => x.id === c._sameSchoolAs) : null;
+  const tv = (field) => {
+    if (c[field] != null && c[field] !== '') return c[field];
+    if (twin && twin[field] != null && twin[field] !== '') return twin[field];
+    return null;
+  };
   // dash：缺值时优先显示原因注释（如「首届学生尚未毕业」），其次显示「待补」，最后才是「—」
   const dash = (v, todo, field) => {
     if (v) return v;
-    const note = field ? c[field + 'Note'] : null;
+    const note = field ? (c[field + 'Note'] || (twin && twin[field + 'Note'])) : null;
     if (note) return `<span style="color:#8c8c8c">${note}</span>`;
     return todo ? '<span style="color:#bbb">待补</span>' : '—';
   };
   document.getElementById('basic-info').innerHTML = `
     <div class="row"><div class="label">所在城市</div><div class="value">${c.city || '—'}</div></div>
-    <div class="row"><div class="label">学校地址</div><div class="value">${dash(c.address, bkPh.address)}</div></div>
+    <div class="row"><div class="label">学校地址</div><div class="value">${dash(tv('address'), bkPh.address)}</div></div>
     <div class="row"><div class="label">办学性质</div><div class="value">${c.nature || '—'}</div></div>
     <div class="row"><div class="label">院校类型</div><div class="value">${c.type || '—'}${c.type && c.type.indexOf('本科')>=0 ? '（本科层次）' : ''}</div></div>
-    <div class="row"><div class="label">在校生规模</div><div class="value">${dash(c.scale, bkPh.scale)}</div></div>
-    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(c.phone, bkPh.phone)}</div></div>
-    <div class="row"><div class="label">就业率</div><div class="value">${dash(c.employmentRate, bkPh.employmentRate)}</div></div>
-    <div class="row"><div class="label">专升本率</div><div class="value">${dash(c.upgradeRate, bkPh.upgradeRate)}</div></div>
+    <div class="row"><div class="label">在校生规模</div><div class="value">${dash(tv('scale'), bkPh.scale)}</div></div>
+    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(tv('phone'), bkPh.phone)}</div></div>
+    <div class="row"><div class="label">就业率</div><div class="value">${dash(tv('employmentRate'), bkPh.employmentRate)}</div></div>
+    <div class="row"><div class="label">专升本率</div><div class="value">${dash(tv('upgradeRate'), bkPh.upgradeRate)}</div></div>
     <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : '—'}</div></div>
+    ${twin ? `<div class="row"><div class="label">招生通道</div><div class="value" style="font-size:12.5px">本校同时以两条通道收录：本页为对口本科（应用型本科对口招生）<a href="college-detail.html?id=${twin.id}" style="color:var(--primary)"> · 查看分类考试口径 ›</a></div></div>` : ''}
   `;
 
   // Tab 切换
