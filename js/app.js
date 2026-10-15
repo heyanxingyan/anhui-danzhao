@@ -1322,10 +1322,10 @@ function specialPolicyBlocksHtml(currentSub) {
                ${P.yinglu.text ? `<div style="font-size:13px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>` : ''}
                ${P.yinglu.scaleNote ? `<div style="font-size:12px;color:#237804;line-height:1.7;margin-top:6px;padding-top:6px;border-top:1px dashed #95de64">${esc(P.yinglu.scaleNote)}</div>` : ''}
              </div>`
-          : `<div style="background:#f5f5f5;border:1px solid #d9d9d9;border-radius:8px;padding:8px 10px;margin-bottom:8px">
-               <div style="font-size:12px;font-weight:700;color:#595959;margin-bottom:3px">录取方式</div>
-               ${P.yinglu.text ? `<div style="font-size:13px;color:#262626;line-height:1.7">${esc(P.yinglu.text)}</div>` : ''}
-               ${P.yinglu.scaleNote ? `<div style="font-size:12px;color:#595959;line-height:1.7;margin-top:6px">${esc(P.yinglu.scaleNote)}</div>` : ''}
+          : `<div style="background:#f6ffed;border:1px solid #b7eb8f;border-left:4px solid #52c41a;border-radius:8px;padding:8px 10px;margin-bottom:8px">
+               <div style="font-size:12px;font-weight:700;color:#389e0d;margin-bottom:3px">📉 ${esc(P.yinglu.label || '录取情况')}</div>
+               ${P.yinglu.text ? `<div style="font-size:13px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>` : ''}
+               ${P.yinglu.scaleNote ? `<div style="font-size:12px;color:#237804;line-height:1.7;margin-top:6px;padding-top:6px;border-top:1px dashed #95de64">${esc(P.yinglu.scaleNote)}</div>` : ''}
              </div>`) : ''}
         ${rows.map(([k, v]) => `<div style="margin-bottom:6px"><span style="font-size:12px;font-weight:700;color:var(--primary)">${k}：</span><span style="font-size:13px;color:#262626;line-height:1.7">${v}</span></div>`).join('')}
         ${(P.sources && P.sources.length) ? `<div style="font-size:11px;color:var(--text-light);margin-top:6px;line-height:1.5">来源：${P.sources.map((s) => `<a href="${esc(s)}" target="_blank" rel="noopener" style="color:var(--primary);word-break:break-all">${esc(s)}</a>`).join('<br>')}</div>` : ''}
@@ -1843,11 +1843,19 @@ function renderSpecialPolicyPanel(c, kind) {
        </div>`
     : `<div style="font-size:15px;color:#d46b08">该专项政策暂未收录。</div>`;
 
-  const yingluBlock = (P && P.yinglu && P.yinglu.text)
-    ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:2px solid #52c41a;border-radius:12px;padding:12px 14px;margin-bottom:12px">
-         <div style="font-size:13px;font-weight:700;color:#389e0d;margin-bottom:6px">⭐ 应录尽录</div>
-         <div style="font-size:14px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>
-       </div>`
+  // 「应录尽录」标签只给退役军人专项；其余专项按实际效果表述（如革命老区「滑档极少」）
+  const yingluBlock = (P && P.yinglu && (P.yinglu.text || P.yinglu.scaleNote))
+    ? (P.yinglu.has
+      ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:2px solid #52c41a;border-radius:12px;padding:12px 14px;margin-bottom:12px">
+           <div style="font-size:13px;font-weight:700;color:#389e0d;margin-bottom:6px">⭐ 应录尽录</div>
+           ${P.yinglu.text ? `<div style="font-size:14px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>` : ''}
+           ${P.yinglu.scaleNote ? `<div style="font-size:12px;color:#237804;line-height:1.7;margin-top:8px;padding-top:8px;border-top:1px dashed #95de64">${esc(P.yinglu.scaleNote)}</div>` : ''}
+         </div>`
+      : `<div style="background:#f6ffed;border:1px solid #b7eb8f;border-left:4px solid #52c41a;border-radius:12px;padding:12px 14px;margin-bottom:12px">
+           <div style="font-size:13px;font-weight:700;color:#389e0d;margin-bottom:6px">📉 ${esc(P.yinglu.label || '录取情况')}</div>
+           ${P.yinglu.text ? `<div style="font-size:14px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>` : ''}
+           ${P.yinglu.scaleNote ? `<div style="font-size:12px;color:#237804;line-height:1.7;margin-top:8px;padding-top:8px;border-top:1px dashed #95de64">${esc(P.yinglu.scaleNote)}</div>` : ''}
+         </div>`)
     : '';
 
   // 该校的具体政策（仅当有逐校数据时）
