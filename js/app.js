@@ -629,15 +629,19 @@ function renderCollegeDetail() {
     });
   });
 
-  // ===== 对口本科院校：只保留「招生计划 / 录取规则」两个标签 =====
-  // 理由：对口本科的考试口径是「文化300 + 职业技能450」，与高职分类考试完全不同，
-  // 「普高/中职/专项」三列分专业计划表和「历年分数走势」对它都不适用（填进去全是「—」）。
-  // 2026 年分专业招生计划与录取分数线改放到「招生计划」标签里展示。
+  // ===== 对口本科院校：标签精简为 招生计划 / 录取分数 / 录取规则 =====
+  // 「历年分数」是分类考试口径（普高/中职分数线走势），对口本科不适用 → 换成「录取分数」
+  // （展示 2026 年对口招生各专业录取线）；
+  // 「学校简介」这些院校没有可写内容 → 整块去掉。
+  // 原「普高/中职/专项」三列的分专业计划表也不适用（对口本科没有这三类计划），
+  // 所以「招生计划」标签改为展示 招生规模 + 专业清单。
   if (c.isDuikouBenke) {
     document.querySelectorAll('.tab-switch .tab-item').forEach((t) => {
-      if (t.dataset.tab === 'score' || t.dataset.tab === 'intro') t.remove();
+      if (t.dataset.tab === 'intro') t.remove();
+      if (t.dataset.tab === 'score') t.textContent = '录取分数';
     });
     renderDuikouBenkePlanPanel(c);
+    renderDuikouBenkeScorePanel(c);
   }
 
   // ===== 专项计划模块：把「历年分数」板块换成专项政策 =====
@@ -1128,56 +1132,12 @@ function buildBenkeCards(keyword) {
           </div>
         </details>` : ''}`;
 
-    // ===== 2026 年录取分数线（采集自各校招生网公示）=====
-    // 分数线有三种**互不可比**的口径，必须分开显示，否则会误导读分：
-    //   ① 普通类：按总分（满分 750）
-    //   ② 艺体类：按综合分（满分约 350）
-    //   ③ 特殊控制线：技能控制线 / 免测项目的文化课线 / 专业大类线（量纲各不相同）
-    const sc = s.scores2026;
-    let scoreBlock = '';
-    if (sc && sc.lines && sc.lines.length) {
-      const noteOf = (l) => String(l.note || '');
-      // 「特殊控制线」只收**量纲本身就不同**的项：
-      //   · 免测项目的文化课线（巢湖 96/160/216/156）
-      //   · 专业大类最低录取分数线（铜陵）
-      // 注意：像「总分录取线；技能控制线270分」这种主值是总分的，**不能**归进来——
-      //       它只是额外附注了一个技能线，主值仍是满分 750 的总分。
-      const isSpecial = (l) => /文化课|免测|大类线/.test(noteOf(l));
-      const isComposite = (l) => !isSpecial(l) && (/综合/.test(noteOf(l)) || sc.scoreType === '综合分');
-      const normalLines = sc.lines.filter((l) => !isSpecial(l) && !isComposite(l));
-      const compLines = sc.lines.filter(isComposite);
-      const specialLines = sc.lines.filter(isSpecial);
-      const row = (l) => `<tr>
-          <td>${esc(l.major)}</td>
-          <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
-          <td>${esc(l.note || '')}</td>
-        </tr>`;
-      const tbl = (arr) => `<div style="overflow-x:auto"><table class="bk-table">
-          <tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr>
-          ${arr.map(row).join('')}
-        </table></div>`;
-      const groupCount = [normalLines, compLines, specialLines].filter((a) => a.length).length;
-      const titled = (label, arr) => (groupCount > 1 ? `<div class="bk-score-sub">${label}</div>` : '') + tbl(arr);
-      scoreBlock = `
-        <div class="bk-score">
-          <div class="bk-score-t">📊 2026 年录取分数线<span style="font-weight:400;font-size:11px;color:#8c8c8c">（${esc(sc.publishedAt || '')} 公布）</span></div>
-          ${normalLines.length ? titled('普通类（总分，满分 750）', normalLines) : ''}
-          ${compLines.length ? titled('艺术/体育类（综合分，满分约 350）', compLines) : ''}
-          ${specialLines.length ? titled('⚠️ 其他控制线（口径与总分不同，请勿直接比较）', specialLines) : ''}
-          ${sc.scoreFormulaNote ? `<div style="font-size:11.5px;color:#8c8c8c;margin-top:5px">合成办法：${esc(sc.scoreFormulaNote)}</div>` : ''}
-          ${sc.sourceUrl ? `<div style="font-size:11px;margin-top:4px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
-        </div>`;
-    } else if (s.scores2026Checked) {
-      // 学校确实公布了，但官网原文未找到 —— 如实说明，不填未核实的数字
-      const why = (s.scoreNote || '').trim();
-      scoreBlock = `<div class="bk-score-none">📊 2026 年录取分数线：该校已公布，但官网原文未找到${
-        why ? `<div style="margin-top:4px;font-size:11.5px;line-height:1.6">${esc(why)}</div>` : ''
-      }</div>`;
-    }
+    // 说明：2026 年录取分数线**不在列表卡片上展示**（列表太长、口径又多，容易误读）。
+    //       分数统一放在院校详情页的「录取分数」标签里看（见 renderDuikouBenkeScorePanel）。
 
     // 卡片本体与「分类考试」的高职院校卡片保持同一套结构/样式：
     //   a.college-card > .head > .name + .tags（.tag/.tag-public/.tag-type） + .meta-row
-    // 本页额外的数据（分数线、专业表、考试办法）挂在卡片**下方**，
+    // 本页额外的数据（专业表、考试办法）挂在卡片**下方**，
     // 不塞进卡片里 —— 否则又会变成之前那种被撑爆的异形卡。
     const planText = s.planTotal ? `对口本科 ${s.planTotal} 人` : '对口本科';
     const mainCard = `
@@ -1194,14 +1154,13 @@ function buildBenkeCards(keyword) {
         </div>
         <div class="meta-row">
           <span>${esc(s.city || '')} · ${planText}${majorCount ? ` · ${majorCount} 个专业` : ''}</span>
-          <span style="font-size:12px;color:var(--text-light)">${local ? '看历年分数 ›' : '官网 ›'}</span>
+          <span style="font-size:12px;color:var(--text-light)">${local ? '看招生计划与分数 ›' : '官网 ›'}</span>
         </div>
       </a>`;
 
     return `
       <div class="bk-card-wrap">
         ${mainCard}
-        ${scoreBlock}
         ${detail}
       </div>`;
   }).join('');
@@ -2083,12 +2042,37 @@ function renderSpecialPolicyPanel(c, kind) {
 }
 
 /**
+ * 院校详情页的返回按钮。
+ *
+ * 优先用 document.referrer 回到**来源页的完整 URL**（含查询串），
+ * 这样从「中职起点 → 🎓 对口本科」进来的，返回时仍停在对口本科栏，
+ * 而不是掉回默认的中职专科栏（history.back() 在部分浏览器里会丢掉查询串）。
+ * referrer 不可用（直接打开、跨域）时退回 history.back()。
+ */
+function goBackSmart() {
+  try {
+    const ref = document.referrer;
+    if (ref) {
+      const u = new URL(ref);
+      if (u.origin === location.origin) {
+        // 来源页是本站页面 → 直接跳回去（保留 ?tab= 之类的查询串）
+        location.href = u.href;
+        return;
+      }
+    }
+  } catch (e) { /* 解析失败就走下面的兜底 */ }
+  if (history.length > 1) history.back();
+  else location.href = 'index.html';
+}
+
+/**
  * 对口本科院校的「招生计划」面板。
  *
  * 与高职院校不同，对口本科：
  *   · 考试口径是「文化素质测试 300 + 职业技能考试 450 = 750」，没有普高/中职/专项三列计划，
  *     所以不复用那张分专业计划表（复用了每格都是「—」，前面就是被这么撑出空表格的）；
- *   · 招生规模小（几所到几十所），因此直接给「招生计划 + 2026录取分数线 + 专业清单」。
+ *   · 招生规模小，因此直接给「招生计划 + 专业清单」，
+ *     2026 录取分数线放在并列的「录取分数」标签里（见 renderDuikouBenkeScorePanel）。
  *
  * @param {object} c 院校对象（COLLEGES 中的对口本科条目）
  */
@@ -2100,43 +2084,6 @@ function renderDuikouBenkePlanPanel(c) {
   const majors = c.majors || [];
   const planTotal = c.plan2026Benke || majors.reduce((a, m) => a + (Number(m.plan2026) || 0), 0);
   const bkExam = c.bkExam || {};
-  const sc = c.bkScores2026;
-
-  // ---- 2026 录取分数线（分专业；普通类总分 / 艺体类综合分 / 其他控制线分组）----
-  let scoreHtml = '';
-  if (sc && sc.lines && sc.lines.length) {
-    const noteOf = (l) => String(l.note || '');
-    const isSpecial = (l) => /文化课|免测|大类线/.test(noteOf(l));
-    const isComp = (l) => !isSpecial(l) && (/综合/.test(noteOf(l)) || sc.scoreType === '综合分');
-    const groups = [
-      { label: '普通类（总分，满分 750）', rows: sc.lines.filter((l) => !isSpecial(l) && !isComp(l)) },
-      { label: '艺术/体育类（综合分）', rows: sc.lines.filter(isComp) },
-      { label: '⚠️ 其他控制线（口径与总分不同，请勿直接比较）', rows: sc.lines.filter(isSpecial) },
-    ].filter((g) => g.rows.length);
-    scoreHtml = `
-      <div class="about-section" style="margin:8px 12px">
-        <h3>📊 2026 年录取分数线${sc.publishedAt ? `（${esc(sc.publishedAt)} 公布）` : ''}</h3>
-        ${groups.map((g) => `
-          ${groups.length > 1 ? `<div style="font-size:12.5px;font-weight:600;color:#a8071a;margin:8px 0 2px">${g.label}</div>` : ''}
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr></thead>
-              <tbody>${g.rows.map((l) => `<tr>
-                <td>${esc(l.major)}</td>
-                <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
-                <td style="font-size:12px;color:#666">${esc(l.note || '')}</td>
-              </tr>`).join('')}</tbody>
-            </table>
-          </div>`).join('')}
-        ${sc.sourceUrl ? `<div style="font-size:11.5px;margin-top:6px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
-      </div>`;
-  } else if (c.scores2026Checked) {
-    scoreHtml = `
-      <div class="about-section" style="margin:8px 12px">
-        <h3>📊 2026 年录取分数线</h3>
-        <div style="font-size:13px;color:#8c8c8c">该校已公布，但官网原文未找到${c.scoreNote ? `（${esc(String(c.scoreNote).slice(0, 120))}）` : ''}</div>
-      </div>`;
-  }
 
   // ---- 招生专业清单（名称 / 大类 / 计划 / 学费 / 职业技能测试科目）----
   const MC = (typeof MAJOR_CATEGORIES !== 'undefined') ? MAJOR_CATEGORIES : {};
@@ -2159,8 +2106,6 @@ function renderDuikouBenkePlanPanel(c) {
         : ''}
     </div>
 
-    ${scoreHtml}
-
     <div class="about-section" style="margin:8px 12px">
       <h3>📚 招生专业（2026年）</h3>
     </div>
@@ -2175,6 +2120,68 @@ function renderDuikouBenkePlanPanel(c) {
     </div>
     <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：数据来源为该校 2026 年面向中职毕业生对口招生章程，最终招生专业及计划以安徽省教育厅下达为准。</div>
   `;
+}
+
+/**
+ * 对口本科院校的「录取分数」面板（与 招生计划 / 录取规则 并列的第三个标签）。
+ *
+ * 分数线分三种**互不可比**的口径，必须分组展示：
+ *   ① 普通类：总分（满分 750）
+ *   ② 艺术/体育类：综合分（满分约 350）
+ *   ③ 其他控制线：免测项目的文化课线、专业大类线（量纲各不相同）
+ *
+ * @param {object} c 院校对象（COLLEGES 中的对口本科条目）
+ */
+function renderDuikouBenkeScorePanel(c) {
+  const panel = document.getElementById('panel-score');
+  if (!panel) return;
+  const esc = (s) => String(s == null ? '' : s);
+  const sc = c.bkScores2026;
+
+  if (!sc || !sc.lines || !sc.lines.length) {
+    panel.innerHTML = `
+      <div class="about-section" style="margin:8px 12px">
+        <h3>📊 2026 年录取分数线</h3>
+        <div style="font-size:13px;color:#8c8c8c;line-height:1.8">
+          ${c.scores2026Checked
+            ? `该校已公布录取分数线，但未能取得官网原文${c.scoreNote ? `<div style="margin-top:6px;font-size:12.5px">${esc(String(c.scoreNote).slice(0, 220))}</div>` : ''}`
+            : '该校 2026 年对口招生录取分数线暂未收录。'}
+        </div>
+      </div>`;
+    return;
+  }
+
+  const noteOf = (l) => String(l.note || '');
+  const isSpecial = (l) => /文化课|免测|大类线/.test(noteOf(l));
+  const isComp = (l) => !isSpecial(l) && (/综合/.test(noteOf(l)) || sc.scoreType === '综合分');
+  const groups = [
+    { label: '普通类（按总分，满分 750）', rows: sc.lines.filter((l) => !isSpecial(l) && !isComp(l)) },
+    { label: '艺术/体育类（按综合分，满分约 350）', rows: sc.lines.filter(isComp) },
+    { label: '⚠️ 其他控制线（口径与总分不同，请勿直接比较）', rows: sc.lines.filter(isSpecial) },
+  ].filter((g) => g.rows.length);
+
+  panel.innerHTML = `
+    <div class="about-section" style="margin:8px 12px">
+      <h3>📊 2026 年录取分数线${sc.publishedAt ? `（${esc(sc.publishedAt)} 公布）` : ''}</h3>
+      ${sc.scoreFormulaNote ? `<div style="font-size:12.5px;color:#595959;line-height:1.7;margin-bottom:6px">${esc(sc.scoreFormulaNote)}</div>` : ''}
+      ${groups.map((g) => `
+        ${groups.length > 1 ? `<div style="font-size:12.5px;font-weight:600;color:#a8071a;margin:10px 0 2px">${g.label}</div>` : ''}
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr></thead>
+            <tbody>${g.rows.map((l) => `<tr>
+              <td>${esc(l.major)}</td>
+              <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
+              <td style="font-size:12px;color:#666">${esc(l.note || '')}</td>
+            </tr>`).join('')}</tbody>
+          </table>
+        </div>`).join('')}
+      ${sc.sourceUrl ? `<div style="font-size:11.5px;margin-top:8px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
+      <div style="font-size:11.5px;color:var(--text-light);margin-top:8px;line-height:1.7">
+        注：分数线为该院校 2026 年对口招生公示数据。普通类按总分（文化素质测试＋专业理论＋技能测试＋政策加分）排序；
+        艺术/体育类按各校规定的综合成绩排序，两者不可直接比较。
+      </div>
+    </div>`;
 }
 
 /**
