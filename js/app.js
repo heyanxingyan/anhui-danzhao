@@ -650,15 +650,14 @@ function renderCollegeDetail() {
     });
   });
 
-  // ===== 对口本科院校：标签精简为 招生计划 / 录取分数 / 录取规则 =====
-  // 「历年分数」是分类考试口径（普高/中职分数线走势），对口本科不适用 → 换成「录取分数」
+  // ===== 对口本科院校：标签为 招生计划 / 录取规则 / 录取分数 / 学校简介 =====
+  // 「历年分数」是分类考试口径（普高/中职分数线走势），对口本科不适用 → 改名为「录取分数」
   // （展示 2026 年对口招生各专业录取线）；
-  // 「学校简介」这些院校没有可写内容 → 整块去掉。
   // 原「普高/中职/专项」三列的分专业计划表也不适用（对口本科没有这三类计划），
   // 所以「招生计划」标签改为展示 招生规模 + 专业清单。
+  // 「学校简介」保留：18 所对口本科的简介已按官方资料补全。
   if (c.isDuikouBenke) {
     document.querySelectorAll('.tab-switch .tab-item').forEach((t) => {
-      if (t.dataset.tab === 'intro') t.remove();
       if (t.dataset.tab === 'score') t.textContent = '录取分数';
     });
     renderDuikouBenkePlanPanel(c);
@@ -754,9 +753,21 @@ function renderCollegeDetail() {
   `;
 
   // 学校简介
+  // 对口本科院校原先被整块去掉（这些院校当时没有 intro 内容）。现已按官方资料补全，
+  // 因此保留该标签，并把学校属性一并列出，方便考生快速了解。
   document.getElementById('panel-intro').innerHTML = `
-    <div class="about-section" style="margin:0">
-      <p>${c.intro}</p>
+    <div class="about-section" style="margin:0 12px">
+      <h3>🏫 ${c.name}</h3>
+      <p style="line-height:1.8">${c.intro || '<span style="color:#bbb">待补</span>'}</p>
+    </div>
+    <div class="about-section" style="margin:8px 12px">
+      <h3>📋 学校属性</h3>
+      <p><b>所在城市：</b>${c.city || '—'}</p>
+      <p><b>办学性质：</b>${c.nature || '—'}</p>
+      <p><b>院校类型：</b>${c.type || '—'}</p>
+      <p><b>学历层次：</b>${c.isUndergraduate ? '本科（应用型本科对口招生）' : '高职（专科）'}</p>
+      <p><b>在校生规模：</b>${dash(tv('scale'), bkPh.scale)}</p>
+      <p><b>官方网站：</b>${c.website ? `<a href="${c.website}" target="_blank" rel="noopener" style="color:var(--primary)">${c.website}</a>` : '—'}</p>
     </div>
   `;
 }
