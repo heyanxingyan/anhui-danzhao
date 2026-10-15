@@ -1023,46 +1023,33 @@ function renderAbout() {
 function renderBenke() {
   renderTabbar('college');
 
-  // 本站名单内的对口本科院校
-  const inList = COLLEGES.filter(c => c.isUndergraduate);
-  const inEl = document.getElementById('benke-in-list');
-  if (inEl) {
-    inEl.innerHTML = inList.map(c => `
-      <a href="college-detail.html?id=${c.id}" class="college-card">
-        <div class="head">
-          <div class="name">🏫 ${c.name}</div>
-          <span class="score" style="color:#722ed1;font-weight:600">${c.city}</span>
-        </div>
-        <div class="tags">
-          <span class="tag tag-public">${c.nature}</span>
-          <span class="tag tag-type">${c.type}</span>
-          <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
-        </div>
-        <div class="meta-row">
-          <span>${c.scoreComposition || '文化+技能'}</span>
-        </div>
-      </a>
-    `).join('') || '<div class="empty"><div class="icon">📭</div><div>本站74所名单内暂无对口本科院校</div></div>';
-  }
-
-  // 其他对口本科参考院校
+  // ===== 对口本科招生院校（统一一份名单，含本站已收录的宿州学院）=====
+  // 修复：原来「本站列表内」与「其他院校」分成两块，宿州学院被渲染两次；
+  //      且卡片把整段 scoreComposition（百余字）塞进分数位，卡片被撑爆。
   const otherEl = document.getElementById('benke-other');
   if (otherEl && typeof BENKE_SCHOOLS !== 'undefined') {
-    otherEl.innerHTML = BENKE_SCHOOLS.map(s => `
-      <a href="${s.link}" target="_blank" rel="noopener" class="college-card" style="display:block;margin-bottom:10px">
+    const inListIds = new Map(COLLEGES.map((c) => [c.name, c.id]));
+    otherEl.innerHTML = BENKE_SCHOOLS.map((s) => {
+      const localId = inListIds.get(s.name);          // 本站已收录 → 内部跳转看历年分数
+      const href = localId ? `college-detail.html?id=${localId}` : (s.link || '#');
+      const external = !localId;
+      return `
+      <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="college-card" style="display:block;margin-bottom:10px">
         <div class="head">
           <div class="name">${s.name}</div>
-          <span class="score" style="color:${s.nature==='公办'?'#1677ff':'#fa541c'};font-weight:600">${s.nature}</span>
+          <span class="score" style="color:${s.nature === '公办' ? '#1677ff' : '#fa541c'};font-weight:600">${s.nature}</span>
         </div>
         <div class="tags">
           <span class="tag tag-type">${s.city}</span>
           <span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">对口本科</span>
+          ${localId ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">本站已收录历年分数</span>' : ''}
         </div>
         <div class="meta-row">
-          <span style="font-size:12px">${s.note}</span>
+          <span style="font-size:12px">${s.note || ''}</span>
+          ${localId ? '' : '<span style="font-size:12px;color:var(--text-light)">官网 ›</span>'}
         </div>
-      </a>
-    `).join('');
+      </a>`;
+    }).join('');
   }
 }
 
