@@ -499,13 +499,13 @@ function renderCollegeDetail() {
   };
   document.getElementById('basic-info').innerHTML = `
     <div class="row"><div class="label">所在城市</div><div class="value">${c.city || '—'}</div></div>
-    <div class="row"><div class="label">学校地址</div><div class="value">${dash(tv('address'), bkPh.address)}</div></div>
+    <div class="row"><div class="label">学校地址</div><div class="value">${dash(tv('address'), bkPh.address, 'address')}</div></div>
     <div class="row"><div class="label">办学性质</div><div class="value">${c.nature || '—'}</div></div>
     <div class="row"><div class="label">院校类型</div><div class="value">${c.type || '—'}${c.type && c.type.indexOf('本科')>=0 ? '（本科层次）' : ''}</div></div>
-    <div class="row"><div class="label">在校生规模</div><div class="value">${dash(tv('scale'), bkPh.scale)}</div></div>
-    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(tv('phone'), bkPh.phone)}</div></div>
-    <div class="row"><div class="label">就业率</div><div class="value">${dash(tv('employmentRate'), bkPh.employmentRate)}</div></div>
-    <div class="row"><div class="label">专升本率</div><div class="value">${dash(tv('upgradeRate'), bkPh.upgradeRate)}</div></div>
+    <div class="row"><div class="label">在校生规模</div><div class="value">${dash(tv('scale'), bkPh.scale, 'scale')}</div></div>
+    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(tv('phone'), bkPh.phone, 'phone')}</div></div>
+    <div class="row"><div class="label">就业率</div><div class="value">${dash(tv('employmentRate'), bkPh.employmentRate, 'employmentRate')}</div></div>
+    <div class="row"><div class="label">专升本率</div><div class="value">${dash(tv('upgradeRate'), bkPh.upgradeRate, 'upgradeRate')}</div></div>
     <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : '—'}</div></div>
     ${twin ? `<div class="row"><div class="label">招生通道</div><div class="value" style="font-size:12.5px">本校同时以两条通道收录：本页为对口本科（应用型本科对口招生）<a href="college-detail.html?id=${twin.id}" style="color:var(--primary)"> · 查看分类考试口径 ›</a></div></div>` : ''}
   `;
@@ -2337,10 +2337,18 @@ function renderCompare() {
     return `<tr><td class="dim">${label}</td>` + list.map(c => `<td>${fn(c)}</td>`).join('') + '</tr>';
   }
   // 长文本单元格：单行截断，完整内容放 title 提示，避免把行撑高
-  function clip(text, max = 14) {
-    const s = String(text === undefined || text === null || text === '' ? '—' : text);
+  /**
+   * 对比表单元格：过长截断，鼠标悬停显示全文。
+   * @param {*} text 值
+   * @param {number} max 截断长度
+   * @param {string} [missing] 值为空时显示什么（默认「—」）。传「待补」可标明该字段站点尚未采到。
+   */
+  function clip(text, max = 14, missing) {
+    const isEmpty = text === undefined || text === null || text === '';
+    const s = String(isEmpty ? (missing || '—') : text);
     const short = s.length > max ? s.slice(0, max) + '…' : s;
-    return `<span class="cmp-clip" title="${s.replace(/"/g, '&quot;')}">${short}</span>`;
+    const style = isEmpty && missing ? ' style="color:#bbb"' : '';
+    return `<span class="cmp-clip"${style} title="${s.replace(/"/g, '&quot;')}">${short}</span>`;
   }
 
   const scoreCell = (c) => {
@@ -2380,10 +2388,10 @@ function renderCompare() {
     <div class="table-wrap cmp-wrap" id="cmp-more" style="display:none">
       <table class="compare-table cmp-compact">
         <tbody>
-          ${row('招生办电话', c => clip(c.phone, 14))}
-          ${row('在校生规模', c => clip(c.scale, 8))}
-          ${row('就业率', c => c.employmentRate || '—')}
-          ${row('专升本率', c => c.upgradeRate || '—')}
+          ${row('招生办电话', c => clip(c.phone, 14, '待补'))}
+          ${row('在校生规模', c => clip(c.scale, 8, '待补'))}
+          ${row('就业率', c => clip(c.employmentRate, 14, '待补'))}
+          ${row('专升本率', c => clip(c.upgradeRate, 14, '待补'))}
         </tbody>
       </table>
     </div>`;
