@@ -1047,19 +1047,13 @@ function buildBenkeCards(keyword) {
 
   return list.map((s) => {
     const local = localByName.get(s.name);
-    // 校名指向：本站已收录 → 站内详情页；否则 → 官网（无官网则退回省考试院章程）
+    // 校名/整卡指向：本站已收录 → 站内详情页；否则 → 官网（无官网则退回省考试院章程）
     const nameHref = local ? `college-detail.html?id=${local.id}`
       : (s.zhaoshengSite || s.schoolSite || s.charterUrl || '');
     const nameExt = !local && nameHref;
-    const site = s.zhaoshengSite || s.schoolSite || '';
-    const external = !local && !!site;
 
     // 摘要行：招生计划 / 专业数
     const majorCount = (s.majors || []).length;
-    const bits = [];
-    if (s.planTotal) bits.push(`招生计划 <b>${s.planTotal}</b> 人`);
-    if (majorCount) bits.push(`${majorCount} 个专业`);
-    if (!bits.length && s.note) bits.push(esc(s.note));
 
     // 关键数字小格
     const exam = s.exam || {};
@@ -1166,24 +1160,32 @@ function buildBenkeCards(keyword) {
       }</div>`;
     }
 
-    return `
-      <div class="college-card" style="display:block;margin-bottom:10px;border:1px solid #d3adf7">
+    // 卡片本体与「分类考试」的高职院校卡片保持同一套结构/样式：
+    //   a.college-card > .head > .name + .tags（.tag/.tag-public/.tag-type） + .meta-row
+    // 本页额外的数据（分数线、专业表、考试办法）挂在卡片**下方**，
+    // 不塞进卡片里 —— 否则又会变成之前那种被撑爆的异形卡。
+    const planText = s.planTotal ? `对口本科 ${s.planTotal} 人` : '对口本科';
+    const mainCard = `
+      <a href="${esc(nameHref || '#')}"${nameExt ? ' target="_blank" rel="noopener"' : ''} class="college-card">
         <div class="head">
-          <div class="name">${nameHref
-            ? `<a href="${esc(nameHref)}"${nameExt ? ' target="_blank" rel="noopener"' : ''} style="color:inherit;text-decoration:none">${esc(s.name)}</a>`
-            : esc(s.name)}</div>
-          <span class="score" style="color:${s.nature === '公办' ? '#1677ff' : '#fa541c'};font-weight:600">${esc(s.nature || '')}</span>
+          <div class="name">${esc(s.name)}</div>
         </div>
         <div class="tags">
-          ${s.city ? `<span class="tag tag-type">${esc(s.city)}</span>` : ''}
-          <span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">对口本科</span>
-          ${local ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">本站已收录历年分数</span>' : ''}
+          <span class="tag ${s.nature === '公办' ? 'tag-public' : 'tag-private'}">${esc(s.nature || '')}</span>
+          ${s.type ? `<span class="tag tag-type">${esc(s.type)}</span>` : ''}
+          <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>
+          ${local ? '<span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">已收录历年分数</span>' : ''}
           ${s.confidence && s.confidence !== '高' ? `<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">数据置信度${esc(s.confidence)}</span>` : ''}
         </div>
-        ${bits.length ? `<div class="meta-row"><span style="font-size:12.5px">${bits.join(' · ')}</span>${
-          local ? `<a href="college-detail.html?id=${local.id}" style="font-size:12px;color:var(--primary)">看历年分数 ›</a>`
-                : (external ? `<a href="${esc(site)}" target="_blank" rel="noopener" style="font-size:12px;color:var(--primary)">官网 ›</a>` : '')
-        }</div>` : ''}
+        <div class="meta-row">
+          <span>${esc(s.city || '')} · ${planText}${majorCount ? ` · ${majorCount} 个专业` : ''}</span>
+          <span style="font-size:12px;color:var(--text-light)">${local ? '看历年分数 ›' : '官网 ›'}</span>
+        </div>
+      </a>`;
+
+    return `
+      <div class="bk-card-wrap">
+        ${mainCard}
         ${scoreBlock}
         ${detail}
       </div>`;

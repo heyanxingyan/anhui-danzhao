@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>院校列表 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css?v=20261016w">
+</head>
+<body data-page="college-list">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">院校列表</div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-bar">
+      <span class="icon">🔍</span>
+      <input type="text" id="college-search" placeholder="搜索院校名称或专业">
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="filter-bar" id="city-filter"></div>
+    <div class="filter-bar" id="nature-filter"></div>
+    <div class="filter-bar" id="type-filter"></div>
+    <div class="filter-bar" id="level-filter"></div>
+    <div class="filter-bar" id="rule-filter"></div>
+    <div class="filter-bar" id="interview-filter"></div>
+
+    <div style="margin:0 12px 8px;padding:6px 10px;background:#e6f4ff;border-radius:6px;font-size:11px;color:#0958d9">
+      📌 列表中"参考分"为估算值；🏫标签为对口本科院校；2026录取规则/面试信息见院校详情页。
+    </div>
+
+    <!-- 院校列表 -->
+    <div id="college-list"></div>
+
+    <div class="load-more" id="load-more">下拉加载更多</div>
+
+    <div style="height:20px"></div>
+
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js?v=20261016w"></script>
+  <script src="js/app.js?v=20261016w"></script>
+</body>
+</html>

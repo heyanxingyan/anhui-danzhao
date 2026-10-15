@@ -953,6 +953,13 @@ input, select {
 .bk-sec > div:last-child{font-size:12.5px;color:#444;line-height:1.7}
 .bk-card-majors{margin-top:8px}
 
+/* 对口本科院校卡片：卡片本体复用 .college-card（与高职院校卡片一致），
+   下方附加的分数线 / 专业表 / 考试办法用这个包裹层对齐缩进。 */
+.bk-card-wrap{margin-bottom:14px}
+.bk-card-wrap > .bk-score,
+.bk-card-wrap > .bk-score-none,
+.bk-card-wrap > .zx-fold-inline{margin:0 12px 8px}
+
 /* 对口本科 2026 录取分数线区块 */
 .bk-score{margin-top:8px;background:#fff1f0;border:1px solid #ffccc7;border-radius:8px;padding:8px 10px}
 .bk-score-t{font-size:12.5px;font-weight:700;color:#cf1322;margin-bottom:5px;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
