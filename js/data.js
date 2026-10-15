@@ -26182,7 +26182,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 475, "dibu": 470, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 425, "dibu": 420, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 458, "dibu": 453, "source": "预估"},
     },
         {
       "name": "应用化工技术",
@@ -26218,7 +26218,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 485, "dibu": 480, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 435, "dibu": 430, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 468, "dibu": 463, "source": "预估"},
     },
         {
       "name": "工业机器人技术",
@@ -26236,7 +26236,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 482, "dibu": 477, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 465, "dibu": 460, "source": "预估"},
     },
         {
       "name": "机电一体化技术",
@@ -26253,7 +26253,7 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
-      "score2026Zhongzhi": {"pre": 440, "dibu": 435, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 478, "dibu": 473, "source": "预估"},
       "score2026Gaozhong": {"pre": 493, "dibu": 488, "source": "2026预录取公示"},
     },
         {
@@ -26559,7 +26559,7 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
-      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 458, "dibu": 450, "source": "预估"},
       "score2026Gaozhong": {"pre": 473, "dibu": 455, "source": "2026预录取公示"},
     },
         {
@@ -26596,7 +26596,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 470, "dibu": 465, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 415, "dibu": 410, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 450, "dibu": 445, "source": "预估"},
     },
         {
       "name": "药学",
@@ -26613,7 +26613,7 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
-      "score2026Zhongzhi": {"pre": 435, "dibu": 430, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 458, "dibu": 453, "source": "预估"},
       "score2026Gaozhong": {"pre": 476, "dibu": 466, "source": "2026预录取公示"},
     },
         {
@@ -26632,7 +26632,7 @@ const COLLEGES = [{
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
       "score2026Gaozhong": {"pre": 478, "dibu": 473, "source": "预估"},
-      "score2026Zhongzhi": {"pre": 420, "dibu": 415, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 455, "dibu": 450, "source": "预估"},
     },
         {
       "name": "医学影像技术",
