@@ -280,21 +280,48 @@ function get2026Fee(category, isPrivate){if(isPrivate)return null;const artCats=
 
     }
 
-    // 标准化最低分字段：minScore2025 取历年 scores['2025'].min；minScore2026 取官方真实分
-
-    c.minScore2025 = (c.scores && c.scores['2025'] && c.scores['2025'].min != null) ? c.scores['2025'].min : (c.minScore2024 || null);
-
-    if (c.realScore2026) {
-
-      var _m = String(c.realScore2026).match(/[\d.]+/);
-
-      c.minScore2026 = _m ? parseFloat(_m[0]) : null;
-
+    // 标准化最低分字段
+    // minScore2025：历年 scores['2025'].min；若 2025 无数据则回退 2024。
+    // 同时记录这个值**实际所属年份**（minScoreYear），否则页面上会把 2024 的分标成「2025最低」。
+    var _s25 = (c.scores && c.scores['2025'] && c.scores['2025'].min != null) ? c.scores['2025'].min : null;
+    if (_s25 != null) {
+      c.minScore2025 = _s25;
+      c.minScoreYear = 2025;
+    } else if (c.minScore2025 != null) {
+      c.minScoreYear = 2025;          // 数据里本来就明确写了 2025 的值
+    } else if (c.minScore2024 != null) {
+      c.minScore2025 = c.minScore2024;
+      c.minScoreYear = 2024;          // 回退值：年份如实标注
     } else {
-
-      c.minScore2026 = null;
-
+      c.minScore2025 = null;
     }
+
+    // minScore2026：从 realScore2026 的**说明性长文**里抽出「真实录取最低分」。
+    // ⚠️ 两个坑都踩过，务必保持这里的保守口径：
+    //   ① 文案常以年份开头（「2026年分类考试…」），取首个数字会得到 2026，
+    //      页面就显示成「2026最低 2026 分」；用 \d{2,3} 去捞还会把「2026」切碎成「202」。
+    //   ② 大量条目其实是「公网未公布 / 来源待核」的说明文字，里面根本没有分数。
+    //      这时正确答案是 **null**（页面显示「—」），绝不能从文案里随便捡一个数字充当分数。
+    // 因此：只在**明确带「最低/录取线/投档线」语义**时才取值，否则一律 null。
+    c.minScore2026 = (function (txt) {
+      if (!txt) return null;
+      var s = String(txt);
+      // 明确否定语义 → 该校 2026 没有公开录取分，直接 null
+      if (/未公布|未公开|未检索到|无.*可查|待核|未在网页|具体分值未|无法获取|仅.*本人/.test(s) && !/最低\s*\d/.test(s)) {
+        return null;
+      }
+      var m;
+      // ① 「最低…394分」/「最低分394」/「最低录取分 394」
+      m = s.match(/最低[^0-9]{0,12}(\d{2,3}(?:\.\d+)?)\s*分/);
+      if (m) { var v = parseFloat(m[1]); if (v >= 100 && v <= 750) return v; }
+      m = s.match(/最低分?\s*[:：]?\s*(\d{2,3}(?:\.\d+)?)/);
+      if (m) { var v2 = parseFloat(m[1]); if (v2 >= 100 && v2 <= 750) return v2; }
+      // ② 「录取线394分」「投档线 394」
+      m = s.match(/(?:录取线|投档线|分数线)\s*[:：]?\s*(\d{2,3}(?:\.\d+)?)/);
+      if (m) { var v3 = parseFloat(m[1]); if (v3 >= 100 && v3 <= 750) return v3; }
+      // ③ 「普高最低394分；中职最低256分」这类已在 ① 覆盖；其余一律不猜
+      return null;
+    })(c.realScore2026);
 
     // 解析2026分类招生计划：普高、中职、专项
 

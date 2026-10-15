@@ -22,9 +22,11 @@ function toast(msg) {
 }
 
 // 分数年份标签：优先2026官方真实分，其次2025最低分，最后回退2024
+// 注意：minScore2025 在 2025 无数据时会回退成 2024 的值，因此不能一律标「2025最低」——
+// 那样会把 2024 的分说成 2025 的。用 minScoreYear 记录这个值实际所属年份。
 function scoreLabel(c) {
   if (c.minScore2026 != null) return '2026最低 ' + c.minScore2026 + ' 分';
-  if (c.minScore2025 != null) return '2025最低 ' + c.minScore2025 + ' 分';
+  if (c.minScore2025 != null) return (c.minScoreYear || 2025) + '最低 ' + c.minScore2025 + ' 分';
   return '分数待公布';
 }
 
