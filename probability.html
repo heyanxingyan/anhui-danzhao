@@ -111,6 +111,13 @@
           <div class="prob-detail-row"><span>招生计划</span><b id="pr-plan">--</b></div>
           <div class="prob-detail-row"><span>分数计算方式</span><b id="pr-calc-rule" style="font-size:12px">--</b></div>
         </div>
+
+        <div id="second-cutoff-box" style="display:none; background:#fffbe6; border:1px solid #ffe58f; border-radius:12px; padding:14px 16px; margin-top:12px; font-size:13px; line-height:1.7; color:#614700;">
+          <div style="font-weight:bold; font-size:14px; margin-bottom:6px;">⚠️ 该校有校考入围（二次划线）机制</div>
+          <div id="sc-ratio" style="margin-bottom:6px;"></div>
+          <div id="sc-note" style="color:#874d00;"></div>
+          <div id="sc-warn" style="margin-top:8px; font-weight:bold; color:#f5222d; display:none;"></div>
+        </div>
       </div>
 
       <div style="height:20px"></div>
@@ -307,6 +314,29 @@
       document.getElementById('pr-score-source').textContent = sourceText;
       document.getElementById('pr-plan').textContent = plan + ' 人';
       document.getElementById('pr-calc-rule').textContent = getCalcRuleText(college);
+
+      // 二次划线（校考入围）提示
+      const scBox = document.getElementById('second-cutoff-box');
+      if (college.secondCutoff && college.secondCutoff.enabled) {
+        scBox.style.display = 'block';
+        document.getElementById('sc-ratio').innerHTML = '📏 入围比例：' + college.secondCutoff.ratio;
+        document.getElementById('sc-note').textContent = college.secondCutoff.note;
+        const warnEl = document.getElementById('sc-warn');
+        // 文化统考满分300，省合格线82；入围线通常远高于合格线，给出经验提醒
+        if (culture < 180) {
+          warnEl.style.display = 'block';
+          warnEl.style.color = '#f5222d';
+          warnEl.textContent = '🚨 你的文化统考' + culture + '分偏低，可能无法达到该校校考入围线，连参加校考的资格都没有，志愿可能直接作废，慎报！';
+        } else if (culture < 220) {
+          warnEl.style.display = 'block';
+          warnEl.style.color = '#fa8c16';
+          warnEl.textContent = '⚠️ 你的文化统考' + culture + '分，建议关注官方3月公布的校考入围合格线，若未入围可等待二次降线或及时改报其他学校。';
+        } else {
+          warnEl.style.display = 'none';
+        }
+      } else {
+        scBox.style.display = 'none';
+      }
     }
 
     function calcTotalScore(college, culture, exam) {
