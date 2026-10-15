@@ -575,7 +575,7 @@ const COLLEGES = [{
     {
       "name": "服装与服饰设计",
       "code": "550105",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -591,7 +591,7 @@ const COLLEGES = [{
     {
       "name": "环境艺术设计",
       "code": "550106",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -607,7 +607,7 @@ const COLLEGES = [{
     {
       "name": "艺术设计",
       "code": "550101",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 50,
       "plan2025": 60,
@@ -623,7 +623,7 @@ const COLLEGES = [{
     {
       "name": "产品艺术设计",
       "code": "550104",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -639,7 +639,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -671,7 +671,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -687,7 +687,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -703,7 +703,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -719,7 +719,7 @@ const COLLEGES = [{
     {
       "name": "现代文秘",
       "code": "590401",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 40,
       "plan2025": 50,
@@ -1531,7 +1531,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -1563,7 +1563,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -1627,7 +1627,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -1723,7 +1723,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 50,
       "plan2025": 60,
@@ -1755,7 +1755,7 @@ const COLLEGES = [{
     {
       "name": "音乐表演",
       "code": "550201",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 20,
       "plan2025": 30,
@@ -1803,7 +1803,7 @@ const COLLEGES = [{
     {
       "name": "艺术设计",
       "code": "550101",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -1819,7 +1819,7 @@ const COLLEGES = [{
     {
       "name": "视觉传达设计",
       "code": "550102",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -1883,7 +1883,7 @@ const COLLEGES = [{
     {
       "name": "现代家政服务与管理",
       "code": "590301",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 40,
@@ -2277,7 +2277,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -3034,7 +3034,7 @@ const COLLEGES = [{
     {
       "name": "人力资源管理",
       "code": "590202",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 4528,
       "plan2024": 70,
       "plan2025": 80,
@@ -3050,7 +3050,7 @@ const COLLEGES = [{
     {
       "name": "传播与策划",
       "code": "560215",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 4528,
       "plan2024": 80,
       "plan2025": 90,
@@ -3114,7 +3114,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4528,
       "plan2024": 150,
       "plan2025": 160,
@@ -3130,7 +3130,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4528,
       "plan2024": 120,
       "plan2025": 130,
@@ -3146,7 +3146,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4528,
       "plan2024": 80,
       "plan2025": 90,
@@ -4207,7 +4207,7 @@ const COLLEGES = [{
     {
       "name": "电子信息工程技术",
       "code": "510101",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 107,
       "plan2025": 131,
@@ -4239,7 +4239,7 @@ const COLLEGES = [{
     {
       "name": "现代通信技术",
       "code": "510301",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4255,7 +4255,7 @@ const COLLEGES = [{
     {
       "name": "集成电路技术",
       "code": "510401",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4383,7 +4383,7 @@ const COLLEGES = [{
     {
       "name": "工业互联网应用",
       "code": "510211",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -4495,7 +4495,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4511,7 +4511,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 110,
@@ -4527,7 +4527,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4543,7 +4543,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 175,
       "plan2025": 135,
@@ -4559,7 +4559,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4575,7 +4575,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4591,7 +4591,7 @@ const COLLEGES = [{
     {
       "name": "虚拟现实技术应用",
       "code": "510208",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4607,7 +4607,7 @@ const COLLEGES = [{
     {
       "name": "环境艺术设计",
       "code": "550106",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -4639,7 +4639,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 44,
       "plan2025": 53,
@@ -4655,7 +4655,7 @@ const COLLEGES = [{
     {
       "name": "云计算技术应用",
       "code": "510206",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -6471,7 +6471,7 @@ const COLLEGES = [{
     {
       "name": "环境监测技术",
       "code": "420801",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -6756,7 +6756,7 @@ const COLLEGES = [{
     {
       "name": "应用化工技术",
       "code": "470201",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -6832,7 +6832,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 134,
       "plan2025": 97,
@@ -6851,7 +6851,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -6870,7 +6870,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 114,
       "plan2025": 95,
@@ -6889,7 +6889,7 @@ const COLLEGES = [{
     {
       "name": "信息安全技术应用",
       "code": "510207",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -6908,7 +6908,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 140,
       "plan2025": 170,
@@ -6927,7 +6927,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 70,
@@ -6946,7 +6946,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -6965,7 +6965,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -6984,7 +6984,7 @@ const COLLEGES = [{
     {
       "name": "智能产品开发与应用",
       "code": "510108",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -7117,7 +7117,7 @@ const COLLEGES = [{
     {
       "name": "广告艺术设计",
       "code": "550113",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -9029,7 +9029,7 @@ const COLLEGES = [{
     {
       "name": "戏曲表演",
       "code": "550203",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 258,
       "plan2025": 256,
@@ -9045,7 +9045,7 @@ const COLLEGES = [{
     {
       "name": "音乐表演",
       "code": "550201",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 198,
       "plan2025": 204,
@@ -9061,7 +9061,7 @@ const COLLEGES = [{
     {
       "name": "现代流行音乐",
       "code": "550210",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 0,
       "plan2025": 0,
@@ -9077,7 +9077,7 @@ const COLLEGES = [{
     {
       "name": "舞蹈表演",
       "code": "550202",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 158,
       "plan2025": 139,
@@ -9093,7 +9093,7 @@ const COLLEGES = [{
     {
       "name": "艺术设计",
       "code": "550101",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 94,
       "plan2025": 82,
@@ -9109,7 +9109,7 @@ const COLLEGES = [{
     {
       "name": "舞台艺术设计与制作",
       "code": "550218",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 0,
       "plan2025": 0,
@@ -9125,7 +9125,7 @@ const COLLEGES = [{
     {
       "name": "人物形象设计",
       "code": "550117",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 0,
       "plan2025": 0,
@@ -9141,7 +9141,7 @@ const COLLEGES = [{
     {
       "name": "视觉传达设计",
       "code": "550102",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 75,
       "plan2025": 91,
@@ -9157,7 +9157,7 @@ const COLLEGES = [{
     {
       "name": "戏剧影视表演",
       "code": "550205",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 148,
       "plan2025": 170,
@@ -9173,7 +9173,7 @@ const COLLEGES = [{
     {
       "name": "播音与主持",
       "code": "560201",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 6500,
       "plan2024": 0,
       "plan2025": 0,
@@ -9328,7 +9328,7 @@ const COLLEGES = [{
     {
       "name": "应用电子技术",
       "code": "510103",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 50,
       "plan2025": 60,
@@ -9472,7 +9472,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 80,
       "plan2025": 100,
@@ -9488,7 +9488,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 140,
       "plan2025": 133,
@@ -9504,7 +9504,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 100,
       "plan2025": 120,
@@ -9520,7 +9520,7 @@ const COLLEGES = [{
     {
       "name": "云计算技术应用",
       "code": "510206",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 50,
       "plan2025": 60,
@@ -9536,7 +9536,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 50,
       "plan2025": 60,
@@ -9552,7 +9552,7 @@ const COLLEGES = [{
     {
       "name": "工业互联网技术",
       "code": "510211",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 40,
       "plan2025": 50,
@@ -9648,7 +9648,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 70,
       "plan2025": 80,
@@ -9664,7 +9664,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 20,
       "plan2025": 30,
@@ -9680,7 +9680,7 @@ const COLLEGES = [{
     {
       "name": "广告艺术设计",
       "code": "550113",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 20,
       "plan2025": 30,
@@ -9943,7 +9943,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用（涡阳专业学院）",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 0,
       "plan2025": 0,
@@ -9977,7 +9977,7 @@ const COLLEGES = [{
     {
       "name": "全媒体广告策划与营销",
       "code": "560216",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 40,
@@ -9993,7 +9993,7 @@ const COLLEGES = [{
     {
       "name": "网络直播与运营",
       "code": "560214",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3500,
       "plan2024": 60,
       "plan2025": 70,
@@ -10315,7 +10315,7 @@ const COLLEGES = [{
     {
       "name": "网络新闻与传播",
       "code": "560102",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3500,
       "plan2024": 60,
       "plan2025": 70,
@@ -10331,7 +10331,7 @@ const COLLEGES = [{
     {
       "name": "现代文秘",
       "code": "590401",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3500,
       "plan2024": 60,
       "plan2025": 70,
@@ -10347,7 +10347,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 120,
@@ -10363,7 +10363,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术（安庆专业学院）",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -10380,7 +10380,7 @@ const COLLEGES = [{
     {
       "name": "电子信息工程技术",
       "code": "510101",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -10396,7 +10396,7 @@ const COLLEGES = [{
     {
       "name": "电子信息工程技术（宁国专业学院）",
       "code": "510101",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -10413,7 +10413,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -10429,7 +10429,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 140,
       "plan2025": 133,
@@ -10445,7 +10445,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 100,
@@ -10461,7 +10461,7 @@ const COLLEGES = [{
     {
       "name": "移动互联应用技术",
       "code": "510213",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -10477,7 +10477,7 @@ const COLLEGES = [{
     {
       "name": "产品艺术设计",
       "code": "550104",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 6500,
       "plan2024": 30,
       "plan2025": 40,
@@ -10509,7 +10509,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -11385,7 +11385,7 @@ const COLLEGES = [{
     {
       "name": "法律事务",
       "code": "580401",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11401,7 +11401,7 @@ const COLLEGES = [{
     {
       "name": "法律文秘",
       "code": "580402",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11417,7 +11417,7 @@ const COLLEGES = [{
     {
       "name": "刑事执行",
       "code": "580406",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11433,7 +11433,7 @@ const COLLEGES = [{
     {
       "name": "行政执行",
       "code": "580409",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11449,7 +11449,7 @@ const COLLEGES = [{
     {
       "name": "司法警务",
       "code": "580404",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11465,7 +11465,7 @@ const COLLEGES = [{
     {
       "name": "社区矫正",
       "code": "580408",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11481,7 +11481,7 @@ const COLLEGES = [{
     {
       "name": "安全防范技术",
       "code": "580411",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -11497,7 +11497,7 @@ const COLLEGES = [{
     {
       "name": "智能安防运营服务",
       "code": "580412",
-      "category": "falv",
+      "category": "gongan",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -15412,7 +15412,7 @@ const COLLEGES = [{
     {
       "name": "社区管理与服务",
       "code": "590104",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 35,
@@ -15428,7 +15428,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -17341,7 +17341,7 @@ const COLLEGES = [{
     {
       "name": "分析检验技术",
       "code": "470208",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 70,
@@ -17357,7 +17357,7 @@ const COLLEGES = [{
     {
       "name": "化工智能制造技术",
       "code": "470209",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 120,
       "plan2025": 130,
@@ -17453,7 +17453,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -17469,7 +17469,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 148,
       "plan2025": 176,
@@ -17893,7 +17893,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 40,
@@ -17965,7 +17965,7 @@ const COLLEGES = [{
     {
       "name": "工业互联网应用",
       "code": "510211",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -18013,7 +18013,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 110,
@@ -18032,7 +18032,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 30,
@@ -18048,7 +18048,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -18064,7 +18064,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -18080,7 +18080,7 @@ const COLLEGES = [{
     {
       "name": "环境监测技术",
       "code": "420801",
-      "category": "huanbao",
+      "category": "ziyuan",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -18234,7 +18234,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 237,
       "plan2025": 239,
@@ -18250,7 +18250,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -18266,7 +18266,7 @@ const COLLEGES = [{
     {
       "name": "电子信息工程技术",
       "code": "510101",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 70,
@@ -18282,7 +18282,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 80,
@@ -18298,7 +18298,7 @@ const COLLEGES = [{
     {
       "name": "微电子技术",
       "code": "510401",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 80,
@@ -18442,7 +18442,7 @@ const COLLEGES = [{
     {
       "name": "工业互联网应用",
       "code": "510211",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -18762,7 +18762,7 @@ const COLLEGES = [{
     {
       "name": "应用化工技术",
       "code": "470201",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -18778,7 +18778,7 @@ const COLLEGES = [{
     {
       "name": "应用化工技术（池州工业）",
       "code": "470201",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 0,
       "plan2025": 0,
@@ -19487,7 +19487,7 @@ const COLLEGES = [{
     {
       "name": "传播与策划",
       "code": "560215",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3500,
       "plan2024": 90,
       "plan2025": 100,
@@ -19503,7 +19503,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 110,
@@ -19535,7 +19535,7 @@ const COLLEGES = [{
     {
       "name": "艺术设计",
       "code": "550101",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -19679,7 +19679,7 @@ const COLLEGES = [{
     {
       "name": "工商企业管理",
       "code": "530601",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 70,
       "plan2025": 80,
@@ -19951,7 +19951,7 @@ const COLLEGES = [{
     {
       "name": "应用化工技术",
       "code": "470201",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -19983,7 +19983,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -19999,7 +19999,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -20015,7 +20015,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -20031,7 +20031,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 110,
@@ -20047,7 +20047,7 @@ const COLLEGES = [{
     {
       "name": "应用电子技术",
       "code": "510103",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 45,
@@ -20420,7 +20420,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 124,
       "plan2025": 124,
@@ -20438,7 +20438,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -20456,7 +20456,7 @@ const COLLEGES = [{
     {
       "name": "信息安全技术应用",
       "code": "510207",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 100,
       "plan2025": 110,
@@ -20474,7 +20474,7 @@ const COLLEGES = [{
     {
       "name": "工业互联网技术",
       "code": "510211",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -20724,7 +20724,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体艺术设计",
       "code": "550103",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 90,
@@ -21699,7 +21699,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 20,
       "plan2025": 22,
@@ -21718,7 +21718,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体艺术设计",
       "code": "550103",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 80,
       "plan2025": 85,
@@ -21810,7 +21810,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 25,
       "plan2025": 28,
@@ -24093,7 +24093,7 @@ const COLLEGES = [{
     {
       "name": "应用电子技术",
       "code": "510103",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -24109,7 +24109,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 60,
       "plan2025": 70,
@@ -24349,7 +24349,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体艺术设计",
       "code": "550103",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -24365,7 +24365,7 @@ const COLLEGES = [{
     {
       "name": "雕刻艺术设计",
       "code": "550119",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -24381,7 +24381,7 @@ const COLLEGES = [{
     {
       "name": "融媒体技术与运营",
       "code": "560213",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -24397,7 +24397,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 35,
@@ -25581,7 +25581,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 99,
       "plan2025": 88,
@@ -25597,7 +25597,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 30,
@@ -25613,7 +25613,7 @@ const COLLEGES = [{
     {
       "name": "动漫制作技术",
       "code": "510215",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -25629,7 +25629,7 @@ const COLLEGES = [{
     {
       "name": "广告艺术设计",
       "code": "550113",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -25645,7 +25645,7 @@ const COLLEGES = [{
     {
       "name": "产品艺术设计",
       "code": "550104",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -25885,7 +25885,7 @@ const COLLEGES = [{
     {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 40,
       "plan2025": 50,
@@ -25981,7 +25981,7 @@ const COLLEGES = [{
     {
       "name": "商务英语",
       "code": "570201",
-      "category": "wenjiao",
+      "category": "xinwen",
       "fee": 3500,
       "plan2024": 30,
       "plan2025": 40,
@@ -26187,7 +26187,7 @@ const COLLEGES = [{
         {
       "name": "应用化工技术",
       "code": "470201",
-      "category": "huaong",
+      "category": "huagong",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -26385,7 +26385,7 @@ const COLLEGES = [{
         {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -26403,7 +26403,7 @@ const COLLEGES = [{
         {
       "name": "电子信息工程技术",
       "code": "510101",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26421,7 +26421,7 @@ const COLLEGES = [{
         {
       "name": "应用电子技术",
       "code": "510103",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26439,7 +26439,7 @@ const COLLEGES = [{
         {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -26457,7 +26457,7 @@ const COLLEGES = [{
         {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 145,
       "plan2025": 125,
@@ -26475,7 +26475,7 @@ const COLLEGES = [{
         {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26493,7 +26493,7 @@ const COLLEGES = [{
         {
       "name": "数字媒体技术",
       "code": "510204",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 70,
       "plan2025": 80,
@@ -26511,7 +26511,7 @@ const COLLEGES = [{
         {
       "name": "信息安全技术应用",
       "code": "510207",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26529,7 +26529,7 @@ const COLLEGES = [{
         {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 40,
       "plan2025": 50,
@@ -26655,7 +26655,7 @@ const COLLEGES = [{
         {
       "name": "动漫设计",
       "code": "550116",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 50,
@@ -26673,7 +26673,7 @@ const COLLEGES = [{
         {
       "name": "工艺美术品设计",
       "code": "550112",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26691,7 +26691,7 @@ const COLLEGES = [{
         {
       "name": "广告艺术设计",
       "code": "550113",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 30,
       "plan2025": 40,
@@ -26709,7 +26709,7 @@ const COLLEGES = [{
     {
       "name": "环境艺术设计",
       "code": "550106",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 50,
       "plan2025": 60,
@@ -27751,7 +27751,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 4290,
       "plan2024": 30,
       "plan2025": 35,
@@ -27915,7 +27915,7 @@ const COLLEGES = [{
     {
       "name": "融媒体技术与运营",
       "code": "560213",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 3900,
       "plan2024": 40,
       "plan2025": 45,
@@ -27982,7 +27982,7 @@ const COLLEGES = [{
     {
       "name": "人力资源管理",
       "code": "590202",
-      "category": "guanli",
+      "category": "gonggong",
       "fee": 3500,
       "plan2024": 60,
       "plan2025": 70,
@@ -29450,7 +29450,7 @@ const COLLEGES = [{
     {
       "name": "计算机应用技术",
       "code": "510201",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13200,
       "plan2024": 100,
       "plan2025": 120,
@@ -29466,7 +29466,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13200,
       "plan2024": 100,
       "plan2025": 120,
@@ -29482,7 +29482,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13200,
       "plan2024": 80,
       "plan2025": 100,
@@ -29498,7 +29498,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13200,
       "plan2024": 80,
       "plan2025": 100,
@@ -29674,7 +29674,7 @@ const COLLEGES = [{
     {
       "name": "数字媒体艺术设计",
       "code": "550103",
-      "category": "yishu",
+      "category": "wenyi",
       "fee": 15200,
       "plan2024": 60,
       "plan2025": 80,
@@ -30400,7 +30400,7 @@ const COLLEGES = [{
     {
       "name": "计算机网络技术",
       "code": "510202",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 6500,
       "plan2024": 40,
       "plan2025": 50,
@@ -30416,7 +30416,7 @@ const COLLEGES = [{
     {
       "name": "信息安全技术应用",
       "code": "510207",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 6500,
       "plan2024": 10,
       "plan2025": 20,
@@ -36537,7 +36537,7 @@ const COLLEGES = [{
     {
       "name": "物联网应用技术",
       "code": "510102",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13800,
       "plan2024": 217,
       "plan2025": 216,
@@ -36553,7 +36553,7 @@ const COLLEGES = [{
     {
       "name": "大数据技术",
       "code": "510205",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 13800,
       "plan2024": 50,
       "plan2025": 60,
@@ -36569,7 +36569,7 @@ const COLLEGES = [{
     {
       "name": "软件技术",
       "code": "510203",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 12800,
       "plan2024": 121,
       "plan2025": 122,
@@ -36813,7 +36813,7 @@ const COLLEGES = [{
     {
       "name": "人工智能技术应用",
       "code": "510209",
-      "category": "dianzi",
+      "category": "dianxin",
       "fee": 11200,
       "plan2024": 80,
       "plan2025": 100,
