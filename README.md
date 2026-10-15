@@ -304,6 +304,14 @@ GitHub Pages 的 `cache-control` 是 `max-age=600`；版本号查询串负责击
     - `data.js` 估算层已改为**尊重 `_bkPlaceholder` 标记**：命中标记就不再生成占位值
     - `audit-data.js` 增加反公式假数据检查（命中即 warn 并列出院校与字段名）
     教训：**「缺数据」要留空并显式标注，绝不能用一个像真的公式值顶替**——那比留空危害大得多（学生会照着假电话打）。
+15. **「待补」必须真的去补**。确立流程：`tools/list-pending.js` 列出所有缺口 →
+    逐项去互联网核实（只信官方来源）→ `tools/merge-baseinfo.js` 合并。
+    合并规则：查到真值就写入；**确认查不到的保持 `null` 并继续标注「待补」**（不编造）；
+    页面上「待补」显示为灰色提示（`renderCollegeDetail` 里的 `pend()` 辅助函数）。
+    ```powershell
+    node tools/list-pending.js          # 看还缺什么
+    node tools/audit-fabricated-fields.js  # 看哪些字段还是公式假值
+    ```
 
 ### 数据完整性问题（已修复）
 
