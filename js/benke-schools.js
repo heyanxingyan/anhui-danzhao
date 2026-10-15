@@ -199,7 +199,10 @@ var BENKE_SCHOOLS = [
       "https://zsw.chzu.edu.cn/_upload/article/files/76/9a/ca2faabe43df84463e18b07f85ee/b9e31bd3-2495-4480-ba52-3800120af274.pdf",
       "https://zsw.chzu.edu.cn/2026/0310/c5395a340419/pagem.htm",
       "https://zsw.chzu.edu.cn/5395/listm3.htm",
-      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2",
+      "https://zsw.chzu.edu.cn/_t1808/2026/0404/c5395a341806/page.htm",
+      "https://zsw.chzu.edu.cn/_t1808/2025/0401/c5395a318418/page.htm",
+      "https://zsw.chzu.edu.cn/_t1808/5390/list.htm"
     ],
     "unresolved": [
       "省考试院章程条目页 https://www.ahzsks.cn/8681.htm 实测返回404；省考试院站内该章程PDF的 /pic/file/ 文件名未能定位（同批其余5校已定位），故 charterUrl 采用滁州学院招生信息网官方PDF",
@@ -404,7 +407,10 @@ var BENKE_SCHOOLS = [
     "admission": "1.计划分配：装备制造大类专业计划数根据考生选考电工或钳工比例确定，即电工或钳工方向计划数＝装备制造大类总计划数×(电工或钳工方向实际考试人数÷装备制造大类总考试人数)。2.录取控制线：文化素质测试总分不低于210分，技能测试得分150分及以上为合格、150分以下为不合格。3.录取原则：实施大类招生，财经商贸大类专业、装备制造大类专业可填报一个专业志愿和一个服从调剂志愿；录取时采用分数优先的原则，按照考生填报的专业志愿和调剂志愿顺序安排专业；达到或超过该校文化素质测试录取控制线且技能测试合格、思想政治品德考核和身体健康状况检查合格的考生，根据考生总分（含政策加分）从高分到低分择优录取（装备制造大类按技能测试电工或钳工的计划数分别录取）。计划调整规则：专业间计划不做调剂。4月3日在该校招生网站发布拟录取查询方式",
     "sources": [
       "https://www.ahzsks.cn/pic/file/20260309/20260309101558_869.pdf",
-      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2",
+      "https://zsb.tlu.edu.cn/2026/0403/c1750a126869/page.htm",
+      "https://zsb.tlu.edu.cn/2025/0328/c3938a114294/page.htm",
+      "https://zsb.tlu.edu.cn/dkbk/list.htm"
     ],
     "unresolved": [
       "省考试院章程条目页 https://www.ahzsks.cn/8680.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
@@ -592,7 +598,10 @@ var BENKE_SCHOOLS = [
     "admission": "录取规则：1.文化素质测试合格分数线由安徽省教育招生考试院统一划定；专业理论考试总分不得低于100分，技能测试不得低于150分。2.达到文化素质测试、专业理论考试和技能测试最低合格分数线的考生，根据考生文化素质测试、专业理论考试及技能测试总分（含政策加分）从高分到低分依次录取；考生总分（含政策加分）相同时，则按各模块分数从高分到低分依次录取，模块排序为：专业理论考试、技能测试、文化素质测试。计划调整规则：不进行专业间计划调整。4月5日10:00将在该校招生网站公布录取分数线，考生可查询本人拟录取结果",
     "sources": [
       "https://www.ahzsks.cn/pic/file/20260309/20260309101456_344.pdf",
-      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2",
+      "https://zsb.hsu.edu.cn/34/f4/c1166a210164/page.htm",
+      "https://zsb.hsu.edu.cn/ff/75/c1173a196469/page.htm",
+      "https://zsb.hsu.edu.cn/1173/list.htm"
     ],
     "unresolved": [
       "省考试院章程条目页 https://www.ahzsks.cn/8679.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
@@ -749,7 +758,9 @@ var BENKE_SCHOOLS = [
     "admission": "1.市场营销、旅游管理专业：技能测试合格（150分及以上为合格）、文化素质测试成绩不低于180分，且思想政治品德考核和身体健康状况检查合格，根据考生总成绩（文化素质测试＋专业理论考试＋技能测试）从高分到低分择优录取；总分相同时按单科顺序专业理论考试、技能测试、文化素质测试排序。面试考生占相应专业指标计划且优先录取。2.社会体育指导与管理专业：技能测试合格（技能测试总成绩270分及以上且专项技能90分及以上）、文化素质测试达到安徽省教育厅划定的合格线及以上，按各专项招生计划数与专项合格生源数1:1.2的比例确定各专项专业技能最低资格线，达到后按技能测试和文化素质测试总成绩从高分到低分择优录取（不满1:1.2比例时技能测试最低资格线为270分且专项技能90分）；符合专项素质、专项技能免测的考生按文化素质测试成绩高低录取。3.音乐表演：技能测试合格（技能测试总成绩270分及以上）、文化素质测试达到省教育厅划定的合格线及以上，按综合成绩（文化素质测试×0.3＋技能测试×0.7）从高分到低分择优录取。计划调整规则：各专业间（含社会体育指导与管理运动专项）计划不互调。2026年4月6日前在巢湖学院招生信息网公布录取分数线",
     "sources": [
       "https://www.ahzsks.cn/pic/file/20260309/20260309101403_498.pdf",
-      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2",
+      "https://www.chu.edu.cn/xxgk/2026/0622/c5112a211297/page.htm",
+      "https://www.chu.edu.cn/xxgk/2025/0917/c5112a198501/page.htm"
     ],
     "unresolved": [
       "省考试院章程条目页 https://www.ahzsks.cn/8678.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
@@ -989,7 +1000,9 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 79
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scoreNote": "官方公告《关于公布淮南师范学院2026年面向中职毕业生对口招生录取分数线的通知》(2026-04-02) 确实存在，但该站点目前无法访问：本机（中国移动/安徽）直连 zsb.hnnu.edu.cn、www.hnnu.edu.cn、jwyy.hnnu.edu.cn（A记录 211.70.176.196 / 120.209.44.106，AAAA 2001:da8:d81a:1000::196）均在 "
   },
   {
     "name": "皖西学院",
@@ -1052,7 +1065,9 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/zyyx/8676.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309101229_758.pdf",
       "https://zsb.wxc.edu.cn/2026/0309/c289a210622/page.htm",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://zsb.wxc.edu.cn/2026/0403/c270a211747/page.htm",
+      "https://zsb.wxc.edu.cn/_upload/article/images/f1/a3/0766c6f4483ea9cc1ccec14f8c52/390b2e47-80b9-41df-97fd-df5992d2128e.png"
     ],
     "unresolved": [
       "省考试院栏目页 https://www.ahzsks.cn/search2.jsp?c=231 给出的章程链接为 /8676.htm（根路径），该路径返回 404；实际可访问的章程页为 /zyyx/8676.htm，正文以 PDF 附件形式发布，已据此核对",
@@ -1089,7 +1104,68 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 45
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zsb.wxc.edu.cn/2026/0403/c270a211747/page.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "",
+      "lines": [
+        {
+          "major": "动物医学",
+          "score": 621,
+          "note": ""
+        },
+        {
+          "major": "旅游管理",
+          "score": 639.5,
+          "note": ""
+        },
+        {
+          "major": "化学工程与工艺",
+          "score": 664,
+          "note": ""
+        },
+        {
+          "major": "体育教育（篮球·男）",
+          "score": 565.6,
+          "note": ""
+        },
+        {
+          "major": "体育教育（排球·男）",
+          "score": 575.6,
+          "note": ""
+        },
+        {
+          "major": "体育教育（足球·男）",
+          "score": 604,
+          "note": ""
+        },
+        {
+          "major": "体育教育（体育舞蹈·男女不限）",
+          "score": 615.8,
+          "note": ""
+        },
+        {
+          "major": "体育教育（武术套路·男女不限）",
+          "score": 622,
+          "note": ""
+        },
+        {
+          "major": "体育教育（田径·男女不限）",
+          "score": 570,
+          "note": ""
+        },
+        {
+          "major": "体育教育（划船·女）",
+          "score": 604,
+          "note": ""
+        }
+      ],
+      "planVsAdmitted": "动物医学 计划50/录取53；旅游管理 计划50/录取50；化学工程与工艺 计划50/录取50；体育教育各方向：篮球(男)8/8、排球(男)8/8、足球(男)8/8、体育舞蹈(男女不限)5/6、武术套路(男女不限)5/5、田径(男女不限)5/4、划船(女)6/6；合计 计划195/录取198。另设文化素质测试分数线：普通类150分、体育教育120分；技能测试合格线：普通类150分、体育教育270分。"
+    }
   },
   {
     "name": "合肥师范学院",
@@ -1143,7 +1219,9 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/zyyx/8675.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309101127_698.pdf",
       "http://zsb.hfnu.edu.cn/info/1003/3645.htm",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://zsb.hfnu.edu.cn/info/1002/3815.htm",
+      "https://zsb.hfnu.edu.cn/__local/C/00/BD/377382102BA05A644B5BB7E9972_F19701CD_10999.pdf"
     ],
     "unresolved": [
       "省考试院栏目页给出的 /8675.htm 返回 404；实际可访问的章程页为 /zyyx/8675.htm，正文以 PDF 附件（https://www.ahzsks.cn/pic/file/20260309/20260309101127_698.pdf）形式发布，已解析并与学校本科招生网页面逐字核对一致",
@@ -1173,7 +1251,92 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 69
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-13",
+      "sourceUrl": "https://zsb.hfnu.edu.cn/info/1002/3815.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "",
+      "lines": [
+        {
+          "major": "市场营销",
+          "score": 530,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "服装与服饰设计",
+          "score": 639,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（田径）",
+          "score": 628.5,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（篮球·男）",
+          "score": 516.2,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（足球·非守门员）",
+          "score": 569.58,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（乒乓球·男）",
+          "score": 542.53,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（羽毛球）",
+          "score": 574.16,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（健美操）",
+          "score": 629.33,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（体育舞蹈）",
+          "score": 597.08,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（武术套路）",
+          "score": 563.98,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（射击、射箭、击剑）",
+          "score": 631.5,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（举重、柔道、国际跤）",
+          "score": 592.5,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（拳击、跆拳道、散打）",
+          "score": 615,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（赛艇）",
+          "score": 646.5,
+          "note": "录取总成绩最低控制线"
+        },
+        {
+          "major": "体育教育（自行车）",
+          "score": 616.5,
+          "note": "录取总成绩最低控制线"
+        }
+      ]
+    }
   },
   {
     "name": "安徽科技工程大学",
@@ -1254,7 +1417,8 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/zyyx/8674.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309100808_178.pdf",
       "https://www.ahstu.edu.cn/zsc/info/1055/6295.htm",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://www.ahstu.edu.cn/zsc/info/1042/6585.htm"
     ],
     "unresolved": [
       "省考试院栏目页给出的 /8674.htm 返回 404；实际可访问的章程页为 /zyyx/8674.htm。其 PDF 附件（20260309100808_178.pdf）部分数字字形未内嵌 ToUnicode 映射，纯 PDF 解析会丢失数字，故计划数与学费以学校招生网页面 https://www.ahstu.edu.cn/zsc/info/1055/6295.htm 为准（两者文字内容一致）",
@@ -1287,7 +1451,33 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 36
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://www.ahstu.edu.cn/zsc/info/1042/6585.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "",
+      "lines": [
+        {
+          "major": "农林牧渔大类（种植方向）",
+          "score": 628.83,
+          "note": "拟录取控制线"
+        },
+        {
+          "major": "农林牧渔大类（养殖方向）",
+          "score": 650.17,
+          "note": "拟录取控制线"
+        },
+        {
+          "major": "旅游大类（餐饮方向）",
+          "score": 622.16,
+          "note": "拟录取控制线"
+        }
+      ],
+      "planVsAdmitted": "学校公告称『所有专业招生计划均已完成，不再进行校外调剂』；未列出分专业计划数与录取数。"
+    }
   },
   {
     "name": "安庆师范大学",
@@ -1324,7 +1514,9 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/pic/file/20260309/20260309100651_878.pdf",
       "https://zsw.aqnu.edu.cn/info/1351/23469.htm",
       "https://zsw.aqnu.edu.cn/info/1351/23529.htm",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://xxgk.aqnu.edu.cn/info/1006/12494.htm",
+      "https://zsw.aqnu.edu.cn/info/1251/25429.htm"
     ],
     "unresolved": [
       "省考试院栏目页给出的 /8673.htm 返回 404；实际可访问的章程页为 /zyyx/8673.htm，正文以 PDF 附件（https://www.ahzsks.cn/pic/file/20260309/20260309100651_878.pdf）形式发布，已解析并与学校本科招生网页面逐字核对一致",
@@ -1340,7 +1532,28 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 40
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://xxgk.aqnu.edu.cn/info/1006/12494.htm",
+      "scoreType": "综合分",
+      "scoreFormulaNote": "按考生总成绩（文化素质成绩×40%+专业课成绩×60%+鼓励政策加分）从高分到低分择优录取（原文）；专业课成绩（专业理论考试与专业技能测试合并实施）不得低于270分。",
+      "lines": [
+        {
+          "major": "表演（黄梅戏表演方向）",
+          "score": 281.23,
+          "note": "录取总成绩最低控制线（四舍五入）；专业课资格线不低于270分"
+        },
+        {
+          "major": "表演（戏曲器乐方向）",
+          "score": 316.05,
+          "note": "录取总成绩最低控制线（四舍五入）；专业课资格线不低于270分"
+        }
+      ],
+      "planVsAdmitted": "面向中职毕业生对口招生计划40人：黄梅戏表演方向35人、戏曲器乐方向5人；预录取37人（黄梅戏表演）、3人（戏曲器乐）。"
+    }
   },
   {
     "name": "池州学院",
@@ -1411,7 +1624,11 @@ var BENKE_SCHOOLS = [
     "sources": [
       "https://www.ahzsks.cn/zyyx/8684.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309102009_819.pdf",
-      "http://zs.czu.edu.cn/info/1008/1744.htm"
+      "http://zs.czu.edu.cn/info/1008/1744.htm",
+      "http://zs.czu.edu.cn/info/1004/1752.htm",
+      "https://zs.czu.edu.cn/info/1004/1752.htm",
+      "https://zs.czu.edu.cn/info/1004/1620.htm",
+      "https://zs.czu.edu.cn/__local/7/54/F7/01DCDCED2EF2F9C7511068C8F2B_AEB3E956_2767.png"
     ],
     "unresolved": [
       "任务给定的 URL https://www.ahzsks.cn/8684.htm 返回 404，实际可访问地址为 https://www.ahzsks.cn/zyyx/8684.htm。",
@@ -1560,7 +1777,10 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/pic/file/20260309/20260309101847_375.pdf",
       "https://zhaoban.bbc.edu.cn/2026/0309/c2465a125234/page.htm",
       "https://zhaoban.bbc.edu.cn/_upload/article/files/a4/2b/bb57a4e24c97b4f12d502ed94511/998cb32e-3e9f-4132-82b5-a34f0375d953.pdf",
-      "https://zhaoban.bbc.edu.cn/_upload/article/files/a4/2b/bb57a4e24c97b4f12d502ed94511/e7e82746-cd57-421a-bd87-6aa3d241dff6.docx"
+      "https://zhaoban.bbc.edu.cn/_upload/article/files/a4/2b/bb57a4e24c97b4f12d502ed94511/e7e82746-cd57-421a-bd87-6aa3d241dff6.docx",
+      "https://zhaoban.bbc.edu.cn/2026/0403/c2465a126344/page.htm",
+      "https://zhaoban.bbc.edu.cn/2025/0327/c2465a114498/page.htm",
+      "https://zhaoban.bbc.edu.cn/_upload/article/files/a1/3c/a4b3f5e34ed3b5c14b8efd81796c/9c6174d3-b573-4efe-8fdc-065cd8cd4b00.pdf"
     ],
     "unresolved": [
       "音乐学专业“计划数”在章程表格中的原文为区间写法（舞蹈 0-20、声乐 0-5、器乐 0-5），未给出三个方向的确定人数；已逐字符核对 PDF 字形坐标，确认不存在因字体缺字而丢失的前导数字，原文即为 0-20/0-5/0-5。",
@@ -1677,7 +1897,14 @@ var BENKE_SCHOOLS = [
       "https://zs.whit.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1606941855&wbfileid=FF06AB91C3DCBA7F4EEE195EBFDA7C98",
       "https://zs.whit.edu.cn/info/1226/2888.htm",
       "https://zs.whit.edu.cn/info/1227/2884.htm",
-      "https://zs.whit.edu.cn/fl_dkkszs.htm"
+      "https://zs.whit.edu.cn/fl_dkkszs.htm",
+      "https://zs.whit.edu.cn/info/1022/2934.htm",
+      "https://zs.whit.edu.cn/virtual_attach_file.vsb?afc=TUlUtZMNr7nmLDLjzGaMmARoRAVozCwbLm7sozQ2LN7PU4N0gihFp2hmCIa0L1hfoky4L1y4UzQVozQ7oRAfUzNDUzGDL4VRnmCbL4vbnRrFozv8MzNPnmfFU4GiMSbaQ2Ceo4Oe_jMsgDTJQty0LzGYL1yYozL8gtA8pUXcc&oid=1606941855&tid=1022&nid=2934&e=.pdf",
+      "https://zs.whit.edu.cn/info/1022/2879.htm",
+      "https://zs.whit.edu.cn/info/1022/2936.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/6.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/7.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/5.htm"
     ],
     "unresolved": [
       "学费：章程仅写“按照省价格主管等相关部门核定标准执行”，未列具体金额，故 tuition 无法给出数字。",
@@ -1810,7 +2037,11 @@ var BENKE_SCHOOLS = [
       "https://www.uta.edu.cn/zsw/2026/0309/c4335a168136/page.htm",
       "https://www.uta.edu.cn/zsw/2026/0312/c4335a168330/page.htm",
       "https://www.uta.edu.cn/_upload/article/files/ff/0b/4c9f60684bcb83bacdbd242d11aa/8e78bb72-0f14-4ec6-bb02-90237a55efe0.pdf",
-      "https://www.uta.edu.cn/zsw/2026/0314/c4335a168402/page.htm"
+      "https://www.uta.edu.cn/zsw/2026/0314/c4335a168402/page.htm",
+      "https://www.uta.edu.cn/zsw/2026/0404/c3322a169277/page.htm",
+      "https://www.uta.edu.cn/_upload/article/files/ff/5e/075ba4764d66952ba5672e163ec4/14b61daa-4790-4d2d-a46f-ccb04120da87.pdf",
+      "https://www.uta.edu.cn/_upload/article/files/05/00/db61215e43a9ac5ac72a56930f17/14197e4e-c61c-428f-b0dc-bf1cea11eea5.pdf",
+      "https://www.uta.edu.cn/zsw/dkzs/list2.htm"
     ],
     "unresolved": [
       "学费：章程仅写“按照省价格主管等相关部门核定标准执行”，未列具体金额。",
@@ -1935,7 +2166,9 @@ var BENKE_SCHOOLS = [
       "https://www.ahua.edu.cn/zsw/2026/0309/c201a45787/page.htm",
       "https://www.ahua.edu.cn/_upload/article/files/90/65/4bf81fa34d2d8bc9de0301be6358/6384912f-e0ea-49c7-8e5e-20eacdf730eb.pdf",
       "https://www.ahua.edu.cn/_upload/article/files/90/65/4bf81fa34d2d8bc9de0301be6358/37d63175-e09c-4297-a7fd-59ff35bc3c84.pdf",
-      "https://www.ahua.edu.cn/_upload/article/files/90/65/4bf81fa34d2d8bc9de0301be6358/00d4ae91-e0e2-454b-9585-539ea02d2667.pdf"
+      "https://www.ahua.edu.cn/_upload/article/files/90/65/4bf81fa34d2d8bc9de0301be6358/00d4ae91-e0e2-454b-9585-539ea02d2667.pdf",
+      "https://www.ahua.edu.cn/zsw/2026/0404/c201a46317/page.htm",
+      "https://www.ahua.edu.cn/zsw/2025/0329/c201a36738/page.htm"
     ],
     "unresolved": [
       "章程未给出“表演”专业计划数以外的方向细分计划，也未说明“表演”专业是否仅招黄梅戏方向。",
@@ -2048,7 +2281,10 @@ var BENKE_SCHOOLS = [
       "https://www.cuhf.edu.cn/zsb/2026/0309/c1461a33897/page.htm",
       "https://www.cuhf.edu.cn/_upload/article/files/ee/e4/e52fc72f453bb9eac7769cd70552/3101f2ec-f0ba-4378-af96-fa10afb752bb.pdf",
       "https://www.cuhf.edu.cn/zsb/2026/0325/c1463a34134/page.htm",
-      "https://www.cuhf.edu.cn/_upload/article/files/12/d1/c5e00bc34883951eb299fadf1e77/2114d3cb-ae44-4bad-89e8-012d96339dd4.xlsx"
+      "https://www.cuhf.edu.cn/_upload/article/files/12/d1/c5e00bc34883951eb299fadf1e77/2114d3cb-ae44-4bad-89e8-012d96339dd4.xlsx",
+      "https://www.cuhf.edu.cn/zsb/2026/0403/c1447a34302/page.htm",
+      "https://www.cuhf.edu.cn/zsb/2025/0327/c354a30480/page.htm",
+      "https://www.cuhf.edu.cn/zsb/2024/0416/c359a26402/page.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8694.htm 当前返回空模板，未取到正文，改用学校招生网2026年章程",
@@ -2249,7 +2485,10 @@ var BENKE_SCHOOLS = [
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096469",
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096468",
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096467",
-      "https://zsb.hblgxy.edu.cn/zslx/dkbk.htm"
+      "https://zsb.hblgxy.edu.cn/zslx/dkbk.htm",
+      "https://zsb.hblgxy.edu.cn/info/1020/2369.htm",
+      "https://zsb.hblgxy.edu.cn/info/1031/2332.htm",
+      "https://zsb.hblgxy.edu.cn/info/1020/2133.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8693.htm 当前 404，未取到正文，改用学校招生网2026年章程PDF",
@@ -2521,7 +2760,10 @@ var BENKE_SCHOOLS = [
       "https://www.hfue.edu.cn/zsw/index.html",
       "https://www.hfue.edu.cn/zsw/col295/59029",
       "https://www.hfue.edu.cn/zsw/col295/60629",
-      "https://www.hfue.edu.cn/zsw/col295/61062"
+      "https://www.hfue.edu.cn/zsw/col295/61062",
+      "https://www.hfue.edu.cn/zsw/col295/62946",
+      "https://www.hfue.edu.cn/zsw/col295/44065",
+      "https://www.hfue.edu.cn/zsw/col295/32937"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8692.htm 当前 404，未取到正文，改用学校招生网2026年章程",
@@ -2710,7 +2952,10 @@ var BENKE_SCHOOLS = [
     "sources": [
       "https://www.aisu.edu.cn/zsb/info/1097/5189.htm",
       "https://www.aisu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1442701770&wbfileid=3177002",
-      "https://www.aisu.edu.cn/zsb/zsjh.htm"
+      "https://www.aisu.edu.cn/zsb/zsjh.htm",
+      "https://www.aisu.edu.cn/zsb/info/1097/5210.htm",
+      "https://www.aisu.edu.cn/zsb/info/1098/5008.htm",
+      "https://www.aisu.edu.cn/zsb/info/1098/4780.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8691.htm 当前 404，未取到正文，改用学校招生网2026年章程（PDF 附件需通过验证码下载，已按站点要求完成下载后解析）",
@@ -2911,7 +3156,10 @@ var BENKE_SCHOOLS = [
       "https://www.wenda.edu.cn/zs/display_34101.html",
       "https://www.wenda.edu.cn/zs/",
       "https://www.wenda.edu.cn/zs/m/display.php?id=34099",
-      "https://www.wenda.edu.cn/zs/info_101101.html"
+      "https://www.wenda.edu.cn/zs/info_101101.html",
+      "https://www.wenda.edu.cn/zs/M/display.php?id=34113",
+      "https://www.wenda.edu.cn/zs/m/display_24702.html",
+      "https://www.wenda.edu.cn/ZS/m/display.php?id=19339"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8690.htm 当前 404，未取到正文，改用学校招生网2026年章程全文",
@@ -3251,7 +3499,8 @@ var BENKE_SCHOOLS = [
       "https://zsb.slu.edu.cn/464/list.htm",
       "https://zsb.slu.edu.cn/2026/0129/c464a56018/page.htm",
       "https://zsb.slu.edu.cn/2025/1030/c462a54398/page.htm",
-      "https://zsb.slu.edu.cn/"
+      "https://zsb.slu.edu.cn/",
+      "https://zsb.slu.edu.cn/2026/0402/c462a56562/page.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8689.htm 当前 404，未取到正文，改用学校招生网2026年章程全文",
@@ -3311,7 +3560,63 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 20
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zsb.slu.edu.cn/2026/0402/c462a56562/page.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "",
+      "lines": [
+        {
+          "major": "机械设计制造及自动化",
+          "score": 589,
+          "note": ""
+        },
+        {
+          "major": "轨道交通信号与控制",
+          "score": 607,
+          "note": ""
+        },
+        {
+          "major": "计算机科学与技术",
+          "score": 630,
+          "note": ""
+        },
+        {
+          "major": "智能科学与技术",
+          "score": 641,
+          "note": ""
+        },
+        {
+          "major": "护理学",
+          "score": 644,
+          "note": ""
+        },
+        {
+          "major": "会计学",
+          "score": 647,
+          "note": ""
+        },
+        {
+          "major": "电子商务",
+          "score": 606,
+          "note": ""
+        },
+        {
+          "major": "服装与服饰设计",
+          "score": 618,
+          "note": ""
+        },
+        {
+          "major": "环境设计",
+          "score": 597,
+          "note": ""
+        }
+      ],
+      "planVsAdmitted": "公告称本次共录取38名同学（含符合免试条件、面试合格直接录取的考生）。"
+    }
   },
   {
     "name": "安徽新华学院",
@@ -3383,7 +3688,13 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/zyyx/8688.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309102523_106.pdf",
       "https://zhaosheng.axhu.edu.cn/contents/2685/261497.html",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/263344.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2026/4/316173695.png",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/246913.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2025/3/271710781.png",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/229850.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2024/4/16185256559.png"
     ],
     "unresolved": [
       "省考试院栏目页给出的 /8688.htm 返回 404；实际可访问的章程页为 /zyyx/8688.htm，正文以 PDF 附件（https://www.ahzsks.cn/pic/file/20260309/20260309102523_106.pdf）形式发布，已完整解析",
