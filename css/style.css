@@ -999,6 +999,117 @@ input, select {
   font-size: 12px;
 }
 
+/* --- 对比页紧凑版：目标是"一屏放下、不滑页面" --- */
+.cmp-hint {
+  margin: 8px 12px 6px;
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+/* 表格容器固定高度 + 内部纵向滚动：
+   这样整页不再变长，用户滚的是表格，而底部 Tab 栏始终在屏幕上。
+   占位从上到下：导航 48 + 提示 24 + 表格下边距 10 + 底部留白 20 ≈ 102，
+   再留约 40 余量应付手机地址栏伸缩，故减 140。
+   优先用 dvh（随地址栏收缩动态变化），不支持的浏览器回退 vh。 */
+.cmp-wrap {
+  overflow: auto;
+  max-height: calc(100vh - 140px);
+  max-height: calc(100dvh - 140px);
+  -webkit-overflow-scrolling: touch;
+}
+
+.cmp-compact {
+  font-size: 11px;
+  min-width: 0;
+  table-layout: fixed;
+}
+.cmp-compact th,
+.cmp-compact td {
+  padding: 5px 6px;
+  font-size: 11px;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cmp-compact td.dim,
+.cmp-compact th.dim {
+  width: 52px;
+  font-size: 10px;
+  padding: 5px 4px;
+}
+.cmp-compact thead th {
+  padding: 6px 6px;
+  font-size: 11px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fafafa;
+}
+.cmp-compact tbody tr:first-child td {
+  border-top: 1px solid var(--border);
+}
+
+.cmp-name {
+  color: var(--primary);
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cmp-clip {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cmp-score {
+  font-weight: 700;
+  color: #722ed1;
+}
+/* 分数与来源标签竖排：手机上每列只有 ~80px，横排会被截断 */
+.cmp-scorebox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+  overflow: hidden;
+}
+.cmp-tag {
+  display: inline-block;
+  margin-top: 1px;
+  padding: 0 3px;
+  font-size: 9px;
+  font-weight: normal;
+  color: #8c8c8c;
+  background: #f0f0f0;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.cmp-more-toggle {
+  cursor: pointer;
+}
+.cmp-more-toggle .cmp-more-cell {
+  color: var(--primary);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* 对比页要"一屏放下"，页脚导航与署名水印在本页隐藏 */
+body[data-page="compare"] .foot-nav,
+body[data-page="compare"] .site-footer {
+  display: none;
+}
+body[data-page="compare"] .page {
+  padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px));
+}
+body[data-page="compare"] .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
 .compare-table th.dim,
 .compare-table td.dim {
   color: var(--text-light);
