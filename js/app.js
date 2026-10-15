@@ -1120,14 +1120,24 @@ function buildBenkeCards(keyword) {
         </details>` : ''}`;
 
     // ===== 2026 年录取分数线（采集自各校招生网公示）=====
-    // 普通类给总分（满分 750），艺体类给综合分（满分约 350），量级完全不同，
-    // 因此按类型分组展示，避免学生把 311 的综合分误当成很低的总分。
+    // 分数线有三种**互不可比**的口径，必须分开显示，否则会误导读分：
+    //   ① 普通类：按总分（满分 750）
+    //   ② 艺体类：按综合分（满分约 350）
+    //   ③ 特殊控制线：技能控制线 / 免测项目的文化课线 / 专业大类线（量纲各不相同）
     const sc = s.scores2026;
     let scoreBlock = '';
     if (sc && sc.lines && sc.lines.length) {
-      const isComposite = (l) => /综合/.test(String(l.note || '')) || sc.scoreType === '综合分';
-      const normalLines = sc.lines.filter((l) => !isComposite(l));
+      const noteOf = (l) => String(l.note || '');
+      // 「特殊控制线」只收**量纲本身就不同**的项：
+      //   · 免测项目的文化课线（巢湖 96/160/216/156）
+      //   · 专业大类最低录取分数线（铜陵）
+      // 注意：像「总分录取线；技能控制线270分」这种主值是总分的，**不能**归进来——
+      //       它只是额外附注了一个技能线，主值仍是满分 750 的总分。
+      const isSpecial = (l) => /文化课|免测|大类线/.test(noteOf(l));
+      const isComposite = (l) => !isSpecial(l) && (/综合/.test(noteOf(l)) || sc.scoreType === '综合分');
+      const normalLines = sc.lines.filter((l) => !isSpecial(l) && !isComposite(l));
       const compLines = sc.lines.filter(isComposite);
+      const specialLines = sc.lines.filter(isSpecial);
       const row = (l) => `<tr>
           <td>${esc(l.major)}</td>
           <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
@@ -1137,16 +1147,23 @@ function buildBenkeCards(keyword) {
           <tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr>
           ${arr.map(row).join('')}
         </table></div>`;
+      const groupCount = [normalLines, compLines, specialLines].filter((a) => a.length).length;
+      const titled = (label, arr) => (groupCount > 1 ? `<div class="bk-score-sub">${label}</div>` : '') + tbl(arr);
       scoreBlock = `
         <div class="bk-score">
           <div class="bk-score-t">📊 2026 年录取分数线<span style="font-weight:400;font-size:11px;color:#8c8c8c">（${esc(sc.publishedAt || '')} 公布）</span></div>
-          ${normalLines.length ? ((compLines.length ? '<div class="bk-score-sub">普通类（总分，满分 750）</div>' : '') + tbl(normalLines)) : ''}
-          ${compLines.length ? ((normalLines.length ? '<div class="bk-score-sub">艺术/体育类（综合分，满分约 350）</div>' : '') + tbl(compLines)) : ''}
+          ${normalLines.length ? titled('普通类（总分，满分 750）', normalLines) : ''}
+          ${compLines.length ? titled('艺术/体育类（综合分，满分约 350）', compLines) : ''}
+          ${specialLines.length ? titled('⚠️ 其他控制线（口径与总分不同，请勿直接比较）', specialLines) : ''}
           ${sc.scoreFormulaNote ? `<div style="font-size:11.5px;color:#8c8c8c;margin-top:5px">合成办法：${esc(sc.scoreFormulaNote)}</div>` : ''}
           ${sc.sourceUrl ? `<div style="font-size:11px;margin-top:4px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
         </div>`;
     } else if (s.scores2026Checked) {
-      scoreBlock = '<div class="bk-score-none">📊 2026 年录取分数线：已查该校招生网，未见公布</div>';
+      // 学校确实公布了，但官网原文未找到 —— 如实说明，不填未核实的数字
+      const why = (s.scoreNote || '').trim();
+      scoreBlock = `<div class="bk-score-none">📊 2026 年录取分数线：该校已公布，但官网原文未找到${
+        why ? `<div style="margin-top:4px;font-size:11.5px;line-height:1.6">${esc(why)}</div>` : ''
+      }</div>`;
     }
 
     return `
