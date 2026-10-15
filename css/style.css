@@ -993,6 +993,63 @@ input, select {
   border-radius: 14px;
 }
 
+/* ========== 院校详情：校考考试类别分组 ========== */
+.exam-group-row {
+  cursor: pointer;
+  background: #fff7e6;
+}
+.exam-group-row td {
+  padding: 8px 10px !important;
+  border-top: 2px solid #ffd591;
+  border-bottom: 1px solid #ffe7ba;
+}
+.exam-group-row.open td {
+  border-bottom: none;
+}
+.exg-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.exg-title {
+  font-weight: 700;
+  font-size: 12px;
+  color: #ad6800;
+}
+.exg-form {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  color: #d48806;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.exg-toggle {
+  flex: none;
+  font-size: 11px;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.exam-syllabus-row td {
+  padding: 0 !important;
+  background: #fffbf0;
+  border-bottom: 1px solid #ffe7ba;
+}
+.exg-content {
+  padding: 10px 12px 8px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #614700;
+  white-space: normal;
+}
+.exg-src {
+  padding: 0 12px 10px;
+  font-size: 11px;
+  color: var(--text-light);
+  word-break: break-all;
+}
+
 /* ========== 院校对比表 ========== */
 .compare-table {
   min-width: 420px;
