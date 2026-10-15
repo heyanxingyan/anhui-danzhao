@@ -280,6 +280,11 @@ GitHub Pages 的 `cache-control` 是 `max-age=600`；版本号查询串负责击
 11. **别拿部署前的页面下结论**。GitHub Pages 的 CDN 传播通常 30-60 秒，浏览器还可能hold住旧 HTML；发布后立刻验证会看到旧 js/旧 CSS，误判成"没生效"。验证前先重新打开页面（可带个 `?nocache=1` 之类的查询串），或先 fetch 一下线上文件确认版本号。
 12. **发布必须走单次原子提交**（2026-10-16 修）。`release.js` 原来对每个改动文件调一次 `PUT /contents`，每个都是一次独立 commit。抬一次版本号要动 22 个 HTML → 22 个 commit → GitHub Pages 触发 22 次构建，它们互相踩踏，结果全是 `Page build failed`，而**旧文件照常服务、新文件永远 404**——表现是"发布报告成功，线上却没这个文件"。现在用 Git Data API：一次性 `POST /git/trees`（带 `base_tree`）+ 一次 `POST /git/commits` + 一次 `PATCH /git/refs`。发布后如仍怀疑，查构建状态：
     `GET /repos/:owner/:repo/pages/builds` —— `errored` 就是没部署上去。
+    **注意**：原子提交只是把"一次发布 = 一个 commit"做到，但**连着发布多次仍会踩踏**。构建历史里 `errored` 的 `duration=0ms` 且成簇出现，就是短时间内多 commit 被互相取消的特征。发布之间留出间隔，别连着推。
+13. **⛔ 曾把 5 个 0 字节页面推上线（2026-10-16 事故）**。本地 `about.html`/`benke.html`/`college-detail.html`/`college-list.html`/`compare.html` 被清空成 0 字节（原因未查明），`release.js` 照常把它们提交上去 → **线上这 5 个页面变成全白**。恢复方式：用 git blob API 从历史提交里取回脚本/页面内容，不要凭记忆重写。
+    现已加防线：`release.js` 发现 `.html/.js/.css` 为 0 字节时**直接拒绝发布并退出**，并列出文件名。
+    **教训**：发布前先确认没有 0 字节文件——
+    `Get-ChildItem -Recurse -File | Where-Object { $_.Length -eq 0 }`。
 
 ### 数据完整性问题（已修复）
 
