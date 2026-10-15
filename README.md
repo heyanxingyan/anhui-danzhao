@@ -283,8 +283,27 @@ GitHub Pages 的 `cache-control` 是 `max-age=600`；版本号查询串负责击
     **注意**：原子提交只是把"一次发布 = 一个 commit"做到，但**连着发布多次仍会踩踏**。构建历史里 `errored` 的 `duration=0ms` 且成簇出现，就是短时间内多 commit 被互相取消的特征。发布之间留出间隔，别连着推。
 13. **⛔ 曾把 5 个 0 字节页面推上线（2026-10-16 事故）**。本地 `about.html`/`benke.html`/`college-detail.html`/`college-list.html`/`compare.html` 被清空成 0 字节（原因未查明），`release.js` 照常把它们提交上去 → **线上这 5 个页面变成全白**。恢复方式：用 git blob API 从历史提交里取回脚本/页面内容，不要凭记忆重写。
     现已加防线：`release.js` 发现 `.html/.js/.css` 为 0 字节时**直接拒绝发布并退出**，并列出文件名。
-    **教训**：发布前先确认没有 0 字节文件——
-    `Get-ChildItem -Recurse -File | Where-Object { $_.Length -eq 0 }`。
+    **补充（2026-10-17）**：清空是**间歇性反复发生**的（同一天又清空 `college-detail.html`、`category.html` 各一次，且恢复后可能立刻再被清空）。
+    发布前扫一次不可靠，**真正的保障是发布脚本内置的那道检查**（在读取文件的那一刻判断）。
+    另配了自愈守护进程 `tools/watch-empty-files.js`（每 3 秒检查 34 个 HTML/JS/CSS，发现 0 字节即从远端或历史提交取回）。
+14. **⚠️ data.js 末尾有一段「估算层」会编造数据**（2026-10-17 发现并处理）。
+    它用 id 取模给缺字段生成看起来很真的值：
+    ```js
+    phone          = 区号-{1000+(id*137)%8000}-{1000+(id*53)%8999}   // 假电话，打不通
+    scale          = 约{15000+(id%6)*2000}人
+    employmentRate = {95+(id%3)}%
+    upgradeRate    = {26+(id%9)}%
+    examRatio      = 按 id%3 取模
+    ```
+    **用户的举报**：「马鞍山师范高等专科学校 招生办电话 0555-1411-1159」就是 id=3 代入的结果，打不通。
+    全库扫描：92 所里 **74 所有假字段**（电话 61、规模/就业率/专升本率各 74、校考占比 68）。
+    处理方式：
+    - `tools/audit-fabricated-fields.js` / `tools/list-pending.js` —— 识别并列出假字段与待补项
+    - `tools/merge-baseinfo.js` —— 合并互联网核实结果；**确认查不到的字段清成 null 并标记 `_bkPlaceholder`**，
+      页面显示「待补」而不是编造值
+    - `data.js` 估算层已改为**尊重 `_bkPlaceholder` 标记**：命中标记就不再生成占位值
+    - `audit-data.js` 增加反公式假数据检查（命中即 warn 并列出院校与字段名）
+    教训：**「缺数据」要留空并显式标注，绝不能用一个像真的公式值顶替**——那比留空危害大得多（学生会照着假电话打）。
 
 ### 数据完整性问题（已修复）
 

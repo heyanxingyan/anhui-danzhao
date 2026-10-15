@@ -690,6 +690,12 @@ function renderCollegeDetail() {
       <div style="font-size:13px;color:#874d00;line-height:1.7">${c.secondCutoff.note}</div>
       <div style="font-size:12px;color:#d46b08;margin-top:8px;line-height:1.6">提示：文化统考未达入围线将无法参加校考，志愿直接作废；建议先用下方"录取概率测算"查看自己的文化分是否稳妥。</div>
     </div>` : '';
+  // 「待补」渲染：字段缺失且已标记待补时显示灰字提示，避免显示成空白或假的估算值
+  const pend = (v, field) => {
+    if (v) return v;
+    const todo = (c._bkPlaceholder || {})[field];
+    return todo ? '<span style="color:#bbb">待补</span>' : '—';
+  };
   document.getElementById('panel-rule').innerHTML = `
     <div class="about-section" style="margin:8px 12px">
       <h3>📌 录取规则（${ruleLabel}）</h3>
@@ -702,8 +708,8 @@ function renderCollegeDetail() {
     </div>
     <div class="about-section" style="margin:8px 12px">
       <h3>📊 院校概况</h3>
-      <p><b>就业率：</b>${c.employmentRate || '—'}</p>
-      <p><b>专升本率：</b>${c.upgradeRate || '—'}</p>
+      <p><b>就业率：</b>${pend(c.employmentRate, 'employmentRate')}</p>
+      <p><b>专升本率：</b>${pend(c.upgradeRate, 'upgradeRate')}</p>
       <p><b>2026招生计划（${planLabel}）：</b>${c.plan2026 || '待院校公布'}</p>
     </div>
     <div class="about-section" style="margin:8px 12px">
