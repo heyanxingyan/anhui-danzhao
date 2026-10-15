@@ -86,7 +86,7 @@
 
       <!-- 校考分数滑动条 -->
       <div class="prob-card" id="prob-exam-card" style="display:none">
-        <div class="prob-label">🎯 校考分数</div>
+        <div class="prob-label">🎯 校考分数 <span id="prob-exam-type" style="font-size:12px;color:#888;font-weight:normal"></span></div>
         <div class="prob-slider-value"><span id="prob-exam-value">200</span> 分</div>
         <input type="range" class="prob-slider" id="prob-exam-slider" min="0" max="300" value="200" oninput="onProbExamInput()">
         <div style="display:flex;justify-content:space-between;font-size:12px;color:#999;margin-top:6px">
@@ -203,6 +203,13 @@
       slider.value = Math.floor(examMax * 0.67);
       document.getElementById('prob-exam-value').textContent = slider.value;
       document.getElementById('prob-exam-max').textContent = '满分 ' + examMax;
+      // 校考类型提示
+      const examTypeLabel = document.getElementById('prob-exam-type');
+      if (currentProbType === 'zhongzhi') {
+        examTypeLabel.textContent = examMax === 450 ? '（职业技能考试，专业理论200+技能测试250）' : '（职业技能考试，专业能力+技术技能）';
+      } else {
+        examTypeLabel.textContent = examMax === 400 ? '（职业适应性测试，该校满分400）' : '（职业适应性测试，满分300）';
+      }
 
       majorCard.style.display = 'block';
       examCard.style.display = 'block';
@@ -231,8 +238,14 @@
 
     function getExamMax(college) {
       const sc = college.scoreComposition || '';
-      if (currentProbType === 'zhongzhi' && sc.includes('450')) return 450;
-      if (currentProbType === 'zhongzhi') return 450;
+      if (currentProbType === 'zhongzhi') {
+        // 中职职业技能考试：多数学校300分，少数学校450分，严格按章程判断
+        // 450分的典型特征：专业理论200+技能测试250，或明确写"中职...450分"/"中职总分750"
+        if (/中职[^。；]*450/.test(sc) || sc.includes('中职总分750') || sc.includes('普高总分600/中职总分750') || sc.includes('专业理论200+技能测试250') || sc.includes('专业理论200分+技能测试250')) return 450;
+        return 300; // 大部分学校中职职业技能考试也是300分
+      }
+      // 普高职业适应性测试：一般300分，个别学校（如安徽机电）校考400分
+      if (college.name.includes('安徽机电') || /文化300分?\+校考400分?=总分700/.test(sc) || /校考400分/.test(sc)) return 400;
       return 300;
     }
 
@@ -312,35 +325,52 @@
     }
 
     function estimateCutoff(college, major) {
-      // 优先使用2026年真实数据
+      const isZhongzhi = currentProbType === 'zhongzhi';
+
+      // 优先使用2026年真实数据（分别取普高/中职对应分数）
       if (college.realScore2026) {
+        const sc = college.scoreComposition || '';
+        const totalMax = getTotalMax(college);
         const nums = college.realScore2026.match(/\d+/g);
-        if (nums && nums.length > 0) {
+        // 含"普高X/中职Y"格式时，分别取
+        const gzMatch = college.realScore2026.match(/普高[^\d]*(\d+)/);
+        const zzMatch = college.realScore2026.match(/中职[^\d]*(\d+)/);
+        if (isZhongzhi && zzMatch) {
+          const v = Number(zzMatch[1]);
+          if (v <= totalMax) return v;
+        }
+        if (!isZhongzhi && gzMatch) {
+          const v = Number(gzMatch[1]);
+          if (v <= totalMax) return v;
+        }
+        if (nums && nums.length > 0 && !gzMatch && !zzMatch) {
           const rs = Math.max(...nums.map(Number));
-          // 判断分数制：300分制还是600分制
-          const sc = college.scoreComposition || '';
-          const totalMax = getTotalMax(college);
           if (rs <= totalMax) return rs;
         }
       }
 
-      // 基于抖音多源数据的文化课分数线梯队
+      // 基于抖音多源数据的文化课分数线梯队（普高基准）
       // 头部260+ / 合肥热门230+ / 地级市220+ / 普通公办180+ / 低分公办150-160
       let cultureEst;
       const hotSchools = ['安徽职业技术大学','芜湖职业技术大学','安徽应用技术职业大学','安徽第二医学院','合肥职业技术学院','安徽水利水电职业技术学院','安徽交通职业技术学院','安徽警官职业学院'];
       const hefeiHot = ['安徽审计职业学院','安徽工商职业学院','安徽财贸职业学院','安徽城市管理职业学院','安徽公安职业学院','安徽中医药高等专科学校','安徽医学高等专科学校'];
       const isHot = hotSchools.some(s => college.name.includes(s.replace('职业技术大学','').replace('职业技术学院',''))) || college.hot;
       const isHefei = college.city === '合肥';
-      
+
       if (isHot) cultureEst = 260;
       else if (isHefei && hefeiHot.some(s => college.name.includes(s))) cultureEst = 230;
       else if (isHefei) cultureEst = 210;
       else if (college.type === '医药类' || college.type === '师范类') cultureEst = 220;
       else cultureEst = 180;
 
-      // 校考预估分：平均水平约60-70%
+      // 中职生文化课分数线普遍比普高低10-15分（抖音多源验证）
+      if (isZhongzhi) cultureEst -= 12;
+
+      // 校考预估分：普高满分300，中职满分450
+      // 普高生职业适应性测试平均约60%，中职生职业技能考试有专业基础，约68%
       const examMax = getExamMax(college);
-      const examEst = examMax * 0.65;
+      const examRatio = isZhongzhi ? 0.68 : 0.62;
+      const examEst = examMax * examRatio;
 
       // 按学校规则计算综合分
       const sc = college.scoreComposition || '';
@@ -352,11 +382,12 @@
       } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
         totalEst = cultureEst * 0.3 + examEst * 0.7;
       } else {
+        // 直接相加：普高600满分，中职750满分
         totalEst = cultureEst + examEst;
       }
 
       // 根据招生计划调整
-      const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
+      const plan = isZhongzhi ? (major.plan2026Zhongzhi || 0) : (major.plan2026Gaozhong || 0);
       if (plan > 200) totalEst -= 15;
       else if (plan > 100) totalEst -= 8;
       else if (plan < 30 && plan > 0) totalEst += 8;
@@ -364,7 +395,6 @@
       // 志愿优先学校，冷门专业可以更低
       const rule = college.admissionRule2026 || '';
       if (rule.includes('志愿优先') || rule.includes('专业优先') || rule.includes('专业清')) {
-        // 志愿优先的学校，专业间分差大，按冷门专业再减10分
         const coldMajorPattern = /材料|养老|纺织|农林|畜牧|水产|地质|矿业|殡葬|图书馆|档案/;
         if (coldMajorPattern.test(major.name)) {
           totalEst -= 30;
