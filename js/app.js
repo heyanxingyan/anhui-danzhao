@@ -1362,11 +1362,14 @@ function specialPolicyBlocksHtml(currentSub) {
 function renderZhuanxiang() {
   renderTabbar('college');
 
-  const zc = CATEGORIES.zhuanxiang;
-  document.getElementById('zx-desc').textContent = zc.desc;
-  document.getElementById('zx-condition').textContent = zc.condition;
-  document.getElementById('zx-subjects').textContent = zc.subjects;
-  document.getElementById('zx-rule').textContent = zc.rule;
+  // 折叠块标题随子板块变化（招生说明收纳在 <details> 里，默认收起）
+  const foldTitleEl = document.querySelector('.zx-fold > summary > span');
+  const FOLD_TITLES = {
+    all: '⭐ 专项计划招生说明',
+    tuiyi: '🎖️ 退役军人专项计划招生说明',
+    laoxiang: '🏔️ 革命老区专项计划招生说明',
+    xiangcun: '🏥 乡村医生专项计划招生说明',
+  };
 
   let currentSub = 'all';
   let currentKeyword = '';
@@ -1414,6 +1417,7 @@ function renderZhuanxiang() {
 
     // ===== 各子板块展示对应专项的政策 =====
     // 全部专项：三个专项的政策各写一段；其余子板块：写自己那一项的政策。
+    if (foldTitleEl) foldTitleEl.textContent = FOLD_TITLES[currentSub] || FOLD_TITLES.all;
     const descEl = document.getElementById('zx-desc');
     if (descEl) {
       descEl.innerHTML = (typeof SPECIAL_POLICY !== 'undefined')
