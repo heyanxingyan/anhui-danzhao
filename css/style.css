@@ -953,6 +953,14 @@ input, select {
 .bk-sec > div:last-child{font-size:12.5px;color:#444;line-height:1.7}
 .bk-card-majors{margin-top:8px}
 
+/* 对口本科 2026 录取分数线区块 */
+.bk-score{margin-top:8px;background:#fff1f0;border:1px solid #ffccc7;border-radius:8px;padding:8px 10px}
+.bk-score-t{font-size:12.5px;font-weight:700;color:#cf1322;margin-bottom:5px;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.bk-score-sub{font-size:11.5px;font-weight:600;color:#a8071a;margin:6px 0 2px}
+.bk-score .bk-table{margin-top:4px;background:#fff}
+.bk-score .bk-table th{background:#fff7f6}
+.bk-score-none{margin-top:8px;background:#fafafa;border:1px dashed #e0e0e0;border-radius:8px;padding:7px 10px;font-size:12px;color:#8c8c8c}
+
 /* ========== Toast ========== */
 .toast {
   position: fixed;

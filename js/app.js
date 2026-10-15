@@ -1119,6 +1119,36 @@ function buildBenkeCards(keyword) {
           </div>
         </details>` : ''}`;
 
+    // ===== 2026 年录取分数线（采集自各校招生网公示）=====
+    // 普通类给总分（满分 750），艺体类给综合分（满分约 350），量级完全不同，
+    // 因此按类型分组展示，避免学生把 311 的综合分误当成很低的总分。
+    const sc = s.scores2026;
+    let scoreBlock = '';
+    if (sc && sc.lines && sc.lines.length) {
+      const isComposite = (l) => /综合/.test(String(l.note || '')) || sc.scoreType === '综合分';
+      const normalLines = sc.lines.filter((l) => !isComposite(l));
+      const compLines = sc.lines.filter(isComposite);
+      const row = (l) => `<tr>
+          <td>${esc(l.major)}</td>
+          <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
+          <td>${esc(l.note || '')}</td>
+        </tr>`;
+      const tbl = (arr) => `<div style="overflow-x:auto"><table class="bk-table">
+          <tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr>
+          ${arr.map(row).join('')}
+        </table></div>`;
+      scoreBlock = `
+        <div class="bk-score">
+          <div class="bk-score-t">📊 2026 年录取分数线<span style="font-weight:400;font-size:11px;color:#8c8c8c">（${esc(sc.publishedAt || '')} 公布）</span></div>
+          ${normalLines.length ? ((compLines.length ? '<div class="bk-score-sub">普通类（总分，满分 750）</div>' : '') + tbl(normalLines)) : ''}
+          ${compLines.length ? ((normalLines.length ? '<div class="bk-score-sub">艺术/体育类（综合分，满分约 350）</div>' : '') + tbl(compLines)) : ''}
+          ${sc.scoreFormulaNote ? `<div style="font-size:11.5px;color:#8c8c8c;margin-top:5px">合成办法：${esc(sc.scoreFormulaNote)}</div>` : ''}
+          ${sc.sourceUrl ? `<div style="font-size:11px;margin-top:4px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
+        </div>`;
+    } else if (s.scores2026Checked) {
+      scoreBlock = '<div class="bk-score-none">📊 2026 年录取分数线：已查该校招生网，未见公布</div>';
+    }
+
     return `
       <div class="college-card" style="display:block;margin-bottom:10px;border:1px solid #d3adf7">
         <div class="head">
@@ -1137,6 +1167,7 @@ function buildBenkeCards(keyword) {
           local ? `<a href="college-detail.html?id=${local.id}" style="font-size:12px;color:var(--primary)">看历年分数 ›</a>`
                 : (external ? `<a href="${esc(site)}" target="_blank" rel="noopener" style="font-size:12px;color:var(--primary)">官网 ›</a>` : '')
         }</div>` : ''}
+        ${scoreBlock}
         ${detail}
       </div>`;
   }).join('');
