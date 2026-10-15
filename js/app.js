@@ -629,6 +629,17 @@ function renderCollegeDetail() {
     });
   });
 
+  // ===== 对口本科院校：只保留「招生计划 / 录取规则」两个标签 =====
+  // 理由：对口本科的考试口径是「文化300 + 职业技能450」，与高职分类考试完全不同，
+  // 「普高/中职/专项」三列分专业计划表和「历年分数走势」对它都不适用（填进去全是「—」）。
+  // 2026 年分专业招生计划与录取分数线改放到「招生计划」标签里展示。
+  if (c.isDuikouBenke) {
+    document.querySelectorAll('.tab-switch .tab-item').forEach((t) => {
+      if (t.dataset.tab === 'score' || t.dataset.tab === 'intro') t.remove();
+    });
+    renderDuikouBenkePlanPanel(c);
+  }
+
   // ===== 专项计划模块：把「历年分数」板块换成专项政策 =====
   // 从专项计划页进来时（?category=zhuanxiang-*），学生关心的是"这个专项怎么录"，
   // 而不是该校历年分数线；因此「历年分数」整体替换为政策说明。
@@ -2069,6 +2080,101 @@ function renderSpecialPolicyPanel(c, kind) {
       </details>
       <div class="note" style="margin-top:10px">以上为该专项的政策说明；各院校具体测试科目、分值以院校当年招生章程为准。</div>
     </div>`;
+}
+
+/**
+ * 对口本科院校的「招生计划」面板。
+ *
+ * 与高职院校不同，对口本科：
+ *   · 考试口径是「文化素质测试 300 + 职业技能考试 450 = 750」，没有普高/中职/专项三列计划，
+ *     所以不复用那张分专业计划表（复用了每格都是「—」，前面就是被这么撑出空表格的）；
+ *   · 招生规模小（几所到几十所），因此直接给「招生计划 + 2026录取分数线 + 专业清单」。
+ *
+ * @param {object} c 院校对象（COLLEGES 中的对口本科条目）
+ */
+function renderDuikouBenkePlanPanel(c) {
+  const panel = document.getElementById('panel-plan');
+  if (!panel) return;
+  const esc = (s) => String(s == null ? '' : s);
+
+  const majors = c.majors || [];
+  const planTotal = c.plan2026Benke || majors.reduce((a, m) => a + (Number(m.plan2026) || 0), 0);
+  const bkExam = c.bkExam || {};
+  const sc = c.bkScores2026;
+
+  // ---- 2026 录取分数线（分专业；普通类总分 / 艺体类综合分 / 其他控制线分组）----
+  let scoreHtml = '';
+  if (sc && sc.lines && sc.lines.length) {
+    const noteOf = (l) => String(l.note || '');
+    const isSpecial = (l) => /文化课|免测|大类线/.test(noteOf(l));
+    const isComp = (l) => !isSpecial(l) && (/综合/.test(noteOf(l)) || sc.scoreType === '综合分');
+    const groups = [
+      { label: '普通类（总分，满分 750）', rows: sc.lines.filter((l) => !isSpecial(l) && !isComp(l)) },
+      { label: '艺术/体育类（综合分）', rows: sc.lines.filter(isComp) },
+      { label: '⚠️ 其他控制线（口径与总分不同，请勿直接比较）', rows: sc.lines.filter(isSpecial) },
+    ].filter((g) => g.rows.length);
+    scoreHtml = `
+      <div class="about-section" style="margin:8px 12px">
+        <h3>📊 2026 年录取分数线${sc.publishedAt ? `（${esc(sc.publishedAt)} 公布）` : ''}</h3>
+        ${groups.map((g) => `
+          ${groups.length > 1 ? `<div style="font-size:12.5px;font-weight:600;color:#a8071a;margin:8px 0 2px">${g.label}</div>` : ''}
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>专业（方向）</th><th style="text-align:right">录取线</th><th>说明</th></tr></thead>
+              <tbody>${g.rows.map((l) => `<tr>
+                <td>${esc(l.major)}</td>
+                <td style="text-align:right;font-weight:700;color:#cf1322">${esc(l.score)}</td>
+                <td style="font-size:12px;color:#666">${esc(l.note || '')}</td>
+              </tr>`).join('')}</tbody>
+            </table>
+          </div>`).join('')}
+        ${sc.sourceUrl ? `<div style="font-size:11.5px;margin-top:6px"><a href="${esc(sc.sourceUrl)}" target="_blank" rel="noopener" style="color:var(--primary)">分数线原文 ›</a></div>` : ''}
+      </div>`;
+  } else if (c.scores2026Checked) {
+    scoreHtml = `
+      <div class="about-section" style="margin:8px 12px">
+        <h3>📊 2026 年录取分数线</h3>
+        <div style="font-size:13px;color:#8c8c8c">该校已公布，但官网原文未找到${c.scoreNote ? `（${esc(String(c.scoreNote).slice(0, 120))}）` : ''}</div>
+      </div>`;
+  }
+
+  // ---- 招生专业清单（名称 / 大类 / 计划 / 学费 / 职业技能测试科目）----
+  const MC = (typeof MAJOR_CATEGORIES !== 'undefined') ? MAJOR_CATEGORIES : {};
+  const key2name = {};
+  Object.values(MC).forEach((v) => { if (v && v.key) key2name[v.key] = v.name; });
+  const majorRows = majors.map((m) => `<tr>
+      <td>${esc(m.name)}</td>
+      <td style="font-size:12px">${esc(key2name[m.category] || m.categoryText || '—')}</td>
+      <td style="text-align:right;font-weight:600">${m.plan2026 != null ? esc(m.plan2026) : '—'}</td>
+      <td style="text-align:right">${m.fee ? esc(m.fee) + ' 元' : (m.tuitionText ? esc(m.tuitionText) : '—')}</td>
+      <td style="font-size:12px;color:#666">${esc(String(m.examSubjects || '').slice(0, 120))}${String(m.examSubjects || '').length > 120 ? '…' : ''}</td>
+    </tr>`).join('');
+
+  panel.innerHTML = `
+    <div class="about-section" style="margin:8px 12px">
+      <h3>📋 招生计划（2026年）</h3>
+      <p style="font-size:16px;font-weight:600;color:var(--primary)">对口本科 ${planTotal} 人 · ${majors.length} 个专业</p>
+      ${bkExam.scoreFormula || c.scoreComposition
+        ? `<div style="font-size:12.5px;color:#595959;line-height:1.7;margin-top:6px">${esc(String(bkExam.scoreFormula || c.scoreComposition).slice(0, 300))}</div>`
+        : ''}
+    </div>
+
+    ${scoreHtml}
+
+    <div class="about-section" style="margin:8px 12px">
+      <h3>📚 招生专业（2026年）</h3>
+    </div>
+    <div class="table-wrap" style="margin:0 12px">
+      <table>
+        <thead><tr>
+          <th>专业名称</th><th>所属大类</th><th style="text-align:right">计划</th>
+          <th style="text-align:right">学费(元/年)</th><th>职业技能测试</th>
+        </tr></thead>
+        <tbody>${majorRows || '<tr><td colspan="5" style="text-align:center;color:#999">暂无数据</td></tr>'}</tbody>
+      </table>
+    </div>
+    <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：数据来源为该校 2026 年面向中职毕业生对口招生章程，最终招生专业及计划以安徽省教育厅下达为准。</div>
+  `;
 }
 
 /**
