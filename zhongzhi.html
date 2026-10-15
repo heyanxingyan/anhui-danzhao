@@ -43,26 +43,24 @@
       <a href="college-list.html?category=zhongzhi" class="btn-primary">在院校列表中查看全部并筛选 ›</a>
     </div>
 
-    <!-- 对口本科面板 -->
+    <!-- 对口本科面板：内容与独立页 benke.html 共用 js/benke-content.js，保持完全一致 -->
     <div id="panel-benke" style="display:none">
-      <div class="zz-tip">中职生也可升入全日制本科（应用型本科对口招生），单独划线、单独录取。</div>
-      
-      <!-- 搜索栏 -->
-      <div class="search-bar" style="margin:0 12px 10px">
+      <!-- 搜索栏（共享内容里不含搜索，这里保留以便筛选院校） -->
+      <div class="search-bar" style="margin:10px 12px">
         <span class="icon">🔍</span>
         <input type="text" id="zz-bk-search-input" placeholder="输入院校名搜索">
         <button class="clear" id="zz-bk-search-clear">✕</button>
       </div>
-      
+
       <div id="zz-benke-list"></div>
-      <a href="benke.html" class="btn-primary" style="background:#722ed1;box-shadow:0 2px 8px rgba(114,46,209,0.3)">查看完整对口本科招生信息（时间轴·其他本科院校）›</a>
     </div>
 
     <div style="height:20px"></div>
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261016e"></script>
-  <script src="js/app.js?v=20261016e"></script>
+  <script src="js/data.js?v=20261016f"></script>
+  <script src="js/benke-content.js?v=20261016f"></script>
+  <script src="js/app.js?v=20261016f"></script>
 </body>
 </html>
