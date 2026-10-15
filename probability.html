@@ -107,6 +107,7 @@
           <div class="prob-detail-row"><span>你的总分</span><b id="pr-your-score">--</b></div>
           <div class="prob-detail-row"><span>该校2026预估线</span><b id="pr-est-line">--</b></div>
           <div class="prob-detail-row"><span>120%预录取线</span><b id="pr-120-line">--</b></div>
+          <div class="prob-detail-row"><span>数据来源</span><b id="pr-score-source" style="font-size:12px">--</b></div>
           <div class="prob-detail-row"><span>招生计划</span><b id="pr-plan">--</b></div>
           <div class="prob-detail-row"><span>分数计算方式</span><b id="pr-calc-rule" style="font-size:12px">--</b></div>
         </div>
@@ -273,8 +274,9 @@
       // 估算该校录取线
       const estLine = estimateCutoff(college, major);
       
-      // 120%预录取线
-      const preLine = estLine - 10;
+      // 120%预录取线（优先使用专业级真实递补分）
+      const majorScore = currentProbType === 'zhongzhi' ? major.score2026Zhongzhi : major.score2026Gaozhong;
+      const preLine = (majorScore && majorScore.dibu) ? Number(majorScore.dibu) : (estLine - 10);
       
       // 招生计划
       const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
@@ -299,6 +301,10 @@
       document.getElementById('pr-your-score').textContent = totalScore.toFixed(1) + ' 分';
       document.getElementById('pr-est-line').textContent = estLine + ' 分';
       document.getElementById('pr-120-line').textContent = preLine + ' 分';
+      // 数据来源
+      const ms = currentProbType === 'zhongzhi' ? major.score2026Zhongzhi : major.score2026Gaozhong;
+      const sourceText = ms && ms.source ? ms.source : (college.realScore2026 ? '学校2026公示' : '综合估算');
+      document.getElementById('pr-score-source').textContent = sourceText;
       document.getElementById('pr-plan').textContent = plan + ' 人';
       document.getElementById('pr-calc-rule').textContent = getCalcRuleText(college);
     }
@@ -326,6 +332,12 @@
 
     function estimateCutoff(college, major) {
       const isZhongzhi = currentProbType === 'zhongzhi';
+
+      // 最高优先级：专业级2026真实分数（score2026Gaozhong/score2026Zhongzhi）
+      const majorScore = isZhongzhi ? major.score2026Zhongzhi : major.score2026Gaozhong;
+      if (majorScore && majorScore.pre) {
+        return Number(majorScore.pre);
+      }
 
       // 优先使用2026年真实数据（分别取普高/中职对应分数）
       if (college.realScore2026) {
