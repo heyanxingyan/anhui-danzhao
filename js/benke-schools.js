@@ -1368,12 +1368,89 @@ var BENKE_SCHOOLS = [
     "conditions": "",
     "admission": "",
     "sources": [
-      "https://www.ahzsks.cn/8684.htm"
+      "https://www.ahzsks.cn/8684.htm",
+      "http://zs.czu.edu.cn/info/1004/1752.htm",
+      "https://zs.czu.edu.cn/info/1004/1752.htm",
+      "https://zs.czu.edu.cn/info/1004/1620.htm",
+      "https://zs.czu.edu.cn/__local/7/54/F7/01DCDCED2EF2F9C7511068C8F2B_AEB3E956_2767.png"
     ],
     "unresolved": [
       "分专业计划与职业技能测试科目待采集"
     ],
-    "confidence": "中"
+    "confidence": "中",
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-06",
+      "sourceUrl": "http://zs.czu.edu.cn/info/1004/1752.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "根据《池州学院2026年面向中职毕业生对口招生章程》，在文化素质测试和技能测试成绩不低于相应合格线的基础上，按考生总成绩从高分到低分依次录取。如考生总分相同时，则按单科顺序分数从高到低排序，择优录取，单科排序为：文化素质测试科目、专业理论考试科目、技能测试科目。",
+      "lines": [
+        {
+          "major": "机械设计制造及其自动化",
+          "score": 586.5,
+          "note": "预录取分数线（总分）"
+        },
+        {
+          "major": "光电信息科学与工程",
+          "score": 624,
+          "note": "预录取分数线（总分）"
+        },
+        {
+          "major": "电子商务",
+          "score": 635,
+          "note": "预录取分数线（总分）"
+        },
+        {
+          "major": "旅游管理",
+          "score": 630.33,
+          "note": "预录取分数线（总分）"
+        },
+        {
+          "major": "酒店管理",
+          "score": 645.67,
+          "note": "预录取分数线（总分）"
+        }
+      ],
+      "planVsAdmitted": "预录取人数：机械设计制造及其自动化43人（含5名免试就学考生）、光电信息科学与工程44人（含6名免试就学考生、2名技能大赛获奖面试合格考生）、电子商务39人、旅游管理40人、酒店管理40人",
+      "history": [
+        {
+          "year": 2025,
+          "lines": [
+            {
+              "major": "应用化学",
+              "score": 602,
+              "note": "预录取人数50人"
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 611.5,
+              "note": "预录取人数103人；含技能大赛获奖免试考生3人、技能大赛获奖面试合格考生11人"
+            },
+            {
+              "major": "光电信息科学与工程",
+              "score": 660,
+              "note": "预录取人数56人；含技能大赛获奖免试考生6人、技能大赛获奖面试合格考生5人"
+            },
+            {
+              "major": "电子商务",
+              "score": 644,
+              "note": "预录取人数102人；含技能大赛获奖免试考生2人、技能大赛获奖面试合格考生1人"
+            },
+            {
+              "major": "旅游管理",
+              "score": 642.67,
+              "note": "预录取人数100人；含技能大赛获奖面试合格考生1人"
+            },
+            {
+              "major": "酒店管理",
+              "score": 642.5,
+              "note": "预录取人数100人；含技能大赛获奖面试合格考生1人"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "蚌埠学院",
@@ -1390,12 +1467,58 @@ var BENKE_SCHOOLS = [
     "conditions": "",
     "admission": "",
     "sources": [
-      "https://www.ahzsks.cn/8683.htm"
+      "https://www.ahzsks.cn/8683.htm",
+      "https://zhaoban.bbc.edu.cn/2026/0403/c2465a126344/page.htm",
+      "https://zhaoban.bbc.edu.cn/2025/0327/c2465a114498/page.htm",
+      "https://zhaoban.bbc.edu.cn/_upload/article/files/a1/3c/a4b3f5e34ed3b5c14b8efd81796c/9c6174d3-b573-4efe-8fdc-065cd8cd4b00.pdf"
     ],
     "unresolved": [
       "分专业计划与职业技能测试科目待采集"
     ],
-    "confidence": "中"
+    "confidence": "中",
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zhaoban.bbc.edu.cn/2026/0403/c2465a126344/page.htm",
+      "scoreType": "综合分",
+      "scoreFormulaNote": "录取规则：1.录取控制线：文化素质测试成绩不得低于当年省考试院划定的合格分数线，职业技能考试成绩合格分数线为270分。2.录取规则：对达到录取控制线的考生，按综合成绩从高分到低分依次择优录取（综合成绩=文化素质测试×0.3+职业技能考试×0.7+政策加分，成绩保留至小数点后两位）。考生综合成绩相同时，按职业技能考试成绩总分从高分到低分择优录取。（抄自公告原文）",
+      "lines": [
+        {
+          "major": "音乐学（舞蹈）",
+          "score": 316.8,
+          "note": "拟录取分数线（综合成绩）；计划0-20人、拟录取20人"
+        },
+        {
+          "major": "音乐学（声乐）",
+          "score": 311.36,
+          "note": "拟录取分数线（综合成绩）；计划0-5人、拟录取5人"
+        },
+        {
+          "major": "音乐学（器乐）",
+          "score": 308.54,
+          "note": "拟录取分数线（综合成绩）；计划0-5人、拟录取5人"
+        }
+      ],
+      "planVsAdmitted": "音乐学（舞蹈）计划0-20人、拟录取20人；音乐学（声乐）计划0-5人、拟录取5人；音乐学（器乐）计划0-5人、拟录取5人。备注：舞蹈、声乐、器乐各方向实际参加考试考生数均超过计划数200%",
+      "history": [
+        {
+          "year": 2025,
+          "lines": [
+            {
+              "major": "食品科学与工程",
+              "score": 643,
+              "note": "拟录取分数线（总分）；计划100人、拟录取101人（其中1人为免试就学）"
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 611,
+              "note": "拟录取分数线（总分）；计划50人、拟录取59人（其中9人为免试就学）"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "芜湖职业技术大学",
@@ -1412,13 +1535,47 @@ var BENKE_SCHOOLS = [
     "conditions": "",
     "admission": "",
     "sources": [
-      "https://www.ahzsks.cn/8687.htm"
+      "https://www.ahzsks.cn/8687.htm",
+      "https://zs.whit.edu.cn/info/1022/2934.htm",
+      "https://zs.whit.edu.cn/virtual_attach_file.vsb?afc=TUlUtZMNr7nmLDLjzGaMmARoRAVozCwbLm7sozQ2LN7PU4N0gihFp2hmCIa0L1hfoky4L1y4UzQVozQ7oRAfUzNDUzGDL4VRnmCbL4vbnRrFozv8MzNPnmfFU4GiMSbaQ2Ceo4Oe_jMsgDTJQty0LzGYL1yYozL8gtA8pUXcc&oid=1606941855&tid=1022&nid=2934&e=.pdf",
+      "https://zs.whit.edu.cn/info/1022/2879.htm",
+      "https://zs.whit.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1606941855&wbfileid=FF06AB91C3DCBA7F4EEE195EBFDA7C98",
+      "https://zs.whit.edu.cn/info/1022/2936.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/6.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/7.htm",
+      "https://zs.whit.edu.cn/fl_dkkszs/5.htm"
     ],
     "unresolved": [
       "须区分「对口本科」专业与高职（专科）分类考试专业，勿混用",
       "分专业计划待采集"
     ],
-    "confidence": "中"
+    "confidence": "中",
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zs.whit.edu.cn/info/1022/2934.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "根据招生计划数，按考生总成绩（文化素质测试成绩+专业理论考试成绩+技能测试成绩+鼓励政策加分）从高分到低分择优录取；录取过程中若出现考生总成绩同分，则按职业技能考试成绩（专业理论考试成绩+技能测试成绩）从高分到低分择优录取。文化素质测试和职业技能考试合计总分750分，其中文化素质测试满分300分（语文、数学各120分，英语60分），职业技能考试满分450分（专业理论考试200分、技能测试250分）。各专业的技能测试成绩不低于150分。（抄自《芜湖职业技术大学2026年面向中职毕业生对口招生章程》八、录取）",
+      "lines": [
+        {
+          "major": "智能建造工程",
+          "score": 617.5,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "电子商务",
+          "score": 688.5,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "食品质量与安全",
+          "score": 583,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        }
+      ],
+      "planVsAdmitted": "该公告未列预录取人数。2026年对口本科招生计划（章程表1）：智能建造工程76人、电子商务40人、食品质量与安全50人"
+    }
   },
   {
     "name": "安徽职业技术大学",
@@ -1435,13 +1592,55 @@ var BENKE_SCHOOLS = [
     "conditions": "",
     "admission": "",
     "sources": [
-      "https://www.ahzsks.cn/8686.htm"
+      "https://www.ahzsks.cn/8686.htm",
+      "https://www.uta.edu.cn/zsw/2026/0404/c3322a169277/page.htm",
+      "https://www.uta.edu.cn/_upload/article/files/ff/5e/075ba4764d66952ba5672e163ec4/14b61daa-4790-4d2d-a46f-ccb04120da87.pdf",
+      "https://www.uta.edu.cn/zsw/2026/0309/c4335a168136/page.htm",
+      "https://www.uta.edu.cn/_upload/article/files/05/00/db61215e43a9ac5ac72a56930f17/14197e4e-c61c-428f-b0dc-bf1cea11eea5.pdf",
+      "https://www.uta.edu.cn/zsw/dkzs/list.htm",
+      "https://www.uta.edu.cn/zsw/dkzs/list2.htm"
     ],
     "unresolved": [
       "须区分「对口本科」专业与高职（专科）分类考试专业，勿混用",
       "分专业计划待采集"
     ],
-    "confidence": "中"
+    "confidence": "中",
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-04",
+      "sourceUrl": "https://www.uta.edu.cn/zsw/2026/0404/c3322a169277/page.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "根据招生计划数，按考生总成绩（文化素质测试成绩+专业理论考试成绩+技能测试成绩+鼓励政策加分）从高分到低分择优录取；录取过程中若出现考生总成绩同分，则按职业技能考试成绩（专业理论考试成绩+技能测试成绩）从高分到低分择优录取。考试总分为750分，文化素质测试满分300分（语文、数学各120分，英语60分），职业技能考试满分450分（专业理论考试200分、技能测试250分）；技能测试不得低于150分。（抄自《安徽职业技术大学2026年面向中职毕业生对口招生章程》七、考试 / 八、录取）",
+      "lines": [
+        {
+          "major": "智能制造工程技术",
+          "score": 469,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "电气工程及自动化",
+          "score": 611,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "新能源汽车工程技术",
+          "score": 633,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "集成电路工程技术",
+          "score": 658.5,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        },
+        {
+          "major": "全媒体电商运营",
+          "score": 667.5,
+          "note": "总分最低分；该校考（技能测试）合格线150分"
+        }
+      ],
+      "planVsAdmitted": "该公告未列预录取人数。2026年对口招生计划（章程五、招生专业及计划）：智能制造工程技术50人、电气工程及自动化95人、新能源汽车工程技术96人、集成电路工程技术100人、全媒体电商运营50人，合计391人"
+    }
   },
   {
     "name": "安徽艺术学院",
@@ -1458,12 +1657,64 @@ var BENKE_SCHOOLS = [
     "conditions": "",
     "admission": "",
     "sources": [
-      "https://www.ahzsks.cn/8685.htm"
+      "https://www.ahzsks.cn/8685.htm",
+      "https://www.ahua.edu.cn/zsw/2026/0404/c201a46317/page.htm",
+      "https://www.ahua.edu.cn/zsw/2026/0309/c201a45787/page.htm",
+      "https://www.ahzsks.cn/pic/file/20260309/20260309102145_202.pdf",
+      "https://www.ahua.edu.cn/zsw/2025/0329/c201a36738/page.htm"
     ],
     "unresolved": [
       "分专业计划与职业技能测试科目待采集"
     ],
-    "confidence": "中"
+    "confidence": "中",
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-04",
+      "sourceUrl": "https://www.ahua.edu.cn/zsw/2026/0404/c201a46317/page.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "达到文化素质测试、职业技能考试最低合格分数线的考生，按照文化素质测试、职业技能考试总分（含政策加分）从高分到低分依次录取。若总分（含政策加分）相同时，则按职业技能考试、文化素质测试成绩排名依次录取。职业技能考试总分450分，150分及以上为合格，150分以下为不合格。（抄自《安徽艺术学院2026年面向中职毕业生对口招生章程》八、录取）",
+      "lines": [
+        {
+          "major": "非物质文化遗产保护",
+          "score": 601.53,
+          "note": "录取最低分数线（文化素质测试+职业技能考试总分，含政策加分）"
+        },
+        {
+          "major": "表演（黄梅戏）",
+          "score": 593.46,
+          "note": "录取最低分数线（文化素质测试+职业技能考试总分，含政策加分）"
+        },
+        {
+          "major": "舞蹈表演",
+          "score": 554.67,
+          "note": "录取最低分数线（文化素质测试+职业技能考试总分，含政策加分）"
+        }
+      ],
+      "planVsAdmitted": "该公告未列录取人数。2026年对口招生计划（章程五、招生专业及计划）：非物质文化遗产保护20人、舞蹈表演24人、表演（黄梅戏方向）15人；符合免试就学条件的考生不占本招生计划，享受免职业技能考试录取的人数包含在相应专业的招生计划中",
+      "history": [
+        {
+          "year": 2025,
+          "lines": [
+            {
+              "major": "非物质文化遗产保护",
+              "score": 606.6,
+              "note": "2025年录取最低分数线"
+            },
+            {
+              "major": "表演（黄梅戏）",
+              "score": 599.33,
+              "note": "2025年录取最低分数线"
+            },
+            {
+              "major": "舞蹈表演",
+              "score": 558,
+              "note": "2025年录取最低分数线"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "合肥城市学院",
