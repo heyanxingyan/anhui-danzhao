@@ -530,7 +530,8 @@ function renderCollegeDetail() {
     { label: '专项计划', field: 'plan2026Zhuanxiang' }
   ];
   const majorTableHeader = `<tr><th>专业名称</th><th>专业代码</th><th>所属大类</th>${showCols.map(col => `<th>${col.label}</th>`).join('')}<th>学费(元/年)</th></tr>`;
-  const majorTableBody = c.majors.map(m => {
+
+  const majorRowHtml = (m) => {
     const cells = showCols.map(col => {
       const val = m[col.field];
       return `<td>${c.stoppedEnrollment ? '<span style="color:#ff4d4f">停招</span>' : (val ? val + ' 人' : '—')}</td>`;
@@ -542,7 +543,51 @@ function renderCollegeDetail() {
       ${cells}
       <td>${m.fee ? m.fee + ' 元' : '—'}</td>
     </tr>`;
-  }).join('');
+  };
+
+  // 校考考试类别分组：从当前板块推断看普高还是中职（专项默认按普高展示）
+  const examType = (fromCat && fromCat.indexOf('zhongzhi') >= 0) ? 'zhongzhi' : 'gaozhong';
+  const examSet = getExamGroups(c, examType);
+  const colCount = 3 + showCols.length + 1;
+
+  let majorTableBody;
+  if (examSet) {
+    // 同一考试类别下同名专业只保留一行（如"护理"与"护理（日语方向）"常被分到同一类别）；
+    // 原始数据不动，只影响本次展示
+    const displayMajors = dedupeByMajorName(c.majors);
+    const { grouped, rest } = groupMajorsByExamGroup(displayMajors, examSet.groups);
+    const groupRow = (g) => {
+      const detailId = 'exg-' + Math.random().toString(36).slice(2, 8);
+      const form = g.form ? ` · ${g.form}` : '';
+      return `
+        <tr class="exam-group-row" data-target="${detailId}">
+          <td colspan="${colCount}">
+            <div class="exg-head">
+              <span class="exg-title">🎯 ${g.name}</span>
+              ${form ? `<span class="exg-form">${form}</span>` : ''}
+              <span class="exg-toggle">考纲 ▾</span>
+            </div>
+          </td>
+        </tr>
+        <tr class="exam-syllabus-row" id="${detailId}" style="display:none">
+          <td colspan="${colCount}">
+            <div class="exg-content">${g.content || '该校未单独公布该类别考纲，详见上方「取分规则」与「录取规则」页。'}<\/div>
+            ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${g.source.replace(/^https?:\/\//, '').slice(0, 60)}<\/a><\/div>` : ''}
+          <\/td>
+        </tr>`;
+    };
+    majorTableBody =
+      grouped.map((b) => groupRow(b.group) + b.majors.map(majorRowHtml).join('')).join('') +
+      (rest.length ? rest.map(majorRowHtml).join('') : '');
+  } else {
+    majorTableBody = c.majors.map(majorRowHtml).join('');
+  }
+  // 分组说明（数据来源与覆盖情况）
+  const examNote = examSet
+    ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">🎯 已按该校${examType === 'zhongzhi' ? '中职' : '普高'}校考「考试类别」分组，点击类别行可展开考纲。未归入任何类别的专业列在最后。</div>`
+    : (typeof EXAM_GROUPS !== 'undefined' && EXAM_GROUPS[c.id]
+        ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">该校${examType === 'zhongzhi' ? '中职' : '普高'}类别未公布分组，按专业平铺。</div>`
+        : '');
 
   // 2026合计已删去，仅显示分类计划明细；无明细字段时回退显示plan2026
   const planTotalHtml = planDetail.length > 0 ? '' : `<p style="font-size:16px;font-weight:600;color:var(--primary)">${c.plan2026 || '待院校公布'}</p>`;
@@ -563,8 +608,22 @@ function renderCollegeDetail() {
         <tbody>${majorTableBody}</tbody>
       </table>
     </div>
+    ${examNote}
     <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：2026年分专业计划数据来源为各院校2026年分类考试招生章程（73所院校为官方公布真实数据，安徽电气工程职业技术学院2026年已停招），实际以省教育厅下达为准</div>
   `;
+
+  // 考试类别行点击展开/收起考纲
+  document.querySelectorAll('#panel-plan .exam-group-row').forEach((rowEl) => {
+    rowEl.addEventListener('click', () => {
+      const detail = document.getElementById(rowEl.dataset.target);
+      if (!detail) return;
+      const open = detail.style.display !== 'none';
+      detail.style.display = open ? 'none' : 'table-row';
+      const toggle = rowEl.querySelector('.exg-toggle');
+      if (toggle) toggle.textContent = open ? '考纲 ▾' : '收起 ▴';
+      rowEl.classList.toggle('open', !open);
+    });
+  });
 
   // 2026录取规则
   const scoreCompHtml = c.scoreComposition ? `
@@ -1547,6 +1606,75 @@ function shortCollegeName(name) {
     .replace(/职业大学$/, '');
   // 太短会歧义（如"安徽"），短于 3 字就不缩
   return short.length >= 3 ? short : s;
+}
+
+/* ============================================================
+ * 校考考试类别（专业组）与考纲
+ *
+ * 数据来自 EXAM_GROUPS（js/data.js）：每所院校一组「考试类别」，
+ * 每个类别说明考什么、包含哪些专业。院校详情页的分专业表按这个分组渲染，
+ * 同一个专业组的考纲只写一次（否则 78 个专业会把同一段话重复 78 遍）。
+ * ============================================================ */
+
+// 取某校某考生类别的分组定义
+function getExamGroups(college, type) {
+  if (typeof EXAM_GROUPS === 'undefined' || !college || !college.id) return null;
+  const g = EXAM_GROUPS[college.id];
+  if (!g || !g[type] || !Array.isArray(g[type].groups) || !g[type].groups.length) return null;
+  return g[type];
+}
+
+// 归一化：去空格、全角括号统一，便于跨来源匹配专业名
+function normMajorName(s) {
+  return String(s || '')
+    .replace(/[\s（）()·・]/g, '')
+    .trim();
+}
+
+// 判断某专业是否属于某个考试类别
+function majorInGroup(major, group) {
+  const norm = (arr) => (arr || []).map(normMajorName);
+  const mj = normMajorName(major.name);
+  const groupMajors = norm(group.majors);
+  // 1) 直接同名
+  if (groupMajors.includes(mj)) return true;
+  // 2) 包含匹配（如分组写「护理」而专业写「护理（中外合作）」）
+  if (groupMajors.some((g) => g && (mj.includes(g) || g.includes(mj)))) return true;
+  // 3) 退到专业大类（数据里有 major.category，与分组声明的 categories 对照）
+  if (group.categories && group.categories.includes(major.category)) return true;
+  return false;
+}
+
+// 把专业列表按考试类别分组；未命中的放最后
+function groupMajorsByExamGroup(majors, groups) {
+  const buckets = groups.map((g) => ({ group: g, majors: [] }));
+  const rest = [];
+  for (const m of majors) {
+    let hit = false;
+    for (const b of buckets) {
+      if (majorInGroup(m, b.group)) {
+        b.majors.push(m);
+        hit = true;
+        break;
+      }
+    }
+    if (!hit) rest.push(m);
+  }
+  return { grouped: buckets.filter((b) => b.majors.length), rest };
+}
+
+// 同一院校里"归一化后完全相同"的专业名只显示一行。
+// 注意：不能用包含匹配 —— "护理" 与 "护理（日语方向）" 是不同招生方向，必须都保留。
+function dedupeByMajorName(rows) {
+  const seen = new Set();
+  return rows.filter((m) => {
+    // 去掉方向括注后再比，这样"护理（日语方向）"不会与"护理"互相抵消，
+    // 但真正的重复（同校同名同方向）会被合掉
+    const key = normMajorName(m.name);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function renderCompare() {
