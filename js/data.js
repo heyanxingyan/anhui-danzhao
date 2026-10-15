@@ -32,32 +32,6 @@ const CATEGORIES = {
 
 };
 
-// 对口本科（应用型本科面向中职毕业生对口招生）院校 —— 2026年官方公布共10所
-
-const BENKE_SCHOOLS = [
-
-  {name:'宿州学院',nature:'公办',city:'宿州',note:'本站院校列表内对口本科院校，面向中职对口招生',link:'college-detail.html?id=1',charter:'https://www.ahszu.edu.cn'},
-
-  {name:'安庆师范大学',nature:'公办',city:'安庆',note:'2026年面向中职毕业生对口招生',link:'https://www.aqnu.edu.cn',charter:''},
-
-  {name:'安徽科技工程大学',nature:'公办',city:'滁州',note:'2026年2月由安徽科技学院更名，公办普通本科，面向中职对口招生',link:'https://www.ahstu.edu.cn',charter:''},
-
-  {name:'合肥师范学院',nature:'公办',city:'合肥',note:'2026年面向中职毕业生对口招生',link:'https://www.hfnu.edu.cn',charter:''},
-
-  {name:'皖西学院',nature:'公办',city:'六安',note:'2026年面向中职毕业生对口招生',link:'https://www.wxc.edu.cn',charter:''},
-
-  {name:'淮南师范学院',nature:'公办',city:'淮南',note:'2026年面向中职毕业生对口招生',link:'https://www.hnnu.edu.cn',charter:''},
-
-  {name:'巢湖学院',nature:'公办',city:'合肥',note:'2026年面向中职毕业生对口招生',link:'https://www.chu.edu.cn',charter:''},
-
-  {name:'黄山学院',nature:'公办',city:'黄山',note:'2026年面向中职毕业生对口招生',link:'https://www.hsu.edu.cn',charter:''},
-
-  {name:'铜陵学院',nature:'公办',city:'铜陵',note:'2026年面向中职毕业生对口招生',link:'https://www.tlu.edu.cn',charter:''},
-
-  {name:'滁州学院',nature:'公办',city:'滁州',note:'2026年面向中职毕业生对口招生',link:'https://www.chzu.edu.cn',charter:''}
-
-];
-
 const BANNERS = [
 
   {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日 ✅官方公布 · 单招预计1月下旬',bg:'linear-gradient(135deg,#fa8c16,#ffa940)',link:'guide.html'},
