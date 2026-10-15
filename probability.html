@@ -126,8 +126,8 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261015k"></script>
-  <script src="js/app.js?v=20261015k"></script>
+  <script src="js/data.js?v=20261015l"></script>
+  <script src="js/app.js?v=20261015l"></script>
   <script src="js/low-score.js"></script>
   <script>
     let currentProbType = 'gaozhong';
@@ -152,10 +152,13 @@
     }
 
     function loadProbSchools() {
-      // 只显示有2026招生计划的学校
+      // 只显示该类别 2026 确实有计划、且未停招的学校
+      // （旧逻辑对「安徽艺术学院」这类文化300分档但无普高计划的院校也放行，
+      //   选完学校后专业下拉恒为空，属于明显的交互坑）
       schoolList = COLLEGES.filter(c => {
-        if (currentProbType === 'gaozhong') return c.plan2026Gaozhong > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
-        return c.plan2026Zhongzhi > 0 || (typeof c.plan2026 === 'string' && c.plan2026 !== '0');
+        if (c.stoppedEnrollment) return false;
+        if (currentProbType === 'gaozhong') return (c.plan2026Gaozhong || 0) > 0;
+        return (c.plan2026Zhongzhi || 0) > 0;
       });
       schoolList.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
       renderSchoolDropdown('');
@@ -194,7 +197,19 @@
       }
 
       const college = COLLEGES.find(c => c.id === Number(selectedSchoolId));
-      if (!college || !college.majors) return;
+      if (!college || !college.majors) {
+        // 学校名被改动后对不上任何院校：清掉选择，避免结果与输入框不一致
+        selectedSchoolId = null;
+        selectedMajorName = null;
+        document.getElementById('major-search').value = '';
+        majorCard.style.display = 'none';
+        examCard.style.display = 'none';
+        resultArea.style.display = 'none';
+        return;
+      }
+
+      // 换学校时必须清掉旧专业，否则会拿上一所学校的专业名去新学校找
+      selectedMajorName = null;
 
       // 加载专业
       majorList = college.majors.filter(m => {
@@ -211,13 +226,14 @@
       slider.value = Math.floor(examMax * 0.67);
       document.getElementById('prob-exam-value').textContent = slider.value;
       document.getElementById('prob-exam-max').textContent = '满分 ' + examMax;
-      // 校考类型提示
+      // 校考类型提示：满分随院校规则变化，不能写死
       const examTypeLabel = document.getElementById('prob-exam-type');
-      if (currentProbType === 'zhongzhi') {
-        examTypeLabel.textContent = examMax === 450 ? '（职业技能考试，专业理论200+技能测试250）' : '（职业技能考试，专业能力+技术技能）';
-      } else {
-        examTypeLabel.textContent = examMax === 400 ? '（职业适应性测试，该校满分400）' : '（职业适应性测试，满分300）';
-      }
+      const examName = currentProbType === 'zhongzhi' ? '职业技能考试' : '职业适应性测试';
+      const rawExamMax = ruleOf(college).examMax;
+      examTypeLabel.textContent =
+        rawExamMax && rawExamMax !== examMax
+          ? `（${examName}，章程满分 ${rawExamMax}，按合成分折算后本页满分 ${examMax}）`
+          : `（${examName}，满分 ${examMax}）`;
 
       majorCard.style.display = 'block';
       examCard.style.display = 'block';
@@ -244,17 +260,14 @@
       });
     }
 
+    // 校考满分统一走 examMaxOf（见下方解析器定义处），这里只做转发，
+    // 避免出现两份口径不同的实现（曾因重复定义导致滑块上限与总分口径不一致）
     function getExamMax(college) {
-      const sc = college.scoreComposition || '';
-      if (currentProbType === 'zhongzhi') {
-        // 中职职业技能考试：多数学校300分，少数学校450分，严格按章程判断
-        // 450分的典型特征：专业理论200+技能测试250，或明确写"中职...450分"/"中职总分750"
-        if (/中职[^。；]*450/.test(sc) || sc.includes('中职总分750') || sc.includes('普高总分600/中职总分750') || sc.includes('专业理论200+技能测试250') || sc.includes('专业理论200分+技能测试250')) return 450;
-        return 300; // 大部分学校中职职业技能考试也是300分
-      }
-      // 普高职业适应性测试：一般300分，个别学校（如安徽机电）校考400分
-      if (college.name.includes('安徽机电') || /文化300分?\+校考400分?=总分700/.test(sc) || /校考400分/.test(sc)) return 400;
-      return 300;
+      return examMaxOf(college);
+    }
+
+    function getTotalMax(college) {
+      return totalMaxOf(college);
     }
 
     function onProbExamInput() {
@@ -264,7 +277,14 @@
     }
 
     function calcProb() {
-      const culture = Number(document.getElementById('prob-culture').value) || 0;
+      // 文化统考是省统考语数英合卷，满分固定 300，输入越界会让结果离谱
+      const cultureEl = document.getElementById('prob-culture');
+      let culture = Number(cultureEl.value);
+      if (!Number.isFinite(culture) || culture < 0) culture = 0;
+      if (culture > 300) {
+        culture = 300;
+        cultureEl.value = 300;
+      }
       const examScore = Number(document.getElementById('prob-exam-slider').value) || 0;
 
       if (!selectedSchoolId || !selectedMajorName) return;
@@ -305,7 +325,16 @@
       document.getElementById('prob-desc').innerHTML = desc + ' <span class="prob-badge ' + badgeClass + '">' + (probability >= 60 ? '较稳' : probability >= 40 ? '可冲' : '较悬') + '</span>';
 
       // 详情
-      document.getElementById('pr-your-score').textContent = totalScore.toFixed(1) + ' 分';
+      const axis = totalMaxOf(college);
+      const yourEl = document.getElementById('pr-your-score');
+      if (ruleOf(college).mode === 'sum') {
+        yourEl.textContent = totalScore.toFixed(1) + ' 分';
+      } else {
+        // 加权类院校算出来是合成分（已折算到章程总分口径），
+        // 直接写"N 分"会被误读成原始总分，所以标出满分与百分数
+        yourEl.textContent =
+          totalScore.toFixed(1) + ' / ' + axis + ' 分（' + ((totalScore / axis) * 100).toFixed(0) + '%）';
+      }
       document.getElementById('pr-est-line').textContent = estLine + ' 分';
       document.getElementById('pr-120-line').textContent = preLine + ' 分';
       // 数据来源
@@ -339,25 +368,369 @@
       }
     }
 
-    function calcTotalScore(college, culture, exam) {
-      const sc = college.scoreComposition || '';
-      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) {
-        return culture * 0.4 + exam * 0.6;
-      } else if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) {
-        return culture * 0.5 + exam * 0.5;
-      } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
-        return culture * 0.3 + exam * 0.7;
-      } else {
-        return culture + exam;
+    /* ============================================================
+     * 成绩计算规则解析器
+     *
+     * 背景：全站 74 所院校的 scoreComposition 是人工整理的自然语言，共 58 种写法。
+     * 旧实现只用 3 条精确字符串匹配（文化×40%+校考×60% 等），其余全部落进
+     * "文化+校考直接相加" 兜底分支 —— 后果不只是算错，而是把 0-100 的百分制
+     * 合成分与 0-600 的直接相加分放在同一根坐标轴上比，结论方向都会反。
+     *
+     * 例：安徽水利水电「文化300分 + 校考300分 = 总分600分（直接相加，各占50%）」
+     *     旧代码按相加处理 → 文化200+校考200=400 当成 600 分制看，判"很稳"；
+     *     实际该校是百分制合成 → (200+200)/2 = 200 分制，判"很悬"。
+     *
+     * 解析规则（严格按章程原文措辞）：
+     *   1. 先找显式折算句「折算为百分制」「＝(文化/100+校考/100)×100%」→ 百分制
+     *   2. 找权重三元组：每个分项后面跟的 ×N%；识别不到成分项名时按出现顺序对应
+     *   3. 有分项说明「各占50%」→ 等权
+     *   4. 权重和为 1 → 百分制合成；权重和 <1 且原文未声明满分 100 → 归一化后仍按百分制
+     *   5. 都没有 → 原样相加（这类原文一般带「直接相加」与「总分600/700/750」）
+     *   6. 单独按校考排序（校考即总分）→ 直接用校考分
+     * ============================================================ */
+
+    // 取锚点之前最近的「N分」（只往前找：分项名 → N分 → ×N% 是固定语序）
+    function numberBefore(text, idx) {
+      const re = /(\d{2,3})\s*分/g;
+      let best = null;
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        const end = m.index + m[0].length;
+        if (end <= idx) best = Number(m[1]);
       }
+      return best;
+    }
+
+    const CULTURE_WORD = /文化/;
+    const EXAM_WORD = /校考|职业适应性|职业技能|专业能力|技术技能|技能测试|面试|笔试/;
+    // 校考分项名 + 紧邻分值。
+    // ⚠ 用 lookahead 排除"总分"：否则「校考300分…= 总分600分」里的 600
+    // 会被当成校考满分（曾把 600 分制算成 900）
+    const EXAM_TOPIC_RE = /(?:校考|职业适应性测试|职业技能考试|职业技能|专业能力|技术技能|技能测试)(?:(?!总分)[^0-9%％；;。]){0,32}?(\d{2,3})\s*分?(?!\s*[分]?\s*[满总])/g;
+
+    // 把「A+B」两个分项合并（相邻出现的两个分项分值视为同一项的和）
+    function mergeAdjacentSums(text) {
+      const hits = [...text.matchAll(EXAM_TOPIC_RE)].map((m) => ({
+        v: Number(m[1]),
+        start: m.index,
+        end: m.index + m[0].length,
+      }));
+      const out = [];
+      for (let i = 0; i < hits.length; i++) {
+        const gap = i + 1 < hits.length ? hits[i + 1].start - hits[i].end : 999;
+        if (gap >= 0 && gap <= 6 && i + 1 < hits.length) {
+          out.push(hits[i].v + hits[i + 1].v);
+          i++;
+        } else {
+          out.push(hits[i].v);
+        }
+      }
+      return out;
+    }
+    // 文化分项满分；排除「= 总分N分」里的 N（数值前紧邻"总"或"分满"即视为总分）
+    const CULTURE_SCORE_RE = /文化[素质]{0,2}[^%％；;]{0,8}?(?<![总分])(\d{2,3})\s*分/g;
+
+    // 把「职业技能考试=专业能力210+技术技能90」里的分项分值加起来，得到校考满分
+    function examMaxFromText(text) {
+      const sums = [];
+      for (const mm of text.matchAll(EXAM_TOPIC_RE)) {
+        const start = mm.index + mm[0].length;
+        // 该分项后面若紧跟「+另一个分项N分」则相加
+        const rest = text.slice(start, start + 30);
+        const plus = rest.match(/^\s*[＋+]\s*[^0-9]{0,12}?(\d{2,3})\s*分/);
+        sums.push(Number(mm[1]) + (plus ? Number(plus[1]) : 0));
+      }
+      return sums.length ? Math.max(...sums) : null;
+    }
+
+    /* ============================================================
+     * 成绩合成规则解析（最终版）
+     *
+     * 经全站 74 所院校原文逐条核对，规则只有三类，判据都是章程原文里的
+     * 明确措辞，不再依赖模糊正则：
+     *
+     *   1. 原文写「直接相加」→ 坐标轴 = 声明的总分上限（600/700/750）
+     *      你填的文化+校考直接与该轴上的预估线比较。
+     *   2. 原文写「文化过线后按校考成绩排序」→ 坐标轴 = 百分制，
+     *      用校考得分率折算（校考就是总成绩）。
+     *   3. 其余带权重（文化×a% + 校考×b%）→ 坐标轴 = 声明的总分上限
+     *      （若章程另给了"满分折合300分"这类说明则用它，如安徽审计），
+     *      按章程公布的权重把两项归一化后映射到该轴；
+     *      章程未声明上限的少数院校按百分制处理。
+     *
+     * 权重来源：只从"公式句"里取，公式句 = 含 ×N% 的那一块
+     * （跨 ；分块时要合并到括号配平为止），因此不会与"分项满分说明"混淆。
+     * ============================================================ */
+    function parseComposition(college) {
+      const raw = String((college && college.scoreComposition) || '');
+      // 【必须】屏蔽年份（"（2026章程）"）：其前三位"202"会被各种模式
+      // 当成满分，之前多所院校因此算出 202。等长替换保持下标不变。
+      const text = raw.replace(/(19|20)\d{2}\s*年?/g, (s) => '-'.repeat(s.length));
+
+      // 文化是否不计入合成（如安徽艺术"文化仅作合格线不计入合成"）。
+      // 必须在使用之前算好，因为坐标轴与模式判定都要用
+      const cultureExcluded = /文化[^。；]{0,12}(不计入|仅作合格线|只作合格线)/.test(text);
+
+      // ---- 1) 分块，并拼出"公式句" ----
+      const chunks = text.split(/[；;。]/).filter((s) => s.trim());
+      // 优先挑"真正的成绩合成公式句"（文化×N% 或 校考×N% 或 文化÷3×N%），
+      // 否则退而求其次找含任意 ×N% 的块 —— 避免把「创新类面试300分…×50%」
+      // 这类说明误当公式（皖西卫生曾因此取到错误的 50/50）
+      const isRealFormula = (s) =>
+        /文化[^×x*%％；;]{0,16}?[×x*]\s*\d{1,3}\s*[%％]/.test(s) ||
+        /(?:校考|职业适应性测试|职业技能考试|职业技能)[^×x*%％；;]{0,16}?[×x*]\s*\d{1,3}\s*[%％]/.test(s);
+      let pctChunkIdx = chunks.findIndex(isRealFormula);
+      if (pctChunkIdx < 0) pctChunkIdx = chunks.findIndex((s) => /[×x*]\s*\d{1,3}\s*[%％]/.test(s));
+      let formula = '';
+      if (pctChunkIdx >= 0) {
+        // 公式句可能跨 ；分块（如「职业适应性测试=自我学习100+…；职业技能考试=…），
+        // 所以从含 % 的那块起往后拼，直到括号配平
+        let acc = '';
+        let depthAll = 0;
+        for (let i = pctChunkIdx; i < chunks.length; i++) {
+          const piece = (i === pctChunkIdx ? '' : '；') + chunks[i];
+          acc += piece;
+          for (const ch of piece) {
+            if (ch === '（' || ch === '(') depthAll++;
+            else if (ch === '）' || ch === ')') depthAll = Math.max(0, depthAll - 1);
+          }
+          if (depthAll === 0 && /[%％]/.test(piece)) break;
+        }
+        // 去掉来源说明「（----章程）」，避免污染权重上下文
+        formula = acc.replace(/[（(]-{2,}[^）)]*[）)]/g, '');
+      }
+
+      // ---- 2) 声明式总上限：从所有"总分/满分/折合N分制/N分）"候选里取最大值 ----
+      const declaredCandidates = [
+        ...[...text.matchAll(/总分\s*[＝=]?\s*(\d{3})/g)].map((m) => Number(m[1])),
+        ...[...text.matchAll(/合计\s*满分\s*(\d{3})/g)].map((m) => Number(m[1])),
+        ...[...text.matchAll(/满分\s*(\d{3})\s*分?/g)].map((m) => Number(m[1])),
+        ...[...text.matchAll(/[＝=]\s*(\d{3})\s*分/g)].map((m) => Number(m[1])),
+        // 「满分折合300分制」「折合300分制」
+        ...[...text.matchAll(/折合\s*(\d{3})\s*分制/g)].map((m) => Number(m[1])),
+        // 注意：不要把「（省统考300分）」这类"分项满分括注"算进来，
+        // 否则"分项之和"会被当成声明总分（曾把 600 分制误判成 900）
+      ].filter((v) => v >= 100 && v <= 900);
+      const declaredBest = declaredCandidates.length ? Math.max(...declaredCandidates) : null;
+
+      // ---- 3) 分项满分 ----
+      // 全局取各项满分：学校常把「普高」与「中职」两套分列，
+      // 取各单项的最大值即该校上限（把两套相加会算出不存在的总分）。
+      const cultureMaxes = [...text.matchAll(CULTURE_SCORE_RE)].map((m) => Number(m[1]));
+      const cultureMax = cultureMaxes.length ? Math.max(...cultureMaxes) : 300;
+      const examMaxes = [...text.matchAll(EXAM_TOPIC_RE)].map((m) => Number(m[1]));
+      // 分项拆分写法「=专业能力210+技术技能90」也合并成一项，
+      // 注意 pairSums 可能又把这个大类整体算一遍（200+100=300），
+      // 所以只有当它不超过"分项名+分值"的直接值时，才认为它是同一项
+      const pairSums = [...text.matchAll(/(\d{2,3})\s*分\s*[＋+]\s*[^0-9]{0,12}?(\d{2,3})\s*分/g)].map(
+        (m) => Number(m[1]) + Number(m[2])
+      );
+      const directExamMax = examMaxes.length ? Math.max(...examMaxes) : 0;
+      // pairSums 只作兜底：文化里的"语数各120+英语60"也会被算成 pairSum(180)，
+      // 用它抬高校考满分会把坐标轴算爆（多所 600 分制曾被抬到 900）
+      let examMax = directExamMax;
+      if (!examMax) {
+        const ceil = declaredBest ? Math.max(0, declaredBest - cultureMax) : Infinity;
+        for (const s of pairSums) if (s <= ceil) examMax = Math.max(examMax, s);
+      }
+      if (!examMax) examMax = declaredBest ? Math.max(100, declaredBest - cultureMax) : 300;
+      // 校考项不能超过"声明总分 − 文化满分"（否则说明抓到了总分本身）
+      if (declaredBest && declaredBest > cultureMax) {
+        const examCeil2 = declaredBest - cultureMax;
+        if (examMax > examCeil2) examMax = examCeil2;
+      }
+      // 未显式声明总分时的兜底坐标轴
+      const clauseCap = cultureMax + examMax;
+
+      // ---- 4) 从公式句里取权重（按"离 % 最近的分项名"判归属）----
+      const tokens = [];
+      for (const mm of formula.matchAll(/[×x*]\s*(\d{1,3})\s*[%％]/g)) {
+        const head = formula.slice(0, mm.index);
+        const ci = head.lastIndexOf('文化');
+        const ei = Math.max(
+          head.lastIndexOf('校考'),
+          head.lastIndexOf('职业适应性'),
+          head.lastIndexOf('职业技能'),
+          head.lastIndexOf('专业能力'),
+          head.lastIndexOf('技术技能'),
+          head.lastIndexOf('技能测试')
+        );
+        let kind = 'unknown';
+        if (ci >= 0 || ei >= 0) kind = ci > ei ? 'culture' : 'exam';
+        tokens.push({ pct: Math.min(1, Number(mm[1]) / 100), kind });
+      }
+      const cultureToks = tokens.filter((t) => t.kind === 'culture');
+      const examToks = tokens.filter((t) => t.kind === 'exam');
+      const unknownToks = tokens.filter((t) => t.kind === 'unknown');
+
+      let weightCulture = cultureToks.length ? cultureToks[0].pct : cultureToks.length === 0 && tokens.length === 1 && tokens[0].kind === 'culture' ? tokens[0].pct : null;
+      let weightExam = examToks.length ? examToks.reduce((s, t) => s + t.pct, 0) : null;
+      // 「=校考×100%」这种整条式子只有一个 100%：把文化权重当作 0（校考即总成绩）
+      if (tokens.length === 1 && tokens[0].pct === 1) {
+        weightCulture = 0;
+        weightExam = 1;
+      }
+
+      // 只写了一个权重（如"按章程公式折算为百分制"未给数）→ 等权
+      if (tokens.length === 1 && weightCulture === null && weightExam === null && /百分制/.test(text)) {
+        weightCulture = 0.5;
+        weightExam = 0.5;
+      }
+      // 权重和不足 1 且还有没定归属的 % → 用它补齐（如"文化×30%+校考×70%"）
+      const partial = (weightCulture || 0) + (weightExam || 0);
+      if (unknownToks.length && partial < 0.999) {
+        const rest = unknownToks.reduce((s, t) => s + t.pct, 0);
+        if (weightCulture === null) weightCulture = unknownToks[0].pct;
+        else weightExam = Math.min(1, (weightExam || 0) + rest);
+      }
+      // 多项权重和 > 1 时归一化
+      let wc = weightCulture;
+      let we = weightExam;
+      const total = (wc || 0) + (we || 0);
+      if (total > 1.001) {
+        wc = wc === null ? null : wc / total;
+        we = we === null ? null : we / total;
+      }
+      const hasWeight = wc !== null || we !== null;
+
+      // ---- 5) 模式判定 ----
+      const directAdd = /直接相加/.test(text);
+      const examOnly =
+        /仅作合格线|合格线|按校考成绩排序|校考成绩本身/.test(text) &&
+        (/按校考成绩排序|校考成绩本身|只按职业技能|按职业适应性|不计入合成|职业适应性测试\/职业技能考试/.test(text) || cultureExcluded);
+      // 文化不计入合成（如"文化仅作合格线不计入合成"）
+      // 公式本身是否已归一化到百分制（"文化÷3×40%+校考÷2×60%"这种先折百分制再加权）
+      const normalizedByFormula =
+        /÷\s*\d+\s*[×x*]\s*\d{1,3}\s*[%％]/.test(formula) || /合成满分\s*100\s*分/.test(text);
+
+      // 分项满分之和（决定未显式声明总分时的坐标轴）。
+      // 文化不计入合成时（如安徽艺术），总分就等于校考满分
+      const capGuess = cultureExcluded ? examMax : Math.max(declaredBest || 0, cultureMax + (examMax || 0));
+
+      let mode;
+      let axisMax;
+      if (examOnly) {
+        mode = 'examOnly';
+        axisMax = 100;
+      } else if (directAdd || !hasWeight) {
+        mode = 'sum';
+        axisMax = Math.max(declaredBest || 0, capGuess) || 600;
+      } else {
+        // 带权重：把两项归一化后映射到坐标轴。
+        // 轴取 max(声明总分, 分项满分之和)：有些学校声明总分与分项满分不一致
+        // （如"校考450"却声明总分600），取二者较大值，保证满分输入不会被截断。
+        // 带权重：坐标轴 = 文化满分 + 校考满分（两项归一化后映射到该轴）。
+        // 这样"文化填满 + 校考填满"恰好等于总分上限，滑块与结果口径一致。
+        const declared = cultureMax + (examMax || 0) || declaredBest || 0;
+        // 「(文化/100+校考/100)×100%」这种整条只有一个 100% 的，本质就是百分制
+        const degenerateHundred = tokens.length === 1 && tokens[0].pct === 1 && !declaredBest;
+        if (declared && !normalizedByFormula && !degenerateHundred) {
+          mode = 'weightedScaled';
+          axisMax = declared;
+        } else {
+          mode = 'percent';
+          axisMax = 100;
+        }
+      }
+      // 展示用：无论哪种模式，都报出实际坐标轴
+      const declaredMax = axisMax;
+
+      return {
+        mode,
+        axisMax,
+        declaredMax,
+        cultureMax,
+        examMax,
+        weightCulture,
+        weightExam,
+        hasWeight,
+        weightSum: (weightCulture || 0) + (weightExam || 0),
+        tokens: tokens.map((t) => `${t.kind}:${t.pct}`),
+        formula,
+        raw,
+      };
+    }
+    // 每个院校只解析一次
+    const _compositionCache = new Map();
+    function ruleOf(college) {
+      const key = (college && college.id) + '';
+      if (!_compositionCache.has(key)) _compositionCache.set(key, parseComposition(college));
+      return _compositionCache.get(key);
+    }
+
+    // 校考满分（同时决定页面滑块上限）。
+    // 坐标轴口径必须与 calcTotalScore 一致：
+    //   sum          → 校考按章程分项满分（满分输入 + 文化满分 = 轴上限）
+    //   weightedScaled → 校考按其在合成分里的占比折算（满分输入对应轴上限）
+    //   percent      → 校考按原始分项满分，由 calcTotalScore 归一化到 0-100
+    //   examOnly     → 校考满分就是轴上限（校考即总成绩）
+    function examMaxOf(college) {
+      const rule = ruleOf(college);
+      if (rule.mode === 'sum') return rule.examMax || 300;
+      if (rule.mode === 'percent') return rule.examMax || 300;
+      if (rule.mode === 'examOnly') return rule.examMax || rule.axisMax || 100;
+      const we = rule.weightExam === null ? 0.5 : rule.weightExam;
+      const sum = (rule.weightCulture || 0) + we;
+      return Math.max(50, Math.round(rule.axisMax * (sum > 0 ? we / sum : 0.5)));
+    }
+
+    function cultureMaxOf(college) {
+      const rule = ruleOf(college);
+      // 少数学校把普高/中职分列（如"文化300分(语文120+数学120+英语60)"），取识别到的最大值
+      return rule && rule.cultureMax ? rule.cultureMax : 300;
+    }
+
+    function totalMaxOf(college) {
+      return ruleOf(college).axisMax;
+    }
+
+    // 你输入的分数 → 用于比较的等效分
+    function calcTotalScore(college, culture, exam) {
+      const rule = ruleOf(college);
+      const cm = cultureMaxOf();
+      const em = examMaxOf(college) || 100;
+
+      if (rule.mode === 'examOnly') return (exam / em) * 100;
+      if (rule.mode === 'sum') return culture + exam;
+
+      const kwc = rule.weightCulture === null ? 0.5 : rule.weightCulture;
+      const kwe = rule.weightExam === null ? 0.5 : rule.weightExam;
+      const kWSum = kwc + kwe;
+
+      if (rule.mode === 'weightedScaled') {
+        // 按章程公布的权重把两项归一化后映射到坐标轴
+        const axis = rule.axisMax || 600;
+        // 极少数章程把"普高300 / 中职600"两套分列，此时本页滑块只有一套，
+        // 用 clamp 兜住，保证结果永远落在坐标轴内
+        const raw = ((culture / cm) * kwc + (exam / em) * kwe) * axis;
+        return Math.min(axis, Math.max(0, raw));
+      }
+      // 百分制（章程未声明总分上限的少数院校）
+      if (kWSum <= 0) return 0;
+      return (((culture / cm) * kwc + (exam / em) * kwe) / kWSum) * 100;
+    }
+
+    /* 用于界面提示：加权类院校除了合成分，再给出折算百分数便于理解 */
+    function axisPercentOf(college, totalScore) {
+      const axis = totalMaxOf(college);
+      if (!axis) return null;
+      return (totalScore / axis) * 100;
     }
 
     function getCalcRuleText(college) {
-      const sc = college.scoreComposition || '';
-      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) return '文化×40% + 校考×60%';
-      if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) return '文化×50% + 校考×50%';
-      if (sc.includes('文化×30%+职业技能×70%')) return '文化×30% + 校考×70%';
-      return '文化 + 校考（直接相加）';
+      const rule = ruleOf(college);
+      const p = (x) => Math.round(x * 100) + '%';
+      if (rule.mode === 'examOnly') return '文化过线后按校考成绩排序（校考成绩即总成绩）';
+      if (rule.mode === 'sum') return `文化 + 校考（直接相加，满分 ${rule.declaredMax || 600}）`;
+      const parts = [];
+      if (rule.weightCulture !== null) parts.push(`文化×${p(rule.weightCulture)}`);
+      if (rule.weightExam !== null) parts.push(`校考×${p(rule.weightExam)}`);
+      if (!parts.length) return '文化 + 校考（直接相加）';
+      if (rule.mode === 'weightedScaled') {
+        return `${parts.join(' + ')}，按满分 ${rule.declaredMax} 折算`;
+      }
+      const note = Math.abs(rule.weightSum - 1) > 0.01 ? '（章程权重和不足100%，已归一化）' : '';
+      return `${parts.join(' + ')}，折算百分制${note}`;
     }
 
     function estimateCutoff(college, major) {
@@ -371,23 +744,24 @@
 
       // 优先使用2026年真实数据（分别取普高/中职对应分数）
       if (college.realScore2026) {
-        const sc = college.scoreComposition || '';
         const totalMax = getTotalMax(college);
         const nums = college.realScore2026.match(/\d+/g);
         // 含"普高X/中职Y"格式时，分别取
         const gzMatch = college.realScore2026.match(/普高[^\d]*(\d+)/);
         const zzMatch = college.realScore2026.match(/中职[^\d]*(\d+)/);
+        // 把真实分归一到本页的比较坐标轴（直接相加用原始分，加权用百分制）
+        const toAxis = (v) => (totalMax === 100 ? Math.min(100, v) : Math.min(v, totalMax));
         if (isZhongzhi && zzMatch) {
           const v = Number(zzMatch[1]);
-          if (v <= totalMax) return v;
+          if (v <= totalMax * 2) return toAxis(v);
         }
         if (!isZhongzhi && gzMatch) {
           const v = Number(gzMatch[1]);
-          if (v <= totalMax) return v;
+          if (v <= totalMax * 2) return toAxis(v);
         }
         if (nums && nums.length > 0 && !gzMatch && !zzMatch) {
           const rs = Math.max(...nums.map(Number));
-          if (rs <= totalMax) return rs;
+          if (rs <= totalMax * 2) return toAxis(rs);
         }
       }
 
@@ -408,25 +782,15 @@
       // 中职生文化课分数线普遍比普高低10-15分（抖音多源验证）
       if (isZhongzhi) cultureEst -= 12;
 
-      // 校考预估分：普高满分300，中职满分450
-      // 普高生职业适应性测试平均约60%，中职生职业技能考试有专业基础，约68%
+      // 校考预估：按校考满分的固定比例取
+      // 普高生职业适应性测试平均约62%，中职生职业技能考试有专业基础，约68%
       const examMax = getExamMax(college);
       const examRatio = isZhongzhi ? 0.68 : 0.62;
       const examEst = examMax * examRatio;
 
-      // 按学校规则计算综合分
-      const sc = college.scoreComposition || '';
-      let totalEst;
-      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) {
-        totalEst = cultureEst * 0.4 + examEst * 0.6;
-      } else if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) {
-        totalEst = cultureEst * 0.5 + examEst * 0.5;
-      } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
-        totalEst = cultureEst * 0.3 + examEst * 0.7;
-      } else {
-        // 直接相加：普高600满分，中职750满分
-        totalEst = cultureEst + examEst;
-      }
+      // 按该校章程的合成规则算预估线（与此前 calcTotalScore 用的是同一套函数，
+      // 保证"你的分"和"预估线"在同一根坐标轴上）
+      let totalEst = calcTotalScore(college, cultureEst, examEst);
 
       // 根据招生计划调整
       const plan = isZhongzhi ? (major.plan2026Zhongzhi || 0) : (major.plan2026Gaozhong || 0);
@@ -446,25 +810,22 @@
       return Math.round(totalEst);
     }
 
-    function getTotalMax(college) {
-      const sc = college.scoreComposition || '';
-      if (sc.includes('总分700')) return 700;
-      if (sc.includes('总分750')) return 750;
-      if (sc.includes('×50%') || sc.includes('×40%') || sc.includes('×60%')) return 300;
-      return 600;
-    }
-
     function calcProbability(yourScore, estLine, preLine, plan, college, major) {
+      // 阈值必须按坐标轴缩放：600 分制差 30 分相当于百分制的 5 分，
+      // 直接用绝对分会把百分制院校的概率算得极其离谱。
+      const axisMax = totalMaxOf(college) || 600;
+      const k = axisMax / 600;
+
       const diff = yourScore - estLine;
       let prob;
-      
-      if (diff >= 30) prob = 95;
-      else if (diff >= 15) prob = 85;
-      else if (diff >= 5) prob = 72;
-      else if (diff >= -5) prob = 55;
-      else if (diff >= -15) prob = 38;
-      else if (diff >= -25) prob = 22;
-      else if (diff >= -40) prob = 10;
+
+      if (diff >= 30 * k) prob = 95;
+      else if (diff >= 15 * k) prob = 85;
+      else if (diff >= 5 * k) prob = 72;
+      else if (diff >= -5 * k) prob = 55;
+      else if (diff >= -15 * k) prob = 38;
+      else if (diff >= -25 * k) prob = 22;
+      else if (diff >= -40 * k) prob = 10;
       else prob = 3;
 
       // 120%预录取线：过线就有较大机会（120%投档规则，会有递补）
