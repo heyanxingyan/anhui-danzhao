@@ -13,14 +13,20 @@
       <div class="title">专项计划</div>
     </div>
 
-    <!-- 板块介绍 -->
-    <div class="about-section" style="margin:10px 12px">
-      <h3>⭐ 专项计划招生说明</h3>
-      <p id="zx-desc"></p>
-      <p><b>报考条件：</b><span id="zx-condition"></span></p>
-      <p><b>考试科目：</b><span id="zx-subjects"></span></p>
-      <p><b>录取规则：</b><span id="zx-rule"></span></p>
-    </div>
+    <!-- 板块介绍（默认收起，让下方院校列表直接露出） -->
+    <details class="zx-fold">
+      <summary>
+        <span>⭐ 专项计划招生说明</span>
+        <span class="zx-fold-hint">
+          <span class="zx-fold-hint-text">点击展开</span>
+          <span class="zx-fold-collapse-text">点击收起</span>
+          <span class="zx-fold-arrow">▼</span>
+        </span>
+      </summary>
+      <div class="zx-fold-body">
+        <div id="zx-desc"></div>
+      </div>
+    </details>
 
     <!-- 三个子类别标签 -->
     <div class="sub-tabs" style="display:flex;gap:8px;margin:0 12px 10px;overflow-x:auto">
@@ -46,8 +52,8 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261016a"></script>
-  <script src="js/special-policy.js?v=20261016a"></script>
-  <script src="js/app.js?v=20261016a"></script>
+  <script src="js/data.js?v=20261016b"></script>
+  <script src="js/special-policy.js?v=20261016b"></script>
+  <script src="js/app.js?v=20261016b"></script>
 </body>
 </html>
