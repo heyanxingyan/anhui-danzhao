@@ -11,10 +11,19 @@
 
 var BENKE_FACTS = [
   { k: '考试科目', v: '文化 300 + 技能 450', n: '合计满分 750 分' },
-  { k: '招生院校', v: '10 所', n: '均为公办应用型本科' },
+  { k: '招生院校', v: '__SCHOOL_COUNT__ 所', n: '__SCHOOL_BREAKDOWN__' },
   { k: '志愿数量', v: '1 校 + 1 专业', n: '可另按 3 所高职兼报' },
   { k: '录取分数参考', v: '约 500+ 分', n: '满分 750，热门专业更高' },
 ];
+
+/** 院校数量按 BENKE_SCHOOLS 实际条数动态显示，避免名单更新后文案写错。 */
+function benkeSchoolCountText() {
+  const list = (typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length) ? BENKE_SCHOOLS : [];
+  const n = list.length;
+  const pub = list.filter((s) => s.nature === '公办').length;
+  const pri = list.filter((s) => s.nature === '民办').length;
+  return { n: n, breakdown: n ? `公办 ${pub} 所 · 民办 ${pri} 所` : '' };
+}
 
 // 目录：锚点 id 与标题
 var BENKE_NAV = [
@@ -87,7 +96,7 @@ var BENKE_FOLDS = [
       '<table class="bk-table">' +
       '<tr><th>对比项</th><th>对口本科</th><th>高职专科（分类考试）</th></tr>' +
       '<tr><td>学历层次</td><td>全日制本科</td><td>全日制专科</td></tr>' +
-      '<tr><td>招生院校</td><td>应用型本科高校（10所）</td><td>高职院校（70+所）</td></tr>' +
+      '<tr><td>招生院校</td><td>应用型本科高校（' + benkeSchoolCountText().n + ' 所）</td><td>高职院校（70+ 所）</td></tr>' +
       '<tr><td>考试科目</td><td>文化300 + 职业技能450</td><td>文化300 + 职业适应性/技能300</td></tr>' +
       '<tr><td>录取分数</td><td>较高，总分多需500分以上</td><td>相对较低，过线即可</td></tr>' +
       '<tr><td>竞争程度</td><td>计划少、竞争激烈</td><td>计划多、录取率高</td></tr>' +
@@ -142,11 +151,12 @@ function renderBenkeIntro(opt) {
   const listId = opt.listId || 'benke-other';
   const nav = opt.nav !== false;
 
+  const cnt = benkeSchoolCountText();
   const facts = BENKE_FACTS.map((f) =>
     '<div class="bk-fact">' +
       '<div class="k">' + f.k + '</div>' +
-      '<div class="v">' + f.v + '</div>' +
-      '<div class="n">' + f.n + '</div>' +
+      '<div class="v">' + f.v.replace('__SCHOOL_COUNT__', cnt.n) + '</div>' +
+      '<div class="n">' + f.n.replace('__SCHOOL_BREAKDOWN__', cnt.breakdown) + '</div>' +
     '</div>').join('');
 
   const navHtml = nav
