@@ -402,13 +402,15 @@ function renderCollegeListItems(reset) {
       <div class="tags">
         <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
         <span class="tag tag-type">${c.type}</span>
-        ${c.isUndergraduate ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>' : ''}
+        ${c.isUndergraduate
+          ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>'
+          : (c._track === 'fenlei' ? '<span class="tag" style="background:#e6f4ff;color:#1677ff;border:1px solid #91caff">📝 分类考试</span>' : '')}
         ${c.stoppedEnrollment ? '<span class="tag" style="background:#fff1f0;color:#ff4d4f;border:1px solid #ffa39e">⚠️ 已停招</span>' : ''}
         ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
         ${c.hot ? '<span class="tag tag-hot">热门</span>' : ''}
       </div>
       <div class="meta-row">
-        <span>${c.city} · ${planText}</span>
+        <span>${c.city} · ${planText}${c._track === 'fenlei' ? '（高职专科）' : (c.isUndergraduate ? '（对口本科）' : '')}</span>
       </div>
     </a>
   `}).join('');
@@ -450,7 +452,8 @@ function renderCollegeDetail() {
   // 头部
   const head = document.getElementById('detail-head');
   head.innerHTML = `
-    <div class="name">${c.name}${c.isUndergraduate ? ' <span style="font-size:12px;background:#722ed1;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">🏫 对口本科</span>' : ''}${c.stoppedEnrollment ? ' <span style="font-size:12px;background:#ff4d4f;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 2026年已停招</span>' : ''}${(c.secondCutoff && c.secondCutoff.enabled) ? ' <span style="font-size:12px;background:#faad14;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 校考入围</span>' : ''}</div>
+    <div class="name">${c.name}${c.isUndergraduate ? ' <span style="font-size:12px;background:#722ed1;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">🏫 对口本科</span>' : (c._track === 'fenlei' ? ' <span style="font-size:12px;background:#1677ff;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">📝 分类考试</span>' : '')}${c.stoppedEnrollment ? ' <span style="font-size:12px;background:#ff4d4f;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 2026年已停招</span>' : ''}${(c.secondCutoff && c.secondCutoff.enabled) ? ' <span style="font-size:12px;background:#faad14;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 校考入围</span>' : ''}</div>
+    ${c._sameSchoolAs ? `<div style="font-size:11.5px;color:#8c8c8c;margin-top:2px">该校同时以另一条招生通道收录（<a href="college-detail.html?id=${c._sameSchoolAs}" style="color:var(--primary)">查看另一条 ›</a>）</div>` : ''}
     <div class="sub">
       <span>📍 ${c.city}</span>
       <span>${c.nature}</span>
@@ -476,7 +479,13 @@ function renderCollegeDetail() {
   // 对口本科新增院校缺地址/电话/规模等资料时，如实显示「待补」而不是空白，
   // 也不显示站内估算层按公式拼出来的占位号码（那种号码打不通）。
   const bkPh = c._bkPlaceholder || {};
-  const dash = (v, todo) => (v ? v : (todo ? '<span style="color:#bbb">待补</span>' : '—'));
+  // dash：缺值时优先显示原因注释（如「首届学生尚未毕业」），其次显示「待补」，最后才是「—」
+  const dash = (v, todo, field) => {
+    if (v) return v;
+    const note = field ? c[field + 'Note'] : null;
+    if (note) return `<span style="color:#8c8c8c">${note}</span>`;
+    return todo ? '<span style="color:#bbb">待补</span>' : '—';
+  };
   document.getElementById('basic-info').innerHTML = `
     <div class="row"><div class="label">所在城市</div><div class="value">${c.city || '—'}</div></div>
     <div class="row"><div class="label">学校地址</div><div class="value">${dash(c.address, bkPh.address)}</div></div>
@@ -690,9 +699,15 @@ function renderCollegeDetail() {
       <div style="font-size:13px;color:#874d00;line-height:1.7">${c.secondCutoff.note}</div>
       <div style="font-size:12px;color:#d46b08;margin-top:8px;line-height:1.6">提示：文化统考未达入围线将无法参加校考，志愿直接作废；建议先用下方"录取概率测算"查看自己的文化分是否稳妥。</div>
     </div>` : '';
-  // 「待补」渲染：字段缺失且已标记待补时显示灰字提示，避免显示成空白或假的估算值
+  // 「待补」渲染：字段缺失且已标记待补时显示灰字提示，避免显示成空白或假的估算值。
+  // 另外区分三种「没有值」的情况，语义不同不能都写成「待补」：
+  //   ① 不适用（本科院校无专升本率）→ 显示「不适用（本科院校）」
+  //   ② 有明确原因（新建院校尚无毕业生、校方明示不公开）→ 显示该原因
+  //   ③ 单纯还没查到 → 显示「待补」
   const pend = (v, field) => {
     if (v) return v;
+    const note = c[field + 'Note'];
+    if (note) return `<span style="color:#8c8c8c">${note}</span>`;
     const todo = (c._bkPlaceholder || {})[field];
     return todo ? '<span style="color:#bbb">待补</span>' : '—';
   };
