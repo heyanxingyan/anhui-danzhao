@@ -1,0 +1,273 @@
+/**
+ * 对口本科（应用型本科高校面向中职毕业生对口招生）院校数据
+ *
+ * 名单来源（权威）：安徽省教育招生考试院「应用型本科对口招生章程」栏目
+ *   https://www.ahzsks.cn/search2.jsp?c=231
+ *   该页面明确「共 22 条记录」——2026 年面向中职毕业生对口招生的本科院校共 22 所。
+ *
+ * 字段说明：
+ *   name/city/nature     校名、所在地、办学性质
+ *   schoolSite           学校主站
+ *   zhaoshengSite        招生网（对口招生栏目优先）
+ *   charterUrl           省考试院发布的该校对口招生章程原文
+ *   planTotal            对口招生总计划（人）；缺则 null
+ *   majors[]             逐专业明细 {name, categoryText, plan, tuition, examSubjects, note}
+ *   exam{}               考试办法 {culture, skill, totalScore, scoreFormula, testDate}
+ *   conditions           报考条件
+ *   admission            录取规则
+ *   sources[]            数据出处（官方 URL）
+ *   unresolved[]         查不到的项（如实列出，不编造）
+ *   confidence           数据置信度：高 / 中 / 低
+ *
+ * 注意：本文件替代了原先 data.js 里的 10 所简易名单（只有校名+官网，无实质数据）。
+ */
+
+var BENKE_SCHOOLS = [
+  // ===== 地方公办本科 =====
+  {
+    name: '宿州学院', city: '宿州', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.ahszu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8682.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8682.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '滁州学院', city: '滁州', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.chzu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8681.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8681.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '铜陵学院', city: '铜陵', nature: '公办', type: '财经类',
+    schoolSite: 'https://www.tlu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8680.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8680.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '黄山学院', city: '黄山', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.hsu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8679.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8679.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '巢湖学院', city: '合肥', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.chu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8678.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8678.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '淮南师范学院', city: '淮南', nature: '公办', type: '师范类',
+    schoolSite: 'https://www.hnnu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8677.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8677.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '皖西学院', city: '六安', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.wxc.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8676.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8676.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '合肥师范学院', city: '合肥', nature: '公办', type: '师范类',
+    schoolSite: 'https://www.hfnu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8675.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8675.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽科技工程大学', city: '滁州', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.ahstu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8674.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8674.htm'],
+    unresolved: ['2026年2月由「安徽科技学院」更名，章程文号可能仍用旧名', '分专业计划待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安庆师范大学', city: '安庆', nature: '公办', type: '师范类',
+    schoolSite: 'https://www.aqnu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8673.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8673.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '池州学院', city: '池州', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.czu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8684.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8684.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '蚌埠学院', city: '蚌埠', nature: '公办', type: '综合类',
+    schoolSite: 'https://www.bbc.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8683.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8683.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+
+  // ===== 职业本科大学（同时做高职分类考试与对口本科）=====
+  {
+    name: '芜湖职业技术大学', city: '芜湖', nature: '公办', type: '职业本科',
+    schoolSite: 'https://www.whit.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8687.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8687.htm'],
+    unresolved: ['须区分「对口本科」专业与高职（专科）分类考试专业，勿混用', '分专业计划待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽职业技术大学', city: '合肥', nature: '公办', type: '职业本科',
+    schoolSite: 'https://www.uta.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8686.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8686.htm'],
+    unresolved: ['须区分「对口本科」专业与高职（专科）分类考试专业，勿混用', '分专业计划待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽艺术学院', city: '合肥', nature: '公办', type: '艺术类',
+    schoolSite: 'https://www.ahua.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8685.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8685.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+
+  // ===== 民办本科 =====
+  {
+    name: '合肥城市学院', city: '合肥', nature: '民办', type: '理工类',
+    schoolSite: 'https://www.hfcsxy.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8694.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8694.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '淮北理工学院', city: '淮北', nature: '民办', type: '理工类',
+    schoolSite: 'https://www.hblgxy.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8693.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8693.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '合肥经济学院', city: '合肥', nature: '民办', type: '财经类',
+    schoolSite: 'https://www.hfjjxy.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8692.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8692.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽外国语学院', city: '合肥', nature: '民办', type: '语言类',
+    schoolSite: 'https://www.aisu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8691.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8691.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽文达信息工程学院', city: '合肥', nature: '民办', type: '理工类',
+    schoolSite: 'https://www.wenda.edu.cn',
+    zhaoshengSite: 'https://www.wenda.edu.cn/zs/',
+    charterUrl: 'https://www.ahzsks.cn/8690.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8690.htm', 'https://www.wenda.edu.cn/zs/m/display.php?id=34099'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽三联学院', city: '合肥', nature: '民办', type: '综合类',
+    schoolSite: 'https://www.slu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8689.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8689.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+  {
+    name: '安徽新华学院', city: '合肥', nature: '民办', type: '综合类',
+    schoolSite: 'https://www.axhu.edu.cn',
+    zhaoshengSite: '',
+    charterUrl: 'https://www.ahzsks.cn/8688.htm',
+    charterYear: 2026,
+    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
+    sources: ['https://www.ahzsks.cn/8688.htm'],
+    unresolved: ['分专业计划与职业技能测试科目待采集'],
+    confidence: '中',
+  },
+];
