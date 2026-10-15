@@ -1020,21 +1020,31 @@ function renderAbout() {
 /* ============================================================
  * 9. 对口本科页
  * ============================================================ */
-function renderBenke() {
-  renderTabbar('college');
+/**
+ * 构建对口本科院校卡片列表（benke.html 与中职起点「对口本科」子标签共用）。
+ *
+ * 修复历史问题：
+ *   · 原来卡片把整段 scoreComposition（百余字）塞进分数位，卡片被撑爆；
+ *   · 原来「本站名单内」与「10所名单」分两块渲染，宿州学院重复出现两次。
+ * 现在统一按站点用到的 data.js / BENKE_SCHOOLS 取一份名单：
+ *   本站已收录的 → 内部跳转看历年分数；其余 → 官网外链。
+ */
+function buildBenkeCards(keyword) {
+  const kw = (keyword || '').trim().toLowerCase();
+  const localByName = new Map(COLLEGES.map((c) => [c.name, c]));
+  const schools = (typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length)
+    ? BENKE_SCHOOLS
+    : COLLEGES.filter((c) => c.isUndergraduate)
+        .map((c) => ({ name: c.name, city: c.city, nature: c.nature, note: '', link: '' }));
 
-  // ===== 对口本科招生院校（统一一份名单，含本站已收录的宿州学院）=====
-  // 修复：原来「本站列表内」与「其他院校」分成两块，宿州学院被渲染两次；
-  //      且卡片把整段 scoreComposition（百余字）塞进分数位，卡片被撑爆。
-  const otherEl = document.getElementById('benke-other');
-  if (otherEl && typeof BENKE_SCHOOLS !== 'undefined') {
-    const inListIds = new Map(COLLEGES.map((c) => [c.name, c.id]));
-    otherEl.innerHTML = BENKE_SCHOOLS.map((s) => {
-      const localId = inListIds.get(s.name);          // 本站已收录 → 内部跳转看历年分数
-      const href = localId ? `college-detail.html?id=${localId}` : (s.link || '#');
-      const external = !localId;
-      return `
-      <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="college-card" style="display:block;margin-bottom:10px">
+  const list = kw ? schools.filter((s) => s.name.toLowerCase().includes(kw)) : schools;
+
+  return list.map((s) => {
+    const local = localByName.get(s.name);
+    const href = local ? `college-detail.html?id=${local.id}` : (s.link || '#');
+    const external = !local;
+    return `
+      <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="college-card" style="display:block;margin-bottom:10px;border:1px solid #d3adf7">
         <div class="head">
           <div class="name">${s.name}</div>
           <span class="score" style="color:${s.nature === '公办' ? '#1677ff' : '#fa541c'};font-weight:600">${s.nature}</span>
@@ -1042,14 +1052,30 @@ function renderBenke() {
         <div class="tags">
           <span class="tag tag-type">${s.city}</span>
           <span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">对口本科</span>
-          ${localId ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">本站已收录历年分数</span>' : ''}
+          ${local ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">本站已收录历年分数</span>' : ''}
         </div>
         <div class="meta-row">
           <span style="font-size:12px">${s.note || ''}</span>
-          ${localId ? '' : '<span style="font-size:12px;color:var(--text-light)">官网 ›</span>'}
+          ${external ? '<span style="font-size:12px;color:var(--text-light)">官网 ›</span>' : ''}
         </div>
       </a>`;
-    }).join('');
+  }).join('') || '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>未找到匹配的对口本科院校</div></div>';
+}
+
+function renderBenke() {
+  renderTabbar('college');
+
+  // 速览卡 + 目录（与中职起点页共用 js/benke-content.js 的同一份内容）
+  const introEl = document.getElementById('bk-intro');
+  if (introEl && typeof renderBenkeIntro === 'function') {
+    introEl.innerHTML = renderBenkeIntro({ listId: 'bk-schools', nav: true });
+  }
+  const otherEl = document.getElementById('benke-other');
+  if (otherEl) otherEl.innerHTML = buildBenkeCards('');
+
+  const blocksEl = document.getElementById('bk-blocks');
+  if (blocksEl && typeof renderBenkeBlocks === 'function') {
+    blocksEl.innerHTML = renderBenkeBlocks();
   }
 }
 
@@ -1114,51 +1140,32 @@ function renderZhongzhi() {
     });
   }
 
-  // 对口本科：本站名单内招收中职的本科院校 + 全部10所对口本科招生院校
-  const benke = COLLEGES.filter(c => c.tags.includes('zhongzhi') && c.isUndergraduate);
+  // ===== 对口本科 =====
+  // 与独立页 benke.html 用同一份内容与同一套卡片构建函数（js/benke-content.js + buildBenkeCards），
+  // 避免两处各写一份导致不一致（卡片撑爆、宿州学院重复都是双份内容造成的）。
   const bkEl = document.getElementById('zz-benke-list');
-  
+  if (bkEl && typeof renderBenkeIntro === 'function') {
+    bkEl.innerHTML =
+      renderBenkeIntro({
+        listId: 'zz-benke-schools',
+        nav: true,
+        tip: '中职生也可升入全日制本科（应用型本科对口招生），单独划线、单独录取。',
+      }) +
+      '<div class="section-title" id="zz-benke-schools" style="margin:14px 12px 8px">对口本科招生院校（共 10 所）</div>' +
+      '<div style="padding:0 12px" id="zz-benke-cards"></div>' +
+      '<div class="bk-block" style="margin-top:10px">' +
+        '<p style="font-size:12px;color:#666">📌 其中<b>宿州学院已收录在本站</b>，可直接查看历年分数走势；' +
+        '其余院校点击进入官网查询最新章程。<b>分专业计划与选考类别以各院校当年对口招生章程为准。</b></p>' +
+      '</div>' +
+      renderBenkeBlocks();
+  }
+
   function renderBenkeList(keyword) {
-    let bkList = benke;
-    let bkHtml = bkList.map(c => `
-      <a href="college-detail.html?id=${c.id}" class="college-card" style="display:block;border:1px solid #d3adf7">
-        <div class="head">
-          <div class="name">🎓 ${c.name}</div>
-          <span class="score" style="color:#722ed1;font-weight:600">${c.city}</span>
-        </div>
-        <div class="tags">
-          <span class="tag tag-public">${c.nature}</span>
-          <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
-        </div>
-        <div class="meta-row"><span>${c.scoreComposition || '文化测试+职业技能测试'}</span><span class="score">${c.minScore2024} 分</span></div>
-      </a>
-    `).join('');
-    // 追加BENKE_SCHOOLS中不在本站COLLEGES里的对口本科院校
-    if (typeof BENKE_SCHOOLS !== 'undefined') {
-      const inListNames = bkList.map(c => c.name);
-      let extraSchools = BENKE_SCHOOLS.filter(s => !inListNames.includes(s.name));
-      if (keyword) {
-        const kw = keyword.toLowerCase();
-        extraSchools = extraSchools.filter(s => s.name.toLowerCase().includes(kw));
-      }
-      bkHtml += extraSchools.map(s => `
-        <a href="${s.link}" target="_blank" rel="noopener" class="college-card" style="display:block;border:1px solid #d3adf7">
-          <div class="head">
-            <div class="name">🎓 ${s.name}</div>
-            <span class="score" style="color:#722ed1;font-weight:600">${s.city}</span>
-          </div>
-          <div class="tags">
-            <span class="tag tag-public">${s.nature}</span>
-            <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">对口本科</span>
-          </div>
-          <div class="meta-row"><span style="font-size:12px">${s.note}</span></div>
-        </a>
-      `).join('');
-    }
-    bkEl.innerHTML = bkHtml || '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>暂无对口本科院校信息</div></div>';
+    const cardsEl = document.getElementById('zz-benke-cards');
+    if (cardsEl) cardsEl.innerHTML = buildBenkeCards(keyword);
   }
   renderBenkeList('');
-  
+
   // 对口本科搜索
   const bkSearchInput = document.getElementById('zz-bk-search-input');
   const bkClearBtn = document.getElementById('zz-bk-search-clear');
