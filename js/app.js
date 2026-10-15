@@ -473,16 +473,20 @@ function renderCollegeDetail() {
   });
 
   // 基本信息
+  // 对口本科新增院校缺地址/电话/规模等资料时，如实显示「待补」而不是空白，
+  // 也不显示站内估算层按公式拼出来的占位号码（那种号码打不通）。
+  const bkPh = c._bkPlaceholder || {};
+  const dash = (v, todo) => (v ? v : (todo ? '<span style="color:#bbb">待补</span>' : '—'));
   document.getElementById('basic-info').innerHTML = `
-    <div class="row"><div class="label">所在城市</div><div class="value">${c.city}</div></div>
-    <div class="row"><div class="label">学校地址</div><div class="value">${c.address}</div></div>
-    <div class="row"><div class="label">办学性质</div><div class="value">${c.nature}</div></div>
-    <div class="row"><div class="label">院校类型</div><div class="value">${c.type}${c.type.indexOf('本科')>=0 ? '（本科层次）' : ''}</div></div>
-    <div class="row"><div class="label">在校生规模</div><div class="value">${c.scale || '—'}</div></div>
-    <div class="row"><div class="label">招生办电话</div><div class="value">${c.phone || '—'}</div></div>
-    <div class="row"><div class="label">就业率</div><div class="value">${c.employmentRate || '—'}</div></div>
-    <div class="row"><div class="label">专升本率</div><div class="value">${c.upgradeRate || '—'}</div></div>
-    <div class="row"><div class="label">官方网站</div><div class="value"><a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a></div></div>
+    <div class="row"><div class="label">所在城市</div><div class="value">${c.city || '—'}</div></div>
+    <div class="row"><div class="label">学校地址</div><div class="value">${dash(c.address, bkPh.address)}</div></div>
+    <div class="row"><div class="label">办学性质</div><div class="value">${c.nature || '—'}</div></div>
+    <div class="row"><div class="label">院校类型</div><div class="value">${c.type || '—'}${c.type && c.type.indexOf('本科')>=0 ? '（本科层次）' : ''}</div></div>
+    <div class="row"><div class="label">在校生规模</div><div class="value">${dash(c.scale, bkPh.scale)}</div></div>
+    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(c.phone, bkPh.phone)}</div></div>
+    <div class="row"><div class="label">就业率</div><div class="value">${dash(c.employmentRate, bkPh.employmentRate)}</div></div>
+    <div class="row"><div class="label">专升本率</div><div class="value">${dash(c.upgradeRate, bkPh.upgradeRate)}</div></div>
+    <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : '—'}</div></div>
   `;
 
   // Tab 切换
