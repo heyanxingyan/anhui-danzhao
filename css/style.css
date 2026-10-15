@@ -897,6 +897,19 @@ input, select {
 .zx-fold-body h3 { font-size: 15px; margin-bottom: 10px; color: var(--text); }
 .zx-fold-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
 
+/* 嵌在 .about-section 内部用的折叠变体（去掉外层卡片阴影与左右外边距） */
+.zx-fold-inline {
+  margin: 10px 0;
+  box-shadow: none;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.zx-fold-inline > summary { font-size: 14px; padding: 11px 13px; }
+.zx-fold-inline > .zx-fold-body { padding: 12px 13px 4px; }
+
+/* 折叠块外、始终可见的关键结论区（应录尽录 / 该校章程原文） */
+.zx-fold-below { margin-bottom: 2px; }
+
 /* ========== Toast ========== */
 .toast {
   position: fixed;
