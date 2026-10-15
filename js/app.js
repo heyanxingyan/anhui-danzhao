@@ -1023,43 +1023,122 @@ function renderAbout() {
 /**
  * 构建对口本科院校卡片列表（benke.html 与中职起点「对口本科」子标签共用）。
  *
- * 修复历史问题：
- *   · 原来卡片把整段 scoreComposition（百余字）塞进分数位，卡片被撑爆；
- *   · 原来「本站名单内」与「10所名单」分两块渲染，宿州学院重复出现两次。
- * 现在统一按站点用到的 data.js / BENKE_SCHOOLS 取一份名单：
- *   本站已收录的 → 内部跳转看历年分数；其余 → 官网外链。
+ * 数据来源：js/benke-schools.js 的 BENKE_SCHOOLS（从各校官网/省考试院章程采集）。
+ * 采集字段可能缺项，这里一律**优雅降级**：缺就省略那一行，不显示 undefined/空标签。
  */
 function buildBenkeCards(keyword) {
   const kw = (keyword || '').trim().toLowerCase();
+  const esc = (s) => String(s == null ? '' : s);
   const localByName = new Map(COLLEGES.map((c) => [c.name, c]));
-  const schools = (typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length)
-    ? BENKE_SCHOOLS
-    : COLLEGES.filter((c) => c.isUndergraduate)
-        .map((c) => ({ name: c.name, city: c.city, nature: c.nature, note: '', link: '' }));
+  const schools = (typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length) ? BENKE_SCHOOLS : [];
 
-  const list = kw ? schools.filter((s) => s.name.toLowerCase().includes(kw)) : schools;
+  // 按关键词筛选（校名 / 城市 / 专业名 / 大类都能搜到）
+  const list = kw ? schools.filter((s) => {
+    if ((s.name || '').toLowerCase().includes(kw)) return true;
+    if ((s.city || '').toLowerCase().includes(kw)) return true;
+    if ((s.categoryText || '').toLowerCase().includes(kw)) return true;
+    return (s.majors || []).some((m) =>
+      (m.name || '').toLowerCase().includes(kw) || (m.categoryText || '').toLowerCase().includes(kw));
+  }) : schools;
+
+  if (!list.length) {
+    return '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>未找到匹配的对口本科院校</div></div>';
+  }
 
   return list.map((s) => {
     const local = localByName.get(s.name);
-    const href = local ? `college-detail.html?id=${local.id}` : (s.link || '#');
-    const external = !local;
+    // 校名指向：本站已收录 → 站内详情页；否则 → 官网（无官网则退回省考试院章程）
+    const nameHref = local ? `college-detail.html?id=${local.id}`
+      : (s.zhaoshengSite || s.schoolSite || s.charterUrl || '');
+    const nameExt = !local && nameHref;
+    const site = s.zhaoshengSite || s.schoolSite || '';
+    const external = !local && !!site;
+
+    // 摘要行：招生计划 / 专业数
+    const majorCount = (s.majors || []).length;
+    const bits = [];
+    if (s.planTotal) bits.push(`招生计划 <b>${s.planTotal}</b> 人`);
+    if (majorCount) bits.push(`${majorCount} 个专业`);
+    if (!bits.length && s.note) bits.push(esc(s.note));
+
+    // 关键数字小格
+    const exam = s.exam || {};
+    const kv = [];
+    if (exam.totalScore) kv.push(['总分', exam.totalScore + ' 分']);
+    if (s.charterYear) kv.push(['章程年份', s.charterYear + ' 年']);
+    if (s.tuitionRange) kv.push(['学费', s.tuitionRange]);
+    const kvHtml = kv.length
+      ? `<div class="bk-kv">${kv.map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>`
+      : '';
+
+    // 专业表（最多先显示 8 行，其余折叠）
+    const majors = s.majors || [];
+    const majorRows = (arr) => arr.map((m) => `
+      <tr>
+        <td>${esc(m.name)}</td>
+        <td>${esc(m.categoryText || '')}</td>
+        <td style="text-align:right">${m.plan != null ? esc(m.plan) : '—'}</td>
+        <td>${esc(m.examSubjects || m.note || '')}</td>
+      </tr>`).join('');
+    const majorTable = majors.length
+      ? `<div style="overflow-x:auto"><table class="bk-table">
+           <tr><th>招生专业</th><th>专业大类</th><th style="text-align:right">计划</th><th>职业技能测试/备注</th></tr>
+           ${majorRows(majors.slice(0, 8))}
+         </table></div>`
+      : '';
+
+    // 折叠详情：考试办法 / 报考条件 / 录取规则 / 全部专业 / 来源
+    const sec = (t, v) => v ? `<div class="bk-sec"><div class="bk-sec-t">${t}</div><div>${esc(v)}</div></div>` : '';
+    const moreMajorTable = majors.length > 8
+      ? `<div style="overflow-x:auto"><table class="bk-table">
+           <tr><th>招生专业</th><th>专业大类</th><th style="text-align:right">计划</th><th>职业技能测试/备注</th></tr>
+           ${majorRows(majors.slice(8))}
+         </table></div>`
+      : '';
+    const srcBlock = (s.sources && s.sources.length)
+      ? `<div class="bk-sec"><div class="bk-sec-t">来源（官方）</div><div style="font-size:11.5px;line-height:1.6">${
+          s.sources.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" style="color:var(--primary);word-break:break-all">${esc(u)}</a>`).join('<br>')
+        }</div></div>`
+      : '';
+    const detail = kvHtml + majorTable +
+      `${(majors.length > 8 || exam.skill || exam.scoreFormula || s.conditions || s.admission || s.unresolved || moreMajorTable || srcBlock) ? `
+        <details class="zx-fold-inline" style="margin:8px 0 0">
+          <summary style="font-size:13px;padding:8px 11px">
+            <span>📋 考试办法 · 报考条件 · 录取规则${majors.length > 8 ? ' · 全部专业' : ''}</span>
+            <span class="zx-fold-hint"><span class="zx-fold-hint-text">展开</span><span class="zx-fold-collapse-text">收起</span><span class="zx-fold-arrow">▼</span></span>
+          </summary>
+          <div class="zx-fold-body" style="padding:10px 11px 2px">
+            ${sec('考试办法', exam.skill)}
+            ${exam.scoreFormula ? `<div class="bk-sec"><div class="bk-sec-t">成绩合成</div><div>${esc(exam.scoreFormula)}</div></div>` : ''}
+            ${sec('报考条件', s.conditions)}
+            ${sec('录取规则', s.admission)}
+            ${moreMajorTable}
+            ${s.unresolved && s.unresolved.length ? `<div class="bk-sec"><div class="bk-sec-t">未查到</div><div style="color:#ad6800">${esc(s.unresolved.join('；'))}</div></div>` : ''}
+            ${srcBlock}
+          </div>
+        </details>` : ''}`;
+
     return `
-      <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="college-card" style="display:block;margin-bottom:10px;border:1px solid #d3adf7">
+      <div class="college-card" style="display:block;margin-bottom:10px;border:1px solid #d3adf7">
         <div class="head">
-          <div class="name">${s.name}</div>
-          <span class="score" style="color:${s.nature === '公办' ? '#1677ff' : '#fa541c'};font-weight:600">${s.nature}</span>
+          <div class="name">${nameHref
+            ? `<a href="${esc(nameHref)}"${nameExt ? ' target="_blank" rel="noopener"' : ''} style="color:inherit;text-decoration:none">${esc(s.name)}</a>`
+            : esc(s.name)}</div>
+          <span class="score" style="color:${s.nature === '公办' ? '#1677ff' : '#fa541c'};font-weight:600">${esc(s.nature || '')}</span>
         </div>
         <div class="tags">
-          <span class="tag tag-type">${s.city}</span>
+          ${s.city ? `<span class="tag tag-type">${esc(s.city)}</span>` : ''}
           <span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">对口本科</span>
           ${local ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">本站已收录历年分数</span>' : ''}
+          ${s.confidence && s.confidence !== '高' ? `<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">数据置信度${esc(s.confidence)}</span>` : ''}
         </div>
-        <div class="meta-row">
-          <span style="font-size:12px">${s.note || ''}</span>
-          ${external ? '<span style="font-size:12px;color:var(--text-light)">官网 ›</span>' : ''}
-        </div>
-      </a>`;
-  }).join('') || '<div class="empty" style="padding:30px 20px"><div class="icon">🎓</div><div>未找到匹配的对口本科院校</div></div>';
+        ${bits.length ? `<div class="meta-row"><span style="font-size:12.5px">${bits.join(' · ')}</span>${
+          local ? `<a href="college-detail.html?id=${local.id}" style="font-size:12px;color:var(--primary)">看历年分数 ›</a>`
+                : (external ? `<a href="${esc(site)}" target="_blank" rel="noopener" style="font-size:12px;color:var(--primary)">官网 ›</a>` : '')
+        }</div>` : ''}
+        ${detail}
+      </div>`;
+  }).join('');
 }
 
 function renderBenke() {
@@ -1151,10 +1230,12 @@ function renderZhongzhi() {
         nav: true,
         tip: '中职生也可升入全日制本科（应用型本科对口招生），单独划线、单独录取。',
       }) +
-      '<div class="section-title" id="zz-benke-schools" style="margin:14px 12px 8px">对口本科招生院校（共 10 所）</div>' +
+      '<div class="section-title" id="zz-benke-schools" style="margin:14px 12px 8px">对口本科招生院校（' +
+        ((typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length) ? BENKE_SCHOOLS.length : 0) + ' 所）</div>' +
       '<div style="padding:0 12px" id="zz-benke-cards"></div>' +
       '<div class="bk-block" style="margin-top:10px">' +
-        '<p style="font-size:12px;color:#666">📌 其中<b>宿州学院已收录在本站</b>，可直接查看历年分数走势；' +
+        '<p style="font-size:12px;color:#666">📌 名单依据安徽省教育招生考试院「应用型本科对口招生章程」栏目。其中' +
+        '<b>宿州学院、芜湖职业技术大学、安徽职业技术大学、安徽艺术学院已收录在本站</b>，可直接查看历年分数走势；' +
         '其余院校点击进入官网查询最新章程。<b>分专业计划与选考类别以各院校当年对口招生章程为准。</b></p>' +
       '</div>' +
       renderBenkeBlocks();
