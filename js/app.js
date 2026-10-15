@@ -631,9 +631,14 @@ function renderCollegeDetail() {
       <div style="font-size:13px;color:#ad6800;font-weight:600;margin-bottom:6px">📐 取分规则（2026年院校章程）</div>
       <div style="font-size:15px;color:#5c3a00;font-weight:600;line-height:1.6">${c.scoreComposition}</div>
     </div>` : '';
-  // 退役军人专项计划应录尽录显眼展示
-  const hasYinglu = c.retiredMilitaryPolicy && (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 || c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 || c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
-  const yingluHtml = hasYinglu ? `
+  // 退役军人专项计划录取政策：**仅**在"从专项计划页进入"时显示。
+  // 普通浏览（普高/中职/对口等入口）不展示退役军人政策，避免误导非专项考生。
+  const showTuiyiPolicy = fromCat === 'zhuanxiang-tuiyi';
+  const hasYinglu = showTuiyiPolicy && c.retiredMilitaryPolicy &&
+    (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
+  const yingluHtml = !showTuiyiPolicy ? '' : (hasYinglu ? `
     <div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:2px solid #52c41a;border-radius:12px;padding:14px 16px;margin:10px 0">
       <div style="font-size:13px;color:#389e0d;font-weight:700;margin-bottom:6px">⭐ 退役军人专项计划 · 应录尽录</div>
       <div style="font-size:16px;color:#135200;font-weight:700;line-height:1.6">${c.retiredMilitaryPolicy}</div>
@@ -641,7 +646,7 @@ function renderCollegeDetail() {
     <div style="background:#f5f5f5;border:1px solid #d9d9d9;border-radius:8px;padding:10px 14px;margin:10px 0">
       <div style="font-size:13px;color:#595959;font-weight:600;margin-bottom:4px">退役军人专项计划录取政策</div>
       <div style="font-size:14px;color:#262626;line-height:1.5">${c.retiredMilitaryPolicy}</div>
-    </div>` : '');
+    </div>` : ''));
   // 校考入围（二次划线）机制提示
   const secondCutoffHtml = (c.secondCutoff && c.secondCutoff.enabled) ? `
     <div style="background:linear-gradient(135deg,#fffbe6,#fff1b8);border:2px solid #faad14;border-radius:12px;padding:14px 16px;margin:10px 0">
@@ -693,8 +698,13 @@ function renderScoreChart(c) {
   if (!el) return;
   // 更新分数图标题
   const titleEl = el.closest('.chart-box') ? el.closest('.chart-box').querySelector('.chart-title') : null;
-  // 退役军人专项计划应录尽录：替换线状图为应录尽录提示
-  const hasYinglu = c.retiredMilitaryPolicy && (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 || c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 || c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
+  // 退役军人专项计划政策只在"从专项计划页进入"时展示（见 renderCollegeDetail）。
+  // 这里不再用政策替换分数走势图——普通考生看到的是分数走势，不该被专项政策覆盖。
+  const showTuiyiPolicy = getQuery('category') === 'zhuanxiang-tuiyi';
+  const hasYinglu = showTuiyiPolicy && c.retiredMilitaryPolicy &&
+    (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
   if (hasYinglu) {
     if (titleEl) titleEl.innerHTML = '🎖️ 退役军人专项计划 · <strong>应录尽录</strong>';
     el.innerHTML = `
@@ -880,8 +890,12 @@ function renderTrendChart(c) {
   el.style.background = '';
   el.style.borderRadius = '';
   el.style.border = '';
-  // 退役军人专项计划应录尽录：替换线状图为应录尽录提示
-  const hasYinglu = c.retiredMilitaryPolicy && (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 || c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 || c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
+  // 退役军人专项计划政策只在"从专项计划页进入"时展示；否则正常画分数走势图。
+  const showTuiyiPolicy = getQuery('category') === 'zhuanxiang-tuiyi';
+  const hasYinglu = showTuiyiPolicy && c.retiredMilitaryPolicy &&
+    (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
+     c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
   if (hasYinglu) {
     el.innerHTML = `
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;min-height:280px">
