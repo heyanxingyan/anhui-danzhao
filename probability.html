@@ -267,7 +267,7 @@
       const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
 
       // 计算录取概率
-      const probability = calcProbability(totalScore, estLine, preLine, plan, college);
+      const probability = calcProbability(totalScore, estLine, preLine, plan, college, major);
 
       // 显示结果
       document.getElementById('prob-result-area').style.display = 'block';
@@ -312,27 +312,77 @@
     }
 
     function estimateCutoff(college, major) {
-      const baseScore = college.minScore2024 || 200;
-      let est;
-      if (currentProbType === 'zhongzhi') {
-        est = baseScore / 600 * 750;
-      } else {
-        est = baseScore;
-      }
-      const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
-      if (plan > 200) est -= 15;
-      else if (plan > 100) est -= 8;
-      else if (plan < 30) est += 10;
-      
+      // 优先使用2026年真实数据
       if (college.realScore2026) {
-        const rs = Number(college.realScore2026.match(/\d+/)?.[0] || 0);
-        if (rs > 0) est = rs;
+        const nums = college.realScore2026.match(/\d+/g);
+        if (nums && nums.length > 0) {
+          const rs = Math.max(...nums.map(Number));
+          // 判断分数制：300分制还是600分制
+          const sc = college.scoreComposition || '';
+          const totalMax = getTotalMax(college);
+          if (rs <= totalMax) return rs;
+        }
       }
+
+      // 基于抖音多源数据的文化课分数线梯队
+      // 头部260+ / 合肥热门230+ / 地级市220+ / 普通公办180+ / 低分公办150-160
+      let cultureEst;
+      const hotSchools = ['安徽职业技术大学','芜湖职业技术大学','安徽应用技术职业大学','安徽第二医学院','合肥职业技术学院','安徽水利水电职业技术学院','安徽交通职业技术学院','安徽警官职业学院'];
+      const hefeiHot = ['安徽审计职业学院','安徽工商职业学院','安徽财贸职业学院','安徽城市管理职业学院','安徽公安职业学院','安徽中医药高等专科学校','安徽医学高等专科学校'];
+      const isHot = hotSchools.some(s => college.name.includes(s.replace('职业技术大学','').replace('职业技术学院',''))) || college.hot;
+      const isHefei = college.city === '合肥';
       
-      return Math.round(est);
+      if (isHot) cultureEst = 260;
+      else if (isHefei && hefeiHot.some(s => college.name.includes(s))) cultureEst = 230;
+      else if (isHefei) cultureEst = 210;
+      else if (college.type === '医药类' || college.type === '师范类') cultureEst = 220;
+      else cultureEst = 180;
+
+      // 校考预估分：平均水平约60-70%
+      const examMax = getExamMax(college);
+      const examEst = examMax * 0.65;
+
+      // 按学校规则计算综合分
+      const sc = college.scoreComposition || '';
+      let totalEst;
+      if (sc.includes('文化×40%+校考×60%') || sc.includes('校考×60%+文化×40%')) {
+        totalEst = cultureEst * 0.4 + examEst * 0.6;
+      } else if (sc.includes('文化×50%+校考×50%') || sc.includes('校考×50%+文化×50%')) {
+        totalEst = cultureEst * 0.5 + examEst * 0.5;
+      } else if (sc.includes('文化×30%+职业技能×70%') || sc.includes('职业技能×70%')) {
+        totalEst = cultureEst * 0.3 + examEst * 0.7;
+      } else {
+        totalEst = cultureEst + examEst;
+      }
+
+      // 根据招生计划调整
+      const plan = currentProbType === 'gaozhong' ? (major.plan2026Gaozhong || 0) : (major.plan2026Zhongzhi || 0);
+      if (plan > 200) totalEst -= 15;
+      else if (plan > 100) totalEst -= 8;
+      else if (plan < 30 && plan > 0) totalEst += 8;
+
+      // 志愿优先学校，冷门专业可以更低
+      const rule = college.admissionRule2026 || '';
+      if (rule.includes('志愿优先') || rule.includes('专业优先') || rule.includes('专业清')) {
+        // 志愿优先的学校，专业间分差大，按冷门专业再减10分
+        const coldMajorPattern = /材料|养老|纺织|农林|畜牧|水产|地质|矿业|殡葬|图书馆|档案/;
+        if (coldMajorPattern.test(major.name)) {
+          totalEst -= 30;
+        }
+      }
+
+      return Math.round(totalEst);
     }
 
-    function calcProbability(yourScore, estLine, preLine, plan, college) {
+    function getTotalMax(college) {
+      const sc = college.scoreComposition || '';
+      if (sc.includes('总分700')) return 700;
+      if (sc.includes('总分750')) return 750;
+      if (sc.includes('×50%') || sc.includes('×40%') || sc.includes('×60%')) return 300;
+      return 600;
+    }
+
+    function calcProbability(yourScore, estLine, preLine, plan, college, major) {
       const diff = yourScore - estLine;
       let prob;
       
@@ -340,20 +390,43 @@
       else if (diff >= 15) prob = 85;
       else if (diff >= 5) prob = 72;
       else if (diff >= -5) prob = 55;
-      else if (diff >= -15) prob = 35;
-      else if (diff >= -25) prob = 18;
-      else prob = 5;
+      else if (diff >= -15) prob = 38;
+      else if (diff >= -25) prob = 22;
+      else if (diff >= -40) prob = 10;
+      else prob = 3;
 
+      // 120%预录取线：过线就有较大机会（120%投档规则，会有递补）
       if (yourScore >= preLine && yourScore < estLine) {
-        prob = Math.max(prob, 45);
+        prob = Math.max(prob, 48);
       }
 
+      const rule = college.admissionRule2026 || '';
+      const isVolunteerFirst = rule.includes('志愿优先') || rule.includes('专业优先') || rule.includes('专业清');
+      const isScoreFirst = rule.includes('分数优先');
+
+      // 志愿优先/专业优先学校：冷门专业有捡漏机会
+      if (isVolunteerFirst) {
+        const coldMajorPattern = /材料|养老|纺织|农林|畜牧|水产|地质|矿业|殡葬|图书馆|档案|休闲|体育|艺术|音乐|表演|书画|体能/;
+        if (coldMajorPattern.test(major.name)) {
+          prob += 15; // 冷门专业额外加15%
+        }
+        // 志愿优先整体比分数优先波动大，低分有机会
+        if (diff < 0) prob += 5;
+      }
+
+      // 分数优先学校：没有捡漏，分不够就是不行
+      if (isScoreFirst && diff < -20) {
+        prob -= 8;
+      }
+
+      // 学校热度调整
       if (college.hot) prob -= 5;
       
+      // 招生计划调整
       if (plan >= 200) prob += 5;
-      else if (plan <= 30) prob -= 5;
+      else if (plan <= 30 && plan > 0) prob -= 5;
 
-      return Math.max(2, Math.min(98, prob));
+      return Math.max(2, Math.min(97, prob));
     }
 
     // 初始化
