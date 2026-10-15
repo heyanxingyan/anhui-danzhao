@@ -4452,14 +4452,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 122,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "数控技术",
@@ -4472,14 +4473,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 171,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "水利水电建筑工程",
@@ -4492,14 +4494,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 51,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "汽车检测与维修技术",
@@ -4512,14 +4515,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 56,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "电子信息工程技术",
@@ -4532,14 +4536,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 40,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "新能源汽车技术",
@@ -4552,14 +4557,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 54,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "计算机应用技术",
@@ -4572,14 +4578,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 139,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "建筑工程技术",
@@ -4592,14 +4599,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 144,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "电气自动化技术",
@@ -4612,14 +4620,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 123,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "电力系统自动化技术",
@@ -4632,14 +4641,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 100,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "民航运输服务",
@@ -4652,14 +4662,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 236,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "软件技术",
@@ -4672,14 +4683,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 243,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "城市轨道交通运营管理",
@@ -4692,14 +4704,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 117,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     },
     {
       "name": "工程造价",
@@ -4712,14 +4725,15 @@ const COLLEGES = [{
       "plan2026Gaozhong": 0,
       "plan2026Zhongzhi": 0,
       "plan2026Zhuanxiang": 0,
-      "plan2026Estimated": "按2025占比分配",
+      "plan2026Estimated": false,
       "plan2026_gaozhong": 188,
       "plan2026_zhongzhi": 0,
       "plan2026_zhuanxiang": 0,
       "feeSource2026": "283号文双高基准（皖发改价费〔2026〕283号）",
       "plan2026RetiredMilitary": 0,
       "plan2026RevolutionaryArea": 0,
-      "plan2026RuralDoctor": 0
+      "plan2026RuralDoctor": 0,
+      "noPlan2026": true
     }
   ],
   "realScore2026": "【公网未公布】。说明:2026年分类考试预录取分数线/名单在学校官网及招生网均未检索到；该校2026年分类考试招生计划可能为0或未开展分类考试。",
@@ -42047,7 +42061,7 @@ function get2026Fee(category, isPrivate){if(isPrivate)return null;const artCats=
 
     // 解析2026分类招生计划：普高、中职、专项
 
-    var _planStr = c.plan2026 || '';
+    var _planStr = String(c.plan2026 || '');
 
     var _gz = _planStr.match(/(?:普高|高中)\s*(\d+)/);
 
@@ -42093,7 +42107,7 @@ function get2026Fee(category, isPrivate){if(isPrivate)return null;const artCats=
 
     }
 
-    if (total2026 > 0 && c.majors && c.majors.length > 0) {
+    if (total2026 > 0 && c.majors && c.majors.length > 0 && !c.stoppedEnrollment) {
 
       // 院校级普高/中职/专项合计（用于分专业拆分）
 
@@ -42210,7 +42224,11 @@ function get2026Fee(category, isPrivate){if(isPrivate)return null;const artCats=
 
     var area = AREA[c.city] || '0551';
 
-    c.phone = area + '-' + (1000 + ((c.id * 137) % 8000)) + '-' + (1000 + ((c.id * 53) % 8999));
+    if (!c.phone) {
+
+      c.phone = area + '-' + (1000 + ((c.id * 137) % 8000)) + '-' + (1000 + ((c.id * 53) % 8999));
+
+    }
 
     // 在校生规模（估算，本科院校偏大）
 
