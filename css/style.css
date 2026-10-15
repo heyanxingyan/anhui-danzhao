@@ -842,6 +842,61 @@ input, select {
   margin-bottom: 8px;
 }
 
+/* ========== 可折叠说明块（专项计划模块的招生说明收纳） ==========
+   用原生 <details>/<summary>：无 JS 也能展开，且对读屏友好。
+   默认收起，让下方的院校卡片列表直接露出来。 */
+.zx-fold {
+  background: #fff;
+  margin: 10px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.zx-fold > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  user-select: none;
+}
+
+.zx-fold > summary::-webkit-details-marker { display: none; }
+.zx-fold > summary::marker { content: ''; }
+
+.zx-fold > summary .zx-fold-hint {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zx-fold > summary .zx-fold-arrow {
+  display: inline-block;
+  transition: transform .18s ease;
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.zx-fold[open] > summary .zx-fold-arrow { transform: rotate(180deg); }
+.zx-fold[open] > summary { border-bottom: 1px solid #f0f0f0; }
+
+/* 收起时隐藏"点击展开"提示语 */
+.zx-fold[open] > summary .zx-fold-hint-text { display: none; }
+.zx-fold:not([open]) > summary .zx-fold-collapse-text { display: none; }
+
+.zx-fold-body { padding: 14px 16px 16px; }
+.zx-fold-body h3 { font-size: 15px; margin-bottom: 10px; color: var(--text); }
+.zx-fold-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+
 /* ========== Toast ========== */
 .toast {
   position: fixed;
