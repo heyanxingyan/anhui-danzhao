@@ -26094,7 +26094,7 @@ const COLLEGES = [{
     }
   },
   "majors": [
-    {
+        {
       "name": "学前教育",
       "code": "570102K",
       "category": "jiaoyu",
@@ -26109,8 +26109,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 480, "dibu": 475, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 440, "dibu": 435, "source": "预估"},
     },
-    {
+        {
       "name": "烹饪工艺与营养",
       "code": "540202",
       "category": "lvyou",
@@ -26125,8 +26127,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 465, "dibu": 460, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 420, "dibu": 415, "source": "预估"},
     },
-    {
+        {
       "name": "酒店管理与数字化运营",
       "code": "540106",
       "category": "lvyou",
@@ -26141,8 +26145,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 484, "dibu": 478, "source": "2026预录取公示"},
+      "score2026Zhongzhi": {"pre": 452, "dibu": 442, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "旅游管理",
       "code": "540101",
       "category": "lvyou",
@@ -26157,8 +26163,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 468, "dibu": 463, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 425, "dibu": 420, "source": "预估"},
     },
-    {
+        {
       "name": "汽车检测与维修技术",
       "code": "500211",
       "category": "jiaotong",
@@ -26173,8 +26181,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 475, "dibu": 470, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 425, "dibu": 420, "source": "预估"},
     },
-    {
+        {
       "name": "应用化工技术",
       "code": "470201",
       "category": "huaong",
@@ -26189,8 +26199,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 457, "dibu": 449, "source": "2026预录取公示"},
+      "score2026Zhongzhi": {"pre": 456, "dibu": 416, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "电气自动化技术",
       "code": "460306",
       "category": "zhuangbei",
@@ -26205,8 +26217,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 485, "dibu": 480, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 435, "dibu": 430, "source": "预估"},
     },
-    {
+        {
       "name": "工业机器人技术",
       "code": "460305",
       "category": "zhuangbei",
@@ -26221,8 +26235,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 482, "dibu": 477, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
     },
-    {
+        {
       "name": "机电一体化技术",
       "code": "460301",
       "category": "zhuangbei",
@@ -26237,8 +26253,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 440, "dibu": 435, "source": "预估"},
+      "score2026Gaozhong": {"pre": 493, "dibu": 488, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "模具设计与制造",
       "code": "460113",
       "category": "zhuangbei",
@@ -26253,8 +26271,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
+      "score2026Gaozhong": {"pre": 484, "dibu": 480, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "数控技术",
       "code": "460103",
       "category": "zhuangbei",
@@ -26269,8 +26289,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 487, "dibu": 484, "source": "2026预录取公示"},
+      "score2026Zhongzhi": {"pre": 431, "dibu": 425, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "智能控制技术",
       "code": "460303",
       "category": "zhuangbei",
@@ -26285,8 +26307,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 475, "dibu": 470, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 406, "dibu": 400, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "大数据与会计",
       "code": "530302",
       "category": "caijing",
@@ -26301,8 +26325,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 514, "dibu": 508, "source": "2026预录取公示"},
+      "score2026Zhongzhi": {"pre": 514, "dibu": 508, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "电子商务",
       "code": "530701",
       "category": "caijing",
@@ -26317,8 +26343,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 490, "dibu": 485, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 494, "dibu": 487, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "跨境电子商务",
       "code": "530702",
       "category": "caijing",
@@ -26333,8 +26361,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 445, "dibu": 440, "source": "预估"},
+      "score2026Gaozhong": {"pre": 485, "dibu": 480, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "现代物流管理",
       "code": "530802",
       "category": "caijing",
@@ -26349,8 +26379,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 470, "dibu": 465, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
     },
-    {
+        {
       "name": "大数据技术",
       "code": "510205",
       "category": "dianzi",
@@ -26365,8 +26397,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 490, "dibu": 485, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 445, "dibu": 440, "source": "预估"},
     },
-    {
+        {
       "name": "电子信息工程技术",
       "code": "510101",
       "category": "dianzi",
@@ -26381,8 +26415,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 478, "dibu": 473, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 425, "dibu": 420, "source": "预估"},
     },
-    {
+        {
       "name": "应用电子技术",
       "code": "510103",
       "category": "dianzi",
@@ -26397,8 +26433,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 470, "dibu": 465, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 415, "dibu": 410, "source": "预估"},
     },
-    {
+        {
       "name": "计算机网络技术",
       "code": "510202",
       "category": "dianzi",
@@ -26413,8 +26451,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 488, "dibu": 483, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 440, "dibu": 435, "source": "预估"},
     },
-    {
+        {
       "name": "计算机应用技术",
       "code": "510201",
       "category": "dianzi",
@@ -26429,8 +26469,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 486, "dibu": 481, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 438, "dibu": 433, "source": "预估"},
     },
-    {
+        {
       "name": "软件技术",
       "code": "510203",
       "category": "dianzi",
@@ -26445,8 +26487,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 492, "dibu": 487, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 448, "dibu": 443, "source": "预估"},
     },
-    {
+        {
       "name": "数字媒体技术",
       "code": "510204",
       "category": "dianzi",
@@ -26461,8 +26505,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 475, "dibu": 470, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 416, "dibu": 411, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "信息安全技术应用",
       "code": "510207",
       "category": "dianzi",
@@ -26477,8 +26523,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 16,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 480, "dibu": 475, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 428, "dibu": 420, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "智慧健康养老服务与管理",
       "code": "590302",
       "category": "guanli",
@@ -26493,8 +26541,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 455, "dibu": 450, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 400, "dibu": 395, "source": "预估"},
     },
-    {
+        {
       "name": "护理",
       "code": "520201",
       "category": "yiyao",
@@ -26509,8 +26559,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 430, "dibu": 425, "source": "预估"},
+      "score2026Gaozhong": {"pre": 473, "dibu": 455, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "婴幼儿托育服务与管理",
       "code": "520802",
       "category": "yiyao",
@@ -26525,8 +26577,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 460, "dibu": 455, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 410, "dibu": 405, "source": "预估"},
     },
-    {
+        {
       "name": "康复治疗技术",
       "code": "520601",
       "category": "yiyao",
@@ -26541,8 +26595,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 470, "dibu": 465, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 415, "dibu": 410, "source": "预估"},
     },
-    {
+        {
       "name": "药学",
       "code": "520301",
       "category": "yiyao",
@@ -26557,8 +26613,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 435, "dibu": 430, "source": "预估"},
+      "score2026Gaozhong": {"pre": 476, "dibu": 466, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "医学检验技术",
       "code": "520501",
       "category": "yiyao",
@@ -26573,8 +26631,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 478, "dibu": 473, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 420, "dibu": 415, "source": "预估"},
     },
-    {
+        {
       "name": "医学影像技术",
       "code": "520502",
       "category": "yiyao",
@@ -26589,8 +26649,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 475, "dibu": 470, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 402, "dibu": 389, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "动漫设计",
       "code": "550116",
       "category": "yishu",
@@ -26605,8 +26667,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 468, "dibu": 463, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 408, "dibu": 403, "source": "预估"},
     },
-    {
+        {
       "name": "工艺美术品设计",
       "code": "550112",
       "category": "yishu",
@@ -26621,8 +26685,10 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 15,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Zhongzhi": {"pre": 415, "dibu": 410, "source": "预估"},
+      "score2026Gaozhong": {"pre": 474, "dibu": 466, "source": "2026预录取公示"},
     },
-    {
+        {
       "name": "广告艺术设计",
       "code": "550113",
       "category": "yishu",
@@ -26637,6 +26703,8 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 468, "dibu": 463, "source": "预估"},
+      "score2026Zhongzhi": {"pre": 406, "dibu": 401, "source": "2026预录取公示"},
     },
     {
       "name": "环境艺术设计",
@@ -26653,9 +26721,11 @@ const COLLEGES = [{
       "plan2026RevolutionaryArea": 0,
       "plan2026RuralDoctor": 0,
       "plan2026Estimated": false
+      "score2026Gaozhong": {"pre": 474, "dibu": 464, "source": "2026预录取公示"},
+      "score2026Zhongzhi": {"pre": 415, "dibu": 410, "source": "预估"},
     }
   ],
-  "realScore2026": "【公网未公布】。说明:学校未在官网公开发布2026分类考试分专业录取最低分数线，仅公示录取名单。",
+  "realScore2026": "【2026预录取公示，27张截图交叉验证】普高：大数据与会计514/机电一体化493/数控487/跨境电商485/模具484/酒店管理484/药学476/环境艺术474/工艺美术474/护理473/应用化工457；中职：大数据与会计514/电子商务494/应用化工456/酒店管理452/数控431/信息安全428/数字媒体416/广告艺术406/智能控制406/医学影像402（均为600分制，文化+校考直接相加）",
   "scoreSources2026": [
     "https://www.tlpt.net.cn/zsjy/zszt/zsdt/index.html",
     "https://www.tl.gov.cn/openness/OpennessContent/show/1142093.html"
