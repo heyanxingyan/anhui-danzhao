@@ -450,7 +450,7 @@ function renderCollegeDetail() {
   // 头部
   const head = document.getElementById('detail-head');
   head.innerHTML = `
-    <div class="name">${c.name}${c.isUndergraduate ? ' <span style="font-size:12px;background:#722ed1;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">🏫 对口本科</span>' : ''}${c.stoppedEnrollment ? ' <span style="font-size:12px;background:#ff4d4f;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 2026年已停招</span>' : ''}</div>
+    <div class="name">${c.name}${c.isUndergraduate ? ' <span style="font-size:12px;background:#722ed1;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">🏫 对口本科</span>' : ''}${c.stoppedEnrollment ? ' <span style="font-size:12px;background:#ff4d4f;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 2026年已停招</span>' : ''}${(c.secondCutoff && c.secondCutoff.enabled) ? ' <span style="font-size:12px;background:#faad14;color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px">⚠️ 校考入围</span>' : ''}</div>
     <div class="sub">
       <span>📍 ${c.city}</span>
       <span>${c.nature}</span>
@@ -583,9 +583,18 @@ function renderCollegeDetail() {
       <div style="font-size:13px;color:#595959;font-weight:600;margin-bottom:4px">退役军人专项计划录取政策</div>
       <div style="font-size:14px;color:#262626;line-height:1.5">${c.retiredMilitaryPolicy}</div>
     </div>` : '');
+  // 校考入围（二次划线）机制提示
+  const secondCutoffHtml = (c.secondCutoff && c.secondCutoff.enabled) ? `
+    <div style="background:linear-gradient(135deg,#fffbe6,#fff1b8);border:2px solid #faad14;border-radius:12px;padding:14px 16px;margin:10px 0">
+      <div style="font-size:14px;color:#ad6800;font-weight:700;margin-bottom:8px">⚠️ 校考入围（二次划线）机制</div>
+      <div style="font-size:14px;color:#614700;line-height:1.7;margin-bottom:6px"><b>入围比例：</b>${c.secondCutoff.ratio}</div>
+      <div style="font-size:13px;color:#874d00;line-height:1.7">${c.secondCutoff.note}</div>
+      <div style="font-size:12px;color:#d46b08;margin-top:8px;line-height:1.6">提示：文化统考未达入围线将无法参加校考，志愿直接作废；建议先用下方"录取概率测算"查看自己的文化分是否稳妥。</div>
+    </div>` : '';
   document.getElementById('panel-rule').innerHTML = `
     <div class="about-section" style="margin:8px 12px">
       <h3>📌 录取规则（${ruleLabel}）</h3>
+      ${secondCutoffHtml}
       ${yingluHtml}
       ${scoreCompHtml}
       <p><b>录取规则：</b>${c.admissionRule2026 || '参考院校章程'}</p>
