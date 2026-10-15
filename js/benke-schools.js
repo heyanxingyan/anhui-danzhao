@@ -1168,7 +1168,10 @@ var BENKE_SCHOOLS = [
       "https://www.cuhf.edu.cn/zsb/2026/0309/c1461a33897/page.htm",
       "https://www.cuhf.edu.cn/_upload/article/files/ee/e4/e52fc72f453bb9eac7769cd70552/3101f2ec-f0ba-4378-af96-fa10afb752bb.pdf",
       "https://www.cuhf.edu.cn/zsb/2026/0325/c1463a34134/page.htm",
-      "https://www.cuhf.edu.cn/_upload/article/files/12/d1/c5e00bc34883951eb299fadf1e77/2114d3cb-ae44-4bad-89e8-012d96339dd4.xlsx"
+      "https://www.cuhf.edu.cn/_upload/article/files/12/d1/c5e00bc34883951eb299fadf1e77/2114d3cb-ae44-4bad-89e8-012d96339dd4.xlsx",
+      "https://www.cuhf.edu.cn/zsb/2026/0403/c1447a34302/page.htm",
+      "https://www.cuhf.edu.cn/zsb/2025/0327/c354a30480/page.htm",
+      "https://www.cuhf.edu.cn/zsb/2024/0416/c359a26402/page.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8694.htm 当前返回空模板，未取到正文，改用学校招生网2026年章程",
@@ -1190,7 +1193,62 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 93
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://www.cuhf.edu.cn/zsb/2026/0403/c1447a34302/page.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "同分排序规则原文：依据章程第八项第一款第三条规定：如考生总分相同时，则按单科顺序及分数从高到低排序，择优录取，排序依次为专业理论考试成绩、技能测试成绩、文化素质测试成绩。",
+      "lines": [
+        {
+          "major": "电子信息工程",
+          "score": 579,
+          "note": ""
+        },
+        {
+          "major": "建筑电气与智能化",
+          "score": 617,
+          "note": ""
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://www.cuhf.edu.cn/zsb/2025/0327/c354a30480/page.htm",
+          "lines": [
+            {
+              "major": "电子信息工程",
+              "score": 630,
+              "note": ""
+            },
+            {
+              "major": "建筑电气与智能化",
+              "score": 566,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://www.cuhf.edu.cn/zsb/2024/0416/c359a26402/page.htm",
+          "lines": [
+            {
+              "major": "电子信息工程",
+              "score": 516,
+              "note": ""
+            },
+            {
+              "major": "建筑电气与智能化",
+              "score": 517,
+              "note": ""
+            }
+          ],
+          "planVsAdmitted": "原文：「共录取160名同学」"
+        }
+      ]
+    }
   },
   {
     "name": "淮北理工学院",
@@ -1314,7 +1372,10 @@ var BENKE_SCHOOLS = [
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096469",
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096468",
       "https://zsb.hblgxy.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1817671833&wbfileid=12096467",
-      "https://zsb.hblgxy.edu.cn/zslx/dkbk.htm"
+      "https://zsb.hblgxy.edu.cn/zslx/dkbk.htm",
+      "https://zsb.hblgxy.edu.cn/info/1020/2369.htm",
+      "https://zsb.hblgxy.edu.cn/info/1031/2332.htm",
+      "https://zsb.hblgxy.edu.cn/info/1020/2133.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8693.htm 当前 404，未取到正文，改用学校招生网2026年章程PDF",
@@ -1339,7 +1400,181 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 644
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zsb.hblgxy.edu.cn/info/1020/2369.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "同分排序规则原文：备注：如考生总分相同时，则按单科顺序及分数从高到低依次录取，单科排序为专业理论考试、技能测试、文化素质测试。",
+      "lines": [
+        {
+          "major": "电子商务",
+          "score": 628.5,
+          "note": ""
+        },
+        {
+          "major": "工程管理",
+          "score": 500,
+          "note": ""
+        },
+        {
+          "major": "化学工程与工艺",
+          "score": 644,
+          "note": ""
+        },
+        {
+          "major": "机械设计制造及其自动化",
+          "score": 621,
+          "note": ""
+        },
+        {
+          "major": "市场营销",
+          "score": 634,
+          "note": ""
+        },
+        {
+          "major": "土木工程",
+          "score": 534,
+          "note": ""
+        },
+        {
+          "major": "物流管理",
+          "score": 642.5,
+          "note": "原表备注：总分相同、专业理论考试成绩相同，技能测试成绩217.50分"
+        },
+        {
+          "major": "学前教育（师范）",
+          "score": 631.6,
+          "note": ""
+        },
+        {
+          "major": "应用化学",
+          "score": 658,
+          "note": "原表备注：总分相同，专业理论考试成绩179.00分"
+        },
+        {
+          "major": "自动化",
+          "score": 637,
+          "note": ""
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://zsb.hblgxy.edu.cn/info/1031/2332.htm",
+          "lines": [
+            {
+              "major": "电子商务",
+              "score": 661.5,
+              "note": ""
+            },
+            {
+              "major": "工程管理",
+              "score": 605,
+              "note": ""
+            },
+            {
+              "major": "化学工程与工艺",
+              "score": 636,
+              "note": ""
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 636,
+              "note": "原表备注：总分相同时按专业理论考试168分"
+            },
+            {
+              "major": "市场营销",
+              "score": 652,
+              "note": "原表备注：总分相同时按专业理论考试175分"
+            },
+            {
+              "major": "土木工程",
+              "score": 614,
+              "note": ""
+            },
+            {
+              "major": "物流管理",
+              "score": 653.5,
+              "note": ""
+            },
+            {
+              "major": "学前教育（师范）",
+              "score": 665.18,
+              "note": ""
+            },
+            {
+              "major": "应用化学",
+              "score": 587,
+              "note": ""
+            },
+            {
+              "major": "自动化",
+              "score": 605,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://zsb.hblgxy.edu.cn/info/1020/2133.htm",
+          "lines": [
+            {
+              "major": "电子商务",
+              "score": 633,
+              "note": ""
+            },
+            {
+              "major": "工程管理",
+              "score": 528,
+              "note": ""
+            },
+            {
+              "major": "化学工程与工艺",
+              "score": 656,
+              "note": ""
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 604,
+              "note": ""
+            },
+            {
+              "major": "市场营销",
+              "score": 652,
+              "note": ""
+            },
+            {
+              "major": "土木工程",
+              "score": 547,
+              "note": ""
+            },
+            {
+              "major": "物流管理",
+              "score": 638,
+              "note": ""
+            },
+            {
+              "major": "学前教育",
+              "score": 628.58,
+              "note": ""
+            },
+            {
+              "major": "应用化学",
+              "score": 667,
+              "note": ""
+            },
+            {
+              "major": "自动化",
+              "score": 604,
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "合肥经济学院",
@@ -1412,7 +1647,10 @@ var BENKE_SCHOOLS = [
       "https://www.hfue.edu.cn/zsw/index.html",
       "https://www.hfue.edu.cn/zsw/col295/59029",
       "https://www.hfue.edu.cn/zsw/col295/60629",
-      "https://www.hfue.edu.cn/zsw/col295/61062"
+      "https://www.hfue.edu.cn/zsw/col295/61062",
+      "https://www.hfue.edu.cn/zsw/col295/62946",
+      "https://www.hfue.edu.cn/zsw/col295/44065",
+      "https://www.hfue.edu.cn/zsw/col295/32937"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8692.htm 当前 404，未取到正文，改用学校招生网2026年章程",
@@ -1449,7 +1687,106 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 80
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://www.hfue.edu.cn/zsw/col295/62946",
+      "scoreType": "总分",
+      "scoreFormulaNote": "同分排序规则原文（重复出现在各专业后）：依据章程第八项第一款第二条规定：如考生总分相同时，则按单科顺序分数从高到低排序，择优录取，单科排序为专业理论考试、专业技能测试、文化素质测试科目。",
+      "lines": [
+        {
+          "major": "财务管理",
+          "score": 665,
+          "note": "同分排序：专业理论193分"
+        },
+        {
+          "major": "电子商务",
+          "score": 648,
+          "note": "同分排序：专业理论188分"
+        },
+        {
+          "major": "网络工程",
+          "score": 673,
+          "note": "同分排序：专业理论168分"
+        },
+        {
+          "major": "机械设计制造及其自动化",
+          "score": 601,
+          "note": ""
+        },
+        {
+          "major": "工程造价",
+          "score": 537,
+          "note": ""
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://www.hfue.edu.cn/zsw/col295/44065",
+          "lines": [
+            {
+              "major": "财务管理",
+              "score": 671,
+              "note": ""
+            },
+            {
+              "major": "电子商务",
+              "score": 656,
+              "note": "同分排序：专业理论181分"
+            },
+            {
+              "major": "网络工程",
+              "score": 657,
+              "note": ""
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 623,
+              "note": "同分排序：专业理论141分"
+            },
+            {
+              "major": "工程造价",
+              "score": 557,
+              "note": "同分排序：专业理论101分"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://www.hfue.edu.cn/zsw/col295/32937",
+          "lines": [
+            {
+              "major": "财务管理",
+              "score": 614,
+              "note": ""
+            },
+            {
+              "major": "电子商务",
+              "score": 617,
+              "note": "同分排序：专业理论165分"
+            },
+            {
+              "major": "网络工程",
+              "score": 641,
+              "note": "同分排序：专业理论146分"
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 603,
+              "note": ""
+            },
+            {
+              "major": "工程造价",
+              "score": 474,
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "安徽外国语学院",
@@ -1502,7 +1839,10 @@ var BENKE_SCHOOLS = [
     "sources": [
       "https://www.aisu.edu.cn/zsb/info/1097/5189.htm",
       "https://www.aisu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1442701770&wbfileid=3177002",
-      "https://www.aisu.edu.cn/zsb/zsjh.htm"
+      "https://www.aisu.edu.cn/zsb/zsjh.htm",
+      "https://www.aisu.edu.cn/zsb/info/1097/5210.htm",
+      "https://www.aisu.edu.cn/zsb/info/1098/5008.htm",
+      "https://www.aisu.edu.cn/zsb/info/1098/4780.htm"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8691.htm 当前 404，未取到正文，改用学校招生网2026年章程（PDF 附件需通过验证码下载，已按站点要求完成下载后解析）",
@@ -1526,7 +1866,76 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 100
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://www.aisu.edu.cn/zsb/info/1097/5210.htm",
+      "scoreType": "总分",
+      "scoreFormulaNote": "原文：录取分数线（四舍五入保留到小数点后1位）；根据《安徽外国语学院2026年面向中职毕业生对口招生章程》规定，总分相同时，则按单科顺序及分数从高到低依次录取，排序为专业理论考试、专业技能测试、文化素质测试。",
+      "lines": [
+        {
+          "major": "电子商务",
+          "score": 602,
+          "note": "原文「602分」（未写小数位）"
+        },
+        {
+          "major": "旅游管理",
+          "score": 604.2,
+          "note": ""
+        },
+        {
+          "major": "酒店管理",
+          "score": 536.1,
+          "note": ""
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://www.aisu.edu.cn/zsb/info/1098/5008.htm",
+          "lines": [
+            {
+              "major": "电子商务",
+              "score": 632,
+              "note": "原文「632.0分」"
+            },
+            {
+              "major": "旅游管理",
+              "score": 595.2,
+              "note": ""
+            },
+            {
+              "major": "酒店管理",
+              "score": 610.4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://www.aisu.edu.cn/zsb/info/1098/4780.htm",
+          "lines": [
+            {
+              "major": "电子商务",
+              "score": 669,
+              "note": "原文「669.0分」"
+            },
+            {
+              "major": "旅游管理",
+              "score": 622.5,
+              "note": ""
+            },
+            {
+              "major": "酒店管理",
+              "score": 548.4,
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "安徽文达信息工程学院",
@@ -1634,7 +2043,10 @@ var BENKE_SCHOOLS = [
       "https://www.wenda.edu.cn/zs/display_34101.html",
       "https://www.wenda.edu.cn/zs/",
       "https://www.wenda.edu.cn/zs/m/display.php?id=34099",
-      "https://www.wenda.edu.cn/zs/info_101101.html"
+      "https://www.wenda.edu.cn/zs/info_101101.html",
+      "https://www.wenda.edu.cn/zs/M/display.php?id=34113",
+      "https://www.wenda.edu.cn/zs/m/display_24702.html",
+      "https://www.wenda.edu.cn/ZS/m/display.php?id=19339"
     ],
     "unresolved": [
       "省考试院章程页 https://www.ahzsks.cn/8690.htm 当前 404，未取到正文，改用学校招生网2026年章程全文",
@@ -1706,7 +2118,166 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 120
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://www.wenda.edu.cn/zs/M/display.php?id=34113",
+      "scoreType": "总分",
+      "scoreFormulaNote": "原文：1.划定资格线规定：播音与主持艺术、产品设计专业职业技能考试总分450分，270分及以上为合格，270分以下为不合格；网络工程、电气工程与智能控制、车辆工程、土木工程、互联网金融、旅游管理与服务教育、学前教育专业技能测试总分250分，150分及以上为合格，150分以下为不合格。文化素质测试未达省控线、职业技能考试或专业技能测试不合格者均不予录取。2.若考生总分相同，且名次为录取考生最后一名时，则按单科顺序分数从高到低排序，择优录取。单科排序为专业技能测试、专业理论考试、文化素质测试。",
+      "lines": [
+        {
+          "major": "网络工程",
+          "score": 667,
+          "note": ""
+        },
+        {
+          "major": "电气工程与智能控制",
+          "score": 570,
+          "note": ""
+        },
+        {
+          "major": "车辆工程",
+          "score": 549.5,
+          "note": ""
+        },
+        {
+          "major": "土木工程",
+          "score": 539,
+          "note": ""
+        },
+        {
+          "major": "互联网金融",
+          "score": 603.5,
+          "note": ""
+        },
+        {
+          "major": "旅游管理与服务教育",
+          "score": 616.17,
+          "note": ""
+        },
+        {
+          "major": "学前教育",
+          "score": 613.67,
+          "note": ""
+        },
+        {
+          "major": "播音与主持艺术",
+          "score": 595.67,
+          "note": ""
+        },
+        {
+          "major": "产品设计",
+          "score": 592.5,
+          "note": "原表备注：总分为592.5分的考生有两名，拟录取最后一名考生的职业技能考试成绩为368.5分"
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://www.wenda.edu.cn/zs/m/display_24702.html",
+          "lines": [
+            {
+              "major": "网络工程",
+              "score": 646,
+              "note": "原表备注：专业技能测试成绩246分"
+            },
+            {
+              "major": "电子信息工程",
+              "score": 561,
+              "note": ""
+            },
+            {
+              "major": "车辆工程",
+              "score": 597,
+              "note": ""
+            },
+            {
+              "major": "土木工程",
+              "score": 554,
+              "note": "原表备注：专业技能测试成绩229分"
+            },
+            {
+              "major": "互联网金融",
+              "score": 649,
+              "note": ""
+            },
+            {
+              "major": "旅游管理与服务教育",
+              "score": 629.33,
+              "note": ""
+            },
+            {
+              "major": "学前教育",
+              "score": 644.33,
+              "note": ""
+            },
+            {
+              "major": "播音与主持艺术",
+              "score": 594.99,
+              "note": ""
+            },
+            {
+              "major": "视觉传达设计",
+              "score": 601.7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://www.wenda.edu.cn/ZS/m/display.php?id=19339",
+          "lines": [
+            {
+              "major": "电子信息工程",
+              "score": 424,
+              "note": ""
+            },
+            {
+              "major": "机械设计制造及其自动化",
+              "score": 621,
+              "note": "原表备注：专业技能测试225分"
+            },
+            {
+              "major": "车辆工程",
+              "score": 616,
+              "note": "原表备注：专业技能测试231分"
+            },
+            {
+              "major": "土木工程",
+              "score": 536,
+              "note": ""
+            },
+            {
+              "major": "互联网金融",
+              "score": 595.84,
+              "note": ""
+            },
+            {
+              "major": "旅游管理与服务教育",
+              "score": 626.33,
+              "note": ""
+            },
+            {
+              "major": "播音与主持艺术",
+              "score": 585.67,
+              "note": ""
+            },
+            {
+              "major": "学前教育",
+              "score": 606.67,
+              "note": ""
+            },
+            {
+              "major": "视觉传达设计",
+              "score": 564,
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "name": "安徽三联学院",
@@ -1947,7 +2518,13 @@ var BENKE_SCHOOLS = [
       "https://www.ahzsks.cn/zyyx/8688.htm",
       "https://www.ahzsks.cn/pic/file/20260309/20260309102523_106.pdf",
       "https://zhaosheng.axhu.edu.cn/contents/2685/261497.html",
-      "https://www.ahzsks.cn/search2.jsp?c=231"
+      "https://www.ahzsks.cn/search2.jsp?c=231",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/263344.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2026/4/316173695.png",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/246913.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2025/3/271710781.png",
+      "https://zhaosheng.axhu.edu.cn/contents/2685/229850.html",
+      "https://zhaosheng.axhu.edu.cn/upload/2024/4/16185256559.png"
     ],
     "unresolved": [
       "省考试院栏目页给出的 /8688.htm 返回 404；实际可访问的章程页为 /zyyx/8688.htm，正文以 PDF 附件（https://www.ahzsks.cn/pic/file/20260309/20260309102523_106.pdf）形式发布，已完整解析",
@@ -1979,6 +2556,95 @@ var BENKE_SCHOOLS = [
         ],
         "plan": 70
       }
-    ]
+    ],
+    "scores2026Checked": true,
+    "scores2026": {
+      "year": 2026,
+      "publishedAt": "2026-04-03",
+      "sourceUrl": "https://zhaosheng.axhu.edu.cn/contents/2685/263344.html",
+      "scoreType": "混合",
+      "scoreFormulaNote": "页面未说明分数合成办法，仅公布各专业录取分数线表格（图片）。",
+      "lines": [
+        {
+          "major": "计算机科学与技术",
+          "score": 629,
+          "note": "总分"
+        },
+        {
+          "major": "财务管理",
+          "score": 633,
+          "note": "总分"
+        },
+        {
+          "major": "电子商务",
+          "score": 627.5,
+          "note": "总分"
+        },
+        {
+          "major": "舞蹈表演",
+          "score": 294.7,
+          "note": "综合分（艺术类，分值区间与普通类不同）"
+        },
+        {
+          "major": "音乐表演",
+          "score": 280.1,
+          "note": "综合分（艺术类，分值区间与普通类不同）"
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "sourceUrl": "https://zhaosheng.axhu.edu.cn/contents/2685/246913.html",
+          "lines": [
+            {
+              "major": "计算机科学与技术",
+              "score": 671,
+              "note": "总分"
+            },
+            {
+              "major": "电子商务",
+              "score": 622,
+              "note": "总分"
+            },
+            {
+              "major": "财务管理",
+              "score": 678,
+              "note": "总分"
+            },
+            {
+              "major": "表演",
+              "score": 302.3,
+              "note": "综合分（艺术类，分值区间与普通类不同）"
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "sourceUrl": "https://zhaosheng.axhu.edu.cn/contents/2685/229850.html",
+          "lines": [
+            {
+              "major": "计算机科学与技术",
+              "score": 654,
+              "note": "总分"
+            },
+            {
+              "major": "电子商务",
+              "score": 603,
+              "note": "总分"
+            },
+            {
+              "major": "财务管理",
+              "score": 626,
+              "note": "总分"
+            },
+            {
+              "major": "表演",
+              "score": 484.6,
+              "note": "艺术类，分值区间与普通类不同"
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
