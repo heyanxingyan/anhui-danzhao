@@ -1073,10 +1073,11 @@ function buildBenkeCards(keyword) {
 
     // 专业表（最多先显示 8 行，其余折叠）
     const majors = s.majors || [];
+    const catOf = (m) => m.categoryText || m.category || '';
     const majorRows = (arr) => arr.map((m) => `
       <tr>
         <td>${esc(m.name)}</td>
-        <td>${esc(m.categoryText || '')}</td>
+        <td>${esc(catOf(m))}</td>
         <td style="text-align:right">${m.plan != null ? esc(m.plan) : '—'}</td>
         <td>${esc(m.examSubjects || m.note || '')}</td>
       </tr>`).join('');

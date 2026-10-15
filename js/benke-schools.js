@@ -5,269 +5,956 @@
  *   https://www.ahzsks.cn/search2.jsp?c=231
  *   该页面明确「共 22 条记录」——2026 年面向中职毕业生对口招生的本科院校共 22 所。
  *
- * 字段说明：
- *   name/city/nature     校名、所在地、办学性质
- *   schoolSite           学校主站
- *   zhaoshengSite        招生网（对口招生栏目优先）
- *   charterUrl           省考试院发布的该校对口招生章程原文
- *   planTotal            对口招生总计划（人）；缺则 null
- *   majors[]             逐专业明细 {name, categoryText, plan, tuition, examSubjects, note}
- *   exam{}               考试办法 {culture, skill, totalScore, scoreFormula, testDate}
- *   conditions           报考条件
- *   admission            录取规则
- *   sources[]            数据出处（官方 URL）
- *   unresolved[]         查不到的项（如实列出，不编造）
- *   confidence           数据置信度：高 / 中 / 低
+ * 本文件由 tools/merge-benke-schools.js 依据 tools/_exam_research/benke_*.json 生成/更新。
+ * 字段说明见 tools/_exam_research/BENKE-采集规范.md。
  *
  * 注意：本文件替代了原先 data.js 里的 10 所简易名单（只有校名+官网，无实质数据）。
  */
 
 var BENKE_SCHOOLS = [
-  // ===== 地方公办本科 =====
   {
-    name: '宿州学院', city: '宿州', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.ahszu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8682.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8682.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "宿州学院",
+    "city": "宿州",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.ahszu.edu.cn/",
+    "zhaoshengSite": "https://www.ahszu.edu.cn/zs/",
+    "charterUrl": "https://www.ahzsks.cn/pic/file/20260309/20260309101759_599.pdf",
+    "charterYear": 2026,
+    "planTotal": 215,
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "category": "电子与信息大类（计算机类）",
+        "plan": 40,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "专业理论考试200分＋技能测试250分；技能测试为《电子与信息大类（计算机类）专业技能测试纲要》项目一（中英文录入）、项目二（操作系统管理）、项目三（文字处理）、项目四（电子表格）、项目五（Python结构化程序设计调试）、项目七（Python面向对象程序设计调试）",
+        "note": ""
+      },
+      {
+        "name": "旅游管理",
+        "category": "旅游大类（旅游类）",
+        "plan": 30,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "专业理论考试200分＋技能测试250分；技能测试为《旅游大类专业技能测试纲要》项目一（礼仪展示）、项目八（导游景点讲解）",
+        "note": ""
+      },
+      {
+        "name": "学前教育",
+        "category": "教育与体育大类（教育类）",
+        "plan": 45,
+        "tuition": "5060",
+        "years": 4,
+        "examSubjects": "专业理论考试200分＋技能测试250分；技能测试为项目一（讲演儿童故事）、项目二（钢琴弹唱）、项目三（自选舞蹈作品表演）、项目四（命题儿童画），具体要求见章程附件3",
+        "note": "师范类"
+      },
+      {
+        "name": "休闲体育",
+        "category": "教育与体育大类（体育类）",
+        "plan": 40,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "专业理论考试和技能测试合并实施；测试内容参见《教育与体育大类专业技能测试纲要》，具体要求另行公布（学校招生信息网）",
+        "note": "按运动专项招生：篮球5、足球5、排球5、武术套路9、技巧5、田径6、体育舞蹈5；田径只面向具备免测资格的考生招生；武术套路、技巧专业课考试需自备器材，体育舞蹈需自备音乐（U盘存储）。技能测试须上交《考生体检表》（二级甲等及以上医院、考前一个月内）和《宿州学院对口招生考试安全承诺书》"
+      },
+      {
+        "name": "表演",
+        "category": "文化艺术大类（表演艺术类）",
+        "plan": 30,
+        "tuition": "8000",
+        "years": 4,
+        "examSubjects": "专业理论考试和技能测试合并实施。泗州戏方向：项目一（唱念测试）、项目二（形体测试）、项目三（剧目测试）；戏曲器乐方向：项目一（唱念能力测试）、项目二（听辨测试）、项目三（基本功测试）、项目四（单项技能测试）、项目五（综合能力测试）",
+        "note": "设泗州戏方向20人、戏曲器乐方向10人两个方向，考生选择一个方向参加考试，分方向录取"
+      },
+      {
+        "name": "音乐学",
+        "category": "文化艺术大类（表演艺术类）",
+        "plan": 30,
+        "tuition": "8000",
+        "years": 4,
+        "examSubjects": "专业理论考试和技能测试合并实施：项目一（唱念能力测试）、项目二（听辨测试）、项目三（基本功测试）、项目四（单项技能测试）、项目五（综合能力测试）；项目三、四、五按报考方向分别参加舞蹈、声乐、器乐三个方向的测试",
+        "note": "设舞蹈方向10人、声乐方向10人、器乐方向10人三个方向，考生选择一个方向参加考试，分方向录取；师范类"
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试（省统考）实行语文、数学、英语三科合卷，满分300分（语文、数学各120分，英语60分）；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》执行；文化素质测试达到或超过当年省定合格线的考生方可参加职业技能考试",
+      "skill": "职业技能考试满分450分，包括专业理论考试200分、技能测试250分；内容参照《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年版）》执行",
+      "totalScore": 750,
+      "scoreFormula": "计算机科学与技术、旅游管理、学前教育专业按总成绩（文化素质测试成绩＋专业理论考试成绩＋技能测试成绩＋鼓励政策加分）从高分到低分依次录取；表演、音乐学专业按综合成绩（综合成绩＝文化素质测试×0.3＋职业技能考试×0.7）从高分到低分依次录取；休闲体育专业按综合成绩（综合成绩＝文化素质测试×0.3＋职业技能考试×0.7）按专项从高分到低分依次录取",
+      "testDate": "文化素质测试：2026年3月8日上午9:00—11:30（各市、县区考点）；专业理论：2026年3月28日上午9:00—11:30；技能测试：2026年3月28日上午8:00开始（宿州学院教育园区校区）"
+    },
+    "conditions": "已完成安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等。每位考生只能填报1个与所学专业相同或相近的专业志愿。报名考试费60元/人，须于3月24日12:00前在“考试管理系统”缴纳。资格审核材料须于3月19日8:00—3月23日12:00上传。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "录取控制线：计算机科学与技术、旅游管理、学前教育专业文化素质测试不低于180分、专业理论不低于120分、技能测试不低于150分，之后按总成绩从高分到低分录取；总成绩相同时按实考总成绩（不含政策加分）排序，仍相同时按单科顺序职业技能考试（专业理论＋技能测试）、专业理论考试、技能测试、文化素质测试择优录取。表演、音乐学专业文化素质测试不低于150分、职业技能考试不低于270分，按综合成绩录取，并列时按职业技能考试、文化素质测试排序，综合成绩四舍五入保留三位小数。休闲体育专业文化素质达省定合格线、职业技能测试270分及以上（专项素质不低于180分、专项技能不低于90分），按综合成绩分专项录取。计划调整规则：专业间计划不调剂。4月6日前可在“考试管理系统”查询预录取信息",
+    "sources": [
+      "https://www.ahzsks.cn/pic/file/20260309/20260309101759_599.pdf",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8682.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF：https://www.ahzsks.cn/pic/file/20260309/20260309101759_599.pdf",
+      "休闲体育专业技能测试具体项目及分值章程未列明，仅注明“具体要求另行公布，请关注学校招生信息网”，未采到",
+      "各专业职业技能考试大纲附件（附件3—附件10）未逐项核对，仅摘录章程正文中列出的测试项目名称"
+    ],
+    "confidence": "高",
+    "planByCategory": [
+      {
+        "category": "电子与信息大类（计算机类）",
+        "majors": [
+          "计算机科学与技术"
+        ],
+        "plan": 40
+      },
+      {
+        "category": "旅游大类（旅游类）",
+        "majors": [
+          "旅游管理"
+        ],
+        "plan": 30
+      },
+      {
+        "category": "教育与体育大类（教育类）",
+        "majors": [
+          "学前教育"
+        ],
+        "plan": 45
+      },
+      {
+        "category": "教育与体育大类（体育类）",
+        "majors": [
+          "休闲体育"
+        ],
+        "plan": 40
+      },
+      {
+        "category": "文化艺术大类（表演艺术类）",
+        "majors": [
+          "表演",
+          "音乐学"
+        ],
+        "plan": 60
+      }
+    ]
   },
   {
-    name: '滁州学院', city: '滁州', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.chzu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8681.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8681.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "滁州学院",
+    "city": "滁州",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "http://www.chzu.edu.cn",
+    "zhaoshengSite": "http://zsw.chzu.edu.cn",
+    "charterUrl": "https://zsw.chzu.edu.cn/_upload/article/files/76/9a/ca2faabe43df84463e18b07f85ee/b9e31bd3-2495-4480-ba52-3800120af274.pdf",
+    "charterYear": 2026,
+    "planTotal": 215,
+    "majors": [
+      {
+        "name": "市场营销",
+        "category": "财经与商贸大类、电子与信息大类",
+        "plan": 55,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "专业理论考试（满分200分）：基础会计、统计基础知识、税收基础（合卷）；专业技能测试（满分250分）：会计凭证的填制与审核＋营销策划方案设计",
+        "note": ""
+      },
+      {
+        "name": "旅游管理",
+        "category": "旅游服务类",
+        "plan": 55,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "专业理论考试（满分200分）：旅游概论、中国旅游地理、导游实务（合卷）；专业技能测试（满分250分）：礼仪展示＋导游景点讲解",
+        "note": ""
+      },
+      {
+        "name": "音乐学",
+        "category": "文化艺术大类、教育类",
+        "plan": 55,
+        "tuition": "8000",
+        "years": 4,
+        "examSubjects": "不设专业理论考试，专业技能测试满分450分：唱念能力测试＋听辨测试＋基本功测试＋单项技能测试＋综合能力测试",
+        "note": "按技能测试方向招生：声乐0-15人、器乐0-22人、舞蹈0-18人，考生可选择其一参加考试，分方向录取"
+      },
+      {
+        "name": "体育教育",
+        "category": "体育与健身类",
+        "plan": 50,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "不设专业理论考试，专业技能测试满分450分。手球：20米×6折返跑＋掷远＋全场跑动、传球、射门＋比赛；手球守门员：5米三向折返跑＋掷远＋全场跑动、传球、射门＋比赛；足球：5×25米折返跑＋传准＋运射＋颠球＋比赛；篮球：助跑摸高＋投篮＋多种变向运球上篮＋比赛",
+        "note": "师范类。按运动专项招生：男子手球0-17人、女子手球0-13人、男子足球0-10人、男子篮球0-10人；男子手球、女子手球专项各含守门员1人，其他专项均不含守门员，考生可选择其一参加考试，分专项录取。报考须提交《滁州学院2026年对口招生体育教育专业考生体检表》和《滁州学院对口招生体育教育专业考试安全承诺书》，体检应在二级甲等（含）以上医院进行，主检医师应具有副主任医师（含）以上职称，体检时间为考前一个月内"
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试实行语文、数学、英语三科合卷，全省统一考试，满分300分（语文、数学各120分，英语60分）；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》执行",
+      "skill": "职业技能考试内容参考《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年版）》执行。市场营销、旅游管理专业考生须参加专业理论考试（满分200分）、专业技能测试（满分250分）；音乐学、体育教育专业考生须参加专业技能测试（满分450分）。各专业技能测试内容详见章程附件6",
+      "totalScore": 750,
+      "scoreFormula": "市场营销、旅游管理：依据文化素质测试、专业理论考试和专业技能测试总分（含政策加分）从高到低依次录取。音乐学：综合成绩＝文化素质测试×0.3＋专业技能测试×0.7＋政策加分。体育教育：综合成绩＝文化素质测试×0.3＋专业技能测试×0.7＋政策加分",
+      "testDate": "文化素质测试：2026年3月8日上午9:00-11:30（各市、县区考点）；专业理论考试：2026年3月28日上午9:00-11:30（会峰校区）；专业技能测试：2026年3月28日-29日（会峰校区、琅琊校区）"
+    },
+    "conditions": "已参加安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等。每位考生可选择该校1个与所学专业相同或相近的专业报名。资格审核采用线下方式，3月18日在滁州学院招生信息网通知时间地点；报名考试费60元/生，资格审核通过后当场缴纳（依据皖发改价费函〔2024〕363号）。报考音乐学、体育教育专业的考生须当场选择技能测试方向，选定后不得更改。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "单科资格线：市场营销、旅游管理专业文化素质测试不低于180分、专业理论考试不低于120分、专业技能测试总分不低于150分；音乐学专业技能测试总分不低于270分；体育教育专业技能测试总分不低于270分且专项技能成绩不低于90分（音乐学、体育教育文化素质测试不低于省考试院划定的合格分数线）。录取办法：市场营销、旅游管理按文化素质测试＋专业理论考试＋专业技能测试总分（含政策加分）从高到低录取，同分时按专业技能测试、专业理论考试、文化素质测试排序；音乐学按综合成绩（文化×0.3＋专业技能×0.7＋政策加分）录取，同分时按综合能力测试、单项技能测试、基本功测试、听辨测试、唱念能力测试、文化素质测试排序；体育教育按综合成绩录取，同分时按专业技能测试、专项技能、文化素质测试排序。音乐学各方向及体育教育各运动专项按“实际参加考试人数达不到计划数200%（体育150%）时按90%/80%/70%/60%/50%分配名额”的规则调整，某方向录不满则剩余指标划入其他方向，但单一方向总录取名额不超过计划数的1.5倍。计划调整：不进行专业间计划调整。拟于4月5日在招生信息网公布各专业录取分数线并开放拟录取信息查询",
+    "sources": [
+      "https://zsw.chzu.edu.cn/_upload/article/files/76/9a/ca2faabe43df84463e18b07f85ee/b9e31bd3-2495-4480-ba52-3800120af274.pdf",
+      "https://zsw.chzu.edu.cn/2026/0310/c5395a340419/pagem.htm",
+      "https://zsw.chzu.edu.cn/5395/listm3.htm",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8681.htm 实测返回404；省考试院站内该章程PDF的 /pic/file/ 文件名未能定位（同批其余5校已定位），故 charterUrl 采用滁州学院招生信息网官方PDF",
+      "技能测试各项目具体分值、评分标准见章程附件6（未单独下载核对）",
+      "章程未给出全校统一的“职业技能考试”科目名称，仅按专业分别列示"
+    ],
+    "confidence": "高",
+    "planByCategory": [
+      {
+        "category": "财经与商贸大类、电子与信息大类",
+        "majors": [
+          "市场营销"
+        ],
+        "plan": 55
+      },
+      {
+        "category": "旅游服务类",
+        "majors": [
+          "旅游管理"
+        ],
+        "plan": 55
+      },
+      {
+        "category": "文化艺术大类、教育类",
+        "majors": [
+          "音乐学"
+        ],
+        "plan": 55
+      },
+      {
+        "category": "体育与健身类",
+        "majors": [
+          "体育教育"
+        ],
+        "plan": 50
+      }
+    ]
   },
   {
-    name: '铜陵学院', city: '铜陵', nature: '公办', type: '财经类',
-    schoolSite: 'https://www.tlu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8680.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8680.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "铜陵学院",
+    "city": "铜陵",
+    "nature": "公办",
+    "type": "财经类",
+    "schoolSite": "https://www.tlu.edu.cn/",
+    "zhaoshengSite": "http://zsb.tlu.edu.cn/",
+    "charterUrl": "https://www.ahzsks.cn/pic/file/20260309/20260309101558_869.pdf",
+    "charterYear": 2026,
+    "planTotal": 195,
+    "majors": [
+      {
+        "name": "保险学",
+        "category": "财经商贸大类",
+        "plan": 50,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "文化素质测试（语文、数学、英语合卷）＋专业理论考试（基础会计、税收基础、统计基础知识）＋技能测试（会计凭证的填制与审核；资产负债表、利润表的编制）",
+        "note": "文科类学费标准4600元/生·学年"
+      },
+      {
+        "name": "劳动与社会保障",
+        "category": "财经商贸大类",
+        "plan": 50,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "文化素质测试（语文、数学、英语合卷）＋专业理论考试（基础会计、税收基础、统计基础知识）＋技能测试（会计凭证的填制与审核；资产负债表、利润表的编制）",
+        "note": "文科类学费标准4600元/生·学年"
+      },
+      {
+        "name": "金属材料工程",
+        "category": "装备制造大类",
+        "plan": 45,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "文化素质测试（语文、数学、英语合卷）＋专业理论考试（机械基础、电工电子技术及应用、机械制图）＋技能测试（钳工技能考核 或 电子产品组装与调试，二选一）",
+        "note": "理科类学费标准4900元/生·学年；报考该专业须在报名系统中选择技能测试项目（电工或钳工）"
+      },
+      {
+        "name": "材料成型及控制工程",
+        "category": "装备制造大类",
+        "plan": 50,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "文化素质测试（语文、数学、英语合卷）＋专业理论考试（机械基础、电工电子技术及应用、机械制图）＋技能测试（钳工技能考核 或 电子产品组装与调试，二选一）",
+        "note": "理科类学费标准4900元/生·学年；报考该专业须在报名系统中选择技能测试项目（电工或钳工）"
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试由安徽省教育招生考试院统一组织命题，考试内容为语文、数学、英语三科合卷笔试，满分300分（其中语文、数学各120分，英语60分）；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》执行。该校文化素质测试成绩最低录取控制线为210分",
+      "skill": "职业技能考试满分450分，包括专业理论考试（满分200分）和技能测试（满分250分）。财经商贸大类专业技能测试项目为：会计凭证的填制与审核；资产负债表、利润表的编制。装备制造大类专业技能测试项目为：钳工技能考核或电子产品组装与调试，二选一。内容参考《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年版）》执行",
+      "totalScore": 750,
+      "scoreFormula": "根据考生总分（含政策加分）从高分到低分择优录取；考生总分（含政策加分）相同时，按考试成绩总分排序，择优录取；考生考试成绩总分仍相同时，则按单科顺序分数从高到低排序，单科排序为：专业理论考试、文化素质测试、技能测试",
+      "testDate": "文化素质测试：2026年3月8日上午9:00—11:30（各市、县区考点）；符合鼓励政策考生面试：3月24日下午2:30开始（翠湖校区）；专业理论考试：3月28日上午9:00-11:30（翠湖校区）；技能测试：3月28日下午开始（翠湖校区，具体时间见校考准考证）"
+    },
+    "conditions": "已完成安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等。每位考生可报考该校1个与所学专业相同或相近的专业。已填报该校志愿的考生须于2026年3月19日9:00至3月20日12:00登录该校报名系统选择是否服从专业调剂（报名系统网址在该校招生网站http://zsb.tlu.edu.cn/另行公布），并上传身份证、中职毕业证（或应届生证明）、完整学籍表、《铜陵学院2026年对口考试报名承诺书》扫描件（JPG格式）。报名考试费60元，网上缴费。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "1.计划分配：装备制造大类专业计划数根据考生选考电工或钳工比例确定，即电工或钳工方向计划数＝装备制造大类总计划数×(电工或钳工方向实际考试人数÷装备制造大类总考试人数)。2.录取控制线：文化素质测试总分不低于210分，技能测试得分150分及以上为合格、150分以下为不合格。3.录取原则：实施大类招生，财经商贸大类专业、装备制造大类专业可填报一个专业志愿和一个服从调剂志愿；录取时采用分数优先的原则，按照考生填报的专业志愿和调剂志愿顺序安排专业；达到或超过该校文化素质测试录取控制线且技能测试合格、思想政治品德考核和身体健康状况检查合格的考生，根据考生总分（含政策加分）从高分到低分择优录取（装备制造大类按技能测试电工或钳工的计划数分别录取）。计划调整规则：专业间计划不做调剂。4月3日在该校招生网站发布拟录取查询方式",
+    "sources": [
+      "https://www.ahzsks.cn/pic/file/20260309/20260309101558_869.pdf",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8680.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
+      "专业理论考试与技能测试各自的分值构成在正文“职业技能考试（满分450分）包括专业理论考试（满分200分）和技能测试（满分250分）”中给出，但分专业表格未再逐格标注分值",
+      "住宿费（4人间1000元/生·学年、6人间800元/生·学年）为章程给出的标准，非专业学费字段"
+    ],
+    "confidence": "高",
+    "planByCategory": [
+      {
+        "category": "财经商贸大类",
+        "majors": [
+          "保险学",
+          "劳动与社会保障"
+        ],
+        "plan": 100
+      },
+      {
+        "category": "装备制造大类",
+        "majors": [
+          "金属材料工程",
+          "材料成型及控制工程"
+        ],
+        "plan": 95
+      }
+    ]
   },
   {
-    name: '黄山学院', city: '黄山', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.hsu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8679.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8679.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "黄山学院",
+    "city": "黄山",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.hsu.edu.cn",
+    "zhaoshengSite": "https://zsb.hsu.edu.cn",
+    "charterUrl": "https://www.ahzsks.cn/pic/file/20260309/20260309101456_344.pdf",
+    "charterYear": 2026,
+    "planTotal": 312,
+    "majors": [
+      {
+        "name": "烹饪与营养教育",
+        "category": "旅游大类",
+        "plan": 50,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "",
+        "note": "学制四年"
+      },
+      {
+        "name": "酒店管理",
+        "category": "旅游大类，公共管理与服务大类，财经商贸大类，食品药品与粮食大类，农林牧渔大类，能源动力与材料大类，土木建筑大类，装备制造大类，电子与信息大类",
+        "plan": 78,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "",
+        "note": "学制四年；招生类别（招生范围）覆盖9个大类"
+      },
+      {
+        "name": "会展经济与管理",
+        "category": "旅游大类",
+        "plan": 48,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "",
+        "note": "学制四年"
+      },
+      {
+        "name": "市场营销",
+        "category": "财经商贸大类，电子与信息大类",
+        "plan": 78,
+        "tuition": "5290",
+        "years": 4,
+        "examSubjects": "",
+        "note": "学制四年；学费高于同校其他专业（5290元/年）"
+      },
+      {
+        "name": "学前教育",
+        "category": "教育类，文化艺术大类",
+        "plan": 58,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "",
+        "note": "师范类；学制四年"
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试由安徽省教育招生考试院统一组织，2026年3月8日上午9:00—11:30，考点设在各市、县（区）；文化素质测试合格分数线由安徽省教育招生考试院统一划定；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》执行",
+      "skill": "职业技能考试包含专业理论考试和技能测试，内容参考《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年版）》执行；专业理论考试总分不得低于100分，技能测试不得低于150分。章程未按专业逐项列出技能测试科目与分值，仅给出总分构成（专业理论＋技能测试共450分）",
+      "totalScore": 750,
+      "scoreFormula": "根据考生文化素质测试、专业理论考试及技能测试总分（含政策加分）从高分到低分依次录取。考生总分（含政策加分）相同时，则按各模块分数从高分到低分依次录取，模块排序为：专业理论考试、技能测试、文化素质测试",
+      "testDate": "文化素质测试：2026年3月8日上午9:00—11:30（各市、县区考点，省考试院统一组织）；专业理论考试：2026年3月28日上午9:00—11:30（率水校区）；技能测试：2026年3月28日-29日（率水校区，如遇报考人数多技能测试时间予以顺延）"
+    },
+    "conditions": "已完成安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等。每位考生可选择该校1个与所学专业相同或相近的专业报名。该校于3月19日（9:00-17:00）在率水校区文博楼一楼大厅现场开展报名资格审核，逾期未提交的一律视为放弃报名资格；须提交身份证原件及复印件、应届生三年制及以上中职学籍证明（加盖毕业中职学校公章）或历届生中职毕业证书原件及复印件。报名考试费60元/生，资格审核当天（3月19日）缴纳。校考准考证于3月27日8:30-11:30、14:30-17:00携带本人有效身份证到率水校区领取。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "录取规则：1.文化素质测试合格分数线由安徽省教育招生考试院统一划定；专业理论考试总分不得低于100分，技能测试不得低于150分。2.达到文化素质测试、专业理论考试和技能测试最低合格分数线的考生，根据考生文化素质测试、专业理论考试及技能测试总分（含政策加分）从高分到低分依次录取；考生总分（含政策加分）相同时，则按各模块分数从高分到低分依次录取，模块排序为：专业理论考试、技能测试、文化素质测试。计划调整规则：不进行专业间计划调整。4月5日10:00将在该校招生网站公布录取分数线，考生可查询本人拟录取结果",
+    "sources": [
+      "https://www.ahzsks.cn/pic/file/20260309/20260309101456_344.pdf",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8679.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
+      "章程正文未按专业列出职业技能测试（专业理论考试＋技能测试）的具体科目、项目与分值，majors[].examSubjects 全部留空；需查阅该校招生网后续发布的考试纲要或分专业测试方案",
+      "章程未给出全省文化素质测试满分说明中的分值拆分（语文/数学/英语各多少分），仅说明由省考试院统一划定合格线",
+      "未采到各专业职业技能考试的科目名称，故 exam.skill 仅记录章程原文的总体说明"
+    ],
+    "confidence": "中",
+    "planByCategory": [
+      {
+        "category": "旅游大类（含烹饪与营养教育、酒店管理、会展经济与管理）",
+        "majors": [
+          "烹饪与营养教育",
+          "酒店管理",
+          "会展经济与管理"
+        ],
+        "plan": 176
+      },
+      {
+        "category": "财经商贸大类、电子与信息大类",
+        "majors": [
+          "市场营销"
+        ],
+        "plan": 78
+      },
+      {
+        "category": "教育类、文化艺术大类",
+        "majors": [
+          "学前教育"
+        ],
+        "plan": 58
+      }
+    ]
   },
   {
-    name: '巢湖学院', city: '合肥', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.chu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8678.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8678.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "巢湖学院",
+    "city": "合肥",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.chu.edu.cn",
+    "zhaoshengSite": "https://www.chu.edu.cn/zsw/",
+    "charterUrl": "https://www.ahzsks.cn/pic/file/20260309/20260309101403_498.pdf",
+    "charterYear": 2026,
+    "planTotal": 293,
+    "majors": [
+      {
+        "name": "社会体育指导与管理",
+        "category": "表演艺术类、体育类",
+        "plan": 50,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "技能测试按《巢湖学院2026年对口招生体育类技能测试纲要》（章程附件3）执行；技能测试总成绩270分及以上且专项技能90分及以上为合格",
+        "note": "按运动专项招生：男子足球7、男子篮球7、排球5、体育舞蹈16、田径8、武术套路3、国际式摔跤2、柔道2。男子足球、男子篮球报考须具有国家二级（含）以上运动员等级证书或近三年来（含2023年）安徽省运动会前8名证书或省体育局主办的锦标赛前6名证书；排球须国家一级（含）以上运动员等级证书或省运会前3名或省锦标赛前3名证书；田径、武术套路、国际式摔跤、柔道四个专项只接受符合免测资格考生报考。表演艺术类专业考生只限报体育舞蹈专项。报名时须在运动专项版块选择，每个考生只能报考一项运动专项，并上传《巢湖学院对口招生体育考试安全承诺书》"
+      },
+      {
+        "name": "市场营销",
+        "category": "财经商贸大类",
+        "plan": 113,
+        "tuition": "5060",
+        "years": 4,
+        "examSubjects": "专业技能测试：项目一（会计凭证的填制与审核）；项目六（营销策划方案设计）",
+        "note": "按文化素质测试＋专业理论考试＋技能测试总成绩录取"
+      },
+      {
+        "name": "旅游管理",
+        "category": "旅游大类",
+        "plan": 100,
+        "tuition": "5060",
+        "years": 4,
+        "examSubjects": "专业技能测试：项目一（礼仪展示）；项目八（导游景点讲解）",
+        "note": "按文化素质测试＋专业理论考试＋技能测试总成绩录取"
+      },
+      {
+        "name": "音乐表演",
+        "category": "文化艺术大类、教育类",
+        "plan": 30,
+        "tuition": "8000",
+        "years": 4,
+        "examSubjects": "技能测试按《巢湖学院2026年对口招生音乐类技能测试纲要》（章程附件4）执行；技能测试总成绩270分及以上为合格",
+        "note": "舞蹈方向；按综合成绩（文化素质测试×0.3＋技能测试×0.7）录取"
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试（语文、数学、英语合卷）由安徽省教育招生考试院统一组织，2026年3月8日上午9:00—11:30，考点设在各市、县（区）；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》",
+      "skill": "职业技能考试包含专业理论考试和技能测试，内容参考《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年版）》。各专业技能测试内容：社会体育指导与管理——《巢湖学院2026年对口招生体育类技能测试纲要》（附件3）；市场营销——项目一（会计凭证的填制与审核）、项目六（营销策划方案设计）；旅游管理——项目一（礼仪展示）、项目八（导游景点讲解）；音乐表演——《巢湖学院2026年对口招生音乐类技能测试纲要》（附件4）。技能测试合格标准：市场营销、旅游管理为150分及以上；社会体育指导与管理为技能测试总成绩270分及以上且专项技能90分及以上；音乐表演为技能测试总成绩270分及以上",
+      "totalScore": 750,
+      "scoreFormula": "市场营销、旅游管理：按考生总成绩（文化素质测试＋专业理论考试＋技能测试）从高分到低分择优录取。音乐表演：按综合成绩（综合成绩＝文化素质测试×0.3＋技能测试×0.7）从高分到低分择优录取。社会体育指导与管理：按考生技能测试和文化素质测试总成绩从高分到低分择优录取",
+      "testDate": "文化素质测试：2026年3月8日上午9:00—11:30（各市、县区考点）；专业理论考试：2026年3月28日上午（巢湖学院，市场营销、旅游管理）；技能测试：2026年3月28日（巢湖学院，社会体育指导与管理、音乐表演）、3月28日下午（巢湖学院，市场营销）、3月28日下午-29日（巢湖学院，旅游管理）"
+    },
+    "conditions": "已完成安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等。每位考生可选择该校一个与所学专业相同或相近的专业报名。院校报名时间3月19日9:00—3月20日12:00，登录巢湖学院招生信息网（https://www.chu.edu.cn/zsw/）对口报名系统，账号为考生号，初始密码为身份证号后六位。报名考试费60元/生（依据皖发改价费函〔2024〕363号），缴费时间3月21日9:00—3月23日17:00。学籍审核截止时间3月20日16:00。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "1.市场营销、旅游管理专业：技能测试合格（150分及以上为合格）、文化素质测试成绩不低于180分，且思想政治品德考核和身体健康状况检查合格，根据考生总成绩（文化素质测试＋专业理论考试＋技能测试）从高分到低分择优录取；总分相同时按单科顺序专业理论考试、技能测试、文化素质测试排序。面试考生占相应专业指标计划且优先录取。2.社会体育指导与管理专业：技能测试合格（技能测试总成绩270分及以上且专项技能90分及以上）、文化素质测试达到安徽省教育厅划定的合格线及以上，按各专项招生计划数与专项合格生源数1:1.2的比例确定各专项专业技能最低资格线，达到后按技能测试和文化素质测试总成绩从高分到低分择优录取（不满1:1.2比例时技能测试最低资格线为270分且专项技能90分）；符合专项素质、专项技能免测的考生按文化素质测试成绩高低录取。3.音乐表演：技能测试合格（技能测试总成绩270分及以上）、文化素质测试达到省教育厅划定的合格线及以上，按综合成绩（文化素质测试×0.3＋技能测试×0.7）从高分到低分择优录取。计划调整规则：各专业间（含社会体育指导与管理运动专项）计划不互调。2026年4月6日前在巢湖学院招生信息网公布录取分数线",
+    "sources": [
+      "https://www.ahzsks.cn/pic/file/20260309/20260309101403_498.pdf",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8678.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
+      "市场营销、旅游管理两专业的专业理论考试科目未在章程中逐项列名（仅技能测试给了项目名称），故 majors[].examSubjects 只记录技能测试内容",
+      "体育类、音乐类技能测试纲要（附件3、附件4）未单独下载核对，专项素质/专项技能的具体项目与分值未知",
+      "全省文化素质测试分值拆分（语文、数学、英语各多少分）章程未写明"
+    ],
+    "confidence": "高",
+    "planByCategory": [
+      {
+        "category": "表演艺术类、体育类",
+        "majors": [
+          "社会体育指导与管理"
+        ],
+        "plan": 50
+      },
+      {
+        "category": "财经商贸大类",
+        "majors": [
+          "市场营销"
+        ],
+        "plan": 113
+      },
+      {
+        "category": "旅游大类",
+        "majors": [
+          "旅游管理"
+        ],
+        "plan": 100
+      },
+      {
+        "category": "文化艺术大类、教育类",
+        "majors": [
+          "音乐表演"
+        ],
+        "plan": 30
+      }
+    ]
   },
   {
-    name: '淮南师范学院', city: '淮南', nature: '公办', type: '师范类',
-    schoolSite: 'https://www.hnnu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8677.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8677.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "淮南师范学院",
+    "city": "淮南",
+    "nature": "公办",
+    "type": "师范类",
+    "schoolSite": "https://www.hnnu.edu.cn/",
+    "zhaoshengSite": "https://zsb.hnnu.edu.cn/",
+    "charterUrl": "https://www.ahzsks.cn/pic/file/20260309/20260309101314_645.pdf",
+    "charterYear": 2026,
+    "planTotal": 195,
+    "majors": [
+      {
+        "name": "文化产业管理",
+        "category": "公共管理与服务大类",
+        "plan": 58,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "技能测试内容一：项目一（计算机操作）；技能测试内容二：项目七（书面语言表达）",
+        "note": ""
+      },
+      {
+        "name": "社会工作",
+        "category": "公共管理与服务大类",
+        "plan": 58,
+        "tuition": "4600",
+        "years": 4,
+        "examSubjects": "技能测试内容一：项目一（计算机操作）；技能测试内容二：项目七（书面语言表达）",
+        "note": ""
+      },
+      {
+        "name": "园林",
+        "category": "农业类、林业类",
+        "plan": 79,
+        "tuition": "4900",
+        "years": 4,
+        "examSubjects": "技能测试内容一：项目一（临时装片的制作和显微镜的使用）；技能测试内容二：项目三（识别昆虫）",
+        "note": ""
+      }
+    ],
+    "exam": {
+      "culture": "文化素质测试300分（语文、数学各120分，英语60分），由安徽省教育招生考试院统一公布成绩；内容参照全省统一的《安徽省普通高校分类考试招生和对口招生文化素质测试考试纲要》。文化素质测试成绩不低于180分的考生方可于2026年3月14日10:00至3月17日17:00登录安徽省高考报名网站（gkbm.ahzsks.cn）填报志愿",
+      "skill": "职业技能考试450分（专业理论200分、技能测试250分），内容参照《安徽省普通高校对口招生专业理论和技能测试考试纲要（2025年修订版）》。各专业技能测试内容：文化产业管理——项目一（计算机操作）、项目七（书面语言表达）；社会工作——项目一（计算机操作）、项目七（书面语言表达）；园林——项目一（临时装片的制作和显微镜的使用）、项目三（识别昆虫）",
+      "totalScore": 750,
+      "scoreFormula": "对技能测试合格（150分及以上）且文化素质测试成绩不低于180分的考生，根据各专业考生总成绩（含政策加分）从高到低排序，择优录取。总成绩（含政策加分）相同时，依次按专业理论、技能测试、文化素质测试成绩从高到低排序，择优录取。技能测试成绩不合格者，不予录取",
+      "testDate": "文化素质测试：3月8日09:00-11:30（考点设在各市、县区）；专业理论考试：3月28日（淮南师范学院泉山校区）；技能测试：3月28日（淮南师范学院泉山校区）；具体考试时间与考场信息见准考证"
+    },
+    "conditions": "已完成安徽省2026年普通高校招生考试报名并取得考生号的安徽省中等职业学校（包括中等技工学校）三年制及三年制以上学制的应历届毕业生（具有中等职业学校学生学籍或学历，不含普通高中举办的综合班），包括具有中职学历的农民工、退役士兵、企事业单位在职职工、失业人员等；且文化素质测试成绩不低于180分方可填报该校志愿。填报时考生可从淮南师范学院招生专业中选择1个与本人所学专业相同或相近的专业报考，志愿信息一经提交任何人不得更改。专业报名及资格审核时间：2026年3月19日12:00至3月21日14:00，登录淮南师范学院招生网（zsb.hnnu.edu.cn）“对口招生”管理系统完成网上报名并上传材料。报名考试费60元/生（依据皖发改价费函〔2024〕363号），未按时缴费视为放弃报名考试资格。自2026年3月26日12:00起可打印专业考试准考证。体检应符合教育部和原卫生部《普通高等学校招生体检工作指导意见》要求",
+    "admission": "对技能测试合格（150分及以上）且文化素质测试成绩不低于180分的考生，根据各专业考生总成绩（含政策加分）从高到低排序，择优录取。总成绩（含政策加分）相同时，依次按专业理论、技能测试、文化素质测试成绩从高到低排序，择优录取。技能测试成绩不合格者，不予录取。计划调整规则：各专业间计划不相互调剂。学校完成统分核分后将在淮南师范学院招生网公布各专业录取分数线，考生可登录“对口招生”系统查询本人录取结果；预录取学生名单经上级主管部门审核通过后办理正式录取手续，已被录取的考生不得再参加当年普通高校招生统一考试",
+    "sources": [
+      "https://www.ahzsks.cn/pic/file/20260309/20260309101314_645.pdf",
+      "https://www.ahzsks.cn/search2.jsp?c=231&pn=2"
+    ],
+    "unresolved": [
+      "省考试院章程条目页 https://www.ahzsks.cn/8677.htm 实测返回404（栏目列表页仍链接该地址），故章程原文改引同站PDF",
+      "专业理论考试（200分）的分专业科目名称章程未列明，只列出了技能测试内容，故 majors[].examSubjects 仅记录技能测试项目",
+      "章程未给出综合成绩加权公式（该校按总成绩直接排序，无文化×比例＋技能×比例的说法），exam.scoreFormula 按原文抄录",
+      "学校主页 https://www.hnnu.edu.cn/ 未在章程正文中出现，由招生网域名 zsb.hnnu.edu.cn 推断，未直接访问验证"
+    ],
+    "confidence": "高",
+    "planByCategory": [
+      {
+        "category": "公共管理与服务大类",
+        "majors": [
+          "文化产业管理",
+          "社会工作"
+        ],
+        "plan": 116
+      },
+      {
+        "category": "农业类、林业类",
+        "majors": [
+          "园林"
+        ],
+        "plan": 79
+      }
+    ]
   },
   {
-    name: '皖西学院', city: '六安', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.wxc.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8676.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8676.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "皖西学院",
+    "city": "六安",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.wxc.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8676.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8676.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '合肥师范学院', city: '合肥', nature: '公办', type: '师范类',
-    schoolSite: 'https://www.hfnu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8675.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8675.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "合肥师范学院",
+    "city": "合肥",
+    "nature": "公办",
+    "type": "师范类",
+    "schoolSite": "https://www.hfnu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8675.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8675.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽科技工程大学', city: '滁州', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.ahstu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8674.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8674.htm'],
-    unresolved: ['2026年2月由「安徽科技学院」更名，章程文号可能仍用旧名', '分专业计划待采集'],
-    confidence: '中',
+    "name": "安徽科技工程大学",
+    "city": "滁州",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.ahstu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8674.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8674.htm"
+    ],
+    "unresolved": [
+      "2026年2月由「安徽科技学院」更名，章程文号可能仍用旧名",
+      "分专业计划待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安庆师范大学', city: '安庆', nature: '公办', type: '师范类',
-    schoolSite: 'https://www.aqnu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8673.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8673.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "安庆师范大学",
+    "city": "安庆",
+    "nature": "公办",
+    "type": "师范类",
+    "schoolSite": "https://www.aqnu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8673.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8673.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '池州学院', city: '池州', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.czu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8684.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8684.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "池州学院",
+    "city": "池州",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.czu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8684.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8684.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '蚌埠学院', city: '蚌埠', nature: '公办', type: '综合类',
-    schoolSite: 'https://www.bbc.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8683.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8683.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
-  },
-
-  // ===== 职业本科大学（同时做高职分类考试与对口本科）=====
-  {
-    name: '芜湖职业技术大学', city: '芜湖', nature: '公办', type: '职业本科',
-    schoolSite: 'https://www.whit.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8687.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8687.htm'],
-    unresolved: ['须区分「对口本科」专业与高职（专科）分类考试专业，勿混用', '分专业计划待采集'],
-    confidence: '中',
+    "name": "蚌埠学院",
+    "city": "蚌埠",
+    "nature": "公办",
+    "type": "综合类",
+    "schoolSite": "https://www.bbc.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8683.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8683.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽职业技术大学', city: '合肥', nature: '公办', type: '职业本科',
-    schoolSite: 'https://www.uta.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8686.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8686.htm'],
-    unresolved: ['须区分「对口本科」专业与高职（专科）分类考试专业，勿混用', '分专业计划待采集'],
-    confidence: '中',
+    "name": "芜湖职业技术大学",
+    "city": "芜湖",
+    "nature": "公办",
+    "type": "职业本科",
+    "schoolSite": "https://www.whit.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8687.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8687.htm"
+    ],
+    "unresolved": [
+      "须区分「对口本科」专业与高职（专科）分类考试专业，勿混用",
+      "分专业计划待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽艺术学院', city: '合肥', nature: '公办', type: '艺术类',
-    schoolSite: 'https://www.ahua.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8685.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8685.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
-  },
-
-  // ===== 民办本科 =====
-  {
-    name: '合肥城市学院', city: '合肥', nature: '民办', type: '理工类',
-    schoolSite: 'https://www.hfcsxy.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8694.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8694.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
-  },
-  {
-    name: '淮北理工学院', city: '淮北', nature: '民办', type: '理工类',
-    schoolSite: 'https://www.hblgxy.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8693.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8693.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "安徽职业技术大学",
+    "city": "合肥",
+    "nature": "公办",
+    "type": "职业本科",
+    "schoolSite": "https://www.uta.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8686.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8686.htm"
+    ],
+    "unresolved": [
+      "须区分「对口本科」专业与高职（专科）分类考试专业，勿混用",
+      "分专业计划待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '合肥经济学院', city: '合肥', nature: '民办', type: '财经类',
-    schoolSite: 'https://www.hfjjxy.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8692.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8692.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "安徽艺术学院",
+    "city": "合肥",
+    "nature": "公办",
+    "type": "艺术类",
+    "schoolSite": "https://www.ahua.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8685.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8685.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽外国语学院', city: '合肥', nature: '民办', type: '语言类',
-    schoolSite: 'https://www.aisu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8691.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8691.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "合肥城市学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "理工类",
+    "schoolSite": "https://www.hfcsxy.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8694.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8694.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽文达信息工程学院', city: '合肥', nature: '民办', type: '理工类',
-    schoolSite: 'https://www.wenda.edu.cn',
-    zhaoshengSite: 'https://www.wenda.edu.cn/zs/',
-    charterUrl: 'https://www.ahzsks.cn/8690.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8690.htm', 'https://www.wenda.edu.cn/zs/m/display.php?id=34099'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "淮北理工学院",
+    "city": "淮北",
+    "nature": "民办",
+    "type": "理工类",
+    "schoolSite": "https://www.hblgxy.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8693.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8693.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽三联学院', city: '合肥', nature: '民办', type: '综合类',
-    schoolSite: 'https://www.slu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8689.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8689.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "合肥经济学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "财经类",
+    "schoolSite": "https://www.hfjjxy.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8692.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8692.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
   {
-    name: '安徽新华学院', city: '合肥', nature: '民办', type: '综合类',
-    schoolSite: 'https://www.axhu.edu.cn',
-    zhaoshengSite: '',
-    charterUrl: 'https://www.ahzsks.cn/8688.htm',
-    charterYear: 2026,
-    planTotal: null, majors: [], exam: {}, conditions: '', admission: '',
-    sources: ['https://www.ahzsks.cn/8688.htm'],
-    unresolved: ['分专业计划与职业技能测试科目待采集'],
-    confidence: '中',
+    "name": "安徽外国语学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "语言类",
+    "schoolSite": "https://www.aisu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8691.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8691.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
   },
+  {
+    "name": "安徽文达信息工程学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "理工类",
+    "schoolSite": "https://www.wenda.edu.cn",
+    "zhaoshengSite": "https://www.wenda.edu.cn/zs/",
+    "charterUrl": "https://www.ahzsks.cn/8690.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8690.htm",
+      "https://www.wenda.edu.cn/zs/m/display.php?id=34099"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
+  },
+  {
+    "name": "安徽三联学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "综合类",
+    "schoolSite": "https://www.slu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8689.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8689.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
+  },
+  {
+    "name": "安徽新华学院",
+    "city": "合肥",
+    "nature": "民办",
+    "type": "综合类",
+    "schoolSite": "https://www.axhu.edu.cn",
+    "zhaoshengSite": "",
+    "charterUrl": "https://www.ahzsks.cn/8688.htm",
+    "charterYear": 2026,
+    "planTotal": null,
+    "majors": [],
+    "exam": {},
+    "conditions": "",
+    "admission": "",
+    "sources": [
+      "https://www.ahzsks.cn/8688.htm"
+    ],
+    "unresolved": [
+      "分专业计划与职业技能测试科目待采集"
+    ],
+    "confidence": "中"
+  }
 ];
