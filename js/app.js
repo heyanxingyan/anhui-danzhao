@@ -1511,6 +1511,44 @@ function renderRanking() {
 /* ============================================================
  * 11. 院校对比页
  * ============================================================ */
+/* 把 score2026 那段"说明性长文"压成一个能在手机上看的短结论。
+ * 该字段全站 74 所都是段落（无一是纯数字），直接塞进表格会让一行高到 1000px 以上。
+ * 返回值: { text: 主显示, tag: 来源标签, full: 原文(用于 title 提示) }
+ */
+function compactScore2026(c) {
+  const raw = String(c.score2026 || '').trim();
+  if (!raw) return { text: '待公布', tag: '', full: '' };
+  // 来源标签
+  let tag = '';
+  const tagMatch = raw.match(/^【([^】]+)】/);
+  if (tagMatch) {
+    const t = tagMatch[1];
+    tag = /未公布|待核|估算/.test(t) ? '未公布' : t.slice(0, 8);
+  }
+  // 优先取"校考合格线"这类明确数值
+  const xiao = raw.match(/校考合格线[^。；]*?(\d{2,3})\s*分/);
+  if (xiao) return { text: xiao[1] + ' 分', tag: '校考线', full: raw };
+  // 其次任意"普高/中职…N分"
+  const any = raw.match(/(?:普高|中职|职业适应性|职业技能)[^。；0-9]{0,10}?(\d{2,3})\s*分/);
+  if (any) return { text: any[1] + ' 分', tag: tag || '参考', full: raw };
+  // 没有数字就只给短标签，绝不放长文
+  return { text: tag || '未公布', tag: '', full: raw };
+}
+
+/* 对比页表头用的短校名：去掉办学层次后缀，保证在手机窄列里能一行放下。
+ * 完整校名放在 title 里，点进去仍是完整名称。 */
+function shortCollegeName(name) {
+  const s = String(name || '');
+  const short = s
+    .replace(/职业技术学院$/, '')
+    .replace(/职业学院$/, '')
+    .replace(/高等专科学校$/, '')
+    .replace(/职业技术大学$/, '')
+    .replace(/职业大学$/, '');
+  // 太短会歧义（如"安徽"），短于 3 字就不缩
+  return short.length >= 3 ? short : s;
+}
+
 function renderCompare() {
   renderTabbar('college');
   const body = document.getElementById('compare-body');
@@ -1533,35 +1571,68 @@ function renderCompare() {
   function row(label, fn) {
     return `<tr><td class="dim">${label}</td>` + list.map(c => `<td>${fn(c)}</td>`).join('') + '</tr>';
   }
+  // 长文本单元格：单行截断，完整内容放 title 提示，避免把行撑高
+  function clip(text, max = 14) {
+    const s = String(text === undefined || text === null || text === '' ? '—' : text);
+    const short = s.length > max ? s.slice(0, max) + '…' : s;
+    return `<span class="cmp-clip" title="${s.replace(/"/g, '&quot;')}">${short}</span>`;
+  }
+
+  const scoreCell = (c) => {
+    const s = compactScore2026(c);
+    const tag = s.tag ? `<span class="cmp-tag">${s.tag}</span>` : '';
+    return `<span class="cmp-scorebox" title="${s.full.replace(/"/g, '&quot;')}"><span class="cmp-score">${s.text}</span>${tag}</span>`;
+  };
 
   body.innerHTML = `
-    <div style="margin:10px 12px;font-size:12px;color:var(--text-light)">已选 ${list.length}/4 所院校，可在院校详情页"加入对比"。</div>
-    <div class="table-wrap" style="overflow-x:auto;margin:0 12px">
-      <table class="compare-table">
+    <div class="cmp-hint">已选 ${list.length}/4 所 · 表格可上下滑动，未公布项显示标签</div>
+    <div class="table-wrap cmp-wrap">
+      <table class="compare-table cmp-compact">
         <thead><tr><th class="dim">对比项</th>${list.map(c => `
           <th>
-            <a href="college-detail.html?id=${c.id}" style="color:var(--primary)">${c.name}</a>
-            <span class="cmp-remove" data-id="${c.id}" title="移除">✕</span>
+            <a href="college-detail.html?id=${c.id}" class="cmp-name" title="${c.name}">${shortCollegeName(c.name)}</a>
+            <span class="cmp-remove" data-id="${c.id}" title="移除 ${c.name}">✕</span>
           </th>`).join('')}</tr></thead>
         <tbody>
           ${row('城市', c => c.city)}
-          ${row('办学性质', c => c.nature)}
-          ${row('院校类型', c => c.type)}
-          ${row('2023最低分', c => c.scores['2023'] ? c.scores['2023'].min : '—')}
-          ${row('2024最低分', c => c.scores['2024'] ? c.scores['2024'].min : '—')}
-          ${row('2025最低分', c => c.scores['2025'] ? c.scores['2025'].min : '—')}
-          ${row('2026预测分', c => `<b style="color:#722ed1">${c.score2026}</b>`)}
-          ${row('就业率', c => c.employmentRate)}
-          ${row('专升本率', c => c.upgradeRate)}
-          ${row('校考占比', c => c.examRatio)}
-          ${row('有无面试', c => (c.interview && c.interview.hasInterview) ? '有' : '无')}
-          ${row('录取规则', c => c.admissionRule2026 || '参考2025')}
-          ${row('2026计划', c => c.plan2026 || '待公布')}
-          ${row('招生办电话', c => c.phone)}
-          ${row('在校生规模', c => c.scale)}
+          ${row('性质', c => c.nature)}
+          ${row('类型', c => c.type)}
+          ${row('2026分数', scoreCell)}
+          ${row('2025最低', c => c.scores['2025'] ? c.scores['2025'].min : '—')}
+          ${row('2024最低', c => c.scores['2024'] ? c.scores['2024'].min : '—')}
+          ${row('2023最低', c => c.scores['2023'] ? c.scores['2023'].min : '—')}
+          ${row('校考占比', c => clip(c.examRatio, 12))}
+          ${row('面试', c => (c.interview && c.interview.hasInterview) ? '有' : '无')}
+          ${row('录取规则', c => clip(c.admissionRule2026 || '参考2025', 12))}
+          ${row('2026计划', c => clip(c.plan2026 || '待公布', 12))}
+          <tr class="cmp-more-toggle" id="cmp-more-btn">
+            <td class="dim">更多</td>
+            <td colspan="${list.length}" class="cmp-more-cell">联系电话 / 规模 / 就业率 / 专升本率 ▾</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap cmp-wrap" id="cmp-more" style="display:none">
+      <table class="compare-table cmp-compact">
+        <tbody>
+          ${row('招生办电话', c => clip(c.phone, 14))}
+          ${row('在校生规模', c => clip(c.scale, 8))}
+          ${row('就业率', c => c.employmentRate || '—')}
+          ${row('专升本率', c => c.upgradeRate || '—')}
         </tbody>
       </table>
     </div>`;
+
+  const moreBtn = document.getElementById('cmp-more-btn');
+  if (moreBtn) {
+    moreBtn.addEventListener('click', () => {
+      const el = document.getElementById('cmp-more');
+      const open = el.style.display !== 'none';
+      el.style.display = open ? 'none' : 'block';
+      moreBtn.querySelector('.cmp-more-cell').textContent =
+        (open ? '联系电话 / 规模 / 就业率 / 专升本率 ▾' : '收起 ▴');
+    });
+  }
 
   body.querySelectorAll('.cmp-remove').forEach(el => {
     el.addEventListener('click', () => {
