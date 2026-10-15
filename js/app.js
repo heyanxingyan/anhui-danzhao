@@ -625,15 +625,20 @@ function renderCollegeDetail() {
     });
   });
 
-  // ===== 专项计划模块：把「历年分数」板块换成该专项的政策 =====
+  // ===== 专项计划模块：把「历年分数」板块换成专项政策 =====
   // 从专项计划页进来时（?category=zhuanxiang-*），学生关心的是"这个专项怎么录"，
-  // 而不是该校历年分数线；因此「历年分数」整体替换为对应专项的政策说明。
-  const specialKind = (fromCat === 'zhuanxiang-tuiyi' || fromCat === 'zhuanxiang')
-    ? 'tuiyi'
-    : (fromCat === 'zhuanxiang-laoxiang' ? 'laoxiang'
-      : (fromCat === 'zhuanxiang-xiangcun' ? 'xiangcun' : null));
-  if (specialKind) {
-    renderSpecialPolicyPanel(c, specialKind);
+  // 而不是该校历年分数线；因此「历年分数」整体替换为政策说明。
+  //   · 从「全部专项」进入（category=zhuanxiang）→ 三个专项的招生说明一并展示
+  //   · 从某个专项子板块进入（category=zhuanxiang-xxx）→ 只展示那一个专项
+  if (fromCat === 'zhuanxiang') {
+    renderAllSpecialPolicyPanel(c);
+  } else {
+    const specialKind = fromCat === 'zhuanxiang-tuiyi' ? 'tuiyi'
+      : (fromCat === 'zhuanxiang-laoxiang' ? 'laoxiang'
+        : (fromCat === 'zhuanxiang-xiangcun' ? 'xiangcun' : null));
+    if (specialKind) {
+      renderSpecialPolicyPanel(c, specialKind);
+    }
   }
 
   // 2026录取规则
@@ -1289,6 +1294,7 @@ function specialHighlightHtml(P, esc) {
     </div>`;
 }
 
+
 /**
  * 专项计划页：生成各子板块的政策说明 HTML。
  *
@@ -1415,8 +1421,8 @@ function renderZhuanxiang() {
 
     document.getElementById('zx-tip').textContent = tipText;
 
-    // ===== 各子板块展示对应专项的政策 =====
-    // 全部专项：三个专项的政策各写一段；其余子板块：写自己那一项的政策。
+    // ===== 顶部招生说明（保留）+ 每张院校卡片内的「专项政策」 =====
+    // 顶部：全部专项→三个专项各一段；其余子板块→写自己那一项。
     if (foldTitleEl) foldTitleEl.textContent = FOLD_TITLES[currentSub] || FOLD_TITLES.all;
     const descEl = document.getElementById('zx-desc');
     if (descEl) {
@@ -1917,6 +1923,92 @@ function renderSpecialPolicyPanel(c, kind) {
       ${sec('定向协议与毕业去向', esc(P && P.agreement))}
       ${srcBlock}
       <div class="note" style="margin-top:10px">以上为该专项的政策说明；各院校具体测试科目、分值以院校当年招生章程为准。</div>
+    </div>`;
+}
+
+/**
+ * 院校详情页「🎖️ 专项政策」：从「全部专项」点进来时，把三个专项的招生说明一并展示。
+ *
+ * 与单专项面板（renderSpecialPolicyPanel）内容同源，都来自 js/special-policy.js；
+ * 这里只负责把三个专项依次铺开，方便学生在一个页面里横向比较。
+ */
+function renderAllSpecialPolicyPanel(c) {
+  const panel = document.getElementById('panel-score');
+  if (!panel) return;
+  const tabEl = document.querySelector('.tab-switch .tab-item[data-tab="score"]');
+  if (tabEl) tabEl.textContent = '🎖️ 专项政策';
+
+  const esc = (s) => String(s == null ? '' : s);
+  const sec = (title, body) => body
+    ? `<div style="margin-bottom:10px"><div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:3px">${title}</div>
+       <div style="font-size:13.5px;color:#262626;line-height:1.7">${body}</div></div>`
+    : '';
+
+  const kinds = ['tuiyi', 'laoxiang', 'xiangcun'];
+  const blockOf = (k) => {
+    const P = (typeof SPECIAL_POLICY !== 'undefined') ? SPECIAL_POLICY[k] : null;
+    if (!P) return '';
+
+    const schoolPolicy = (k === 'tuiyi' && c.retiredMilitaryPolicy) ? c.retiredMilitaryPolicy : '';
+    const schoolYinglu = schoolPolicy &&
+      (schoolPolicy.indexOf('应录尽录') >= 0 || schoolPolicy.indexOf('参加测试即录取') >= 0 || schoolPolicy.indexOf('全部录取') >= 0);
+
+    let regionHtml = '';
+    if (P.regions && P.regions.list && P.regions.list.length) {
+      regionHtml = sec('适用地区（仅这些地方的考生可报考）',
+        (P.regions.batchNote ? `<div style="margin-bottom:5px">${esc(P.regions.batchNote)}</div>` : '') +
+        `<div style="background:#f6f8ff;border:1px solid #d6e4ff;border-radius:8px;padding:8px 10px;line-height:1.9">${P.regions.list.map(esc).join('、')}</div>` +
+        `<div style="font-size:12px;color:var(--text-light);margin-top:3px">共 ${P.regions.list.length} 个</div>`);
+    } else if (P.regions && P.regions.note) {
+      regionHtml = sec('适用地区', esc(P.regions.note));
+    }
+
+    const yingluBlock = (P.yinglu && P.yinglu.text)
+      ? (P.yinglu.has
+        ? `<div style="background:linear-gradient(135deg,#f6ffed,#d9f7be);border:1px solid #52c41a;border-radius:8px;padding:8px 10px;margin-bottom:10px">
+             <div style="font-size:12px;font-weight:700;color:#389e0d;margin-bottom:3px">⭐ 应录尽录</div>
+             <div style="font-size:13px;color:#135200;line-height:1.7">${esc(P.yinglu.text)}</div>
+           </div>`
+        : `<div style="background:#f5f5f5;border:1px solid #d9d9d9;border-radius:8px;padding:8px 10px;margin-bottom:10px">
+             <div style="font-size:12px;font-weight:700;color:#595959;margin-bottom:3px">录取方式</div>
+             <div style="font-size:13px;color:#262626;line-height:1.7">${esc(P.yinglu.text)}</div>
+           </div>`)
+      : '';
+
+    const schoolBlock = schoolPolicy
+      ? `<div style="background:${schoolYinglu ? 'linear-gradient(135deg,#f6ffed,#d9f7be)' : '#fafafa'};
+                border-left:3px solid ${schoolYinglu ? '#52c41a' : 'var(--primary)'};
+                border-radius:8px;padding:8px 10px;margin-bottom:10px">
+           <div style="font-size:12px;font-weight:700;color:${schoolYinglu ? '#389e0d' : 'var(--primary)'};margin-bottom:3px">
+             ${schoolYinglu ? '⭐ ' : ''}${esc(c.name)} · 2026年章程原文
+           </div>
+           <div style="font-size:13px;color:#262626;line-height:1.7">${esc(schoolPolicy)}</div>
+         </div>`
+      : '';
+
+    return `
+      <div style="border:1px solid #eee;border-radius:10px;padding:12px 14px;margin-bottom:12px;background:#fff">
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px">${esc(P.icon)} ${esc(P.fullName || P.name)}</div>
+        ${specialHighlightHtml(P, esc)}
+        ${yingluBlock}
+        ${schoolBlock}
+        ${sec('政策说明', esc(P.intro))}
+        ${sec('报考条件', esc(P.condition))}
+        ${regionHtml}
+        ${sec('考试办法', esc(P.exam))}
+        ${sec('录取政策', esc(P.admission))}
+        ${sec('定向协议与毕业去向', esc(P.agreement))}
+      </div>`;
+  };
+
+  panel.innerHTML = `
+    <div class="about-section" style="margin:8px 12px">
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px">⭐ 专项计划招生说明</div>
+      <div style="font-size:13px;color:#595959;line-height:1.7;margin-bottom:12px">
+        以下为三类专项计划各自的招生说明。该校 2026 年招收哪些专项，见「招生计划」标签页。
+      </div>
+      ${kinds.map(blockOf).join('')}
+      <div class="note" style="margin-top:4px">各院校具体测试科目、分值以院校当年招生章程为准。</div>
     </div>`;
 }
 
