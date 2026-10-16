@@ -543,15 +543,18 @@
       }
 
       // ---- 2) 声明式总上限：从所有"总分/满分/折合N分制/N分）"候选里取最大值 ----
+      // ⚠️ 只认**明确指向总分/合成成绩**的写法。
+      //    不能把「校考450分」「文化300分」这类**分项满分**算进来：
+      //    淮南联合原文「文化300分 + 校考450分，入学测试成绩=文化×30%+校考×70%」，
+      //    旧写法（含裸「满分N分」与裸「＝N分」）会把校考450当成声明总分，
+      //    使坐标轴变成 450，而正确的加权轴是 300×0.3 + 450×0.7 = **405**。
       const declaredCandidates = [
         ...[...text.matchAll(/总分\s*[＝=]?\s*(\d{3})/g)].map((m) => Number(m[1])),
         ...[...text.matchAll(/合计\s*满分\s*(\d{3})/g)].map((m) => Number(m[1])),
-        ...[...text.matchAll(/满分\s*(\d{3})\s*分?/g)].map((m) => Number(m[1])),
-        ...[...text.matchAll(/[＝=]\s*(\d{3})\s*分/g)].map((m) => Number(m[1])),
-        // 「满分折合300分制」「折合300分制」
-        ...[...text.matchAll(/折合\s*(\d{3})\s*分制/g)].map((m) => Number(m[1])),
-        // 注意：不要把「（省统考300分）」这类"分项满分括注"算进来，
-        // 否则"分项之和"会被当成声明总分（曾把 600 分制误判成 900）
+        // 「入学测试成绩满分600分」「录取总成绩满分600分」——要求前面不是"校考/文化"
+        ...[...text.matchAll(/(?:成绩|总分)\s*满分\s*(\d{3})\s*分/g)].map((m) => Number(m[1])),
+        // 「折合300分制」「×2折合300分」
+        ...[...text.matchAll(/折合[^0-9；;。]{0,12}(\d{3})\s*分/g)].map((m) => Number(m[1])),
       ].filter((v) => v >= 100 && v <= 900);
       const declaredBest = declaredCandidates.length ? Math.max(...declaredCandidates) : null;
 
@@ -561,6 +564,11 @@
       const cultureMaxes = [...text.matchAll(CULTURE_SCORE_RE)].map((m) => Number(m[1]));
       const cultureMax = cultureMaxes.length ? Math.max(...cultureMaxes) : 300;
       const examMaxes = [...text.matchAll(EXAM_TOPIC_RE)].map((m) => Number(m[1]));
+      // 显式「校考N分」/「校考满分N分」的写法要优先采纳。
+      // 背景：淮南联合原文「文化300分 + 校考450分(普高职业适应性测试现场面试450分；
+      //       中职职业技能=专业能力笔试150分+技术技能面试/操作300分=450分)」——
+      //       EXAM_TOPIC_RE 抓到的是分项 150/300，得不出总项 450，坐标轴会算成 405 而非 450。
+      const explicitExamMax = [...text.matchAll(/校考\s*(?:满分\s*)?(\d{2,3})\s*分/g)].map((m) => Number(m[1]));
       // 分项拆分写法「=专业能力210+技术技能90」也合并成一项，
       // 注意 pairSums 可能又把这个大类整体算一遍（200+100=300），
       // 所以只有当它不超过"分项名+分值"的直接值时，才认为它是同一项
@@ -571,13 +579,36 @@
       // pairSums 只作兜底：文化里的"语数各120+英语60"也会被算成 pairSum(180)，
       // 用它抬高校考满分会把坐标轴算爆（多所 600 分制曾被抬到 900）
       let examMax = directExamMax;
+      // 显式「校考N分」优先（比从分项拼出来的更权威）
+      if (explicitExamMax.length) examMax = Math.max(examMax, Math.max(...explicitExamMax));
       if (!examMax) {
         const ceil = declaredBest ? Math.max(0, declaredBest - cultureMax) : Infinity;
         for (const s of pairSums) if (s <= ceil) examMax = Math.max(examMax, s);
       }
       if (!examMax) examMax = declaredBest ? Math.max(100, declaredBest - cultureMax) : 300;
-      // 校考项不能超过"声明总分 − 文化满分"（否则说明抓到了总分本身）
-      if (declaredBest && declaredBest > cultureMax) {
+
+      // 「折合」换算：章程常把校考原始分换算成加权基准后再参与合成，
+      // 例如安徽审计「校考客观题150分，×2折合300分制」——原始卷面 150 分，
+      // 换算后按 300 分制计。此时滑块的满分应当是**换算后**的 300，
+      // 否则考生把校考填满 300 也只算 300/150 的折算率，分数被系统性高估/低估。
+      // 判据：原文出现「折合N分」且 N 与已解析的校考满分不一致。
+      const converted = [...text.matchAll(/折合[^0-9；;。]{0,12}(\d{3})\s*分/g)].map((m) => Number(m[1]));
+      const convertedMax = converted.length ? Math.max(...converted) : 0;
+      if (convertedMax && convertedMax > examMax) examMax = convertedMax;
+
+      // 校考项不能超过"声明总分 − 文化满分"（否则说明抓到了总分本身）。
+      //
+      // ⚠️ 这个钳制**只对"直接相加"成立**：那时 declaredBest = 文化满 + 校考满，
+      //    所以「declaredBest − cultureMax」确实就是校考满分的上界。
+      //    对**加权**公式则不成立：declaredBest 是加权后的总分上限，
+      //    拿它减原始文化满分没有意义，会把正确的校考满分压小。
+      //    踩过的实例：淮南联合「文化300分 + 校考450分，成绩=文化×30%+校考×70%」，
+      //    declaredBest=450（加权和 300×0.3+450×0.7=405 的声明确有歧义，此处取 450），
+      //    钳制算出 450−300=150，把校考满分从 450 压成 150，坐标轴随之算错。
+      // 判据：公式句里出现权重百分比时不施加该钳制。
+      // 注意此处 tokens 尚未构造，直接用正则判有无「×N%」。
+      const hasWeightHere = /[×x*]\s*\d{1,3}\s*[%％]/.test(formula);
+      if (!hasWeightHere && declaredBest && declaredBest > cultureMax) {
         const examCeil2 = declaredBest - cultureMax;
         if (examMax > examCeil2) examMax = examCeil2;
       }
