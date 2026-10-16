@@ -405,10 +405,10 @@ function renderCollegeListItems(reset) {
         <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
         <span class="tag tag-type">${c.type}</span>
         ${c.isUndergraduate
-          ? '<span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>'
-          : (c._track === 'fenlei' ? '<span class="tag" style="background:#e6f4ff;color:#1677ff;border:1px solid #91caff">📝 分类考试</span>' : '')}
-        ${c.stoppedEnrollment ? '<span class="tag" style="background:#fff1f0;color:#ff4d4f;border:1px solid #ffa39e">⚠️ 已停招</span>' : ''}
-        ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
+          ? '<span class="tag" style="color:#722ed1">🏫 对口本科</span>'
+          : (c._track === 'fenlei' ? '<span class="tag" style="color:#1677ff">📝 分类考试</span>' : '')}
+        ${c.stoppedEnrollment ? '<span class="tag" style="color:#ff4d4f">⚠️ 已停招</span>' : ''}
+        ${c.interview && c.interview.hasInterview ? '<span class="tag" style="color:#ad6800">有面试</span>' : ''}
         ${c.hot ? '<span class="tag tag-hot">热门</span>' : ''}
       </div>
       <div class="meta-row">
@@ -1193,7 +1193,7 @@ function renderZhongzhi() {
           <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
           <span class="tag tag-type">${c.city}</span>
           <span class="tag tag-type">${c.type}</span>
-          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
+          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="color:#ad6800">有面试</span>' : ''}
         </div>
         <div class="meta-row"><span>中职计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
       </a>
@@ -1307,7 +1307,7 @@ function renderGaozhong() {
           <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
           <span class="tag tag-type">${c.city}</span>
           <span class="tag tag-type">${c.type}</span>
-          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">有面试</span>' : ''}
+          ${c.interview && c.interview.hasInterview ? '<span class="tag" style="color:#ad6800">有面试</span>' : ''}
         </div>
         <div class="meta-row"><span>普高计划 ${plan} 人</span><span style="font-size:12px;color:var(--text-light)">2026年</span></div>
       </a>
@@ -1510,7 +1510,7 @@ function renderZhuanxiang() {
     el.innerHTML = list.map(c => {
       const plan = c[planField] || 0;
       const hasYinglu = currentSub === 'tuiyi' && c.retiredMilitaryPolicy && c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0;
-      const yingluBadge = hasYinglu ? '<span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;font-weight:700">⭐ 应录尽录</span>' : '';
+      const yingluBadge = hasYinglu ? '<span class="tag" style="color:#389e0d">⭐ 应录尽录</span>' : '';
       const yingluNote = hasYinglu ? `<div style="margin-top:6px;padding:6px 10px;background:#f6ffed;border-radius:6px;font-size:12px;color:#389e0d;font-weight:600;line-height:1.4">🎖️ ${c.retiredMilitaryPolicy}</div>` : '';
       return `
       <a href="college-detail.html?id=${c.id}&category=${catParam}" class="college-card" style="display:block">
@@ -1578,7 +1578,7 @@ function renderZhuanxiangTuiyi() {
   el.innerHTML = list.map(c => {
     const plan = c.plan2026RetiredMilitary || 0;
     const hasYinglu = c.retiredMilitaryPolicy && c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0;
-    const yingluBadge = hasYinglu ? '<span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;font-weight:700">⭐ 应录尽录</span>' : '';
+    const yingluBadge = hasYinglu ? '<span class="tag" style="color:#389e0d">⭐ 应录尽录</span>' : '';
     return `
     <a href="college-detail.html?id=${c.id}&category=zhuanxiang-tuiyi" class="college-card" style="display:block">
       <div class="head">
