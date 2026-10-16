@@ -251,6 +251,16 @@ input, select {
   justify-content: space-between;
 }
 
+/* 标题正文必须包在一个元素里（如 <span>）。
+   原因：.section-title 是 flex 容器，flex 会把**每个文本节点各自当成一个 flex 项**，
+   于是「对口本科招生院校（<span>22</span> 所）」会被拆成 3 项并被 space-between
+   分散到容器两端 —— 看起来就是标题里凭空多出两个孤立的白色小块。
+   包成单个子元素后，整段标题只算一个 flex 项，与右侧的「查看全部 ›」正常两端对齐。 */
+.section-title > span {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .section-title .more {
   font-size: 12px;
   color: var(--text-light);
@@ -426,16 +436,23 @@ input, select {
   flex-wrap: wrap;
 }
 
+/* 卡片标签
+   原先是「浅底色 + 圆角」的小色块，但底色极浅（#e6f4ff/#f6ffed/#fff1f0…），
+   贴在 #f5f6f8 的浅灰页面上会被看成一个个**白色小块**，整列表显得很碎。
+   现改为**无底色、无边框的纯文字**，只用颜色区分性质/类型等，视觉上干净很多。 */
 .tag {
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 4px;
+  font-size: 12px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent !important;
+  border: 0 !important;
+  font-weight: 500;
 }
 
-.tag-public { background: var(--primary-light); color: var(--primary); }
-.tag-private { background: #fff7e6; color: var(--warning); }
-.tag-hot { background: #fff1f0; color: var(--danger); }
-.tag-type { background: #f6ffed; color: var(--success); }
+.tag-public { color: var(--primary); }
+.tag-private { color: var(--warning); }
+.tag-hot { color: var(--danger); }
+.tag-type { color: var(--success); }
 
 .college-card .meta-row {
   display: flex;
@@ -923,19 +940,22 @@ input, select {
 .bk-num{display:inline-block;width:20px;height:20px;line-height:20px;border-radius:50%;background:#722ed1;color:#fff;text-align:center;font-size:12px;margin-right:6px}
 
 /* 顶部核心速览 */
+/* 说明：原先每个数据点是一张**白底小卡片**（.bk-fact），2 列网格排下来就是一片白色小块，
+   与页面灰底叠在一起显得碎。现改为**无边框、无底色**的纯文字，只靠字号/颜色区分层级。 */
 .bk-hero{background:linear-gradient(135deg,#f9f0ff,#efdbff);border:1px solid #d3adf7;border-radius:12px;padding:14px;margin:10px 12px}
 .bk-hero h2{font-size:17px;margin:0 0 4px;color:#391085}
 .bk-hero .sub{font-size:12.5px;color:#531dab;line-height:1.6;margin-bottom:10px}
-.bk-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.bk-fact{background:#fff;border-radius:9px;padding:9px 10px;border:1px solid #ead9ff}
+.bk-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px}
+.bk-fact{background:transparent;border:0;border-radius:0;padding:0}
 .bk-fact .k{font-size:11.5px;color:#7c5cbf;margin-bottom:2px}
 .bk-fact .v{font-size:15px;font-weight:700;color:#391085;line-height:1.35}
 .bk-fact .n{font-size:11px;color:#8c8c8c;margin-top:2px;line-height:1.4}
 
 /* 目录跳转 */
-.bk-nav{display:flex;flex-wrap:wrap;gap:6px;margin:0 12px 6px}
-.bk-nav a{font-size:12px;color:#531dab;background:#f9f0ff;border:1px solid #d3adf7;border-radius:20px;padding:4px 11px;text-decoration:none}
-.bk-nav a:active{background:#efdbff}
+/* 同样去掉胶囊底色与描边，改为纯文字链接（保留可点区域不缩小） */
+.bk-nav{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0 12px 6px}
+.bk-nav a{font-size:12px;color:#531dab;background:transparent;border:0;border-radius:0;padding:4px 0;text-decoration:none}
+.bk-nav a:active{color:#722ed1;text-decoration:underline}
 
 /* 折叠块 */
 .bk-fold > summary { font-size:15px; }

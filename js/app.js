@@ -922,7 +922,7 @@ function renderMajorDetail() {
         <span>大类：${getMajorCategoryName(m.category)}</span>
       </div>
     </div>
-    <div class="section-title">开设院校（${m.schools.length}）</div>
+    <div class="section-title"><span>开设院校（${m.schools.length}）</span></div>
     ${m.schools.map(s => `
       <a href="college-detail.html?id=${s.collegeId}" class="college-card" style="display:block">
         <div class="head">
@@ -1122,15 +1122,18 @@ function buildBenkeCards(keyword) {
     // 以及卡片下方的分数线块、专业表、考试办法折叠块，**全部移除** ——
     // 列表里只留与高职卡片一样的信息；分数线/专业/考试办法一律进院校详情页看。
     const planText = s.planTotal ? `计划 ${s.planTotal} 人` : '计划待公布';
+    // 标签改为**无底色无边框的纯文字**（仅用颜色区分），去掉商品化的小色块观感。
+    // 用行内样式而非全局 .tag 覆盖，避免影响高职院校卡片与其它页面。
+    const plainTag = (color, text) => `<span style="font-size:11.5px;color:${color}">${text}</span>`;
     return `
       <a href="${esc(nameHref || '#')}"${nameExt ? ' target="_blank" rel="noopener"' : ''} class="college-card">
         <div class="head">
           <div class="name">${esc(s.name)}</div>
         </div>
-        <div class="tags">
-          <span class="tag ${s.nature === '公办' ? 'tag-public' : 'tag-private'}">${esc(s.nature || '')}</span>
-          ${s.type ? `<span class="tag tag-type">${esc(s.type)}</span>` : ''}
-          <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>
+        <div class="tags" style="gap:10px">
+          ${plainTag('#1677ff', esc(s.nature || ''))}
+          ${s.type ? plainTag('#52c41a', esc(s.type)) : ''}
+          ${plainTag('#722ed1', '🏫 对口本科')}
         </div>
         <div class="meta-row">
           <span>${esc(s.city || '')} · ${planText}（对口本科）</span>
@@ -1228,8 +1231,8 @@ function renderZhongzhi() {
         nav: true,
         tip: '中职生也可升入全日制本科（应用型本科对口招生），单独划线、单独录取。',
       }) +
-      '<div class="section-title" id="zz-benke-schools" style="margin:14px 12px 8px">对口本科招生院校（' +
-        ((typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length) ? BENKE_SCHOOLS.length : 0) + ' 所）</div>' +
+      '<div class="section-title" id="zz-benke-schools" style="margin:14px 12px 8px"><span>对口本科招生院校（' +
+        ((typeof BENKE_SCHOOLS !== 'undefined' && BENKE_SCHOOLS.length) ? BENKE_SCHOOLS.length : 0) + ' 所）</span></div>' +
       '<div style="padding:0 12px" id="zz-benke-cards"></div>' +
       '<div class="bk-block" style="margin-top:10px">' +
         '<p style="font-size:12px;color:#666">📌 名单依据安徽省教育招生考试院「应用型本科对口招生章程」栏目。其中' +
