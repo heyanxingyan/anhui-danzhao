@@ -21,6 +21,41 @@ function toast(msg) {
   t._timer = setTimeout(() => t.classList.remove('show'), 1800);
 }
 
+/* ========== ECharts 按需加载 ==========
+ * 为什么不在 <head> 里同步引入：echarts.min.js 有 1.03MB（gzip 约 338KB），
+ * 而全站只有「院校详情页的分数走势图」和「分数走势页」两个地方真正需要它。
+ * 原先 college-detail.html 在 <head> 第 8 行从 unpkg CDN 同步加载，
+ * 结果①阻塞整页渲染 ②每次打开都要多一次跨域请求（DNS+TLS+下载）③CDN 在国内不稳。
+ * 现在改为：先把页面渲染出来，等真要画图时再加载本地 js/echarts.min.js，
+ * 并且同一个页面的多次请求会复用同一个 Promise（不会重复下载）。
+ */
+let _echartsLoading = null;
+function withECharts(cb) {
+  if (typeof echarts !== 'undefined') { cb(echarts); return; }
+  if (!_echartsLoading) {
+    _echartsLoading = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      // 用相对路径，兼容 GitHub Pages 子目录部署
+      s.src = 'js/echarts.min.js';
+      s.async = true;
+      s.onload = () => (typeof echarts !== 'undefined' ? resolve(echarts) : reject(new Error('echarts 已加载但未挂载到全局')));
+      s.onerror = () => reject(new Error('echarts 加载失败'));
+      document.head.appendChild(s);
+    }).catch((err) => {
+      _echartsLoading = null;   // 失败后允许重试
+      throw err;
+    });
+  }
+  _echartsLoading.then(cb).catch((err) => {
+    console.warn('[echarts] ' + err.message);
+    const tip = document.createElement('div');
+    tip.style.cssText = 'padding:24px 12px;text-align:center;color:#999;font-size:13px';
+    tip.textContent = '图表组件加载失败，请检查网络后刷新重试';
+    const host = document.querySelector('.chart-box') || document.getElementById('score-chart') || document.getElementById('trend-score');
+    if (host) { host.innerHTML = ''; host.appendChild(tip); }
+  });
+}
+
 // 分数年份标签：优先2026官方真实分，其次2025最低分，最后回退2024
 // 注意：minScore2025 在 2025 无数据时会回退成 2024 的值，因此不能一律标「2025最低」——
 // 那样会把 2024 的分说成 2025 的。用 minScoreYear 记录这个值实际所属年份。
@@ -859,20 +894,24 @@ function renderScoreChart(c) {
   const avgs = years.map(y => c.scores[y].avg);
   const maxs = years.map(y => c.scores[y].max);
 
-  const chart = echarts.init(el);
-  chart.setOption({
-    tooltip: { trigger: 'axis' },
-    legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
-    grid: { left: 40, right: 16, top: 20, bottom: 40 },
-    xAxis: { type: 'category', data: years, axisLabel: { fontSize: 11 } },
-    yAxis: { type: 'value', min: v => Math.floor(v.min - 10), axisLabel: { fontSize: 11 } },
-    series: [
-      { name: '最低分', type: 'line', data: mins, smooth: true, itemStyle: { color: '#ff4d4f' }, label: { show: true, fontSize: 10 } },
-      { name: '平均分', type: 'line', data: avgs, smooth: true, itemStyle: { color: '#1677ff' }, label: { show: true, fontSize: 10 } },
-      { name: '最高分', type: 'line', data: maxs, smooth: true, itemStyle: { color: '#52c41a' }, label: { show: true, fontSize: 10 } }
-    ]
+  withECharts((echarts) => {
+    if (!el.isConnected || el._rendered2) return;
+    el._rendered2 = true;
+    const chart = echarts.init(el);
+    chart.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
+      grid: { left: 40, right: 16, top: 20, bottom: 40 },
+      xAxis: { type: 'category', data: years, axisLabel: { fontSize: 11 } },
+      yAxis: { type: 'value', min: v => Math.floor(v.min - 10), axisLabel: { fontSize: 11 } },
+      series: [
+        { name: '最低分', type: 'line', data: mins, smooth: true, itemStyle: { color: '#ff4d4f' }, label: { show: true, fontSize: 10 } },
+        { name: '平均分', type: 'line', data: avgs, smooth: true, itemStyle: { color: '#1677ff' }, label: { show: true, fontSize: 10 } },
+        { name: '最高分', type: 'line', data: maxs, smooth: true, itemStyle: { color: '#52c41a' }, label: { show: true, fontSize: 10 } }
+      ]
+    });
+    window.addEventListener('resize', () => chart.resize());
   });
-  window.addEventListener('resize', () => chart.resize());
 }
 
 /* ============================================================
@@ -1038,22 +1077,25 @@ function renderTrendChart(c) {
     return;
   }
   const years = Object.keys(c.scores).sort();
-  const chart = echarts.init(el);
-  el._chart = chart;
-  chart.setOption({
-    title: { text: c.name + ' · 五年录取分走势', left: 'center', textStyle: { fontSize: 14 } },
-    tooltip: { trigger: 'axis' },
-    legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
-    grid: { left: 40, right: 16, top: 50, bottom: 40 },
-    xAxis: { type: 'category', data: years },
-    yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
-    series: [
-      { name: '最低分', type: 'line', data: years.map(y => c.scores[y].min), smooth: true, itemStyle: { color: '#ff4d4f' }, areaStyle: { opacity: 0.1 } },
-      { name: '平均分', type: 'line', data: years.map(y => c.scores[y].avg), smooth: true, itemStyle: { color: '#1677ff' } },
-      { name: '最高分', type: 'line', data: years.map(y => c.scores[y].max), smooth: true, itemStyle: { color: '#52c41a' } }
-    ]
+  withECharts((echarts) => {
+    if (!el.isConnected) return;
+    const chart = echarts.init(el);
+    el._chart = chart;
+    chart.setOption({
+      title: { text: c.name + ' · 五年录取分走势', left: 'center', textStyle: { fontSize: 14 } },
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
+      grid: { left: 40, right: 16, top: 50, bottom: 40 },
+      xAxis: { type: 'category', data: years },
+      yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
+      series: [
+        { name: '最低分', type: 'line', data: years.map(y => c.scores[y].min), smooth: true, itemStyle: { color: '#ff4d4f' }, areaStyle: { opacity: 0.1 } },
+        { name: '平均分', type: 'line', data: years.map(y => c.scores[y].avg), smooth: true, itemStyle: { color: '#1677ff' } },
+        { name: '最高分', type: 'line', data: years.map(y => c.scores[y].max), smooth: true, itemStyle: { color: '#52c41a' } }
+      ]
+    });
+    window.addEventListener('resize', () => chart.resize());
   });
-  window.addEventListener('resize', () => chart.resize());
 }
 
 function renderCompareChart(c) {
@@ -1062,28 +1104,31 @@ function renderCompareChart(c) {
   el.innerHTML = '';
   // 同城市院校平均分对比
   const sameCity = COLLEGES.filter(x => x.city === c.city);
-  const chart = echarts.init(el);
-  el._chart = chart;
-  chart.setOption({
-    title: { text: c.city + '地区院校 2024 平均分对比', left: 'center', textStyle: { fontSize: 14 } },
-    tooltip: { trigger: 'axis' },
-    grid: { left: 40, right: 16, top: 50, bottom: 60 },
-    xAxis: {
-      type: 'category',
-      data: sameCity.map(x => x.name.length > 8 ? x.name.slice(0, 8) + '…' : x.name),
-      axisLabel: { fontSize: 10, rotate: 30 }
-    },
-    yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
-    series: [{
-      type: 'bar',
-      data: sameCity.map(x => x.scores[2024].avg),
-      itemStyle: {
-        color: params => params.name === (c.name.length > 8 ? c.name.slice(0, 8) + '…' : c.name) ? '#1677ff' : '#91caff'
+  withECharts((echarts) => {
+    if (!el.isConnected) return;
+    const chart = echarts.init(el);
+    el._chart = chart;
+    chart.setOption({
+      title: { text: c.city + '地区院校 2024 平均分对比', left: 'center', textStyle: { fontSize: 14 } },
+      tooltip: { trigger: 'axis' },
+      grid: { left: 40, right: 16, top: 50, bottom: 60 },
+      xAxis: {
+        type: 'category',
+        data: sameCity.map(x => x.name.length > 8 ? x.name.slice(0, 8) + '…' : x.name),
+        axisLabel: { fontSize: 10, rotate: 30 }
       },
-      label: { show: true, position: 'top', fontSize: 10 }
-    }]
+      yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
+      series: [{
+        type: 'bar',
+        data: sameCity.map(x => x.scores[2024].avg),
+        itemStyle: {
+          color: params => params.name === (c.name.length > 8 ? c.name.slice(0, 8) + '…' : c.name) ? '#1677ff' : '#91caff'
+        },
+        label: { show: true, position: 'top', fontSize: 10 }
+      }]
+    });
+    window.addEventListener('resize', () => chart.resize());
   });
-  window.addEventListener('resize', () => chart.resize());
 }
 
 /* ============================================================
