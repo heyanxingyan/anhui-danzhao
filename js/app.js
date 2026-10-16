@@ -384,17 +384,17 @@ function renderCollegeListItems(reset) {
     const curCat = getQuery('category') || '';
     let planText = '';
     if (curCat === 'gaozhong' && c.plan2026Gaozhong) {
-      planText = `普高计划 ${c.plan2026Gaozhong} 人`;
+      planText = `普高招 ${c.plan2026Gaozhong} 人`;
     } else if (curCat === 'zhongzhi' && c.plan2026Zhongzhi) {
-      planText = `中职计划 ${c.plan2026Zhongzhi} 人`;
+      planText = `中职招 ${c.plan2026Zhongzhi} 人`;
     } else if (curCat === 'zhuanxiang' && c.plan2026Zhuanxiang) {
-      planText = `专项计划 ${c.plan2026Zhuanxiang} 人`;
+      planText = `专项招 ${c.plan2026Zhuanxiang} 人`;
     } else if (c.plan2026) {
       // 提取总计划数
       const totalMatch = String(c.plan2026).match(/(\d+)\s*人/);
-      planText = totalMatch ? `计划 ${totalMatch[1]} 人` : `计划 ${c.planCount2024} 人`;
+      planText = totalMatch ? `招 ${totalMatch[1]} 人` : `招 ${c.planCount2024} 人`;
     } else {
-      planText = `计划 ${c.planCount2024} 人`;
+      planText = `招 ${c.planCount2024} 人`;
     }
     return `
     <a href="college-detail.html?id=${c.id}" class="college-card">
@@ -1121,7 +1121,7 @@ function buildBenkeCards(keyword) {
     // 曾多出来的「已收录历年分数」「数据置信度中」标签、「· N 个专业」、「看招生计划与分数 ›」
     // 以及卡片下方的分数线块、专业表、考试办法折叠块，**全部移除** ——
     // 列表里只留与高职卡片一样的信息；分数线/专业/考试办法一律进院校详情页看。
-    const planText = s.planTotal ? `计划 ${s.planTotal} 人` : '计划待公布';
+    const planText = s.planTotal ? `招 ${s.planTotal} 人` : '招生计划待公布';
     // 标签改为**无底色无边框的纯文字**（仅用颜色区分），去掉商品化的小色块观感。
     // 用行内样式而非全局 .tag 覆盖，避免影响高职院校卡片与其它页面。
     const plainTag = (color, text) => `<span style="font-size:11.5px;color:${color}">${text}</span>`;

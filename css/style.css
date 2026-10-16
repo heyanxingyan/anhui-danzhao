@@ -30,7 +30,11 @@
 }
 
 html, body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* 中文字体栈：把通用 CJK 族（"Noto Sans CJK SC"/"Source Han Sans"/sans-serif）一并列出，
+     避免个别机型在小字号下找不到某个汉字字形而显示成白色豆腐块（缺字方框）。 */
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "WenQuanYi Micro Hei",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: var(--text);
   background: var(--bg);
@@ -458,7 +462,10 @@ input, select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  /* 12px 的中文在个别机型上容易触发字形缺失（显示成白色豆腐块），提到 12.5px
+     并显式声明中文字体族，双保险。 */
+  font-size: 12.5px;
+  font-family: inherit;
   color: var(--text-secondary);
 }
 
