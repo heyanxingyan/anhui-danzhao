@@ -658,20 +658,38 @@
         mode = 'sum';
         axisMax = Math.max(declaredBest || 0, capGuess) || 600;
       } else {
-        // 带权重：把两项归一化后映射到坐标轴。
-        // 轴取 max(声明总分, 分项满分之和)：有些学校声明总分与分项满分不一致
-        // （如"校考450"却声明总分600），取二者较大值，保证满分输入不会被截断。
-        // 带权重：坐标轴 = 文化满分 + 校考满分（两项归一化后映射到该轴）。
-        // 这样"文化填满 + 校考填满"恰好等于总分上限，滑块与结果口径一致。
-        const declared = cultureMax + (examMax || 0) || declaredBest || 0;
+        // 带权重（文化×a% + 校考×b%）
+        //
+        // ⚠️ 坐标轴必须取**加权和**，不能取"文化满分 + 校考满分"。
+        //    安徽省分类考试的加权公式**不做归一化**，直接用各项原始分加权：
+        //      录取总成绩 = 文化素质测试成绩×40% + 职业适应性测试成绩×60%
+        //      两项都是 300 分制 ⇒ 总成绩满分 = 300×0.4 + 300×0.6 = 300 分（不是 600）。
+        //    踩过的实例：芜湖职业技术大学取 600 为轴，官方公布的「总分最低分 154.6」
+        //    被当成 600 分制里的 25.8%（看起来低得离谱），实际它是 300 分制里的 51.5%，
+        //    完全正常。轴错 → 分数线被误读 → 概率结论也会偏。
+        //
+        // 两项满分不同（如文化300、校考450）时：
+        //   加权和 = 300×wc + 450×we
+        const wcForAxis = weightCulture === null ? (weightExam === null ? 0.5 : 0) : weightCulture;
+        const weForAxis = weightExam === null ? (weightCulture === null ? 0.5 : 0) : weightExam;
+        const weightedCap = cultureMax * wcForAxis + (examMax || 0) * weForAxis;
+
         // 「(文化/100+校考/100)×100%」这种整条只有一个 100% 的，本质就是百分制
         const degenerateHundred = tokens.length === 1 && tokens[0].pct === 1 && !declaredBest;
-        if (declared && !normalizedByFormula && !degenerateHundred) {
+        // 章程显式声明了总分（如"总分600分"）时以声明值为准
+        if (declaredBest && !degenerateHundred) {
           mode = 'weightedScaled';
-          axisMax = declared;
-        } else {
+          axisMax = Math.max(declaredBest, weightedCap);
+        } else if (normalizedByFormula) {
+          // 公式自带百分制折算（"文化÷3×40%+校考÷2×60%"）
           mode = 'percent';
           axisMax = 100;
+        } else if (degenerateHundred) {
+          mode = 'percent';
+          axisMax = 100;
+        } else {
+          mode = 'weightedScaled';
+          axisMax = weightedCap > 0 ? weightedCap : (cultureMax + (examMax || 0)) || 600;
         }
       }
       // 展示用：无论哪种模式，都报出实际坐标轴
@@ -739,11 +757,10 @@
       const kWSum = kwc + kwe;
 
       if (rule.mode === 'weightedScaled') {
-        // 按章程公布的权重把两项归一化后映射到坐标轴
+        // 直接加权（不加归一化）：录取总成绩 = 文化×wc + 校考×we，各项用原始分。
+        // 轴 = 文化满分×wc + 校考满分×we，因此"两项都填满"恰好等于轴上限。
         const axis = rule.axisMax || 600;
-        // 极少数章程把"普高300 / 中职600"两套分列，此时本页滑块只有一套，
-        // 用 clamp 兜住，保证结果永远落在坐标轴内
-        const raw = ((culture / cm) * kwc + (exam / em) * kwe) * axis;
+        const raw = culture * kwc + exam * kwe;
         return Math.min(axis, Math.max(0, raw));
       }
       // 百分制（章程未声明总分上限的少数院校）
