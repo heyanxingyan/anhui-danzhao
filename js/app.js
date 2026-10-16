@@ -425,9 +425,29 @@ function applyFilters(category, kw) {
     }
   }
   if (kw) {
+    // 匹配【校名】【城市】+【专业名】，但专业名要先剥掉「（高职专业学院…）」这段。
+    //
+    // 原因：数据里有 23 条「高职专业学院」专业（高职与中职联办），专业名格式为
+    //   「航海技术（高职专业学院·铜陵理工学校）」        ← 安徽交通职业技术学院（合肥）
+    //   「大数据与会计（高职专业学院·铜陵理工学校）」    ← 安徽审计职业学院（合肥）
+    // 括号里是**联办中职校**的名字。学生搜「铜陵」本意是找铜陵的学校，
+    // 却会把这两所合肥的学校搜出来，真正在铜陵的安徽工业职业技术学院反被淹没 —— 明显误命中。
+    // 因此匹配专业名时只取「（」之前的专业本体：
+    //   · 搜「铜陵」→ 不再命中安徽交通/安徽审计，正常返回 铜陵学院/铜陵职业技术学院/安徽工业职业技术学院
+    //   · 搜「审计」→ 仍能命中安徽审计职业学院（校名）与开设大数据与审计的学校（专业本体）
+    //   · 搜「电子商务」→ 仍能命中开设该专业的学校（含上述联办专业）
+    // 若确实想按联办中职校名找，用「专业」页或直接搜高职校名。
+    const majorBase = (name) => {
+      const s = String(name || '');
+      const i = s.indexOf('（高职专业学院');
+      const j = s.indexOf('(高职专业学院');
+      const cut = [i, j].filter((x) => x >= 0);
+      return cut.length ? s.slice(0, Math.min(...cut)) : s;
+    };
     list = list.filter(c =>
       c.name.includes(kw) ||
-      c.majors.some(m => m.name.includes(kw))
+      (c.city || '').includes(kw) ||
+      (c.majors || []).some(m => majorBase(m.name).includes(kw))
     );
   }
   const city = document.querySelector('#city-filter .filter-chip.active')?.dataset.city || '';

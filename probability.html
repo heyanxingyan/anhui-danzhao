@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>录取概率测算 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261020d">
+  <link rel="stylesheet" href="css/style.css?v=20261020e">
   <style>
     .prob-container { padding: 12px; }
     .prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
@@ -133,9 +133,9 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261020d" defer></script>
-  <script src="js/score-formula.js?v=20261020d" defer></script>
-  <script src="js/app.js?v=20261020d" defer></script>
+  <script src="js/data.js?v=20261020e" defer></script>
+  <script src="js/score-formula.js?v=20261020e" defer></script>
+  <script src="js/app.js?v=20261020e" defer></script>
   <script src="js/low-score.js" defer></script>
   <script>
     let currentProbType = 'gaozhong';
@@ -1060,6 +1060,16 @@
     }
 
     // 初始化
+    //
+    // ⚠️ 必须等 DOMContentLoaded 之后再跑，不能在脚本解析时直接调用。
+    //    本文件的外部脚本（data.js / score-formula.js / app.js / low-score.js）都带 defer，
+    //    defer 脚本是在**文档解析完成之后、DOMContentLoaded 之前**按顺序执行的；
+    //    而本内联脚本没有 defer、解析到就立刻执行。若在这里直接调 loadProbSchools()，
+    //    它会读 COLLEGES —— 此刻 data.js 还没跑，直接抛 ReferenceError，
+    //    于是**本块后面的所有代码（含下面搜索框的事件绑定）全部不再执行**，
+    //    表现就是「录取概率页的学校搜索用不了」（输入框没反应、下拉不出结果）。
+    //    放进 DOMContentLoaded 回调即安全：defer 脚本保证在此事件前执行完毕。
+    document.addEventListener('DOMContentLoaded', () => {
     loadProbSchools();
     document.getElementById('prob-culture').addEventListener('input', calcProb);
 
@@ -1088,6 +1098,7 @@
         document.getElementById('major-dropdown').classList.remove('open');
       }
     });
+    });   // ← 结束 DOMContentLoaded
   </script>
 </body>
 </html>
