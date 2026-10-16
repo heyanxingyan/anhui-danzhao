@@ -1,6 +1,6 @@
 /* ============================================================
 
- * 安徽单招信息查询 - 院校数据（74所 · 2027备考版）
+ * 安徽单招信息查询 - 院校数据（94条 · 2027备考版）
 
  * 面向2027届考生：高考报名2026.10.17-21（官方已公布），单招时间参考2026年预估
 
@@ -10,7 +10,12 @@
 
  * 2026官方政策：职业技能占比原则上≥50%；按总计划120%预录取，递补不超30%
 
- * 对口本科：2026年共10所（安庆师范大学、安徽科技工程大学、合肥师范学院、皖西学院、淮南师范学院、巢湖学院、黄山学院、铜陵学院、滁州学院、宿州学院）
+ * 对口本科：2026年共22所（安徽省教育招生考试院「应用型本科对口招生章程」栏目共22条记录）
+ *
+ *   含安庆师范大学、安徽科技工程大学、合肥师范学院、皖西学院、淮南师范学院、巢湖学院、黄山学院、
+ *   铜陵学院、滁州学院、宿州学院、蚌埠学院、池州学院、合肥城市学院、淮北理工学院、合肥经济学院、
+ *   安徽外国语学院、安徽文达信息工程学院、安徽三联学院、安徽新华学院、安徽艺术学院、
+ *   安徽职业技术大学、芜湖职业技术大学
 
  * 院校合并/升格：安徽机电+安徽商贸→安徽应用技术职业大学；安徽医专→安徽第二医学院；
 
@@ -34,11 +39,11 @@ const CATEGORIES = {
 
 const BANNERS = [
 
-  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日 ✅官方公布 · 单招预计1月下旬',bg:'linear-gradient(135deg,#fa8c16,#ffa940)',link:'guide.html'},
+  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日（官方已公布）· 分类考试预计1月下旬报名',bg:'linear-gradient(135deg,#fa8c16,#ffa940)',link:'guide.html'},
 
-  {id:2,title:'对口本科10所院校招生',sub:'中职生也可上全日制本科',bg:'linear-gradient(135deg,#722ed1,#b37feb)',link:'zhongzhi.html?tab=benke'},
+  {id:2,title:'对口本科 22 所院校招生',sub:'100 个专业 · 计划 6181 人（2026年）',bg:'linear-gradient(135deg,#722ed1,#b37feb)',link:'zhongzhi.html?tab=benke'},
 
-  {id:3,title:'院校历年分数查询',sub:'五年走势对比 · 录取规则速查',bg:'linear-gradient(135deg,#fa8c16,#ffc069)',link:'score-trend.html'}
+  {id:3,title:'院校历年分数查询',sub:'74 所院校录取分数 · 历年对比 · 规则速查',bg:'linear-gradient(135deg,#fa8c16,#ffc069)',link:'score-trend.html'}
 
 ];
 
@@ -84,7 +89,7 @@ const MAJOR_CATEGORIES = [
 
 ];
 
-// 院校数据（74所）
+// 院校数据（94 条：高职专科 72 所 + 对口本科 22 所，其中 2 所双轨各计 2 条）
 
 const COLLEGES = [
   {"id":1,"name":"宿州学院","city":"宿州","address":"安徽省宿州市学府大道1769号（教育园区校区）；汴河路校区：安徽省宿州市汴河中路49号","nature":"公办","type":"综合类","website":"https://www.ahszu.edu.cn","tags":["benke","duikou"],"hot":false,"isUndergraduate":true,"planCount2024":2225,"intro":"省属全日制普通本科高校，参与面向中职毕业生对口升学招生。","admissionRule2026":"分数优先（2026对口本科章程）","scoreComposition":"文化300分（语数各120+英语60）+ 职业技能450分（专业理论200+技能测试250）= 总分750分；计算机/旅游/学前教育按总成绩直接相加录取，表演/音乐学/休闲体育按综合成绩=文化×30%+职业技能×70%合成（2026对口本科章程）","interview":{"hasInterview":false,"form":"无","ratio":"无面试","content":"不设面试，按文化测试+职业技能测试总分录取"},"plan2026":"215人（中职215）","plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"scores":{"2021":{"min":187,"avg":231,"max":257},"2022":{"min":194,"avg":239,"max":270},"2023":{"min":202,"avg":243,"max":278},"2024":{"min":209,"avg":237,"max":292},"2025":{"min":207,"avg":243,"max":260}},"majors":[{"name":"计算机科学与技术","code":"080901","category":"dianxin","fee":4900,"plan2024":0,"plan2025":0,"plan2026":40,"plan2026Gaozhong":0,"plan2026Zhongzhi":40,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":40,"plan2026_zhuanxiang":0},{"name":"旅游管理","code":"120901K","category":"lvyou","fee":4600,"plan2024":252,"plan2025":256,"plan2026":30,"plan2026Gaozhong":0,"plan2026Zhongzhi":30,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":30,"plan2026_zhuanxiang":0},{"name":"学前教育","code":"040106","category":"jiaoyu","fee":5060,"plan2024":235,"plan2025":240,"plan2026":45,"plan2026Gaozhong":0,"plan2026Zhongzhi":45,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":45,"plan2026_zhuanxiang":0},{"name":"休闲体育","code":"040207T","category":"jiaoyu","fee":4900,"plan2024":0,"plan2025":0,"plan2026":40,"plan2026Gaozhong":0,"plan2026Zhongzhi":40,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":40,"plan2026_zhuanxiang":0},{"name":"表演","code":"130301","category":"wenyi","fee":8000,"plan2024":0,"plan2025":0,"plan2026":30,"plan2026Gaozhong":0,"plan2026Zhongzhi":30,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":30,"plan2026_zhuanxiang":0},{"name":"音乐学","code":"130202","category":"wenyi","fee":8000,"plan2024":0,"plan2025":0,"plan2026":30,"plan2026Gaozhong":0,"plan2026Zhongzhi":30,"plan2026Zhuanxiang":0,"plan2026RetiredMilitary":0,"plan2026RevolutionaryArea":0,"plan2026RuralDoctor":0,"plan2026Estimated":false,"plan2026_gaozhong":0,"plan2026_zhongzhi":30,"plan2026_zhuanxiang":0}],"realScore2026":"【官方公布】。说明:学校2026年未开展高职分类考试（分类招生），故无普高类/中职类分类考试录取最低分可查。本批次专业实际为对口本科招生，不属于本次分类考试分数调研范围。已核查宿州学院招生网招生章程栏目（https://www.ahszu.edu.cn/zs/","scoreSources2026":["https://www.ahszu.edu.cn/zs/zcxxs.htm","https://www.ahszu.edu.cn/zs/info/1062/8449.htm"],"scoreSourceNote2026":"宿州学院2026年未参加高职院校分类考试（分类招生/单招），仅开展面向中职毕业生对口招生（对口本科）。招生章程列表中2026年仅见《宿州学院2026年面向中职毕业生对口招生章程》，无2026年分类考试招生章程（最近一次为2024年分类考试招生章程）。本批次所列专业（计算机科学与技术、旅游管理、学前教育、休闲体育、表演、音乐学）均为对口本科招生计划，非高职分类考试。对口招生录取规则：综合成绩=文化素质测试×0.3+职业技能考试×0.7；休闲体育专业职业技能测试270分及以上（专项素质不低于180、专项技能不低于90）。","scoreGranularity2026":"school_only","examRatio":"文化素质测试40%+职业技能测试60%","employmentRate":"高于90%","upgradeRate":null,"score2026":"【官方公布】。说明:学校2026年未开展高职分类考试（分类招生），故无普高类/中职类分类考试录取最低分可查。本批次专业实际为对口本科招生，不属于本次分类考试分数调研范围。已核查宿州学院招生网招生章程栏目（https://www.ahszu.edu.cn/zs/","minScore2025":207,"minScore2026":null,"plan2026Gaozhong":null,"plan2026Zhongzhi":215,"plan2026Zhuanxiang":null,"plan2026Estimated":false,"phone":"0557-2875025","scale":"普通本科生16000余人（另有成人继续教育在籍生1800余人）","auditNote2026":"2026年仅面向中职毕业生对口招生（对口本科），不参加高职分类考试；所列专业均为对口本科计划。","feePolicyNote":"按宿州学院2026-2027收费公示(皖发改价费〔2021〕348号)：理工4900/文科4600/艺术8000/体育4900；学前教育属上浮10%名单=5060。6专业学费现值全部正确，不改。","shuanggaoTier":"不适用（公办普通本科，按普通本科标准收费，不执行皖发改价费〔2026〕283号高职学费标准）","scores2026Checked":true,"scoreNote":"官方站点未检索到《关于公布宿州学院2026年面向中职毕业生对口招生录取分数线的通知》原文页面。","isDuikouBenke":true,"plan2026Benke":215,"_bkPlaceholder":{"upgradeRate":true},"baseInfoSources":["https://www.ahszu.edu.cn/xygk/xxjj.htm","https://www.ahszu.edu.cn/zs/info/1102/6064.htm","https://www.ahszu.edu.cn/zs/info/1062/7359.htm","https://www.ahszu.edu.cn/zs/flzs.htm"],"_track":"duikou","minScoreYear":2025},
