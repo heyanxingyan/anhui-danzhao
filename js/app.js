@@ -1110,81 +1110,19 @@ function buildBenkeCards(keyword) {
 
   return list.map((s) => {
     const local = localByName.get(s.name);
-    // 校名/整卡指向：本站已收录 → 站内详情页；否则 → 官网（无官网则退回省考试院章程）
+    // 校名/整卡指向：本站已收录 → 站内详情页（与高职院校一致）；否则 → 官网
     const nameHref = local ? `college-detail.html?id=${local.id}`
       : (s.zhaoshengSite || s.schoolSite || s.charterUrl || '');
     const nameExt = !local && nameHref;
 
-    // 摘要行：招生计划 / 专业数
-    const majorCount = (s.majors || []).length;
-
-    // 关键数字小格
-    const exam = s.exam || {};
-    const kv = [];
-    if (exam.totalScore) kv.push(['总分', exam.totalScore + ' 分']);
-    if (s.charterYear) kv.push(['章程年份', s.charterYear + ' 年']);
-    if (s.tuitionRange) kv.push(['学费', s.tuitionRange]);
-    const kvHtml = kv.length
-      ? `<div class="bk-kv">${kv.map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>`
-      : '';
-
-    // 专业表（最多先显示 8 行，其余折叠）
-    const majors = s.majors || [];
-    const catOf = (m) => m.categoryText || m.category || '';
-    const majorRows = (arr) => arr.map((m) => `
-      <tr>
-        <td>${esc(m.name)}</td>
-        <td>${esc(catOf(m))}</td>
-        <td style="text-align:right">${m.plan != null ? esc(m.plan) : '—'}</td>
-        <td>${esc(m.examSubjects || m.note || '')}</td>
-      </tr>`).join('');
-    const majorTable = majors.length
-      ? `<div style="overflow-x:auto"><table class="bk-table">
-           <tr><th>招生专业</th><th>专业大类</th><th style="text-align:right">计划</th><th>职业技能测试/备注</th></tr>
-           ${majorRows(majors.slice(0, 8))}
-         </table></div>`
-      : '';
-
-    // 折叠详情：考试办法 / 报考条件 / 录取规则 / 全部专业 / 来源
-    const sec = (t, v) => v ? `<div class="bk-sec"><div class="bk-sec-t">${t}</div><div>${esc(v)}</div></div>` : '';
-    const moreMajorTable = majors.length > 8
-      ? `<div style="overflow-x:auto"><table class="bk-table">
-           <tr><th>招生专业</th><th>专业大类</th><th style="text-align:right">计划</th><th>职业技能测试/备注</th></tr>
-           ${majorRows(majors.slice(8))}
-         </table></div>`
-      : '';
-    const srcBlock = (s.sources && s.sources.length)
-      ? `<div class="bk-sec"><div class="bk-sec-t">来源（官方）</div><div style="font-size:11.5px;line-height:1.6">${
-          s.sources.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" style="color:var(--primary);word-break:break-all">${esc(u)}</a>`).join('<br>')
-        }</div></div>`
-      : '';
-    const detail = kvHtml + majorTable +
-      `${(majors.length > 8 || exam.skill || exam.scoreFormula || s.conditions || s.admission || s.unresolved || moreMajorTable || srcBlock) ? `
-        <details class="zx-fold-inline" style="margin:8px 0 0">
-          <summary style="font-size:13px;padding:8px 11px">
-            <span>📋 考试办法 · 报考条件 · 录取规则${majors.length > 8 ? ' · 全部专业' : ''}</span>
-            <span class="zx-fold-hint"><span class="zx-fold-hint-text">展开</span><span class="zx-fold-collapse-text">收起</span><span class="zx-fold-arrow">▼</span></span>
-          </summary>
-          <div class="zx-fold-body" style="padding:10px 11px 2px">
-            ${sec('考试办法', exam.skill)}
-            ${exam.scoreFormula ? `<div class="bk-sec"><div class="bk-sec-t">成绩合成</div><div>${esc(exam.scoreFormula)}</div></div>` : ''}
-            ${sec('报考条件', s.conditions)}
-            ${sec('录取规则', s.admission)}
-            ${moreMajorTable}
-            ${s.unresolved && s.unresolved.length ? `<div class="bk-sec"><div class="bk-sec-t">未查到</div><div style="color:#ad6800">${esc(s.unresolved.join('；'))}</div></div>` : ''}
-            ${srcBlock}
-          </div>
-        </details>` : ''}`;
-
-    // 说明：2026 年录取分数线**不在列表卡片上展示**（列表太长、口径又多，容易误读）。
-    //       分数统一放在院校详情页的「录取分数」标签里看（见 renderDuikouBenkeScorePanel）。
-
-    // 卡片本体与「分类考试」的高职院校卡片保持同一套结构/样式：
-    //   a.college-card > .head > .name + .tags（.tag/.tag-public/.tag-type） + .meta-row
-    // 本页额外的数据（专业表、考试办法）挂在卡片**下方**，
-    // 不塞进卡片里 —— 否则又会变成之前那种被撑爆的异形卡。
-    const planText = s.planTotal ? `对口本科 ${s.planTotal} 人` : '对口本科';
-    const mainCard = `
+    // 卡片**完全对齐**「分类考试」的高职院校卡片，不多挂任何额外信息：
+    //   高职：a.college-card > .head > .name + .tags（性质/类型/批次标记） + .meta-row（城市 · 计划 N 人）
+    //   对口本科：同结构；meta 行同样写作「计划 N 人」，批次由标签行的「🏫 对口本科」表达。
+    // 曾多出来的「已收录历年分数」「数据置信度中」标签、「· N 个专业」、「看招生计划与分数 ›」
+    // 以及卡片下方的分数线块、专业表、考试办法折叠块，**全部移除** ——
+    // 列表里只留与高职卡片一样的信息；分数线/专业/考试办法一律进院校详情页看。
+    const planText = s.planTotal ? `计划 ${s.planTotal} 人` : '计划待公布';
+    return `
       <a href="${esc(nameHref || '#')}"${nameExt ? ' target="_blank" rel="noopener"' : ''} class="college-card">
         <div class="head">
           <div class="name">${esc(s.name)}</div>
@@ -1193,20 +1131,11 @@ function buildBenkeCards(keyword) {
           <span class="tag ${s.nature === '公办' ? 'tag-public' : 'tag-private'}">${esc(s.nature || '')}</span>
           ${s.type ? `<span class="tag tag-type">${esc(s.type)}</span>` : ''}
           <span class="tag" style="background:#f9f0ff;color:#531dab;border:1px solid #d3adf7">🏫 对口本科</span>
-          ${local ? '<span class="tag" style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f">已收录历年分数</span>' : ''}
-          ${s.confidence && s.confidence !== '高' ? `<span class="tag" style="background:#fff7e6;color:#ad6800;border:1px solid #ffd591">数据置信度${esc(s.confidence)}</span>` : ''}
         </div>
         <div class="meta-row">
-          <span>${esc(s.city || '')} · ${planText}${majorCount ? ` · ${majorCount} 个专业` : ''}</span>
-          <span style="font-size:12px;color:var(--text-light)">${local ? '看招生计划与分数 ›' : '官网 ›'}</span>
+          <span>${esc(s.city || '')} · ${planText}（对口本科）</span>
         </div>
       </a>`;
-
-    return `
-      <div class="bk-card-wrap">
-        ${mainCard}
-        ${detail}
-      </div>`;
   }).join('');
 }
 
