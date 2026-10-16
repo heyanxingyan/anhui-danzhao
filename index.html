@@ -4,59 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261018b">
+  <link rel="stylesheet" href="css/style.css?v=20261020c">
 </head>
 <body data-page="index">
   <div class="page">
-    <!-- 顶部标题栏 -->
+    <!-- 顶部标题栏（品牌头部） -->
     <div class="navbar">
-      <div class="title">安徽单招信息查询</div>
+      <div class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 9v5"/></svg>
+        </span>
+        <div class="title">安徽单招信息查询</div>
+      </div>
+      <a href="about.html" class="right-action">关于</a>
+    </div>
+
+    <!-- 非盈利 / 永久免费 标识 -->
+    <div class="free-strip">
+      <span class="free-strip-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21l8.8-8a5.2 5.2 0 0 0 0-7.4z"/></svg>
+      </span>
+      <div class="free-strip-text">
+        <b>本网站为非盈利性质 · 永久免费</b>
+        <span>无广告 · 不收费 · 信息整理仅供考生参考</span>
+      </div>
     </div>
 
     <!-- Banner 轮播 -->
     <div class="banner" id="banner"></div>
 
-    <!-- 2027备考提示 -->
-    <div style="margin:10px 12px 0;padding:10px 12px;background:#fff7e6;border:1px solid #ffd591;border-radius:8px;font-size:12px;color:#d46b08;line-height:1.7">
-      🎯 <strong>2027年安徽单招备考已启动</strong><br>
-      📌 高考报名：<strong>10月17日10:00–21日17:00</strong>（✅官方已公布，gkbm.ahzsks.cn）<br>
-      📅 单招报名：预计2027年1月下旬（参考2026年1月26-30日）<br>
-      ✍️ 文化素质测试：预计2027年3月上旬（元宵节后周末，参考2026年3月8日）<br>
-      📝 志愿填报：预计2027年3月中旬（参考2026年3月14-17日）<br>
-      ✅ 录取确认：预计2027年4月中旬（参考2026年4月11-13日）<br>
-      📚 共收录<strong>94条</strong>院校数据，其中 <strong>74 所</strong>含历年录取分数供参考；2027年招生章程预计2027年3月公布。单招时间为预估，以官方公布为准。
-    </div>
+    <!-- 2027 备考时间轴 -->
+    <section class="prep-card">
+      <div class="prep-head">
+        <span class="prep-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        </span>
+        <div class="prep-title">2027 安徽单招备考时间轴</div>
+        <span class="prep-badge">备考已启动</span>
+      </div>
+      <ol class="prep-timeline">
+        <li class="prep-item is-official">
+          <span class="prep-dot"></span>
+          <div class="prep-item-main">
+            <div class="prep-item-label">高考报名 <span class="prep-flag">官方已公布</span></div>
+            <div class="prep-item-date">10月17日 10:00 – 10月21日 17:00</div>
+            <div class="prep-item-note">安徽省教育招生考试院 · <a href="https://gkbm.ahzsks.cn" target="_blank" rel="noopener">gkbm.ahzsks.cn</a></div>
+          </div>
+        </li>
+        <li class="prep-item">
+          <span class="prep-dot"></span>
+          <div class="prep-item-main">
+            <div class="prep-item-label">单招报名 <span class="prep-flag">预计</span></div>
+            <div class="prep-item-date">2027年1月下旬</div>
+            <div class="prep-item-note">参考2026年1月26-30日</div>
+          </div>
+        </li>
+        <li class="prep-item is-extra">
+          <span class="prep-dot"></span>
+          <div class="prep-item-main">
+            <div class="prep-item-label">文化素质测试 <span class="prep-flag">预计</span></div>
+            <div class="prep-item-date">2027年3月上旬</div>
+            <div class="prep-item-note">元宵节后周末，参考2026年3月8日</div>
+          </div>
+        </li>
+        <li class="prep-item is-extra">
+          <span class="prep-dot"></span>
+          <div class="prep-item-main">
+            <div class="prep-item-label">志愿填报 <span class="prep-flag">预计</span></div>
+            <div class="prep-item-date">2027年3月中旬</div>
+            <div class="prep-item-note">参考2026年3月14-17日</div>
+          </div>
+        </li>
+        <li class="prep-item is-extra">
+          <span class="prep-dot"></span>
+          <div class="prep-item-main">
+            <div class="prep-item-label">录取确认 <span class="prep-flag">预计</span></div>
+            <div class="prep-item-date">2027年4月中旬</div>
+            <div class="prep-item-note">参考2026年4月11-13日</div>
+          </div>
+        </li>
+      </ol>
+      <button class="prep-toggle" id="prep-toggle" type="button" aria-expanded="false">
+        <span class="prep-toggle-text">展开后续 3 个节点</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="prep-stats">
+        <div class="prep-stat"><b>94</b><span>条院校数据</span></div>
+        <div class="prep-stat"><b>74</b><span>所含历年分数</span></div>
+        <div class="prep-stat"><b>3月</b><span>招生章程公布</span></div>
+      </div>
+      <p class="prep-foot">单招时间为预估，以安徽省教育招生考试院官方公布为准。<a href="timeline.html" class="prep-more">查看完整备考时间轴 ›</a></p>
+    </section>
 
     <!-- 板块入口（仅三大板块：高中起点 / 中职起点 / 专项计划） -->
-    <div class="section-title">招生板块</div>
+    <div class="section-title"><span>招生板块</span></div>
     <div class="category-grid" id="category-grid"></div>
-    <div style="padding:0 12px;font-size:11px;color:var(--text-light);margin-top:6px">
-      🛠️ 中职起点内含「中职专科」与「对口本科」两条通道，点击进入后切换
-    </div>
+    <p class="section-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+      中职起点内含「中职专科」与「对口本科」两条通道，点击进入后切换
+    </p>
 
     <!-- 热门院校 -->
     <div class="section-title">
-      热门院校推荐
+      <span>热门院校推荐</span>
       <a href="college-list.html" class="more">查看全部 ›</a>
     </div>
     <div class="h-scroll" id="hot-colleges"></div>
 
     <!-- 实用工具快捷入口 -->
-    <div class="section-title">实用工具</div>
+    <div class="section-title"><span>实用工具</span></div>
     <div class="tool-grid">
-      <a href="probability.html" class="tool-card"><div class="icon">🎲</div><div class="name">录取概率</div></a>
-      <a href="recommend.html" class="tool-card"><div class="icon">🎯</div><div class="name">分数推荐</div></a>
-      <a href="guide.html" class="tool-card"><div class="icon">📖</div><div class="name">报考指南</div></a>
-      <a href="ranking.html" class="tool-card"><div class="icon">🏆</div><div class="name">报考排行</div></a>
-      <a href="faq.html" class="tool-card"><div class="icon">❓</div><div class="name">常见问题</div></a>
-      <a href="compare.html" class="tool-card"><div class="icon">⚖️</div><div class="name">院校对比</div></a>
-      <a href="low-score.html" class="tool-card"><div class="icon">🆘</div><div class="name">低分上公办</div></a>
-    </div>
-
-    <!-- 分数查询入口 -->
-    <div class="section-title">分数线查询</div>
-    <div style="padding:0 12px">
-      <a href="score-trend.html" class="btn-primary" style="margin:0;display:block">📈 查看历年分数走势</a>
+      <a href="probability.html" class="tool-card"><span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><circle cx="7.5" cy="7.5" r="2.6"/><circle cx="16.5" cy="16.5" r="2.6"/></svg></span><span class="name">录取概率</span></a>
+      <a href="guide.html" class="tool-card"><span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="name">报考指南</span></a>
+      <a href="ranking.html" class="tool-card"><span class="tile tile-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6.5H4.5A2.5 2.5 0 0 0 7 11"/><path d="M17 6.5h2.5A2.5 2.5 0 0 1 17 11"/><path d="M12 14v3.5"/><path d="M8.5 21h7"/></svg></span><span class="name">报考排行</span></a>
+      <a href="faq.html" class="tool-card"><span class="tile tile-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 0 1 5.3.7c0 1.8-2.7 2.2-2.7 3.9"/><path d="M12 16.8h.01"/></svg></span><span class="name">常见问题</span></a>
+      <a href="compare.html" class="tool-card"><span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5V20"/><path d="M7 20h10"/><path d="M4 8h16"/><path d="M4 8l-2.3 5.5a2.7 2.7 0 1 0 4.6 0L4 8z"/><path d="M20 8l-2.3 5.5a2.7 2.7 0 1 0 4.6 0L20 8z"/><circle cx="12" cy="4.5" r="1"/></svg></span><span class="name">院校对比</span></a>
+      <a href="low-score.html" class="tool-card"><span class="tile tile-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M5.8 5.8l3.1 3.1M15.1 15.1l3.1 3.1M18.2 5.8l-3.1 3.1M8.9 15.1l-3.1 3.1"/></svg></span><span class="name">低分上公办</span></a>
+      <a href="favorites.html" class="tool-card"><span class="tile tile-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.8 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.3 1.2-6.5L2.5 9.7l6.6-.9z"/></svg></span><span class="name">我的收藏</span></a>
     </div>
 
     <div style="height:20px"></div>
@@ -65,7 +129,7 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261018b"></script>
-  <script src="js/app.js?v=20261018b"></script>
+  <script src="js/data.js?v=20261020c"></script>
+  <script src="js/app.js?v=20261020c"></script>
 </body>
 </html>

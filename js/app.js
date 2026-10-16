@@ -31,11 +31,13 @@ function scoreLabel(c) {
 }
 
 // ========== 底部 Tab 导航渲染 ==========
+// 2026 视觉改版：Emoji 图标统一更换为 24px 线性 SVG（stroke 1.8 / currentColor），
+// 与 css/style.css 的 .tabbar-item .icon 尺寸规则配套
 const TAB_ITEMS = [
-  { key: 'index', name: '首页', icon: '🏠', href: 'index.html' },
-  { key: 'college', name: '院校', icon: '🏫', href: 'college-list.html' },
-  { key: 'major', name: '专业', icon: '📚', href: 'major-search.html' },
-  { key: 'me', name: '我的', icon: '👤', href: 'about.html' }
+  { key: 'index', name: '首页', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M9.8 20v-5.5h4.4V20"/></svg>', href: 'index.html' },
+  { key: 'college', name: '院校', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 3 9h18z"/><path d="M5 9v9M9.3 9v9M14.7 9v9M19 9v9"/><path d="M3.5 18h17M4 21h16"/></svg>', href: 'college-list.html' },
+  { key: 'major', name: '专业', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v14c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-14c-3.5 0-6 .5-8 2z"/><path d="M12 6.5v14"/></svg>', href: 'major-search.html' },
+  { key: 'me', name: '我的', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 20.5v-1.8a4.2 4.2 0 0 0-4.2-4.2H8.7a4.2 4.2 0 0 0-4.2 4.2v1.8"/><circle cx="12" cy="7.2" r="4"/></svg>', href: 'about.html' }
 ];
 
 function renderTabbar(activeKey) {
@@ -141,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'guide': renderGuide,
     'faq': renderFaq,
     'recommend': renderRecommend,
+    'timeline': renderTimeline,
     'about': renderAbout
   };
 
@@ -148,7 +151,39 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFooter();
 });
 
-// ========== 全站页脚：快捷导航 + 署名水印（低调灰色小字） ==========
+// ========== 首页备考时间轴折叠 ==========
+function initPrepCollapse() {
+  const tl = document.querySelector('.prep-timeline');
+  const btn = document.getElementById('prep-toggle');
+  if (!tl || !btn) return;
+
+  const extra = tl.querySelectorAll('.prep-item.is-extra').length;
+  const label = btn.querySelector('.prep-toggle-text');
+  const KEY = 'anhui_danzhao_prep_open';
+
+  const setState = (open) => {
+    tl.classList.toggle('prep-collapsed', !open);
+    btn.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    label.textContent = open ? '收起时间轴' : `展开后续 ${extra} 个节点`;
+    try { localStorage.setItem(KEY, open ? '1' : '0'); } catch { }
+  };
+
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch { }
+  setState(saved === '1');
+
+  btn.addEventListener('click', () => {
+    setState(tl.classList.contains('prep-collapsed'));
+  });
+}
+
+// ========== 备考时间轴收纳页 ==========
+function renderTimeline() {
+  renderTabbar('');
+}
+
+// ========== 全站页脚：快捷导航 + 非盈利标识 + 署名水印 ==========
 function renderFooter() {
   const page = document.querySelector('.page');
   if (!page || document.querySelector('.site-footer')) return;
@@ -157,12 +192,17 @@ function renderFooter() {
   const nav = document.createElement('div');
   nav.className = 'foot-nav';
   nav.innerHTML = `
-    <a href="favorites.html">⭐ 收藏</a>
-    <a href="compare.html">⚖️ 对比</a>
-    <a href="guide.html">📖 指南</a>
-    <a href="recommend.html">🎯 分数推荐</a>
-    <a href="low-score.html">🆘 低分上公办</a>
-    <a href="faq.html">❓ 常见问题</a>`;
+    <a href="favorites.html">收藏</a>
+    <a href="compare.html">对比</a>
+    <a href="guide.html">指南</a>
+    <a href="recommend.html">分数推荐</a>
+    <a href="low-score.html">低分上公办</a>
+    <a href="faq.html">常见问题</a>`;
+
+  // 非盈利 / 永久免费 标识（全站每页可见）
+  const free = document.createElement('div');
+  free.className = 'free-flag';
+  free.textContent = '本站为非盈利性质 · 永久免费';
 
   // 署名水印
   const foot = document.createElement('div');
@@ -170,8 +210,8 @@ function renderFooter() {
   foot.textContent = '抖音@内向自卑小学生 · heyanxingyan520 整理制作';
 
   const bar = document.querySelector('.tabbar');
-  if (bar) { page.insertBefore(nav, bar); page.insertBefore(foot, bar); }
-  else { page.appendChild(nav); page.appendChild(foot); }
+  if (bar) { page.insertBefore(nav, bar); page.insertBefore(free, bar); page.insertBefore(foot, bar); }
+  else { page.appendChild(nav); page.appendChild(free); page.appendChild(foot); }
 }
 
 /* ============================================================
@@ -179,6 +219,9 @@ function renderFooter() {
  * ============================================================ */
 function renderIndex() {
   renderTabbar('index');
+
+  // 备考时间轴折叠（默认收起后续节点，展开状态本地记忆）
+  initPrepCollapse();
 
   // Banner 轮播
   const bannerEl = document.getElementById('banner');
@@ -212,6 +255,7 @@ function renderIndex() {
       <a href="${href}" class="category-card" style="text-decoration:none">
         <div class="icon">${c.icon}</div>
         <div class="name">${c.name}</div>
+        <div class="desc">${c.desc}</div>
       </a>`;
     }).join('');
   }
@@ -222,9 +266,14 @@ function renderIndex() {
     const hot = COLLEGES.filter(c => c.hot && !c.stoppedEnrollment).slice(0, 6);
     hotEl.innerHTML = hot.map(c => `
       <a href="college-detail.html?id=${c.id}" class="college-chip">
-        <div class="name">${c.name}${c.stoppedEnrollment ? ' <span style="font-size:10px;background:#ff4d4f;color:#fff;padding:1px 5px;border-radius:8px">停招</span>' : ''}</div>
-        <div class="meta">${c.city} · ${c.nature}</div>
-        <div class="score" style="font-size:11px;color:var(--text-light)">查看取分规则 ›</div>
+        <div class="chip-top">
+          <span class="chip-avatar">${c.name.charAt(0)}</span>
+          <div class="chip-body">
+            <div class="name">${c.name}${c.stoppedEnrollment ? ' <span style="font-size:10px;background:#ff4d4f;color:#fff;padding:1px 5px;border-radius:8px">停招</span>' : ''}</div>
+            <div class="meta">${c.city} · ${c.nature}</div>
+          </div>
+        </div>
+        <div class="score">查看取分规则 ›</div>
       </a>
     `).join('');
   }

@@ -29,21 +29,21 @@
 
 const CATEGORIES = {
 
-  gaozhong:{key:'gaozhong',name:'高中起点',icon:'🎓',desc:'面向普通高中毕业生，文化素质测试+职业适应性测试录取',condition:'已参加安徽省2027年普通高考报名的普通高中毕业生',subjects:'文化素质测试（语数英，省统考）+ 职业适应性测试',rule:'文化素质为省统考；学业水平考试语数外均合格者可认定文化素质合格。职业适应性测试由招生院校组织。职业技能（适应性）考评成绩占比原则上不低于总成绩50%。'},
+  gaozhong:{key:'gaozhong',name:'高中起点',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 9v5"/></svg>',desc:'面向普通高中毕业生，文化素质测试+职业适应性测试录取',condition:'已参加安徽省2027年普通高考报名的普通高中毕业生',subjects:'文化素质测试（语数英，省统考）+ 职业适应性测试',rule:'文化素质为省统考；学业水平考试语数外均合格者可认定文化素质合格。职业适应性测试由招生院校组织。职业技能（适应性）考评成绩占比原则上不低于总成绩50%。'},
 
-  zhongzhi:{key:'zhongzhi',name:'中职起点',icon:'🛠️',desc:'面向中职毕业生，含中职专科与对口本科两条通道',condition:'已参加安徽省2027年普通高考报名的中职毕业生（含技工学校）',subjects:'文化素质测试（语数英，省统考）+ 职业技能考试',rule:'职业技能考试含专业能力测试（笔试）+技术技能测试（操作），按对口类别由招生院校组织；对口本科单独划线、单独录取。职业技能考评成绩占比原则上不低于总成绩50%。'},
+  zhongzhi:{key:'zhongzhi',name:'中职起点',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7"/></svg>',desc:'面向中职毕业生，含中职专科与对口本科两条通道',condition:'已参加安徽省2027年普通高考报名的中职毕业生（含技工学校）',subjects:'文化素质测试（语数英，省统考）+ 职业技能考试',rule:'职业技能考试含专业能力测试（笔试）+技术技能测试（操作），按对口类别由招生院校组织；对口本科单独划线、单独录取。职业技能考评成绩占比原则上不低于总成绩50%。'},
 
-  zhuanxiang:{key:'zhuanxiang',name:'专项计划',icon:'⭐',desc:'面向退役军人、革命老区建档立卡、乡村医生定向培养等专项考生，单独划线单独录取',condition:'符合条件的退役军人、革命老区建档立卡考生、乡村医生定向培养等专项报考人员',subjects:'与对应生源类别一致，单独划线',rule:'退役军人免文化素质测试；单独排队、单独录取，不占用普通计划名额。'}
+  zhuanxiang:{key:'zhuanxiang',name:'专项计划',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.8 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.3 1.2-6.5L2.5 9.7l6.6-.9z"/></svg>',desc:'面向退役军人、革命老区建档立卡、乡村医生定向培养等专项考生，单独划线单独录取',condition:'符合条件的退役军人、革命老区建档立卡考生、乡村医生定向培养等专项报考人员',subjects:'与对应生源类别一致，单独划线',rule:'退役军人免文化素质测试；单独排队、单独录取，不占用普通计划名额。'}
 
 };
 
 const BANNERS = [
 
-  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日（官方已公布）· 分类考试预计1月下旬报名',bg:'linear-gradient(135deg,#fa8c16,#ffa940)',link:'guide.html'},
+  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日（官方已公布）· 分类考试预计1月下旬报名',bg:'linear-gradient(135deg,#2e5bff,#5f83ff)',link:'guide.html'},
 
-  {id:2,title:'对口本科 22 所院校招生',sub:'100 个专业 · 计划 6181 人（2026年）',bg:'linear-gradient(135deg,#722ed1,#b37feb)',link:'zhongzhi.html?tab=benke'},
+  {id:2,title:'对口本科 22 所院校招生',sub:'100 个专业 · 计划 6181 人（2026年）',bg:'linear-gradient(135deg,#6d5df6,#9d8cff)',link:'zhongzhi.html?tab=benke'},
 
-  {id:3,title:'院校历年分数查询',sub:'74 所院校录取分数 · 历年对比 · 规则速查',bg:'linear-gradient(135deg,#fa8c16,#ffc069)',link:'score-trend.html'}
+  {id:3,title:'院校历年分数查询',sub:'74 所院校录取分数 · 历年对比 · 规则速查',bg:'linear-gradient(135deg,#f08c1a,#fbbf24)',link:'score-trend.html'}
 
 ];
 
