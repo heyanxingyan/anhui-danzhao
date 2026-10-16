@@ -408,6 +408,11 @@ input, select {
 
 /* ========== 院校卡片 ========== */
 .college-card {
+  /* 卡片本体是 <a>，浏览器默认按 inline 布局：白底只画在文字后面，
+     看上去就是「学校名称上方浮着两个白色小块」，且随滚动/界面变色。
+     必须显式声明 block —— 之前只在部分调用点写了行内 style="display:block"，
+     app.js 的院校列表(at 400)与对口本科列表(at 1129)漏了，故统一收口到这条基础规则。 */
+  display: block;
   background: #fff;
   border-radius: var(--radius);
   padding: 14px;
