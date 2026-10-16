@@ -103,6 +103,9 @@
           <div class="prob-desc" id="prob-desc"></div>
         </div>
 
+        <!-- 硬性落榜提示：校考低于技能测试合格线，或文化分未达校考入围线时显示 -->
+        <div id="hard-fail-box" style="display:none; background:#fff1f0; border:2px solid #ff4d4f; border-radius:12px; padding:14px 16px; margin-top:12px; font-size:13px; color:#cf1322; line-height:1.7; font-weight:600"></div>
+
         <div class="prob-detail">
           <div class="prob-detail-row"><span>你的总分</span><b id="pr-your-score">--</b></div>
           <div class="prob-detail-row"><span>该校2026预估线</span><b id="pr-est-line">--</b></div>
@@ -311,18 +314,57 @@
       // 计算录取概率
       const probability = calcProbability(totalScore, estLine, preLine, plan, college, major);
 
+      // ===== 硬性落榜条件（先于概率展示判断）=====
+      // 这类情况不是"概率低"，而是**必然不被录取**，必须显式指出，
+      // 否则一个 67% 会把明显没戏的考生骗去填志愿。
+      //
+      //   ① 校考低于技能测试合格线 —— 章程普遍规定「技能测试成绩不合格者不予录取」，
+      //      此项与文化分无关，一旦不达标，文化分再高也没用。
+      //   ② 文化分过低（<165）—— 省文化素质合格线 82 分，但多数院校的校考入围线在
+      //      180 分上下；未达入围线无法参加校考。此项只在文化分**明显过低**时触发，
+      //      阈值取得比常见入围线(180)低一档，避免对入围线较低的院校误判。
+      const examMaxHard = getExamMax(college) || 300;
+      const skillFloor = examMaxHard * 0.5;
+      let hardFail = '';
+      if (examScore < skillFloor) {
+        hardFail = '🚨 校考成绩 ' + examScore + ' 分低于该校技能测试合格线（按满分 ' + examMaxHard +
+          ' 分的 50% 计约 ' + Math.round(skillFloor) + ' 分）。学校章程普遍规定「技能测试成绩不合格者不予录取」，' +
+          '此分状态下无论文化分多高都不会被录取。';
+      } else if (culture < 165) {
+        hardFail = '🚨 文化统考 ' + culture + ' 分过低。省文化素质测试合格线为 82 分，但多数院校的校考入围线在 180 分上下，' +
+          '未达入围线将无法参加校考、志愿直接作废。请以省考试院与院校公布的入围线为准。';
+      }
+
       // 显示结果
       document.getElementById('prob-result-area').style.display = 'block';
-      document.getElementById('prob-percent').textContent = Math.round(probability) + '%';
-      
+
+      // 命中硬性落榜条件时：概率直接压到 2%，并高亮原因。
+      // 不做这件事的话，一个偏高的百分比（如 67%）会把明显没戏的考生骗去填志愿。
+      let shownProb = probability;
+      if (hardFail) shownProb = 2;
+      document.getElementById('prob-percent').textContent = Math.round(shownProb) + '%';
+
       // 概率描述
       let desc = '';
       let badgeClass = '';
-      if (probability >= 80) { desc = '录取希望很大，正常发挥即可'; badgeClass = 'high'; }
-      else if (probability >= 60) { desc = '录取概率较大，建议做好保底'; badgeClass = 'mid'; }
-      else if (probability >= 40) { desc = '有一定机会，建议同时考虑其他学校'; badgeClass = 'mid'; }
+      if (hardFail) { desc = '不予录取：校考或文化分未达硬性合格线'; badgeClass = 'low'; }
+      else if (shownProb >= 80) { desc = '录取希望很大，正常发挥即可'; badgeClass = 'high'; }
+      else if (shownProb >= 60) { desc = '录取概率较大，建议做好保底'; badgeClass = 'mid'; }
+      else if (shownProb >= 40) { desc = '有一定机会，建议同时考虑其他学校'; badgeClass = 'mid'; }
       else { desc = '录取难度较大，建议选择更稳妥的学校'; badgeClass = 'low'; }
-      document.getElementById('prob-desc').innerHTML = desc + ' <span class="prob-badge ' + badgeClass + '">' + (probability >= 60 ? '较稳' : probability >= 40 ? '可冲' : '较悬') + '</span>';
+      document.getElementById('prob-desc').innerHTML = desc + ' <span class="prob-badge ' + badgeClass + '">' +
+        (hardFail ? '不予录取' : (shownProb >= 60 ? '较稳' : shownProb >= 40 ? '可冲' : '较悬')) + '</span>';
+
+      // 硬性落榜原因提示框（独立于"二次划线"那个提示，两者可能同时出现）
+      const hfBox = document.getElementById('hard-fail-box');
+      if (hfBox) {
+        if (hardFail) {
+          hfBox.style.display = 'block';
+          hfBox.textContent = hardFail;
+        } else {
+          hfBox.style.display = 'none';
+        }
+      }
 
       // 详情
       const axis = totalMaxOf(college);
@@ -659,19 +701,18 @@
     }
 
     // 校考满分（同时决定页面滑块上限）。
-    // 坐标轴口径必须与 calcTotalScore 一致：
-    //   sum          → 校考按章程分项满分（满分输入 + 文化满分 = 轴上限）
-    //   weightedScaled → 校考按其在合成分里的占比折算（满分输入对应轴上限）
-    //   percent      → 校考按原始分项满分，由 calcTotalScore 归一化到 0-100
-    //   examOnly     → 校考满分就是轴上限（校考即总成绩）
+    //
+    // ⚠️ 这里**必须返回章程里校考那一项的原始满分**，不能返回"它在合成分里折算后的分量"。
+    //    两者语义不同，混用会同时错三处：滑块上限、页面显示的「满分 N」、以及
+    //    calcTotalScore 里的分母。踩过的实例：芜湖职业技术大学章程写「校考300分」，
+    //    这里却按 600×60% 返回 360 —— 于是滑块变成 0~360，考生把校考拉到 300（已是满分）
+    //    也只算 300/360=83%，分数被系统性低估。
+    //    正确口径：加权折算由 calcTotalScore 按 (exam / examMax) 完成，本函数只给原始满分。
     function examMaxOf(college) {
       const rule = ruleOf(college);
-      if (rule.mode === 'sum') return rule.examMax || 300;
-      if (rule.mode === 'percent') return rule.examMax || 300;
-      if (rule.mode === 'examOnly') return rule.examMax || rule.axisMax || 100;
-      const we = rule.weightExam === null ? 0.5 : rule.weightExam;
-      const sum = (rule.weightCulture || 0) + we;
-      return Math.max(50, Math.round(rule.axisMax * (sum > 0 ? we / sum : 0.5)));
+      if (rule.examMax) return rule.examMax;
+      if (rule.mode === 'examOnly') return rule.axisMax || 100;
+      return 300;   // 安徽省分类考试校考（职业适应性/职业技能测试）通行满分
     }
 
     function cultureMaxOf(college) {
@@ -793,9 +834,13 @@
       let totalEst = calcTotalScore(college, cultureEst, examEst);
 
       // 根据招生计划调整
+      // 说明：原实现把"招生计划大"一律当成**降低录取线**（plan>200 减 15 分），
+      // 叠加在本来就偏低的启发式估算上，会把热门大校的预估线压到不切实际的水平
+      // （实测芜湖职业技术大学被压到 154/600，而实际录取在 440+ 档），
+      // 于是低分考生被判"较稳"。这里把下调幅度大幅收窄，并给预估线设**下限**。
       const plan = isZhongzhi ? (major.plan2026Zhongzhi || 0) : (major.plan2026Gaozhong || 0);
-      if (plan > 200) totalEst -= 15;
-      else if (plan > 100) totalEst -= 8;
+      if (plan > 200) totalEst -= 6;
+      else if (plan > 100) totalEst -= 3;
       else if (plan < 30 && plan > 0) totalEst += 8;
 
       // 志愿优先学校，冷门专业可以更低
@@ -807,6 +852,13 @@
         }
       }
 
+      // 预估线下限：安徽省高职分类考试录取分普遍落在总分的 45%~55% 以上
+      // （省文化素质合格线 82/300，校考入围线通常 150+）。低于 45% 的估计值
+      // 会把明显不够分的考生判成"稳"，必须兜住。
+      const axisForFloor = totalMaxOf(college) || 600;
+      const floor = axisForFloor * 0.45;
+      if (totalEst < floor) totalEst = floor;
+
       return Math.round(totalEst);
     }
 
@@ -814,19 +866,29 @@
       // 阈值必须按坐标轴缩放：600 分制差 30 分相当于百分制的 5 分，
       // 直接用绝对分会把百分制院校的概率算得极其离谱。
       const axisMax = totalMaxOf(college) || 600;
-      const k = axisMax / 600;
 
-      const diff = yourScore - estLine;
+      // ===== 改成连续函数 =====
+      // 旧实现是 7 档台阶（差 ≥30k→95%，≥15k→85%，…）。台阶的问题是**区分度太低**：
+      // 实测芜湖职业技术大学（官方线 154.6/600）时，等效分 340 和 600 都会落到
+      // 「差 ≥30k」那一档，输出完全相同的 90%，考生看不出差距；
+      // 而略低于线的人也能拿到 90%，明显失真。
+      //
+      // 新实现用"超出线多少 / 满分"作自变量，做一条平滑曲线：
+      //   · 恰好压线        → 50%
+      //   · 高出满分 30%    → 约 80%（这个位置基本稳了）
+      //   · 满分            → 约 95%
+      //   · 低于线          → 50% 以下快速衰减，低 40% 时约 2%
+      const rel = (yourScore - estLine) / axisMax;   // 相对满分的超出比例
       let prob;
-
-      if (diff >= 30 * k) prob = 95;
-      else if (diff >= 15 * k) prob = 85;
-      else if (diff >= 5 * k) prob = 72;
-      else if (diff >= -5 * k) prob = 55;
-      else if (diff >= -15 * k) prob = 38;
-      else if (diff >= -25 * k) prob = 22;
-      else if (diff >= -40 * k) prob = 10;
-      else prob = 3;
+      if (rel >= 0) {
+        // 高于线：50% → 约 94% 渐进。
+        // 尺度 0.40 是权衡后的取值：若取 0.30，则只要高出满分 30% 就冲到 95%，
+        // 高分区间又失去区分度（实测 340/600 与 600/600 会同样显示 90%）。
+        prob = 50 + 46 * (1 - Math.exp(-rel / 0.40));
+      } else {
+        // 低于线：50% → 2% 快速衰减
+        prob = 2 + 48 * Math.exp(rel / 0.12);
+      }
 
       // 120%预录取线：过线就有较大机会（120%投档规则，会有递补）
       if (yourScore >= preLine && yourScore < estLine) {
@@ -841,25 +903,25 @@
       if (isVolunteerFirst) {
         const coldMajorPattern = /材料|养老|纺织|农林|畜牧|水产|地质|矿业|殡葬|图书馆|档案|休闲|体育|艺术|音乐|表演|书画|体能/;
         if (coldMajorPattern.test(major.name)) {
-          prob += 15; // 冷门专业额外加15%
+          prob += 12; // 冷门专业额外加成
         }
         // 志愿优先整体比分数优先波动大，低分有机会
-        if (diff < 0) prob += 5;
+        if (rel < 0) prob += 4;
       }
 
       // 分数优先学校：没有捡漏，分不够就是不行
-      if (isScoreFirst && diff < -20) {
+      if (isScoreFirst && rel < 0) {
         prob -= 8;
       }
 
       // 学校热度调整
       if (college.hot) prob -= 5;
-      
+
       // 招生计划调整
       if (plan >= 200) prob += 5;
       else if (plan <= 30 && plan > 0) prob -= 5;
 
-      return Math.max(2, Math.min(97, prob));
+      return Math.round(Math.max(2, Math.min(97, prob)));
     }
 
     // 初始化
