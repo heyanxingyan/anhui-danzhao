@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>录取概率测算 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261016w">
+  <link rel="stylesheet" href="css/style.css?v=20261017y">
   <style>
     .prob-container { padding: 12px; }
     .prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
@@ -133,8 +133,9 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261016w"></script>
-  <script src="js/app.js?v=20261016w"></script>
+  <script src="js/data.js?v=20261017y"></script>
+  <script src="js/score-formula.js?v=20261017y"></script>
+  <script src="js/app.js?v=20261017y"></script>
   <script src="js/low-score.js"></script>
   <script>
     let currentProbType = 'gaozhong';
@@ -374,23 +375,40 @@
       const axis = totalMaxOf(college);
 
       // ===== 成绩口径冲突提示 =====
-      // 少数院校**官方公布的录取分高于其章程公式的理论上限**，二者数学上矛盾。
-      // 例：安庆医药高等专科学校章程写「入学测试成绩=文化×50%+校考×50%」（两项均 300 分制，
-      //     理论上限 300），但官方公布普高类最低分 394；滁州城市职业学院同类问题
-      //     （章程加权公式上限 300，官方公布 194.4）。
-      // 本页采用**章程公式口径**（有原文支撑），因此算出的线会低于官方公布线。
+      // 少数院校**公布的最低分高于其章程公式的理论上限**，二者数学上矛盾。
+      // 例：安庆医药章程「文化×50%+校考×50%」（两项均 300 分制，上限 300），
+      //     公布普高类最低分 394；合肥共达「文化过线后按校考排序」（百分制），
+      //     却公布普高最低 190（显然是另一种量纲的合成总分）。
+      // 本页采用**章程公式口径**（有原文支撑），因此算出的线会偏离公布值。
       // 这种情况必须显式告知考生，不能默默给出一个可能误导的概率。
+      //
+      // 数据源：要用**院校级**的公布最低分（college.minScore2026 / realScore2026），
+      // 不能用 estLine —— estLine 优先取专业级分数，是专业口径，与院校级总上限不可比。
       const conflictBox = document.getElementById('scale-conflict-box');
       if (conflictBox) {
-        const officialLineNum = Number(estLine);
-        if (Number.isFinite(officialLineNum) && officialLineNum > axis + 0.5) {
-          const srcNote = (college.realScore2026 || '').slice(0, 120);
+        let collegeLine = Number(college.minScore2026);
+        if (!Number.isFinite(collegeLine)) {
+          const m = String(college.realScore2026 || '').match(/普高[^0-9]{0,10}最低\s*[:：]?\s*(\d{2,3}(?:\.\d+)?)/)
+            || String(college.realScore2026 || '').match(/最低\s*[:：]?\s*(\d{2,3}(?:\.\d+)?)\s*分/);
+          if (m) collegeLine = parseFloat(m[1]);
+        }
+        const isExamOnly = ruleOf(college).mode === 'examOnly';
+        if (Number.isFinite(collegeLine) && collegeLine > axis + 0.5) {
+          // 来源可信度：标注「待核/未公布」的不称"官方公布"
+          const rawSrc = String(college.realScore2026 || '');
+          const unverified = /待核|未公布|未公开|未检索|存疑/.test(rawSrc);
+          const srcWord = unverified ? '有来源列出' : '官方公布';
+          const caution = unverified ? '该数据来源尚待核实，仅供参考。' : '';
           conflictBox.style.display = 'block';
           conflictBox.innerHTML = '<div style="font-weight:bold;font-size:14px;margin-bottom:6px">⚠️ 该校成绩口径存在矛盾，本页结论仅供参考</div>'
-            + '<div>官方公布的录取分（<b>' + officialLineNum + ' 分</b>）<b>高于</b>其招生章程公式的理论上限（<b>' + axis + ' 分</b>）。</div>'
+            + '<div>' + srcWord + '的录取分（<b>' + collegeLine + ' 分</b>）<b>高于</b>其招生章程计分方式的量程上限（<b>' + axis + ' 分</b>）。</div>'
             + '<div style="margin-top:6px">本页按<b>章程公式</b>计算：' + (getCalcRuleText(college) || '') + '。'
-            + '该口径有章程原文支撑，但由此得出的概率会偏保守（因为官方实际录取分比它更高）。</div>'
-            + (srcNote ? '<div style="margin-top:6px;font-size:12px;color:#ad6800">官方原文：' + srcNote + '…</div>' : '')
+            + (isExamOnly
+              ? '该校按<b>校考成绩排序</b>录取（百分制），而公布的最低分通常是「文化+校考」的合成总分，两者量纲不同 —— 本页的概率可能明显偏低。'
+              : '该口径有章程原文支撑，但由此得出的概率会偏保守（因为公布的实际录取分比它更高）。')
+            + '</div>'
+            + (caution ? '<div style="margin-top:6px">' + caution + '</div>' : '')
+            + (rawSrc ? '<div style="margin-top:6px;font-size:12px;color:#ad6800">原始记录：' + rawSrc.slice(0, 130) + '…</div>' : '')
             + '<div style="margin-top:6px;font-size:12px">建议直接以院校招生网公布的录取分为准，并留意该校是否有单列的计分说明。</div>';
         } else {
           conflictBox.style.display = 'none';
@@ -697,9 +715,15 @@
 
       // ---- 5) 模式判定 ----
       const directAdd = /直接相加/.test(text);
-      const examOnly =
-        /仅作合格线|合格线|按校考成绩排序|校考成绩本身/.test(text) &&
-        (/按校考成绩排序|校考成绩本身|只按职业技能|按职业适应性|不计入合成|职业适应性测试\/职业技能考试/.test(text) || cultureExcluded);
+      // 「文化仅作合格线 + 按校考排序」= 校考即总成绩。
+      // ⚠️ 判据不能要求「按校考成绩排序」这样的完整短语：章程常写成
+      //    「文化过线后按校考300分排序录取」（合肥共达、芜湖航空），中间夹了分值，
+      //    旧正则因此漏判，被当成 sum（轴 600 而非 100），概率结论会整体偏低。
+      //    因此放宽为「按校考…排序」/「按职业技能…排序」这类核心语义。
+      const rankByExam = /按\s*(?:校考|职业技能[^，。；]{0,6}|职业适应性[^，。；]{0,6})[^，。；]{0,12}排序/.test(text)
+        || /校考成绩本身|只按职业技能|不计入合成/.test(text);
+      const hasQualLine = /仅作合格线|只作合格线|合格线/.test(text);
+      const examOnly = hasQualLine && (rankByExam || cultureExcluded);
       // 文化不计入合成（如"文化仅作合格线不计入合成"）
       // 公式本身是否已归一化到百分制（"文化÷3×40%+校考÷2×60%"这种先折百分制再加权）
       const normalizedByFormula =
@@ -772,10 +796,44 @@
     }
     // 每个院校只解析一次
     const _compositionCache = new Map();
+
+    /**
+     * 取该校的计分规则。**优先读结构化字段 js/score-formula.js**，正则解析只作兜底。
+     *
+     * 为什么要有结构化字段：scoreComposition 是自然语言，全省章程写法几十种，
+     * 纯正则解析会反复出现边界错误（已修：折合换算、显式校考满分、加权钳制、
+     * 坐标轴定义、examOnly 漏判等）。结构化字段经 tools/gen-score-formula.js 生成、
+     * 由 tools/audit-probability.js 校验（94/94 院校「满分输入 = 坐标轴」），
+     * 口径固定、可审计。data.js 里若出现 SCORE_FORMULA 未覆盖的新院校，自动回落到正则。
+     */
     function ruleOf(college) {
       const key = (college && college.id) + '';
-      if (!_compositionCache.has(key)) _compositionCache.set(key, parseComposition(college));
-      return _compositionCache.get(key);
+      if (_compositionCache.has(key)) return _compositionCache.get(key);
+
+      let rule = null;
+      const sf = (typeof SCORE_FORMULA !== 'undefined' && SCORE_FORMULA) ? SCORE_FORMULA[key] : null;
+      if (sf && sf.mode) {
+        rule = {
+          mode: sf.mode,
+          axisMax: sf.axisMax,
+          declaredMax: sf.axisMax,
+          cultureMax: sf.cultureMax,
+          examMax: sf.examMax,
+          weightCulture: sf.wc === undefined ? null : sf.wc,
+          weightExam: sf.we === undefined ? null : sf.we,
+          hasWeight: sf.mode === 'weightedScaled',
+          weightSum: (sf.wc || 0) + (sf.we || 0),
+          tokens: [],
+          formula: sf.basis || '',
+          raw: String((college && college.scoreComposition) || ''),
+          _source: 'structured',
+          _risk: sf.risk || 'ok',
+          _flags: sf.flags || [],
+        };
+      }
+      if (!rule) rule = parseComposition(college);   // 兜底：正则解析
+      _compositionCache.set(key, rule);
+      return rule;
     }
 
     // 校考满分（同时决定页面滑块上限）。
