@@ -106,6 +106,10 @@
         <!-- 硬性落榜提示：校考低于技能测试合格线，或文化分未达校考入围线时显示 -->
         <div id="hard-fail-box" style="display:none; background:#fff1f0; border:2px solid #ff4d4f; border-radius:12px; padding:14px 16px; margin-top:12px; font-size:13px; color:#cf1322; line-height:1.7; font-weight:600"></div>
 
+        <!-- 口径冲突提示：该校官方公布的录取分高于其章程公式的理论上限时显示。
+             此时引擎的坐标轴与官方数据自相矛盾，本页结论仅供参考。 -->
+        <div id="scale-conflict-box" style="display:none; background:#fffbe6; border:2px solid #faad14; border-radius:12px; padding:14px 16px; margin-top:12px; font-size:13px; color:#874d00; line-height:1.7;"></div>
+
         <div class="prob-detail">
           <div class="prob-detail-row"><span>你的总分</span><b id="pr-your-score">--</b></div>
           <div class="prob-detail-row"><span>该校2026预估线</span><b id="pr-est-line">--</b></div>
@@ -368,6 +372,31 @@
 
       // 详情
       const axis = totalMaxOf(college);
+
+      // ===== 成绩口径冲突提示 =====
+      // 少数院校**官方公布的录取分高于其章程公式的理论上限**，二者数学上矛盾。
+      // 例：安庆医药高等专科学校章程写「入学测试成绩=文化×50%+校考×50%」（两项均 300 分制，
+      //     理论上限 300），但官方公布普高类最低分 394；滁州城市职业学院同类问题
+      //     （章程加权公式上限 300，官方公布 194.4）。
+      // 本页采用**章程公式口径**（有原文支撑），因此算出的线会低于官方公布线。
+      // 这种情况必须显式告知考生，不能默默给出一个可能误导的概率。
+      const conflictBox = document.getElementById('scale-conflict-box');
+      if (conflictBox) {
+        const officialLineNum = Number(estLine);
+        if (Number.isFinite(officialLineNum) && officialLineNum > axis + 0.5) {
+          const srcNote = (college.realScore2026 || '').slice(0, 120);
+          conflictBox.style.display = 'block';
+          conflictBox.innerHTML = '<div style="font-weight:bold;font-size:14px;margin-bottom:6px">⚠️ 该校成绩口径存在矛盾，本页结论仅供参考</div>'
+            + '<div>官方公布的录取分（<b>' + officialLineNum + ' 分</b>）<b>高于</b>其招生章程公式的理论上限（<b>' + axis + ' 分</b>）。</div>'
+            + '<div style="margin-top:6px">本页按<b>章程公式</b>计算：' + (getCalcRuleText(college) || '') + '。'
+            + '该口径有章程原文支撑，但由此得出的概率会偏保守（因为官方实际录取分比它更高）。</div>'
+            + (srcNote ? '<div style="margin-top:6px;font-size:12px;color:#ad6800">官方原文：' + srcNote + '…</div>' : '')
+            + '<div style="margin-top:6px;font-size:12px">建议直接以院校招生网公布的录取分为准，并留意该校是否有单列的计分说明。</div>';
+        } else {
+          conflictBox.style.display = 'none';
+        }
+      }
+
       const yourEl = document.getElementById('pr-your-score');
       if (ruleOf(college).mode === 'sum') {
         yourEl.textContent = totalScore.toFixed(1) + ' 分';
