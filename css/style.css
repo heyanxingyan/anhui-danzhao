@@ -486,6 +486,16 @@ input, select {
   padding: 20px 16px;
 }
 
+/* 顶部右侧有两个绝对定位按钮：.cmp-btn（right:60px，约 92px 宽）与 .fav-btn（right:16px，36px）。
+   两者合计占去右侧约 152px。校名/副标题/双通道链接若不加右内边距，文字会伸到按钮下面重叠
+   （实测芜湖职业技术大学：校名与标签宽 448px，与 328~420px 的「加入对比」按钮直接压在一起）。
+   用 #detail-head 限定，避免影响没有这两个按钮的专业详情页（它也复用 .detail-header）。 */
+#detail-head .name,
+#detail-head .sub,
+#detail-head > div:not([class]) {
+  padding-right: 156px;
+}
+
 .detail-header .name {
   font-size: 20px;
   font-weight: 600;
