@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字体诊断 - 安徽单招信息查询</title>
+  <style>
+    body { margin:0; padding:12px; background:#f5f6f8; font-family:-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif; color:#333; }
+    h1 { font-size:16px; margin:4px 0 12px; }
+    h2 { font-size:13px; margin:16px 0 6px; color:#0958d9; }
+    .box { background:#fff; border-radius:10px; padding:10px 12px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+    .row { display:flex; justify-content:space-between; gap:8px; font-size:12.5px; padding:4px 0; border-bottom:1px dashed #eee; flex-wrap:wrap; }
+    .row:last-child { border-bottom:0; }
+    .k { color:#888; flex:0 0 auto; }
+    .v { font-weight:600; text-align:right; flex:1 1 auto; min-width:0; overflow-wrap:anywhere; }
+    .ok { color:#237804; }
+    .bad { color:#cf1322; }
+    .sample { font-size:15px; line-height:1.7; word-break:break-all; }
+    /* 复刻院校列表卡片的 meta-row */
+    .card { background:#fff; border-radius:12px; padding:14px; margin:0 0 10px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+    .card .name { font-size:15px; font-weight:600; }
+    .card .tags { margin:6px 0; }
+    .tag { font-size:12px; font-weight:500; margin-right:8px; color:#0958d9; }
+    .meta-row { display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:#666; }
+    .mono { font-family:ui-monospace, Menlo, Consolas, monospace; }
+    table { width:100%; border-collapse:collapse; font-size:12.5px; }
+    th, td { padding:5px 4px; border-bottom:1px solid #eee; text-align:left; }
+    th { color:#888; font-weight:500; }
+    td.w { text-align:right; font-family:ui-monospace, Menlo, Consolas, monospace; }
+    .warn { background:#fffbe6; border-left:3px solid #faad14; padding:8px 10px; font-size:12.5px; border-radius:4px; margin-bottom:10px; }
+    .hint { font-size:11.5px; color:#999; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <h1>🔤 字体诊断</h1>
+  <div class="warn">请在<b>出现白色方块的同一台手机、同一个浏览器</b>打开本页。下面每个汉字都应显示为正常字形;若某个字显示成 □ 白框,该行会被标红。</div>
+
+  <div class="box" id="env"></div>
+
+  <h2>① 字符合集（每个字都要能看清）</h2>
+  <div class="box sample" id="sample1"></div>
+
+  <h2>② 缺字形自动检测（逐字测量宽度）</h2>
+  <div class="box"><table id="glyphtable"><thead><tr><th>字符</th><th>码点</th><th>宽度</th><th>判定</th></tr></thead><tbody></tbody></table></div>
+
+  <h2>③ 复刻院校列表卡片（看有没有白框/布局异常）</h2>
+  <div class="card">
+    <div class="name">安徽电气工程职业技术学院</div>
+    <div class="tags"><span class="tag">公办</span><span class="tag">理工类</span><span class="tag" style="color:#cf1322">⚠️ 已停招</span><span class="tag" style="color:#d4380d">热门</span></div>
+    <div class="meta-row"><span>合肥 · 普高招 2563 人</span><span style="font-size:12px;color:#bbb">2026年</span></div>
+  </div>
+  <div class="card">
+    <div class="name">安庆医药高等专科学校</div>
+    <div class="tags"><span class="tag">公办</span><span class="tag">医药类</span></div>
+    <div class="meta-row"><span>安庆 · 中职招 1372 人</span><span style="font-size:12px;color:#bbb">2026年</span></div>
+  </div>
+  <div class="card">
+    <div class="name">安徽城市管理职业学院</div>
+    <div class="tags"><span class="tag">公办</span><span class="tag">综合类</span></div>
+    <div class="meta-row"><span>合肥 · 专项招 5000 人</span><span style="font-size:12px;color:#bbb">2026年</span></div>
+  </div>
+
+  <h2>④ 三个字符的同屏对照（最直观）</h2>
+  <div class="box sample">
+    <div style="font-size:20px">招生计划 <span style="color:#999">|</span> 计划 <span style="color:#999">|</span> 计 划</div>
+    <div style="font-size:20px;margin-top:6px" class="mono">计 U+8BA1 &nbsp; 划 U+5212 &nbsp; 招 U+62DB</div>
+  </div>
+
+  <h2>⑤ 环境信息</h2>
+  <div class="box" id="env2"></div>
+
+  <div class="hint" style="margin:12px 0 24px">
+    说明：判定用「宽度对比法」。同一个字体族下,若某汉字宽度与同字号其他汉字不一致、或恰等于缺字形探测字符的宽度,则判定为该字缺字形。
+    <br>本页不会修改你的任何设置,只是测量与展示。
+  </div>
+
+  <script>
+  (function () {
+    var STACK = '-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif';
+
+    // ① 字符合集
+    var SET = '计划招生人数普高中职专项退役军乡村医生革命老区建档立卡';
+    // 常见但可能缺字形的补充字
+    var EXTRA = '计·划已停招面试公办理工类综合医药师范本科高职专科分数优先志愿调剂补录';
+    var el = document.getElementById('sample1');
+    var html = '';
+    for (var i = 0; i < SET.length; i++) html += SET[i] + (i === SET.length - 1 ? '' : ' ');
+    html += '<div style="margin-top:8px;font-size:13px;color:#666">' + EXTRA.split('').join(' ') + '</div>';
+    el.innerHTML = html;
+
+    // ② 缺字形检测
+    var c = document.createElement('canvas').getContext('2d');
+    function widthOf(ch, size, stack) {
+      c.font = size + 'px ' + (stack || STACK);
+      return c.measureText(ch).width;
+    }
+    // 探测：U+10FFFF 是永远无字形分配的码点 -> 其宽度即"豆腐块/未分配"宽度
+    var size = 16;
+    var probes = ['\uFFFF', '\u{10FFFF}', '\uFFFF\uFFFF\uFFFF\uFFFF\uFFFF\uFFFF'];
+    var probeSingle = probes.map(function (p) { return widthOf(p, size); });
+    var tofuW = probeSingle[0];
+    // 用重复法独立验证：6 个探测字符的总宽 / 6
+    var probeRepeatW = widthOf(probes[2], size) / 6;
+    // 基准：一批必然有字形的常用汉字，取众数宽度
+    var BASELINE = '国的一是在不了和有大中人上为个我以要他时来用们生到作地于出就分对成会可主发年动';
+    var baseWidths = BASELINE.split('').map(function (ch) { return widthOf(ch, size); });
+    baseWidths.sort(function (a, b) { return a - b; });
+    var refW = baseWidths[Math.floor(baseWidths.length / 2)]; // 中位数
+
+    var tbody = document.querySelector('#glyphtable tbody');
+    var testChars = (SET + EXTRA).split('').filter(function (ch, i, a) { return ch !== ' ' && a.indexOf(ch) === i; });
+    var rows = '';
+    var bad = [];
+    testChars.forEach(function (ch) {
+      var w = widthOf(ch, size);
+      // 缺字形判定：该字宽度落在"未分配/豆腐块"宽度上，且该宽度明显不同于基准汉字宽度
+      var sameAsTofu = Math.abs(w - probeRepeatW) < 0.05;
+      var differsFromBase = Math.abs(probeRepeatW - refW) > 0.5;
+      var missing = sameAsTofu && differsFromBase;
+      if (missing) bad.push(ch);
+      rows += '<tr class="' + (missing ? 'bad' : '') + '">' +
+        '<td style="font-size:16px">' + ch + '</td>' +
+        '<td class="w">U+' + ch.codePointAt(0).toString(16).toUpperCase().padStart(4, '0') + '</td>' +
+        '<td class="w">' + w.toFixed(2) + '</td>' +
+        '<td>' + (missing ? '❌ 缺字形' : '✅ 正常') + '</td></tr>';
+    });
+    rows += '<tr><td colspan="4" style="color:#999;font-size:11.5px;padding-top:8px">' +
+      '参考：未分配码点 U+10FFFF 单字宽度=' + probeSingle[1].toFixed(2) + '；重复 6 次平均=' + probeRepeatW.toFixed(2) +
+      '；常用汉字基准宽度（中位数）=' + refW.toFixed(2) + '</td></tr>';
+    tbody.innerHTML = rows;
+
+    // ③ 卡片里的 meta-row 实测宽度（是否溢出）
+    var mrs = document.querySelectorAll('.card .meta-row span:first-child');
+    var cardInfo = [];
+    mrs.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      cardInfo.push({ 文本: s.textContent, 宽: +r.width.toFixed(1), 高: +r.height.toFixed(1) });
+    });
+
+    // ④ 环境
+    var ua = navigator.userAgent;
+    function inf(k, v) { return '<div class="row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div>'; }
+    var envHtml = inf('用户代理', '<span style="font-size:10.5px;word-break:break-all">' + ua + '</span>') +
+      inf('屏幕', screen.width + ' × ' + screen.height + ' / DPR ' + window.devicePixelRatio) +
+      inf('视口', window.innerWidth + ' × ' + window.innerHeight) +
+      inf('平台', navigator.platform || '-') +
+      inf('语言', navigator.language || '-');
+    document.getElementById('env').innerHTML = envHtml;
+
+    var env2 = inf('未分配码点 U+10FFFF 宽度', probeSingle[1].toFixed(2)) +
+      inf('常用汉字基准宽度（中位数）', refW.toFixed(2)) +
+      inf('检测到缺字形的字符', bad.length ? '<span class="bad">' + bad.join(' ') + '</span>' : '<span class="ok">无 ✅</span>') +
+      inf('字体族是否支持 Canvas 测量', (typeof c.measureText === 'function' ? '✅' : '❌')) +
+      inf('页面字体族', '<span style="font-size:10.5px;word-break:break-all">' + getComputedStyle(document.body).fontFamily + '</span>');
+    document.getElementById('env2').innerHTML = env2;
+
+    // 卡片 meta-row 宽度
+    var extra = document.createElement('div');
+    extra.innerHTML = '<div style="margin-top:6px;font-size:11.5px;color:#999">卡片 meta-row 实测：' +
+      cardInfo.map(function (o) { return o.文本 + '（' + o.宽 + 'px）'; }).join('；') + '</div>';
+    document.getElementById('env2').appendChild(extra);
+
+    // 全局兜底提示
+    if (bad.length) {
+      var w = document.createElement('div');
+      w.className = 'warn';
+      w.innerHTML = '❌ 检测到本机缺字形：<b>' + bad.join(' ') + '</b>。请把这张截图发给开发者。';
+      document.body.insertBefore(w, document.body.firstChild);
+    }
+  })();
+  </script>
+</body>
+</html>
