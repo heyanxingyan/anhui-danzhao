@@ -2137,3 +2137,210 @@ body[data-page="compare"] .navbar {
 .prep-toggle:active {
   opacity: 0.7;
 }
+
+
+/* ========== 校园环境页 ==========
+ * 91 所院校的占地/校区、宿舍、位置周边、日常管理（晚自习/早自习/校园跑/晚训）
+ * 数据来自 js/campus-data.js（网络公开资料整理，页面有醒目免责声明） */
+.campus-disclaimer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 12px;
+  padding: 12px 14px;
+  background: #fff8e6;
+  border: 1px solid #ffe3a3;
+  border-radius: var(--radius);
+}
+
+.campus-disclaimer-icon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  color: #d48806;
+  margin-top: 1px;
+}
+
+.campus-disclaimer-icon svg { width: 100%; height: 100%; }
+
+.campus-disclaimer-text { font-size: 12px; line-height: 1.6; color: #8c6100; }
+.campus-disclaimer-text b { display: block; font-size: 13px; color: #ad6800; margin-bottom: 2px; }
+
+.campus-toolbar { padding: 0 12px; }
+
+.campus-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 9px 14px;
+  box-shadow: var(--shadow);
+}
+
+.campus-search svg { width: 16px; height: 16px; color: var(--text-secondary); flex: 0 0 auto; }
+
+.campus-search input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text-primary, #18191c);
+}
+
+.campus-count {
+  padding: 12px 14px 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* 院校卡片（可展开，沿用 faq-item 的折叠交互） */
+.campus-item {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(232, 236, 244, 0.8);
+  margin: 0 12px 10px;
+  overflow: hidden;
+}
+
+.campus-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 14px 11px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.campus-head:active { background: rgba(46, 91, 255, 0.04); }
+
+.campus-head-main { flex: 1; min-width: 0; }
+
+.campus-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #18191c);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.campus-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+
+.campus-badge.high { color: var(--success); background: rgba(82, 196, 26, 0.12); }
+.campus-badge.medium { color: #d48806; background: rgba(212, 136, 6, 0.12); }
+
+.campus-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.campus-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.campus-stats b { color: var(--text-primary, #18191c); font-weight: 500; }
+
+.campus-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  color: #b6bcc8;
+  transition: transform 0.2s;
+  display: flex;
+}
+
+.campus-arrow svg { width: 16px; height: 16px; }
+
+.campus-item.open .campus-arrow { transform: rotate(90deg); color: var(--primary); }
+
+.campus-body { display: none; border-top: 1px dashed var(--border); padding: 4px 14px 12px; }
+.campus-item.open .campus-body { display: block; }
+
+.campus-sec { padding: 10px 0 2px; }
+.campus-sec + .campus-sec { border-top: 1px dashed rgba(232, 236, 244, 0.9); }
+
+.campus-sec-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary, #18191c);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.campus-sec-title .campus-sec-emoji { font-size: 14px; }
+
+.campus-kv { font-size: 13px; line-height: 1.7; color: #3d4250; }
+.campus-kv .k { color: var(--text-secondary); }
+
+.campus-campus {
+  background: rgba(244, 246, 251, 0.9);
+  border-radius: 10px;
+  padding: 9px 11px;
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #3d4250;
+}
+
+.campus-campus .cn { font-weight: 600; color: var(--text-primary, #18191c); }
+.campus-campus .cmu { color: var(--primary); font-weight: 600; }
+
+.campus-rule-row {
+  display: flex;
+  gap: 8px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #3d4250;
+  padding: 3px 0;
+}
+
+.campus-rule-row .rk {
+  flex: 0 0 auto;
+  width: 62px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.campus-src {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #9aa0ae;
+}
+
+.campus-src .src-note {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #f3f4f7;
+  color: #7a8291;
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+.campus-empty {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 40px 0 30px;
+}
+

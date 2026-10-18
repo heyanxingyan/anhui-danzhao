@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'gaozhong': renderGaozhong,
     'zhongzhi': renderZhongzhi,
     'zhuanxiang': renderZhuanxiang,
+    'campus': renderCampus,
     'zhuanxiang-tuiyi': renderZhuanxiangTuiyi,
     'zhuanxiang-laoxiang': renderZhuanxiangLaoxiang,
     'zhuanxiang-xiangcun': renderZhuanxiangXiangcun,
@@ -2630,4 +2631,191 @@ function renderRecommend() {
 
   btn.addEventListener('click', run);
   input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+}
+
+/* ============================================================
+ * 14.5 校园环境页
+ * 数据：js/campus-data.js 的 CAMPUS_DATA（91 所，官网/百科/阳光高考/在校生分享整理）
+ * 展示：占地与校区、宿舍（几人间/床型）、位置周边（商圈/交通）、
+ *       日常管理（晚自习/早自习/校园跑/晚训），页首有「仅供参考」声明。
+ * ============================================================ */
+function campusEsc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[ch]));
+}
+
+// 从 possibly-混合文本的 totalMu 中提取数字亩数（提取不到返回 null）
+function campusMuNum(v) {
+  if (typeof v === 'number') return v;
+  const m = String(v || '').match(/(\d[\d,]*)\s*亩/);
+  return m ? Number(m[1].replace(/,/g, '')) : null;
+}
+
+// 床型是否"已落实"——开头是留白措辞的一律视为未核实，避免被正文里引用的字样误判
+function campusBedKnown(bed) {
+  const b = String(bed || '').trim();
+  if (!b) return false;
+  // 留白措辞（未核实/未查到/未公布/未明确 开头）→ 未落实
+  if (/^(还没核实到位|未查到|未找到|未公布|未明确)/.test(b)) return false;
+  // 非官方口径（学生侧 / 第三方、仅供参考）→ 不算官方确认，不计入「上床下桌」官方筛选
+  if (/(非官方|仅供参考|学生侧|第三方（无年份）)/.test(b)) return false;
+  return true;
+}
+
+// 卡片头部摘要用的短判断
+function campusShortBed(dorm) {
+  const b = String(dorm.bed || '').trim();
+  if (/^(还没核实到位|未查到|未找到|未公布|未明确)/.test(b)) return '床型未核实';
+  const hasDesk = /上床下桌/.test(b);
+  const hasBunk = /上下铺|上下床/.test(b);
+  const isUnofficial = /(非官方|仅供参考|学生侧|第三方（无年份）)/.test(b);
+  if (isUnofficial) {
+    if (hasDesk && hasBunk) return '上床下桌/上下铺混合（学生侧）';
+    if (hasDesk) return '上床下桌（学生侧）';
+    if (hasBunk) return '上下铺（学生侧）';
+    return '床型未核实（学生侧有说法）';
+  }
+  if (/混合/.test(b)) return '上下铺/上床下桌混合';
+  if (hasDesk && hasBunk) return '上床下桌为主，部分上下铺';
+  if (hasDesk) return '上床下桌';
+  if (hasBunk) return '上下铺';
+  return b.slice(0, 12);
+}
+
+function campusShortRule(s) {
+  const t = String(s || '');
+  if (/未查到|^$/.test(t)) return '未查到';
+  if (/^无/.test(t)) return '无';
+  if (/^有/.test(t)) return '有';
+  if (/部分|大一|年级|学院|专业/.test(t)) return '部分/分年级';
+  return t.slice(0, 8);
+}
+
+const CAMPUS_FILTERS = [
+  { key: 'all', name: '全部' },
+  { key: 'public', name: '公办' },
+  { key: 'private', name: '民办' },
+  { key: 'evening', name: '有晚自习' },
+  { key: 'bed', name: '上床下桌' }
+];
+
+let campusState = { kw: '', filter: 'all' };
+
+function renderCampus() {
+  renderTabbar('me');
+
+  const collegeMap = {};
+  COLLEGES.forEach(c => { collegeMap[c.id] = c; });
+
+  const filterBar = document.getElementById('campus-filters');
+  const countEl = document.getElementById('campus-count');
+  const listEl = document.getElementById('campus-list');
+  const searchInput = document.getElementById('campus-search-input');
+  if (!listEl || typeof CAMPUS_DATA === 'undefined') return;
+
+  filterBar.innerHTML = CAMPUS_FILTERS.map(f =>
+    `<button type="button" class="filter-chip ${f.key === 'all' ? 'active' : ''}" data-f="${f.key}">${f.name}</button>`
+  ).join('');
+
+  const match = (d) => {
+    const c = collegeMap[d.id] || {};
+    if (campusState.kw && !d.name.includes(campusState.kw)) return false;
+    switch (campusState.filter) {
+      case 'public': return c.nature === '公办';
+      case 'private': return c.nature === '民办';
+      case 'evening': return /^有/.test(d.rules.eveningStudy || '');
+      case 'bed': return campusBedKnown(d.dorm.bed) && /上床下桌/.test(d.dorm.bed || '');
+      default: return true;
+    }
+  };
+
+  const render = () => {
+    const list = CAMPUS_DATA.filter(match);
+    countEl.textContent = `共 ${list.length} 所院校${campusState.filter !== 'all' || campusState.kw ? `（全部 ${CAMPUS_DATA.length} 所）` : ''}`;
+
+    if (!list.length) {
+      listEl.innerHTML = '<div class="campus-empty">没有找到匹配的院校，换个关键词或筛选条件试试</div>';
+      return;
+    }
+
+    listEl.innerHTML = list.map(d => {
+      const c = collegeMap[d.id] || {};
+      const mu = campusMuNum(d.totalMu);
+      const confLabel = d.confidence === 'high' ? '信息较全' : '部分待核';
+      const campuses = (d.campuses || []).map(cp => `
+        <div class="campus-campus">
+          <span class="cn">${campusEsc(cp.name)}</span>${cp.mu ? (typeof cp.mu === 'number' ? ` · <span class="cmu">${cp.mu} 亩</span>` : ` · <span class="cmu">${campusEsc(cp.mu)}</span>`) : ''}
+          ${cp.addr ? `<div>地址：${campusEsc(cp.addr)}</div>` : ''}
+          ${cp.loc ? `<div>${campusEsc(cp.loc)}</div>` : ''}
+        </div>`).join('');
+      const srcs = (d.sources || []).map(s => campusEsc(s)).join('；');
+
+      return `
+      <div class="campus-item" data-id="${d.id}">
+        <div class="campus-head">
+          <div class="campus-head-main">
+            <div class="campus-name">${campusEsc(d.name)}
+              <span class="campus-badge ${d.confidence === 'high' ? 'high' : 'medium'}">${confLabel}</span>
+            </div>
+            <div class="campus-meta">${campusEsc(c.city || '')}${c.nature ? ' · ' + campusEsc(c.nature) : ''}${c.type ? ' · ' + campusEsc(c.type) : ''}${d.campuses && d.campuses.length > 1 ? ' · ' + d.campuses.length + ' 个校区' : ''}</div>
+            <div class="campus-stats">
+              <span>占地 <b>${mu ? mu + ' 亩' : '见详情'}</b></span>
+              <span>宿舍 <b>${campusEsc(campusShortBed(d.dorm))}</b></span>
+              <span>晚自习 <b>${campusEsc(campusShortRule(d.rules.eveningStudy))}</b></span>
+            </div>
+          </div>
+          <span class="campus-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+        </div>
+        <div class="campus-body">
+          <div class="campus-sec">
+            <div class="campus-sec-title"><span class="campus-sec-emoji">🏫</span>校园与占地</div>
+            <div class="campus-kv"><span class="k">总占地：</span>${campusEsc(d.totalMu)}</div>
+            ${campuses}
+          </div>
+          <div class="campus-sec">
+            <div class="campus-sec-title"><span class="campus-sec-emoji">🛏</span>宿舍</div>
+            <div class="campus-kv"><span class="k">几人间：</span>${campusEsc(d.dorm.rooms)}</div>
+            <div class="campus-kv"><span class="k">床型：</span>${campusEsc(d.dorm.bed)}</div>
+            <div class="campus-kv"><span class="k">配套：</span>${campusEsc(d.dorm.facilities)}</div>
+          </div>
+          <div class="campus-sec">
+            <div class="campus-sec-title"><span class="campus-sec-emoji">📍</span>位置与周边</div>
+            <div class="campus-kv"><span class="k">位置：</span>${campusEsc(d.location.summary)}</div>
+            <div class="campus-kv"><span class="k">商圈：</span>${campusEsc(d.location.mall)}</div>
+            <div class="campus-kv"><span class="k">交通：</span>${campusEsc(d.location.metro)}</div>
+            ${d.location.note ? `<div class="campus-kv"><span class="k">补充：</span>${campusEsc(d.location.note)}</div>` : ''}
+          </div>
+          <div class="campus-sec">
+            <div class="campus-sec-title"><span class="campus-sec-emoji">📋</span>日常管理</div>
+            <div class="campus-rule-row"><span class="rk">晚自习</span><span>${campusEsc(d.rules.eveningStudy)}</span></div>
+            <div class="campus-rule-row"><span class="rk">早自习</span><span>${campusEsc(d.rules.morningStudy)}</span></div>
+            <div class="campus-rule-row"><span class="rk">校园跑</span><span>${campusEsc(d.rules.campusRun)}</span></div>
+            <div class="campus-rule-row"><span class="rk">晚训</span><span>${campusEsc(d.rules.eveningTraining)}</span></div>
+          </div>
+          ${srcs ? `<div class="campus-src"><span class="src-note">原始资料出处：下面保留的是各网站/报刊的原名（如「考动力」「高校数据」等是第三方高考资讯站的站名），方便你自行核对。</span><br>来源：${srcs}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    listEl.querySelectorAll('.campus-head').forEach(head => {
+      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+  };
+
+  filterBar.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterBar.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
+      chip.classList.add('active');
+      campusState.filter = chip.dataset.f;
+      render();
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    campusState.kw = searchInput.value.trim();
+    render();
+  });
+
+  render();
 }

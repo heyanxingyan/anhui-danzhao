@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>校园环境 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css?v=20261020i">
+</head>
+<body data-page="campus">
+  <div class="page">
+    <div class="navbar">
+      <button class="back-btn" onclick="history.back()">‹</button>
+      <div class="title">校园环境</div>
+    </div>
+
+    <!-- 免责声明（醒目） -->
+    <div class="campus-disclaimer">
+      <span class="campus-disclaimer-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </span>
+      <div class="campus-disclaimer-text">
+        <b>仅供参考 · 以学校实际安排为准</b>
+        <span>本页由网络公开资料整理（学校官网 / 百科 / 阳光高考 / 在校生分享），信息按 2026 年 10 月核定、信源以 2024 年 10 月以后为主；查不到的项已如实标注"未查到"。宿舍楼栋与管理制度每年可能调整，请以入学后学校安排及最新招生章程为准。</span>
+      </div>
+    </div>
+
+    <!-- 搜索 + 筛选 -->
+    <div class="campus-toolbar">
+      <div class="campus-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="campus-search-input" type="search" placeholder="搜索院校名称，如：合肥职业技术学院">
+      </div>
+      <div class="filter-bar" id="campus-filters"></div>
+    </div>
+
+    <div class="campus-count" id="campus-count"></div>
+    <div id="campus-list"></div>
+
+    <div style="height:20px"></div>
+    <div class="tabbar"></div>
+  </div>
+
+  <script src="js/data.js?v=20261020i" defer></script>
+  <script src="js/campus-data.js?v=20261020i" defer></script>
+  <script src="js/app.js?v=20261020i" defer></script>
+</body>
+</html>
