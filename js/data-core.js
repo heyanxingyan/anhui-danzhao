@@ -1,15 +1,14 @@
 /* ============================================================
- * 安徽单招信息查询 - 院校数据（轻量版，供不需要专业明细的页面使用）
+ * 安徽单招信息查询 - 院校数据（轻量版 · 供不需要专业明细的页面使用）
  *
  * ⚠️ 本文件由 tools/gen-data-core.js 自动生成，请勿手工编辑。
  *
- * 与 js/data.js 的区别：只保留 39 个院校级字段，**不含 majors 专业数组**
- * （专业数组占完整数据的 68%）。gzip 约 26KB，完整版约 155KB。
+ * 只保留 39 个院校级字段，**不含 majors 专业数组**（专业数组占完整数据的 68%）。
  *
  * 适用页面（11 个）：index.html、campus.html、about.html、faq.html、guide.html、category.html、ranking.html、favorites.html、score-trend.html、recommend.html、timeline.html
  *
- * ⚠️ 同一个页面只能引用本文件或 js/data.js 之一 —— 两者都定义 const COLLEGES，
- *    同时加载会因重复声明报 SyntaxError。
+ * ⚠️ 同一页面只能引用本文件、js/data.js、或另一个瘦身文件三者之一 ——
+ *    它们都定义 const COLLEGES，同时加载会因重复声明报 SyntaxError。
  *    改动 js/data.js 后请重跑：node tools/gen-data-core.js
  * ============================================================ */
 

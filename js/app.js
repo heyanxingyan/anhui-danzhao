@@ -448,7 +448,11 @@ function applyFilters(category, kw) {
     list = list.filter(c =>
       c.name.includes(kw) ||
       (c.city || '').includes(kw) ||
-      (c.majors || []).some(m => majorBase(m.name).includes(kw))
+      (c.majors || []).some(m => majorBase(m.name).includes(kw)) ||
+      // 院校列表页用的是 js/data-list.js（不含完整 majors），
+      // 它带一个紧凑的 majorNames 字段（专业名去重后空格连接，已剥掉「高职专业学院」后缀），
+      // 这里做回落，保证瘦身数据下「按专业搜学校」能力不变。
+      String(c.majorNames || '').includes(kw)
     );
   }
   const city = document.querySelector('#city-filter .filter-chip.active')?.dataset.city || '';
