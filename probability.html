@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>录取概率测算 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261020g">
+  <link rel="stylesheet" href="css/style.css?v=20261020h">
   <style>
     .prob-container { padding: 12px; }
     .prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
@@ -133,9 +133,9 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261020g" defer></script>
-  <script src="js/score-formula.js?v=20261020g" defer></script>
-  <script src="js/app.js?v=20261020g" defer></script>
+  <script src="js/data.js?v=20261020h" defer></script>
+  <script src="js/score-formula.js?v=20261020h" defer></script>
+  <script src="js/app.js?v=20261020h" defer></script>
   <script src="js/low-score.js" defer></script>
   <script>
     let currentProbType = 'gaozhong';
@@ -460,7 +460,8 @@
     /* ============================================================
      * 成绩计算规则解析器
      *
-     * 背景：全站 74 所院校的 scoreComposition 是人工整理的自然语言，共 58 种写法。
+     * 背景：全站院校的 scoreComposition 是人工整理的自然语言，共 58 种写法
+     *       （整理时为 74 所；现数据为 94 条记录，写法类型未再增加）。
      * 旧实现只用 3 条精确字符串匹配（文化×40%+校考×60% 等），其余全部落进
      * "文化+校考直接相加" 兜底分支 —— 后果不只是算错，而是把 0-100 的百分制
      * 合成分与 0-600 的直接相加分放在同一根坐标轴上比，结论方向都会反。
@@ -535,7 +536,7 @@
     /* ============================================================
      * 成绩合成规则解析（最终版）
      *
-     * 经全站 74 所院校原文逐条核对，规则只有三类，判据都是章程原文里的
+     * 经全站院校章程原文逐条核对，规则只有三类，判据都是章程原文里的
      * 明确措辞，不再依赖模糊正则：
      *
      *   1. 原文写「直接相加」→ 坐标轴 = 声明的总分上限（600/700/750）

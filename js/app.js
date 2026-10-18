@@ -597,7 +597,16 @@ function renderCollegeDetail() {
   // dash：缺值时优先显示原因注释（如「首届学生尚未毕业」），其次显示「待补」，最后才是「—」
   const dash = (v, todo, field) => {
     if (v) return v;
-    const note = field ? (c[field + 'Note'] || (twin && twin[field + 'Note'])) : null;
+    // 「专升本率」对对口本科条目不适用（本科层次没有专升本这一说），这是由
+    // isDuikouBenke 决定的规则，不写成数据字段 —— 写成 note 会被下面的 twin 继承逻辑
+    // 反向泄漏给同校的高职条目：芜湖职业技术大学 id=55 是分类考试（专科）通道，
+    // 它的学生当然可以专升本，绝不能跟着显示「不适用」。
+    if (field === 'upgradeRate' && c.isDuikouBenke) {
+      return '<span style="color:#8c8c8c">不适用（本科院校，无专升本口径）</span>';
+    }
+    // ⚠️ note 只认本条自己的 c[field+'Note']，不回退到 twin。
+    //    回退会让方向反了：对口本科条目的说明会盖到高职条目上（见上）。
+    const note = field ? c[field + 'Note'] : null;
     if (note) return `<span style="color:#8c8c8c">${note}</span>`;
     return todo ? '<span style="color:#bbb">待补</span>' : '—';
   };
@@ -610,7 +619,7 @@ function renderCollegeDetail() {
     <div class="row"><div class="label">招生办电话</div><div class="value">${dash(tv('phone'), bkPh.phone, 'phone')}</div></div>
     <div class="row"><div class="label">就业率</div><div class="value">${dash(tv('employmentRate'), bkPh.employmentRate, 'employmentRate')}</div></div>
     <div class="row"><div class="label">专升本率</div><div class="value">${dash(tv('upgradeRate'), bkPh.upgradeRate, 'upgradeRate')}</div></div>
-    <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : '—'}</div></div>
+    <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : (c.websiteNote ? `<span style="color:#8c8c8c">${c.websiteNote}</span>` : '—')}</div></div>
     ${twin ? `<div class="row"><div class="label">招生通道</div><div class="value" style="font-size:12.5px">本校同时以两条通道收录：本页为对口本科（应用型本科对口招生）<a href="college-detail.html?id=${twin.id}" style="color:var(--primary)"> · 查看分类考试口径 ›</a></div></div>` : ''}
   `;
 
@@ -738,7 +747,7 @@ function renderCollegeDetail() {
       </table>
     </div>
     ${examNote}
-    <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：2026年分专业计划数据来源为各院校2026年分类考试招生章程（73所院校为官方公布真实数据，安徽电气工程职业技术学院2026年已停招），实际以省教育厅下达为准</div>
+    <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：2026年分专业计划数据来源为各院校2026年分类考试招生章程（71 所高职院校为官方公布真实数据，安徽电气工程职业技术学院2026年已停招），实际以省教育厅下达为准</div>
   `;
 
   // 考试类别行点击展开/收起考纲
@@ -821,6 +830,10 @@ function renderCollegeDetail() {
   //   ③ 单纯还没查到 → 显示「待补」
   const pend = (v, field) => {
     if (v) return v;
+    // 与 dash() 保持一致：对口本科的专升本率属于「规则上不适用」，不依赖数据 note
+    if (field === 'upgradeRate' && c.isDuikouBenke) {
+      return '<span style="color:#8c8c8c">不适用（本科院校，无专升本口径）</span>';
+    }
     const note = c[field + 'Note'];
     if (note) return `<span style="color:#8c8c8c">${note}</span>`;
     const todo = (c._bkPlaceholder || {})[field];
@@ -2431,7 +2444,7 @@ function renderCompare() {
           ${row('2025最低', c => c.scores['2025'] ? c.scores['2025'].min : '—')}
           ${row('2024最低', c => c.scores['2024'] ? c.scores['2024'].min : '—')}
           ${row('2023最低', c => c.scores['2023'] ? c.scores['2023'].min : '—')}
-          ${row('校考占比', c => clip(c.examRatio, 12))}
+          ${row('校考占比', c => c.examRatio || (c.stoppedEnrollment ? '已停招' : (c.examRatioNote || '待补')))}
           ${row('面试', c => (c.interview && c.interview.hasInterview) ? '有' : '无')}
           ${row('录取规则', c => clip(c.admissionRule2026 || '参考2025', 12))}
           ${row('2026计划', c => clip(c.plan2026 || '待公布', 12))}
