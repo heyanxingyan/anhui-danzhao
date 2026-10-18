@@ -39,7 +39,7 @@ const CATEGORIES = {
 
 const BANNERS = [
 
-  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17-21日（官方已公布）· 分类考试预计1月下旬报名',bg:'linear-gradient(135deg,#2e5bff,#5f83ff)',link:'guide.html'},
+  {id:1,title:'2027安徽单招备考启动',sub:'高考报名10月17日10:00–21日17:00 · 分类考试预计1月下旬报名',bg:'linear-gradient(135deg,#2e5bff,#5f83ff)',link:'guide.html'},
 
   {id:2,title:'对口本科 22 所院校招生',sub:'100 个专业 · 计划 6181 人（2026年）',bg:'linear-gradient(135deg,#6d5df6,#9d8cff)',link:'zhongzhi.html?tab=benke'},
 

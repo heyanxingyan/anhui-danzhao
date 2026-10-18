@@ -184,8 +184,60 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (handlers[page]) handlers[page]();
+  applyPrepStatus();
   renderFooter();
 });
+
+/* ============================================================
+ * 高考报名状态 · 按当前时间自动判断
+ *
+ * 报名窗口是省考试院公布的固定时段：
+ *   2026-10-17 10:00 ~ 2026-10-21 17:00
+ *   （安徽省教育厅 2026-10-14《金寨县启动2027年普通高考报名工作》
+ *     「我省2027年普通高考网上报名时段为2026年10月17日10:00至10月21日17:00」）
+ *
+ * 本站是纯静态站，如果把「报名进行中」写死进 HTML，10月21日一过就变成错信息。
+ * 所以状态一律由这里按浏览器时间算，自动在
+ *   即将开始 → 报名进行中（剩 N 天/小时） → 报名已截止
+ * 之间切换；页面只留空容器和 data-* 标记，不再手写状态文字。
+ * ============================================================ */
+const PREP_REG_START = Date.parse('2026-10-17T10:00:00+08:00');
+const PREP_REG_END = Date.parse('2026-10-21T17:00:00+08:00');
+
+function prepRegState(now) {
+  const t = now == null ? Date.now() : now;
+  // 天数用 floor（向下取整）：10月18日距 21 日 17:00 截止是「3 天多」，
+  // 写成 ceil 会显示「剩余 4 天」，比实际多算一天，容易让考生误判。
+  if (t < PREP_REG_START) {
+    const days = Math.floor((PREP_REG_START - t) / 86400000);
+    const hours = Math.max(1, Math.ceil((PREP_REG_START - t) / 3600000));
+    return { key: 'before', label: '即将开始', hint: days >= 1 ? `距开始 ${days} 天` : `距开始 ${hours} 小时` };
+  }
+  if (t <= PREP_REG_END) {
+    const ms = PREP_REG_END - t;
+    const days = Math.floor(ms / 86400000);
+    const hours = Math.max(1, Math.ceil(ms / 3600000));
+    return { key: 'open', label: '报名进行中', hint: days >= 1 ? `剩余 ${days} 天` : `剩余 ${hours} 小时` };
+  }
+  return { key: 'closed', label: '报名已截止', hint: '已结束' };
+}
+
+function applyPrepStatus() {
+  const st = prepRegState();
+  document.querySelectorAll('[data-prep-badge]').forEach((el) => {
+    el.textContent = st.key === 'open' ? '高考报名进行中' : (st.key === 'before' ? '备考已启动' : '高考报名已截止');
+    el.classList.toggle('is-live', st.key === 'open');
+    el.classList.toggle('is-closed', st.key === 'closed');
+  });
+  document.querySelectorAll('[data-prep-reg-flag]').forEach((el) => {
+    el.textContent = st.label;
+    el.classList.toggle('is-live', st.key === 'open');
+    el.classList.toggle('is-closed', st.key === 'closed');
+  });
+  document.querySelectorAll('[data-prep-reg-hint]').forEach((el) => {
+    el.textContent = st.hint;
+  });
+}
 
 // ========== 首页备考时间轴折叠 ==========
 function initPrepCollapse() {
