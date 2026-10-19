@@ -86,11 +86,22 @@ function renderTabbar(activeKey) {
 }
 
 // ========== 顶部导航栏 ==========
+/* 返回键兜底：从微信分享/扫码/新标签直接打开时没有可回退的历史，
+ * 单纯 history.back() 会「点了没反应」。这里没历史就回首页，保证一定有反馈。 */
+function backOrHome() {
+  if (window.history && window.history.length > 1) {
+    window.history.back();
+    return;
+  }
+  location.href = 'index.html';
+}
+window.backOrHome = backOrHome;
+
 function renderNavbar(title, showBack = true) {
   const nav = document.querySelector('.navbar');
   if (!nav) return;
   nav.innerHTML = `
-    ${showBack ? '<button class="back-btn" onclick="history.back()">‹</button>' : ''}
+    ${showBack ? '<button class="back-btn" onclick="backOrHome()">‹</button>' : ''}
     <div class="title">${title}</div>
   `;
 }
