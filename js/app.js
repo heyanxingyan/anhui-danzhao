@@ -305,7 +305,7 @@ function renderFooter() {
   // 署名水印
   const foot = document.createElement('div');
   foot.className = 'site-footer';
-  foot.textContent = '抖音@内向自卑小学生 · heyanxingyan520 整理制作';
+  foot.textContent = '抖音@星焉 · xingyanheyan520 整理制作';
 
   const bar = document.querySelector('.tabbar');
   if (bar) { page.insertBefore(nav, bar); page.insertBefore(free, bar); page.insertBefore(foot, bar); }
@@ -333,7 +333,7 @@ function renderIndex() {
       <div class="banner-dots">
         ${BANNERS.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}"></span>`).join('')}
       </div>
-      <div class="banner-watermark">抖音@内向自卑小学生</div>
+      <div class="banner-watermark">抖音@星焉</div>
     `;
     let cur = 0;
     setInterval(() => {
