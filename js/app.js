@@ -305,7 +305,7 @@ function renderFooter() {
   // 署名水印
   const foot = document.createElement('div');
   foot.className = 'site-footer';
-  foot.textContent = '抖音@星焉 · xingyanheyan520 整理制作';
+  foot.textContent = '抖音@星焉 整理制作';
 
   const bar = document.querySelector('.tabbar');
   if (bar) { page.insertBefore(nav, bar); page.insertBefore(free, bar); page.insertBefore(foot, bar); }
