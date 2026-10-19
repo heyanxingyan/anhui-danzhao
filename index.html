@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>安徽单招信息查询</title>
-    <link rel="preload" as="script" href="js/data-home.js?v=20261020v">
-  <link rel="preload" as="script" href="js/app-home.js?v=20261020v">
+    <link rel="preload" as="script" href="js/data-home.js?v=20261020w">
+  <link rel="preload" as="script" href="js/app-home.js?v=20261020w">
   <!-- [inline-css:start] 由 tools/inline-css.js 生成，勿手改；还原用 --revert -->
 <style>
 /* ============================================================
@@ -2123,15 +2123,17 @@ body[data-page="compare"] .navbar {
   justify-content: center;
   gap: 4px;
   width: 100%;
+  min-height: 44px;          /* 手机端可点区域≥44px，太矮容易点不中 */
   margin-top: 2px;
-  padding: 9px 0 4px;
+  padding: 12px 0 10px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--primary);
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* 去掉点击延迟，点下去立即响应 */
 }
 
 .prep-toggle svg {
@@ -2390,6 +2392,43 @@ body[data-page="compare"] .navbar {
   50% { opacity: 0.25; }
 }
 
+/* ===== 2026 各校各专业分数（列表页 + 详情页面板共用） ===== */
+.sc-sum{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.sc-sum .box{flex:1;min-width:132px;background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.05);border:1px solid #f0f0f0}
+.sc-sum .lab{font-size:11.5px;color:#8c8c8c;margin-bottom:4px}
+.sc-sum .val{font-size:25px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+.sc-sum .val .u{font-size:12px;font-weight:600;color:#8c8c8c;margin-left:2px}
+.sc-sum .val.g{color:#1677ff}
+.sc-sum .val.z{color:#d46b08}
+
+.sc-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #f0f0f0}
+.sc-table th{background:#f7f9fc;color:#595959;font-weight:600;font-size:11.5px;padding:8px 5px;text-align:center;white-space:nowrap;border-bottom:1px solid #f0f0f0}
+.sc-table td{padding:8px 5px;border-top:1px solid #f5f5f5;text-align:center;color:#434343}
+.sc-table tbody tr:first-child td{border-top:none}
+.sc-table td.sn{text-align:left;font-weight:600;color:#1f1f1f;line-height:1.5}
+.sc-table .g{color:#1677ff;font-weight:700;font-variant-numeric:tabular-nums}
+.sc-table .z{color:#d46b08;font-weight:700;font-variant-numeric:tabular-nums}
+.sc-table .dash{color:#d9d9d9}
+.sc-table a{color:var(--primary);font-size:11.5px;text-decoration:none}
+
+.sc-wrap{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:8px;overflow:hidden}
+.sc-wrap>summary{list-style:none;cursor:pointer;padding:13px 14px;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent}
+.sc-wrap>summary::-webkit-details-marker{display:none}
+.sc-wrap[open]>summary{border-bottom:1px solid #f5f5f5}
+.sc-wrap .inner{padding:0 14px 14px}
+.sc-name{font-size:14px;font-weight:600;color:#1f1f1f;display:flex;align-items:center;gap:6px;flex-wrap:wrap;line-height:1.5}
+.sc-meta{font-size:11.5px;color:#8c8c8c;margin-top:3px}
+.sc-num{flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;line-height:1.2}
+.sc-num .g{font-size:19px;font-weight:800;color:#1677ff}
+.sc-num .z{font-size:19px;font-weight:800;color:#d46b08}
+.sc-num .u{font-size:10.5px;color:#bfbfbf;margin-left:1px}
+.sc-num .sep{color:#e0e0e0;margin:0 4px}
+.sc-arrow{color:#d9d9d9;font-size:18px;flex-shrink:0;transform:rotate(90deg);transition:transform .18s}
+.sc-wrap[open] .sc-arrow{transform:rotate(-90deg)}
+
+.sc-chip{height:30px;padding:0 12px;border-radius:15px;border:1px solid #e8e8e8;background:#fff;color:#595959;font-size:12.5px;cursor:pointer;font-family:inherit}
+.sc-chip.is-on{background:#e6f4ff;border-color:#91caff;color:#1677ff;font-weight:600}
+
 </style>
 <!-- [inline-css:end] -->
 </head>
@@ -2518,7 +2557,7 @@ body[data-page="compare"] .navbar {
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data-home.js?v=20261020v" defer></script>
-  <script src="js/app-home.js?v=20261020v" defer></script>
+  <script src="js/data-home.js?v=20261020w" defer></script>
+  <script src="js/app-home.js?v=20261020w" defer></script>
 </body>
 </html>

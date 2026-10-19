@@ -255,6 +255,12 @@ function initPrepCollapse() {
   const btn = document.getElementById('prep-toggle');
   if (!tl || !btn) return;
 
+  // 幂等保护：renderIndex() 与 DOMContentLoaded 都会调用本函数，
+  // 若重复绑定，一次点击会触发两次 setState（展开又立刻收起），
+  // 表现就是「点了没反应」——手机端尤其容易踩到。
+  if (btn.dataset.collapseBound === '1') return;
+  btn.dataset.collapseBound = '1';
+
   const extra = tl.querySelectorAll('.prep-item.is-extra').length;
   const label = btn.querySelector('.prep-toggle-text');
   const KEY = 'anhui_danzhao_prep_open';

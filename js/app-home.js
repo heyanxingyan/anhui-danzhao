@@ -86,6 +86,12 @@ function initPrepCollapse() {
   const btn = document.getElementById('prep-toggle');
   if (!tl || !btn) return;
 
+  // 幂等保护：renderIndex() 与 DOMContentLoaded 都会调用本函数，
+  // 若重复绑定，一次点击会触发两次 setState（展开又立刻收起），
+  // 表现就是「点了没反应」——手机端尤其容易踩到。
+  if (btn.dataset.collapseBound === '1') return;
+  btn.dataset.collapseBound = '1';
+
   const extra = tl.querySelectorAll('.prep-item.is-extra').length;
   const label = btn.querySelector('.prep-toggle-text');
   const KEY = 'anhui_danzhao_prep_open';
@@ -220,6 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof renderIndex === 'function') renderIndex();
     applyPrepStatus();
     renderFooter();
-    if (typeof initPrepCollapse === 'function') initPrepCollapse();
+    // 注意：initPrepCollapse() 已在 renderIndex() 内部调用，这里不要再调一次。
+    // 重复调用会导致一次点击触发两次 setState（展开又立刻收起），
+    // 表现为「展开后续 3 个节点」点不动；initPrepCollapse 内部已加 dataset 幂等保护。
   }
 });

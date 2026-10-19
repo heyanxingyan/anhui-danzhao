@@ -2113,15 +2113,17 @@ body[data-page="compare"] .navbar {
   justify-content: center;
   gap: 4px;
   width: 100%;
+  min-height: 44px;          /* 手机端可点区域≥44px，太矮容易点不中 */
   margin-top: 2px;
-  padding: 9px 0 4px;
+  padding: 12px 0 10px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--primary);
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* 去掉点击延迟，点下去立即响应 */
 }
 
 .prep-toggle svg {
