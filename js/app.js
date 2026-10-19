@@ -849,6 +849,26 @@ function renderCollegeDetail() {
     }
   }
 
+  // ===== 没有 2026 官方分数的院校：隐藏「2026 分数」标签 =====
+  // 只有 招生计划 / 录取规则 / 学校简介 三个标签，避免点进去是一片「暂未查到」。
+  // 例外：对口本科的「录取分数」标签（数据源是 bkScores2026，不是分类考试分数）、
+  //       以及从专项计划页进入时被改写为「专项政策」的标签，都必须保留。
+  const _specialTabActive = fromCat === 'zhuanxiang' || fromCat === 'zhuanxiang-tuiyi'
+    || fromCat === 'zhuanxiang-laoxiang' || fromCat === 'zhuanxiang-xiangcun';
+  if (!c.isDuikouBenke && !_specialTabActive && score2026State(c) !== 'official') {
+    const _scoreTab = document.querySelector('.tab-switch .tab-item[data-tab="score"]');
+    const _scorePanel = document.getElementById('panel-score');
+    const _wasActive = _scoreTab && _scoreTab.classList.contains('active');
+    if (_scoreTab) _scoreTab.remove();
+    if (_scorePanel) _scorePanel.remove();
+    if (_wasActive) {
+      const _planTab = document.querySelector('.tab-switch .tab-item[data-tab="plan"]');
+      const _planPanel = document.getElementById('panel-plan');
+      if (_planTab) _planTab.classList.add('active');
+      if (_planPanel) _planPanel.classList.add('active');
+    }
+  }
+
   // 2026录取规则
   const scoreCompHtml = c.scoreComposition ? `
     <div style="background:linear-gradient(135deg,#fff7e6,#ffe7ba);border:2px solid #fa8c16;border-radius:12px;padding:14px 16px;margin:10px 0">
