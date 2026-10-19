@@ -2427,3 +2427,11 @@ body[data-page="compare"] .navbar {
 
 .sc-chip{height:30px;padding:0 12px;border-radius:15px;border:1px solid #e8e8e8;background:#fff;color:#595959;font-size:12.5px;cursor:pointer;font-family:inherit}
 .sc-chip.is-on{background:#e6f4ff;border-color:#91caff;color:#1677ff;font-weight:600}
+
+
+/* 2026 分数存档入口 */
+.sc-archive{display:flex;align-items:center;gap:10px;margin:18px 16px 8px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;text-decoration:none;background:var(--card-bg)}
+.sc-archive-t{font-size:14px;font-weight:600;color:var(--text)}
+.sc-archive-s{flex:1;font-size:12px;color:var(--text-secondary)}
+.sc-archive-a{font-size:18px;color:var(--text-secondary)}
+.sc-archive:active{opacity:.7}
