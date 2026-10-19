@@ -29,7 +29,7 @@ const BANNERS = [
 
   {id:2,title:'对口本科 22 所院校招生',sub:'100 个专业 · 计划 6181 人（2026年）',bg:'linear-gradient(135deg,#6d5df6,#9d8cff)',link:'zhongzhi.html?tab=benke'},
 
-  {id:3,title:'院校历年分数查询',sub:'74 所院校录取分数 · 历年对比 · 规则速查',bg:'linear-gradient(135deg,#f08c1a,#fbbf24)',link:'score-trend.html'}
+  {id:3,title:'2026 各校各专业分数',sub:'16 所公布分专业线 · 高中/中职分列 · 附官网来源',bg:'linear-gradient(135deg,#f08c1a,#fbbf24)',link:'score-trend.html'}
 
 ];
 

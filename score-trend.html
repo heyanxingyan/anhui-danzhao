@@ -3,42 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>分数走势 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261020p">
+  <title>2026 各校各专业分数 - 安徽单招信息查询</title>
+  <link rel="stylesheet" href="css/style.css?v=20261020r">
 </head>
 <body data-page="score-trend">
   <div class="page">
     <div class="navbar">
       <button class="back-btn" onclick="history.back()">‹</button>
-      <div class="title">分数走势查询</div>
+      <div class="title">2026 各校各专业分数</div>
     </div>
 
-    <!-- 院校选择 -->
-    <div class="select-wrap">
-      <label>选择院校</label>
-      <select id="score-college-select"></select>
-    </div>
-
-    <!-- 历年走势 -->
-    <div class="chart-box">
-      <div class="chart chart-tall" id="trend-chart"></div>
-    </div>
-
-    <!-- 同城对比 -->
-    <div class="chart-box">
-      <div class="chart chart-tall" id="compare-chart"></div>
-    </div>
-
-    <div class="note">
-      ⚠️ 图中分数为基于院校类型、城市及公办/民办性质的<strong>估算参考值</strong>，非官方公布分数线。<br>
-      安徽省2024-2025年文化素质合格线为82分，职业技能测试满分300—450分。<br>
-      实际录取分以安徽省教育招生考试院（ahzsks.cn）及各院校官网公布为准。
-    </div>
+    <div id="score2026-body"></div>
 
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data-core.js?v=20261020p" defer></script>
-  <script src="js/app.js?v=20261020p" defer></script>
+  <script src="js/data-score2026.js?v=20261020r" defer></script>
+  <script src="js/app.js?v=20261020r" defer></script>
 </body>
 </html>

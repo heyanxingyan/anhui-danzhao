@@ -56,13 +56,12 @@ function withECharts(cb) {
   });
 }
 
-// 分数年份标签：优先2026官方真实分，其次2025最低分，最后回退2024
-// 注意：minScore2025 在 2025 无数据时会回退成 2024 的值，因此不能一律标「2025最低」——
-// 那样会把 2024 的分说成 2025 的。用 minScoreYear 记录这个值实际所属年份。
+// 分数年份标签：只认 2026 官方最低分；没有就如实显示「分数待查证」。
+// 说明：2026-10 起剔除了早期估算生成的 minScore2024/minScore2025（与官方分全面冲突），
+// 所以这里不再回退到那两个字段——查不到就如实说「待查证」，不猜。
 function scoreLabel(c) {
   if (c.minScore2026 != null) return '2026最低 ' + c.minScore2026 + ' 分';
-  if (c.minScore2025 != null) return (c.minScoreYear || 2025) + '最低 ' + c.minScore2025 + ' 分';
-  return '分数待公布';
+  return '分数待查证';
 }
 
 // ========== 底部 Tab 导航渲染 ==========
@@ -687,7 +686,7 @@ function renderCollegeDetail() {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
-      if (tab.dataset.tab === 'score') renderScoreChart(c);
+      if (tab.dataset.tab === 'score') renderScore2026(c);
     });
   });
 
@@ -821,7 +820,7 @@ function renderCollegeDetail() {
   });
 
   // ===== 对口本科院校：标签为 招生计划 / 录取规则 / 录取分数 / 学校简介 =====
-  // 「历年分数」是分类考试口径（普高/中职分数线走势），对口本科不适用 → 改名为「录取分数」
+  // 「2026 分数」是分类考试口径（普高类最低录取分），对口本科不适用 → 改名为「录取分数」
   // （展示 2026 年对口招生各专业录取线）；
   // 原「普高/中职/专项」三列的分专业计划表也不适用（对口本科没有这三类计划），
   // 所以「招生计划」标签改为展示 招生规模 + 专业清单。
@@ -834,9 +833,9 @@ function renderCollegeDetail() {
     renderDuikouBenkeScorePanel(c);
   }
 
-  // ===== 专项计划模块：把「历年分数」板块换成专项政策 =====
+  // ===== 专项计划模块：把「2026 分数」板块换成专项政策 =====
   // 从专项计划页进来时（?category=zhuanxiang-*），学生关心的是"这个专项怎么录"，
-  // 而不是该校历年分数线；因此「历年分数」整体替换为政策说明。
+  // 而不是该校 2026 分数；因此「2026 分数」整体替换为政策说明。
   //   · 从「全部专项」进入（category=zhuanxiang）→ 三个专项的招生说明一并展示
   //   · 从某个专项子板块进入（category=zhuanxiang-xxx）→ 只展示那一个专项
   if (fromCat === 'zhuanxiang') {
@@ -944,67 +943,7 @@ function renderCollegeDetail() {
       <p><b>官方网站：</b>${c.website ? `<a href="${c.website}" target="_blank" rel="noopener" style="color:var(--primary)">${c.website}</a>` : '—'}</p>
     </div>
   `;
-}
-
-function renderScoreChart(c) {
-  const el = document.getElementById('score-chart');
-  if (!el) return;
-  // 更新分数图标题
-  const titleEl = el.closest('.chart-box') ? el.closest('.chart-box').querySelector('.chart-title') : null;
-  // 退役军人专项计划政策只在"从专项计划页进入"时展示（见 renderCollegeDetail）。
-  // 这里不再用政策替换分数走势图——普通考生看到的是分数走势，不该被专项政策覆盖。
-  const showTuiyiPolicy = getQuery('category') === 'zhuanxiang-tuiyi';
-  const hasYinglu = showTuiyiPolicy && c.retiredMilitaryPolicy &&
-    (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
-     c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
-     c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
-  if (hasYinglu) {
-    if (titleEl) titleEl.innerHTML = '🎖️ 退役军人专项计划 · <strong>应录尽录</strong>';
-    el.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;min-height:280px">
-        <div style="font-size:56px;margin-bottom:16px">🎖️</div>
-        <div style="font-size:22px;font-weight:700;color:#389e0d;margin-bottom:12px">退役军人专项计划 · 应录尽录</div>
-        <div style="font-size:15px;color:#595959;line-height:1.8;max-width:320px">${c.retiredMilitaryPolicy}</div>
-        <div style="font-size:13px;color:#8c8c8c;margin-top:16px">该院校退役军人专项计划不设分数门槛，符合条件即可录取</div>
-      </div>`;
-    el.style.background = 'linear-gradient(135deg,#f6ffed,#d9f7be)';
-    el.style.borderRadius = '12px';
-    el.style.border = '2px solid #52c41a';
-    return;
-  }
-  // 正常渲染线状图
-  if (titleEl) titleEl.innerHTML = '2021-2025 录取<strong>参考分数</strong>走势';
-  el.style.background = '';
-  el.style.borderRadius = '';
-  el.style.border = '';
-  if (el._rendered) return;
-  el._rendered = true;
-  const years = Object.keys(c.scores).sort();
-  const mins = years.map(y => c.scores[y].min);
-  const avgs = years.map(y => c.scores[y].avg);
-  const maxs = years.map(y => c.scores[y].max);
-
-  withECharts((echarts) => {
-    if (!el.isConnected || el._rendered2) return;
-    el._rendered2 = true;
-    const chart = echarts.init(el);
-    chart.setOption({
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
-      grid: { left: 40, right: 16, top: 20, bottom: 40 },
-      xAxis: { type: 'category', data: years, axisLabel: { fontSize: 11 } },
-      yAxis: { type: 'value', min: v => Math.floor(v.min - 10), axisLabel: { fontSize: 11 } },
-      series: [
-        { name: '最低分', type: 'line', data: mins, smooth: true, itemStyle: { color: '#ff4d4f' }, label: { show: true, fontSize: 10 } },
-        { name: '平均分', type: 'line', data: avgs, smooth: true, itemStyle: { color: '#1677ff' }, label: { show: true, fontSize: 10 } },
-        { name: '最高分', type: 'line', data: maxs, smooth: true, itemStyle: { color: '#52c41a' }, label: { show: true, fontSize: 10 } }
-      ]
-    });
-    window.addEventListener('resize', () => chart.resize());
-  });
-}
-
-/* ============================================================
+}/* ============================================================
  * 4. 专业查询/反查页
  * ============================================================ */
 function renderMajorSearch() {
@@ -1105,7 +1044,7 @@ function renderMajorDetail() {
       <a href="college-detail.html?id=${s.collegeId}" class="college-card" style="display:block">
         <div class="head">
           <div class="name">${s.collegeName}</div>
-          <span class="score" style="color:var(--danger);font-weight:600">${s.minScore2024} 分</span>
+          <span class="score" style="color:var(--danger);font-weight:600">${scoreLabel(s)}</span>
         </div>
         <div class="tags">
           <span class="tag ${s.nature === '公办' ? 'tag-public' : 'tag-private'}">${s.nature}</span>
@@ -1120,105 +1059,223 @@ function renderMajorDetail() {
 }
 
 /* ============================================================
- * 6. 分数走势页
+ * 6. 2026 分数页（详情面板 + 全站列表）
  * ============================================================ */
-function renderScoreTrend() {
-  renderTabbar('index');
-  renderNavbar('分数走势查询', true);
-
-  const select = document.getElementById('score-college-select');
-  select.innerHTML = COLLEGES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
-
-  function renderCharts() {
-    const c = getCollegeById(select.value);
-    if (!c) return;
-    renderTrendChart(c);
-    renderCompareChart(c);
-  }
-
-  select.addEventListener('change', renderCharts);
-  renderCharts();
+/* ===== 2026 分数 · 公共渲染 ===== */
+/** 分数状态标签：官方公布 / 来源待核 / 公网未公布 / 待查证 */
+function score2026State(c) {
+  if (c.minScore2026 != null || c.minScore2026Zhongzhi != null || (Array.isArray(c.majorScores2026) && c.majorScores2026.length)) return 'official';
+  const t = String(c.score2026 || '');
+  if (t.indexOf('来源待核') >= 0) return 'unverified';
+  if (t.indexOf('公网未公布') >= 0) return 'absent';
+  return 'unknown';
 }
 
-function renderTrendChart(c) {
-  const el = document.getElementById('trend-chart');
-  if (el._chart) el._chart.dispose();
-  el.innerHTML = '';
-  el.style.background = '';
-  el.style.borderRadius = '';
-  el.style.border = '';
-  // 退役军人专项计划政策只在"从专项计划页进入"时展示；否则正常画分数走势图。
-  const showTuiyiPolicy = getQuery('category') === 'zhuanxiang-tuiyi';
-  const hasYinglu = showTuiyiPolicy && c.retiredMilitaryPolicy &&
-    (c.retiredMilitaryPolicy.indexOf('应录尽录') >= 0 ||
-     c.retiredMilitaryPolicy.indexOf('参加测试即录取') >= 0 ||
-     c.retiredMilitaryPolicy.indexOf('全部录取') >= 0);
-  if (hasYinglu) {
+function score2026Sources(c) {
+  const a = Array.isArray(c.scoreSources2026) ? c.scoreSources2026 : [];
+  return a.filter(u => typeof u === 'string' && /^https?:\/\//.test(u));
+}
+
+const SC_TAG_STYLE = {
+  '官方': 'background:#e8f7ee;color:#389e0d;border-color:#b7e4c7',
+  '待核': 'background:#fff7e6;color:#d46b08;border-color:#ffd591',
+  '存疑': 'background:#fff1f0;color:#cf1322;border-color:#ffa39e',
+  '未公布': 'background:#f5f5f5;color:#8c8c8c;border-color:#e8e8e8'
+};
+function scoreTagHTML(tag) {
+  if (!tag) return '';
+  const css = SC_TAG_STYLE[tag] || SC_TAG_STYLE['未公布'];
+  return `<span class="tag" style="${css}">${tag}</span>`;
+}
+
+/** 分专业分数表：高中（普高类）/ 中职类 分列 */
+function majorScoresHTML(c) {
+  const rows = Array.isArray(c.majorScores2026) ? c.majorScores2026 : [];
+  if (!rows.length) return '';
+  const cell = (v, cls) => (v == null ? '<span class="dash">—</span>' : `<span class="${cls}">${v}</span>`);
+  const body = rows.map(m => `<tr>
+      <td class="sn">${m.n}</td>
+      <td>${cell(m.g, 'g')}</td>
+      <td>${cell(m.z, 'z')}</td>
+      <td>${m.p == null ? '<span class="dash">—</span>' : m.p}</td>
+      <td><a href="${m.src}" target="_blank" rel="noopener">来源</a></td>
+    </tr>`).join('');
+  return `
+    <div style="margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+        <div style="font-size:13px;font-weight:700;color:#434343">分专业最低分</div>
+        <div style="font-size:11.5px;color:#8c8c8c">共 ${rows.length} 个专业 · 逐条附该校官网来源</div>
+      </div>
+      <table class="sc-table">
+        <thead><tr><th style="text-align:left">专业</th><th>高中（普高类）</th><th>中职类</th><th>2026 计划</th><th>来源</th></tr></thead>
+        <tbody>${body}</tbody>
+      </table>
+      <div style="font-size:11.5px;color:#8c8c8c;line-height:1.8;margin-top:6px">
+        专业名沿用该校公布口径；「—」表示该校未公布该专业此类别的最低分。高中类满分 600，中职类满分 750，两者不可直接比较。
+      </div>
+    </div>`;
+}
+
+/** 普高 / 中职 两个数字块 */
+function scoreSumHTML(c) {
+  const boxes = [];
+  if (c.minScore2026 != null) boxes.push(`<div class="box"><div class="lab">高中（普高类）最低分</div><div class="val g">${c.minScore2026}<span class="u"> 分</span></div></div>`);
+  if (c.minScore2026Zhongzhi != null) boxes.push(`<div class="box"><div class="lab">中职类最低分</div><div class="val z">${c.minScore2026Zhongzhi}<span class="u"> 分</span></div></div>`);
+  return boxes.length ? `<div class="sc-sum">${boxes.join('')}</div>` : '';
+}
+
+/** 详情页「2026 分数」面板：只展示 2026 年、只展示官网能查到的数字 */
+function renderScore2026(c) {
+  const el = document.getElementById('score-2026-panel');
+  if (!el) return;
+  const srcs = score2026Sources(c);
+  const srcHTML = srcs.length
+    ? '<div style="margin-top:14px"><div style="font-size:12px;color:#8c8c8c;margin-bottom:6px">来源</div>' +
+      srcs.map((u, i) => `<a href="${u}" target="_blank" rel="noopener" style="display:block;font-size:12px;color:var(--primary);word-break:break-all;line-height:1.8">${i + 1}. ${u}</a>`).join('') +
+      '</div>'
+    : '';
+  const noteHTML = c.scoreSourceNote2026
+    ? `<div style="margin-top:12px;font-size:12px;color:#8c8c8c;line-height:1.85">${c.scoreSourceNote2026}</div>`
+    : '';
+  const rawHTML = c.score2026
+    ? `<div style="margin-top:14px;padding:12px 14px;background:#fafafa;border-radius:8px;font-size:12.5px;color:#595959;line-height:1.9">${c.score2026}</div>`
+    : '';
+  const majorHTML = majorScoresHTML(c);
+
+  if (score2026State(c) === 'official') {
+    const gran = c.scoreGranularity2026 === 'by_major'
+      ? '分专业公布 · 取全校最低'
+      : (c.scoreGranularity2026 === 'by_college' ? '院校级公布' : '');
     el.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;min-height:280px">
-        <div style="font-size:56px;margin-bottom:16px">🎖️</div>
-        <div style="font-size:22px;font-weight:700;color:#389e0d;margin-bottom:12px">${c.name} · 应录尽录</div>
-        <div style="font-size:15px;color:#595959;line-height:1.8;max-width:320px">${c.retiredMilitaryPolicy}</div>
-        <div style="font-size:13px;color:#8c8c8c;margin-top:16px">退役军人专项计划不设分数门槛，符合条件即可录取</div>
-      </div>`;
-    el.style.background = 'linear-gradient(135deg,#f6ffed,#d9f7be)';
-    el.style.borderRadius = '12px';
-    el.style.border = '2px solid #52c41a';
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <div style="font-size:13px;color:#434343;font-weight:600">2026 年最低录取分</div>
+        <div style="margin-left:auto">${scoreTagHTML(c.score2026Tag || '官方')}</div>
+      </div>
+      ${scoreSumHTML(c)}
+      ${gran ? `<div style="margin-top:8px;font-size:12px;color:#8c8c8c">${gran}</div>` : ''}
+      ${majorHTML}
+      ${rawHTML}${noteHTML}${srcHTML}`;
     return;
   }
-  const years = Object.keys(c.scores).sort();
-  withECharts((echarts) => {
-    if (!el.isConnected) return;
-    const chart = echarts.init(el);
-    el._chart = chart;
-    chart.setOption({
-      title: { text: c.name + ' · 五年录取分走势', left: 'center', textStyle: { fontSize: 14 } },
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['最低分', '平均分', '最高分'], bottom: 0, textStyle: { fontSize: 11 } },
-      grid: { left: 40, right: 16, top: 50, bottom: 40 },
-      xAxis: { type: 'category', data: years },
-      yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
-      series: [
-        { name: '最低分', type: 'line', data: years.map(y => c.scores[y].min), smooth: true, itemStyle: { color: '#ff4d4f' }, areaStyle: { opacity: 0.1 } },
-        { name: '平均分', type: 'line', data: years.map(y => c.scores[y].avg), smooth: true, itemStyle: { color: '#1677ff' } },
-        { name: '最高分', type: 'line', data: years.map(y => c.scores[y].max), smooth: true, itemStyle: { color: '#52c41a' } }
-      ]
-    });
-    window.addEventListener('resize', () => chart.resize());
-  });
+
+  const st = score2026State(c);
+  const head = st === 'unverified'
+    ? '该校 2026 年分数<b>待核实</b>'
+    : (st === 'absent' ? '该校未在官网公布 2026 年最低录取分' : '该校 2026 年最低录取分<b>暂未查到</b>');
+  el.innerHTML = `
+    <div class="empty" style="padding:32px 20px;text-align:center;background:none">
+      <div style="font-size:34px;opacity:.45;margin-bottom:10px">🔍</div>
+      <div style="font-size:15px;font-weight:700;color:#434343;margin-bottom:10px">${head}</div>
+      <div style="font-size:12.5px;color:#8c8c8c;line-height:1.9;max-width:420px;margin:0 auto">
+        多数院校只公示「预录取名单 PDF」，正文不列最低分；<br>
+        本站只收录官网可查证的分数，<b>不提供估算值</b>。
+      </div>
+    </div>
+    ${rawHTML}${noteHTML}${srcHTML}`;
 }
 
-function renderCompareChart(c) {
-  const el = document.getElementById('compare-chart');
-  if (el._chart) el._chart.dispose();
-  el.innerHTML = '';
-  // 同城市院校平均分对比
-  const sameCity = COLLEGES.filter(x => x.city === c.city);
-  withECharts((echarts) => {
-    if (!el.isConnected) return;
-    const chart = echarts.init(el);
-    el._chart = chart;
-    chart.setOption({
-      title: { text: c.city + '地区院校 2024 平均分对比', left: 'center', textStyle: { fontSize: 14 } },
-      tooltip: { trigger: 'axis' },
-      grid: { left: 40, right: 16, top: 50, bottom: 60 },
-      xAxis: {
-        type: 'category',
-        data: sameCity.map(x => x.name.length > 8 ? x.name.slice(0, 8) + '…' : x.name),
-        axisLabel: { fontSize: 10, rotate: 30 }
-      },
-      yAxis: { type: 'value', min: v => Math.floor(v.min - 10) },
-      series: [{
-        type: 'bar',
-        data: sameCity.map(x => x.scores[2024].avg),
-        itemStyle: {
-          color: params => params.name === (c.name.length > 8 ? c.name.slice(0, 8) + '…' : c.name) ? '#1677ff' : '#91caff'
-        },
-        label: { show: true, position: 'top', fontSize: 10 }
-      }]
-    });
-    window.addEventListener('resize', () => chart.resize());
+/* ===== 2026 分数 · 列表页（各校各专业 高中/中职） ===== */
+let SC_Q = '';
+let SC_MODE = 'all';
+
+function scHasData(c) {
+  return c.minScore2026 != null || c.minScore2026Zhongzhi != null ||
+    (Array.isArray(c.majorScores2026) && c.majorScores2026.length);
+}
+
+function renderScoreTrend() {
+  renderTabbar('index');
+  renderNavbar('2026 各校各专业分数', true);
+
+  const host = document.getElementById('score2026-body');
+  if (!host) return;
+
+  const all = COLLEGES.filter(scHasData);
+  const withMajor = all.filter(c => Array.isArray(c.majorScores2026) && c.majorScores2026.length);
+  const noMajor = all.filter(c => !(Array.isArray(c.majorScores2026) && c.majorScores2026.length));
+  const rest = COLLEGES.filter(c => !scHasData(c));
+  const majorRows = withMajor.reduce((n, c) => n + c.majorScores2026.length, 0);
+
+  host.innerHTML = `
+    <div class="note" style="margin:12px 0 12px">
+      ✅ 只收 <b>2026 年</b>、只收<b>院校官网能查到</b>的分数：目前 <b>${withMajor.length} 所</b>公布了分专业分数线（共 <b>${majorRows} 条</b>），
+      另有 <b>${noMajor.length} 所</b>只公布了全校最低分。<br>
+      高中（普高类）与中职类<b>分开计分</b>（高中满分 600、中职满分 750），不混排、不换算。<br>
+      合格线（文化素质测试、校考合格线）<b>不等于</b>录取最低分，故不混入；本站<b>不提供任何估算分数</b>。
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px">
+      <input id="sc-q" type="search" placeholder="搜院校或专业，如：护理" autocomplete="off"
+        style="flex:1;height:38px;border:1px solid #e8e8e8;border-radius:10px;padding:0 12px;font-size:13px;background:#fff;outline:none">
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap" id="sc-chips">
+      <button class="sc-chip is-on" data-mode="all">全部 ${all.length}</button>
+      <button class="sc-chip" data-mode="major">有分专业线 ${withMajor.length}</button>
+      <button class="sc-chip" data-mode="college">仅全校分 ${noMajor.length}</button>
+    </div>
+    <div id="sc-list"></div>
+    <div style="margin-top:20px">
+      <div style="font-size:13px;font-weight:700;color:#434343;margin-bottom:8px">暂未查到分数的院校（${rest.length} 所）</div>
+      <div style="font-size:12.5px;color:#8c8c8c;line-height:2">${rest.map(c => c.name).join('、')}</div>
+    </div>
+    <div class="note" style="margin-top:16px">
+      点院校名进详情页可看该校「2026 分数」完整面板（含官网原文摘录与全部来源链接）。
+    </div>`;
+
+  const listEl = document.getElementById('sc-list');
+  const qEl = document.getElementById('sc-q');
+  const chipsEl = document.getElementById('sc-chips');
+
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+
+  const cardHTML = (c) => {
+    const majors = Array.isArray(c.majorScores2026) ? c.majorScores2026 : [];
+    const g = c.minScore2026, z = c.minScore2026Zhongzhi;
+    const inline = [
+      g != null ? `<span class="g">${g}</span><span class="u">分</span>` : '',
+      z != null ? `<span class="z">${z}</span><span class="u">分(中职)</span>` : ''
+    ].filter(Boolean).join('<span class="sep">/</span>');
+    return `
+      <details class="sc-wrap">
+        <summary>
+          <div style="flex:1;min-width:0">
+            <div class="sc-name">${esc(c.name)} ${scoreTagHTML(c.score2026Tag || '官方')}</div>
+            <div class="sc-meta">${esc(c.city)} · ${esc(c.nature)}${majors.length ? ` · 分专业 ${majors.length} 个` : ' · 仅全校最低分'}</div>
+          </div>
+          <div class="sc-num">${inline || '<span class="u">—</span>'}</div>
+          <div class="sc-arrow">›</div>
+        </summary>
+        <div class="inner">
+          ${scoreSumHTML(c)}
+          ${majors.length ? majorScoresHTML(c) : '<div style="font-size:12.5px;color:#8c8c8c;line-height:1.9">该校只公布了全校最低分，未公布分专业分数线。</div>'}
+          <div style="margin-top:12px"><a href="college-detail.html?id=${c.id}" style="font-size:12.5px;color:var(--primary);font-weight:600">查看该校详情 ›</a></div>
+        </div>
+      </details>`;
+  };
+
+  const paint = () => {
+    const kw = SC_Q.trim();
+    let pool = all;
+    if (SC_MODE === 'major') pool = withMajor;
+    else if (SC_MODE === 'college') pool = noMajor;
+    if (kw) {
+      pool = pool.filter(c => c.name.indexOf(kw) >= 0 || c.city.indexOf(kw) >= 0 ||
+        (Array.isArray(c.majorScores2026) && c.majorScores2026.some(m => m.n.indexOf(kw) >= 0)));
+    }
+    const sorted = pool.slice().sort((a, b) => (b.minScore2026 == null ? -1 : b.minScore2026) - (a.minScore2026 == null ? -1 : a.minScore2026));
+    listEl.innerHTML = sorted.length
+      ? sorted.map(cardHTML).join('')
+      : `<div class="empty" style="padding:36px 10px;text-align:center;color:#8c8c8c;font-size:13px">没有匹配的院校或专业</div>`;
+  };
+
+  if (qEl) qEl.addEventListener('input', () => { SC_Q = qEl.value; paint(); });
+  if (chipsEl) chipsEl.addEventListener('click', (e) => {
+    const b = e.target.closest('.sc-chip');
+    if (!b) return;
+    SC_MODE = b.dataset.mode;
+    [...chipsEl.children].forEach(x => x.classList.toggle('is-on', x === b));
+    paint();
   });
+  paint();
 }
 
 /* ============================================================
@@ -1302,7 +1359,7 @@ function buildBenkeCards(keyword) {
     // 卡片**完全对齐**「分类考试」的高职院校卡片，不多挂任何额外信息：
     //   高职：a.college-card > .head > .name + .tags（性质/类型/批次标记） + .meta-row（城市 · 计划 N 人）
     //   对口本科：同结构；meta 行同样写作「计划 N 人」，批次由标签行的「🏫 对口本科」表达。
-    // 曾多出来的「已收录历年分数」「数据置信度中」标签、「· N 个专业」、「看招生计划与分数 ›」
+    // 曾多出来的「已收录分数」「数据置信度中」标签、「· N 个专业」、「看招生计划与分数 ›」
     // 以及卡片下方的分数线块、专业表、考试办法折叠块，**全部移除** ——
     // 列表里只留与高职卡片一样的信息；分数线/专业/考试办法一律进院校详情页看。
     const planText = s.planTotal ? `招 ${s.planTotal} 人` : '招生计划待公布';
@@ -1420,7 +1477,7 @@ function renderZhongzhi() {
       '<div style="padding:0 12px" id="zz-benke-cards"></div>' +
       '<div class="bk-block" style="margin-top:10px">' +
         '<p style="font-size:12px;color:#666">📌 名单依据安徽省教育招生考试院「应用型本科对口招生章程」栏目。其中' +
-        '<b>宿州学院、芜湖职业技术大学、安徽职业技术大学、安徽艺术学院已收录在本站</b>，可直接查看历年分数走势；' +
+        '<b>宿州学院、芜湖职业技术大学、安徽职业技术大学、安徽艺术学院已收录在本站</b>，可直接查看 2026 分数；' +
         '其余院校点击进入官网查询最新章程。<b>分专业计划与选考类别以各院校当年对口招生章程为准。</b></p>' +
       '</div>' +
       renderBenkeBlocks();
@@ -2088,7 +2145,7 @@ function dedupeByMajorName(rows) {
 }
 
 /**
- * 专项计划模块：把院校详情页的「历年分数」板块替换为该专项的政策说明。
+ * 专项计划模块：把院校详情页的「2026 分数」板块替换为该专项的政策说明。
  *
  * @param {object} c   院校对象
  * @param {string} kind 'tuiyi' | 'laoxiang' | 'xiangcun'
@@ -2098,7 +2155,7 @@ function renderSpecialPolicyPanel(c, kind) {
   if (!panel) return;
   const P = (typeof SPECIAL_POLICY !== 'undefined') ? SPECIAL_POLICY[kind] : null;
 
-  // tab 文案也换掉，避免"历年分数"下面却是政策
+  // tab 文案也换掉，避免"2026 分数"下面却是政策
   const tabEl = document.querySelector('.tab-switch .tab-item[data-tab="score"]');
   if (tabEl) tabEl.textContent = (P && P.icon ? P.icon + ' ' : '') + '专项政策';
 
@@ -2498,9 +2555,6 @@ function renderCompare() {
           ${row('性质', c => c.nature)}
           ${row('类型', c => c.type)}
           ${row('2026分数', scoreCell)}
-          ${row('2025最低', c => c.scores['2025'] ? c.scores['2025'].min : '—')}
-          ${row('2024最低', c => c.scores['2024'] ? c.scores['2024'].min : '—')}
-          ${row('2023最低', c => c.scores['2023'] ? c.scores['2023'].min : '—')}
           ${row('校考占比', c => c.examRatio || (c.stoppedEnrollment ? '已停招' : (c.examRatioNote || '待补')))}
           ${row('面试', c => (c.interview && c.interview.hasInterview) ? '有' : '无')}
           ${row('录取规则', c => clip(c.admissionRule2026 || '参考2025', 12))}
@@ -2562,7 +2616,7 @@ function renderFavorites() {
     <div class="college-card" style="position:relative">
       <div class="head">
         <div class="name">${c.name}</div>
-        <span class="score" style="color:var(--danger);font-weight:600">${c.minScore2024} 分</span>
+        <span class="score" style="color:var(--danger);font-weight:600">${scoreLabel(c)}</span>
       </div>
       <div class="tags">
         <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
@@ -2605,11 +2659,11 @@ const FAQ_LIST = [
   { q: '中职生可以报普通高考的专科专业吗？', a: '可以。中职起点含"中职专科"通道（高职分类考试），也有"对口本科"通道（应用型本科对口招生），两条通道可按需选择。' },
   { q: '对口本科和普通本科一样吗？', a: '对口本科面向中职毕业生招生，录取后进入应用型本科院校全日制学习，毕业颁发全日制本科毕业证书，与普通本科文凭效力相同。' },
   { q: '退役军人、脱贫家庭考生有什么政策？', a: '可报考"专项计划"，单独划线、单独排队录取，不占用普通计划名额，具体资格条件以安徽省教育招生考试院公布为准。' },
-  { q: '本站的分数线是官方公布的吗？', a: '本站分数线为2026年录取参考数据（供2027考生参考），部分为基于院校类型、城市及公办/民办性质的估算值并已标注，实际录取分以安徽省教育招生考试院及院校官方公布为准。' },
+  { q: '本站的分数线是官方公布的吗？', a: '本站的录取最低分只收录院校官网、安徽省教育招生考试院页面上可查证的数字，每条都附来源链接与原文摘录；查不到的院校显示「待查证」，不提供估算分数。2026年数据供2027考生参考，实际录取分以官方最新公布为准。' },
   { q: '单招没被录取怎么办？', a: '单招未录取不影响后续普通高考，考生可继续参加6月普通高考及志愿填报。' },
   { q: '在哪里报名？什么时候报名？', a: '高考报名网站为 gkbm.ahzsks.cn，2027年高考报名时间为2026年10月17日10:00至21日17:00（官方已公布）。单招报名预计2027年1月下旬，文化测试预计2027年3月上旬，具体以安徽省教育招生考试院最新通知为准。' },
   { q: '民办院校和公办院校文凭一样吗？', a: '文凭均为国家承认的全日制学历，区别主要在学费（民办较高）与办学性质，毕业证效力相同。' },
-  { q: '如何选择适合自己的院校？', a: '建议综合参考：历年分数线（用本站分数走势）、就业/专升本率、校考占比、有无面试、所在城市与专业，并用"分数推荐"按冲/稳/保梯度搭配。' }
+  { q: '如何选择适合自己的院校？', a: '建议综合参考：2026 各校最低分（本站分数页）、就业/专升本率、校考占比、有无面试、所在城市与专业，并用"分数推荐"按冲/稳/保梯度搭配。' }
 ];
 
 function renderFaq() {
@@ -2636,8 +2690,13 @@ function renderFaq() {
 /* ============================================================
  * 15. 分数推荐页（冲/稳/保）
  * ============================================================ */
+/* 推荐用的参考线 = 2026 官方公布的最低录取分。
+ * 历史上有一版估算出来的 minScore2024/minScore2025（与官方分全面冲突，已剔除），
+ * 绝不能再拿它当推荐依据，也绝不为了凑数去估一个。
+ * 返回 null 表示这所院校没有可比的官方分 —— 推荐页直接跳过，不排行。 */
 function predLine(c) {
-  return parseFloat(c.score2026) || (c.scores['2025'] ? c.scores['2025'].min : c.minScore2024);
+  if (c.minScore2026 != null && isFinite(c.minScore2026)) return Number(c.minScore2026);
+  return null;
 }
 
 function renderRecommend() {
@@ -2653,6 +2712,7 @@ function renderRecommend() {
     const chong = [], wen = [], bao = [];
     COLLEGES.forEach(c => {
       const line = predLine(c);
+      if (line == null) return;           // 没有官方分就不参与推荐
       const diff = line - s; // 正：院校线高于考生分
       if (diff >= 5 && diff <= 15) chong.push({ c, diff });
       else if (Math.abs(diff) <= 5) wen.push({ c, diff });
@@ -2665,7 +2725,7 @@ function renderRecommend() {
       <a href="college-detail.html?id=${c.id}" class="college-card" style="display:block">
         <div class="head">
           <div class="name">${c.name}</div>
-          <span class="score" style="color:${tone.color};font-weight:600">${c.score2026}</span>
+          <span class="score" style="color:${tone.color};font-weight:600">${compactScore2026(c).text}</span>
         </div>
         <div class="tags">
           <span class="tag ${c.nature === '公办' ? 'tag-public' : 'tag-private'}">${c.nature}</span>
@@ -2675,6 +2735,22 @@ function renderRecommend() {
       </a>`;
     }
 
+    const total = chong.length + wen.length + bao.length;
+    if (!total) {
+      // 全部院校都没有官方可查证的分数线时，别让用户看到三个空档位（像坏了）
+      body.innerHTML = `
+        <div class="empty" style="padding:40px 20px;text-align:center">
+          <div style="font-size:44px;margin-bottom:12px">📭</div>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px">暂无可比对的官方分数线</div>
+          <div style="font-size:13px;color:#8c8c8c;line-height:1.9">
+            分数推荐需要院校官方公布的录取最低分作参照。<br>
+            本站在持续从院校官网补充，未查到的院校一律留空，不用估算值代替。<br>
+            可先到<a href="score-trend.html" style="color:var(--primary)">2026 各校最低分</a>看已查明的院校。
+          </div>
+        </div>`;
+      return;
+    }
+
     body.innerHTML = `
       <div class="rec-group"><div class="rec-title" style="color:#ff4d4f">🔥 冲一冲（${chong.length}）</div>
         ${chong.length ? chong.map(x => card(x, { color:'#ff4d4f', label:'冲刺' })).join('') : '<div class="note">本档暂无匹配院校</div>'}</div>
@@ -2682,7 +2758,7 @@ function renderRecommend() {
         ${wen.length ? wen.map(x => card(x, { color:'#1677ff', label:'稳妥' })).join('') : '<div class="note">本档暂无匹配院校</div>'}</div>
       <div class="rec-group"><div class="rec-title" style="color:#52c41a">🛡️ 保一保（${bao.length}）</div>
         ${bao.length ? bao.map(x => card(x, { color:'#52c41a', label:'保底' })).join('') : '<div class="note">本档暂无匹配院校</div>'}</div>
-      <div class="note" style="text-align:center">分数为2026预测（估算），梯度区间为±5/5-15分，仅供参考</div>`;
+      <div class="note" style="text-align:center">参照各校官方公布的最低录取分，梯度区间为±5/5-15分，仅供参考</div>`;
   }
 
   btn.addEventListener('click', run);
