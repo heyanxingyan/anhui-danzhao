@@ -103,6 +103,15 @@ input, select {
   border: none;
 }
 
+/* 手机端输入框 16px：iOS Safari 对字号 <16px 的输入框聚焦时会强制放大页面。
+   以前靠 viewport 的 user-scalable=no 抑制，那是牺牲无障碍换的；
+   现在页面允许双指缩放，输入框字号补到 16px 就不会聚焦跳动了。 */
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
 /* 键盘可见焦点圈（无障碍） */
 :focus-visible {
   outline: 2px solid var(--primary);
@@ -2142,7 +2151,7 @@ body[data-page="compare"] .navbar {
 
 
 /* ========== 校园环境页 ==========
- * 91 所院校的占地/校区、宿舍、位置周边、日常管理（晚自习/早自习/校园跑/晚训）
+ * 91 条校园环境记录的占地/校区、宿舍、位置周边、日常管理（晚自习/早自习/校园跑/晚训）
  * 数据来自 js/campus-data.js（网络公开资料整理，页面有醒目免责声明） */
 .campus-disclaimer {
   display: flex;

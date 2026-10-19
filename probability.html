@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>录取概率测算 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261020w">
+  <link rel="stylesheet" href="css/style.css?v=20261020x">
   <style>
     .prob-container { padding: 12px; }
     .prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
@@ -133,9 +133,9 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data.js?v=20261020w" defer></script>
-  <script src="js/score-formula.js?v=20261020w" defer></script>
-  <script src="js/app.js?v=20261020w" defer></script>
+  <script src="js/data.js?v=20261020x" defer></script>
+  <script src="js/score-formula.js?v=20261020x" defer></script>
+  <script src="js/app.js?v=20261020x" defer></script>
   <script src="js/low-score.js" defer></script>
   <script>
     let currentProbType = 'gaozhong';
@@ -868,7 +868,10 @@
       const cm = cultureMaxOf();
       const em = examMaxOf(college) || 100;
 
-      if (rule.mode === 'examOnly') return (exam / em) * 100;
+      // 按校考排序：默认折算成百分制（轴 100），但若 SCORE_FORMULA 给了更大的轴
+      // （如合肥共达：校考满分 300、官方公布的 190 分就是校考原始分），就按
+      // (exam / em) * 轴 换算——否则把 190 分和 100 分的轴比，概率会被压到个位数。
+      if (rule.mode === 'examOnly') return (exam / em) * (rule.axisMax || 100);
       if (rule.mode === 'sum') return culture + exam;
 
       const kwc = rule.weightCulture === null ? 0.5 : rule.weightCulture;
@@ -995,8 +998,30 @@
       const floor = axisForFloor * 0.45;
       if (totalEst < floor) totalEst = floor;
 
+      // 与官方线对齐：全校最低分就是「所有专业里最低的那个」，任何专业的预估线
+      // 都不可能低于它，低于即自相矛盾。实测有 5 个专业落在区间内
+      // （如安徽林业「绿色食品生产技术」191 < 全校 229.4），统一抬到官方线。
+      const offLine = college.minScore2026;
+      if (typeof offLine === 'number' && Number.isFinite(offLine) && totalEst < offLine) {
+        totalEst = offLine;
+      }
+
       return Math.round(totalEst);
     }
+
+    /**
+     * 统一兜底：estimateCutoff 内部有多处「官方已公布分数」的提前 return，
+     * 那些分支不会走到上面的下限逻辑，可能出现「专业预估线 < 全校最低分」的
+     * 自相矛盾（全校最低分本身就是所有专业里的最小值）。
+     * 这里包一层，任何分支的结果都不得低于该校官方公布的 2026 最低分。
+     */
+    const _estimateCutoffRaw = estimateCutoff;
+    estimateCutoff = function (college, major) {
+      let v = _estimateCutoffRaw(college, major);
+      const off = college && college.minScore2026;
+      if (typeof off === 'number' && Number.isFinite(off) && Number.isFinite(v) && v < off) v = off;
+      return Math.round(v);
+    };
 
     function calcProbability(yourScore, estLine, preLine, plan, college, major) {
       // 阈值必须按坐标轴缩放：600 分制差 30 分相当于百分制的 5 分，
