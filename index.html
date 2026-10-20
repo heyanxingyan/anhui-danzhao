@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>安徽单招信息查询</title>
-    <link rel="preload" as="script" href="js/data-home.js?v=20261021a">
-  <link rel="preload" as="script" href="js/app-home.js?v=20261021a">
+    <link rel="preload" as="script" href="js/data-home.js?v=20261021b">
+  <link rel="preload" as="script" href="js/app-home.js?v=20261021b">
   <!-- [inline-css:start] 由 tools/inline-css.js 生成，勿手改；还原用 --revert -->
 <style>
 /* ============================================================
@@ -2458,6 +2458,36 @@ body[data-page="compare"] .navbar {
 .mcat-sample{font-size:11.5px;color:var(--text-light);margin-top:3px;line-height:1.5;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
+/* ---------- 院校对比 · 完整信息版（不截断，长文本换行） ---------- */
+.cmp-diffbar{display:flex;align-items:center;gap:8px;padding:8px 14px 10px;font-size:12.5px;color:var(--text-secondary)}
+.cmp-diffbar input{width:16px;height:16px;accent-color:var(--primary)}
+.cmp-full-table{table-layout:auto;min-width:0}
+.cmp-full-table th,
+.cmp-full-table td{
+  padding:10px 12px;font-size:13px;line-height:1.7;vertical-align:top;
+  white-space:normal;overflow:visible;text-overflow:clip;
+}
+.cmp-full-table td.dim,
+.cmp-full-table th.dim{
+  width:88px;min-width:88px;max-width:88px;font-size:12px;color:var(--text-secondary);
+  position:sticky;left:0;z-index:1;background:var(--card-bg);
+}
+.cmp-full-table thead th{
+  position:sticky;top:0;z-index:3;background:#f7f9fd;
+  font-size:13px;line-height:1.5;padding:10px 12px;min-width:196px;
+}
+.cmp-full-table thead th.dim{z-index:4}
+.cmp-full-table tbody td{min-width:196px}
+.cmp-sec td{
+  background:#eef4ff;color:var(--primary);font-weight:700;font-size:12.5px;
+  letter-spacing:.4px;padding:7px 12px;border-top:1px solid var(--border);
+}
+.cmp-full{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.cmp-miss{color:#bdbdbd}
+.cmp-link{color:var(--primary);text-decoration:none;word-break:break-all}
+.cmp-full-table .cmp-name{font-size:13.5px;font-weight:700;color:var(--text);text-decoration:none;display:inline-block;max-width:150px;white-space:normal;line-height:1.45}
+.cmp-full-table .cmp-remove{font-size:12px;color:var(--text-light);margin-left:4px;cursor:pointer}
+
 </style>
 <!-- [inline-css:end] -->
 </head>
@@ -2586,7 +2616,7 @@ body[data-page="compare"] .navbar {
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data-home.js?v=20261021a" defer></script>
-  <script src="js/app-home.js?v=20261021a" defer></script>
+  <script src="js/data-home.js?v=20261021b" defer></script>
+  <script src="js/app-home.js?v=20261021b" defer></script>
 </body>
 </html>

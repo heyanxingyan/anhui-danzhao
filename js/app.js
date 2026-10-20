@@ -2699,74 +2699,128 @@ function renderCompare() {
     return;
   }
 
-  function row(label, fn) {
-    return `<tr><td class="dim">${label}</td>` + list.map(c => `<td>${fn(c)}</td>`).join('') + '</tr>';
+  // 对比表统一用「显示全文 + 自动换行」，不再截断：
+  // 之前用 … 截断 + title 悬停提示，手机上根本看不到完整信息。
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  function txt(v, missing) {
+    const empty = v === undefined || v === null || v === '';
+    if (empty) return `<span class="cmp-miss">${esc(missing || '—')}</span>`;
+    return `<span class="cmp-full">${esc(v)}</span>`;
   }
-  // 长文本单元格：单行截断，完整内容放 title 提示，避免把行撑高
-  /**
-   * 对比表单元格：过长截断，鼠标悬停显示全文。
-   * @param {*} text 值
-   * @param {number} max 截断长度
-   * @param {string} [missing] 值为空时显示什么（默认「—」）。传「待补」可标明该字段站点尚未采到。
-   */
-  function clip(text, max = 14, missing) {
-    const isEmpty = text === undefined || text === null || text === '';
-    const s = String(isEmpty ? (missing || '—') : text);
-    const short = s.length > max ? s.slice(0, max) + '…' : s;
-    const style = isEmpty && missing ? ' style="color:#bbb"' : '';
-    return `<span class="cmp-clip"${style} title="${s.replace(/"/g, '&quot;')}">${short}</span>`;
-  }
+
+  const planParts = (c) => {
+    const arr = [];
+    if (c.plan2026Gaozhong) arr.push('普高 ' + c.plan2026Gaozhong);
+    if (c.plan2026Zhongzhi) arr.push('中职 ' + c.plan2026Zhongzhi);
+    if (c.plan2026Zhuanxiang) arr.push('专项 ' + c.plan2026Zhuanxiang);
+    return arr.length ? arr.join(' · ') : '';
+  };
 
   const scoreCell = (c) => {
     const s = compactScore2026(c);
-    const tag = s.tag ? `<span class="cmp-tag">${s.tag}</span>` : '';
-    return `<span class="cmp-scorebox" title="${s.full.replace(/"/g, '&quot;')}"><span class="cmp-score">${s.text}</span>${tag}</span>`;
+    const tag = s.tag ? `<span class="cmp-tag">${esc(s.tag)}</span>` : '';
+    return `<span class="cmp-scorebox"><span class="cmp-score">${esc(s.text)}</span>${tag}</span>`;
+  };
+
+  // 行定义：{ label, fn } —— fn 返回 HTML
+  const SECTIONS = [
+    {
+      title: '基本信息',
+      rows: [
+        { label: '城市', fn: (c) => txt(c.city) },
+        { label: '办学层次', fn: (c) => txt(c.isUndergraduate ? '本科' : '专科（高职）') },
+        { label: '性质', fn: (c) => txt(c.nature) },
+        { label: '类型', fn: (c) => txt(c.type) },
+        { label: '院校地址', fn: (c) => txt(c.address, '待补充') },
+        {
+          label: '官网',
+          fn: (c) => (c.website
+            ? `<a class="cmp-link" href="${esc(c.website)}" target="_blank" rel="noopener">${esc(c.website.replace(/^https?:\/\//, ''))}</a>`
+            : txt('', c.websiteNote || '官网待补')),
+        },
+      ],
+    },
+    {
+      title: '2026 招生',
+      rows: [
+        { label: '招生计划', fn: (c) => txt(c.plan2026, '待公布') },
+        { label: '计划分项', fn: (c) => txt(planParts(c), '—') },
+        { label: '校考占比', fn: (c) => txt(c.examRatio || (c.stoppedEnrollment ? '已停招' : ''), c.examRatioNote || '待补') },
+        { label: '面试', fn: (c) => txt(c.interview && c.interview.hasInterview ? '有（' + (c.interview.desc || c.interview.type || '需面试') + '）' : '无') },
+        { label: '录取规则', fn: (c) => txt(c.admissionRule2026, '详见招生章程') },
+      ],
+    },
+    {
+      title: '2026 分数',
+      rows: [
+        { label: '最低分', fn: scoreCell },
+        { label: '中职最低', fn: (c) => txt(c.minScore2026Zhongzhi, '未公布') },
+        { label: '分数说明', fn: (c) => txt(c.score2026, '暂未查到官方公布分数') },
+      ],
+    },
+    {
+      title: '专业与费用',
+      rows: [
+        { label: '招生专业数', fn: (c) => txt((c.majors || []).length ? (c.majors || []).length + ' 个' : '', '待补充') },
+        { label: '部分专业', fn: (c) => txt((c.majors || []).slice(0, 8).map((m) => m.name).join('、') + ((c.majors || []).length > 8 ? ' 等' : ''), '待补充') },
+        { label: '学费说明', fn: (c) => txt(c.feePolicyNote, '详见招生章程') },
+      ],
+    },
+    {
+      title: '就业与规模',
+      rows: [
+        { label: '在校生规模', fn: (c) => txt(c.scale, '待补') },
+        { label: '就业率', fn: (c) => txt(c.employmentRate, '待补') },
+        { label: '专升本率', fn: (c) => txt(c.upgradeRate, '待补') },
+      ],
+    },
+    {
+      title: '联系方式',
+      rows: [
+        { label: '招生办电话', fn: (c) => txt(c.phone, '待补') },
+      ],
+    },
+  ];
+
+  // 「只看不一样」：值全相同的行默认隐藏（长文本下能省很多滚动）
+  const rowHTML = (r) => {
+    const cells = list.map((c) => `<td>${r.fn(c)}</td>`).join('');
+    const vals = list.map((c) => {
+      const d = document.createElement('div');
+      d.innerHTML = r.fn(c);
+      return (d.textContent || '').trim();
+    });
+    const same = vals.every((v) => v === vals[0]);
+    return `<tr class="cmp-row${same ? ' cmp-same' : ''}"><td class="dim">${esc(r.label)}</td>${cells}</tr>`;
   };
 
   body.innerHTML = `
-    <div class="cmp-hint">已选 ${list.length}/4 所 · 表格可上下滑动，未公布项显示标签</div>
+    <div class="cmp-hint">已选 ${list.length}/4 所 · 全部信息完整显示，表格可左右滑动</div>
+    <label class="cmp-diffbar"><input type="checkbox" id="cmp-diff"> 只看有差异的项</label>
     <div class="table-wrap cmp-wrap">
-      <table class="compare-table cmp-compact">
+      <table class="compare-table cmp-full-table">
         <thead><tr><th class="dim">对比项</th>${list.map(c => `
           <th>
-            <a href="college-detail.html?id=${c.id}" class="cmp-name" title="${c.name}">${shortCollegeName(c.name)}</a>
-            <span class="cmp-remove" data-id="${c.id}" title="移除 ${c.name}">✕</span>
+            <a href="college-detail.html?id=${c.id}" class="cmp-name">${esc(c.name)}</a>
+            <span class="cmp-remove" data-id="${c.id}" title="移除 ${esc(c.name)}">✕</span>
           </th>`).join('')}</tr></thead>
         <tbody>
-          ${row('城市', c => c.city)}
-          ${row('性质', c => c.nature)}
-          ${row('类型', c => c.type)}
-          ${row('2026分数', scoreCell)}
-          ${row('校考占比', c => c.examRatio || (c.stoppedEnrollment ? '已停招' : (c.examRatioNote || '待补')))}
-          ${row('面试', c => (c.interview && c.interview.hasInterview) ? '有' : '无')}
-          ${row('录取规则', c => clip(c.admissionRule2026 || '参考2025', 12))}
-          ${row('2026计划', c => clip(c.plan2026 || '待公布', 12))}
-          <tr class="cmp-more-toggle" id="cmp-more-btn">
-            <td class="dim">更多</td>
-            <td colspan="${list.length}" class="cmp-more-cell">联系电话 / 规模 / 就业率 / 专升本率 ▾</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="table-wrap cmp-wrap" id="cmp-more" style="display:none">
-      <table class="compare-table cmp-compact">
-        <tbody>
-          ${row('招生办电话', c => clip(c.phone, 14, '待补'))}
-          ${row('在校生规模', c => clip(c.scale, 8, '待补'))}
-          ${row('就业率', c => clip(c.employmentRate, 14, '待补'))}
-          ${row('专升本率', c => clip(c.upgradeRate, 14, '待补'))}
+          ${SECTIONS.map((s) => `
+            <tr class="cmp-sec"><td colspan="${list.length + 1}">${esc(s.title)}</td></tr>
+            ${s.rows.map(rowHTML).join('')}
+          `).join('')}
         </tbody>
       </table>
     </div>`;
 
-  const moreBtn = document.getElementById('cmp-more-btn');
-  if (moreBtn) {
-    moreBtn.addEventListener('click', () => {
-      const el = document.getElementById('cmp-more');
-      const open = el.style.display !== 'none';
-      el.style.display = open ? 'none' : 'block';
-      moreBtn.querySelector('.cmp-more-cell').textContent =
-        (open ? '联系电话 / 规模 / 就业率 / 专升本率 ▾' : '收起 ▴');
+  const diffBox = document.getElementById('cmp-diff');
+  if (diffBox) {
+    diffBox.addEventListener('change', () => {
+      body.querySelectorAll('.cmp-row.cmp-same').forEach((tr) => {
+        tr.style.display = diffBox.checked ? 'none' : '';
+      });
     });
   }
 
