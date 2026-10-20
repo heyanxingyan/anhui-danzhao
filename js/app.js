@@ -759,7 +759,35 @@ function renderCollegeDetail() {
   // 校考考试类别分组：从当前板块推断看普高还是中职（专项默认按普高展示）
   const examType = (fromCat && fromCat.indexOf('zhongzhi') >= 0) ? 'zhongzhi' : 'gaozhong';
   const examSet = getExamGroups(c, examType);
+  // 查不到考纲/考试类别时，退一步按「专业大类」归并（只归类，不编造具体科目）
+  const catGroups = examSet ? null : groupMajorsByCategory(dedupeByMajorName(c.majors));
   const colCount = 3 + showCols.length + 1;
+
+  // 分组行：考纲分组与「按大类归并」共用同一套渲染
+  const groupRow = (g) => {
+      const detailId = 'exg-' + Math.random().toString(36).slice(2, 8);
+      const isCat = g.kind === 'category';
+      const form = g.form ? ` · ${g.form}` : '';
+      const fallbackText = '该校未公布该专业类别的考试科目/考纲。同一专业大类一般考相同或相近科目，'
+        + '具体科目与大纲请以学校当年公布的《分类考试招生章程》和考试纲要为准。';
+      return `
+        <tr class="exam-group-row" data-target="${detailId}">
+          <td colspan="${colCount}">
+            <div class="exg-head">
+              <span class="exg-title">${isCat ? '📚' : '🎯'} ${g.name}</span>
+              ${isCat ? `<span class="exg-form"> · ${(g.majors || []).length} 个专业</span>` : ''}
+              ${form ? `<span class="exg-form">${form}</span>` : ''}
+              <span class="exg-toggle">${isCat ? '说明' : '考纲'} ▾</span>
+            </div>
+          </td>
+        </tr>
+        <tr class="exam-syllabus-row" id="${detailId}" style="display:none">
+          <td colspan="${colCount}">
+            <div class="exg-content">${isCat ? fallbackText : (g.content || '该校未单独公布该类别考纲，详见上方「取分规则」与「录取规则」页。')}<\/div>
+            ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${g.source.replace(/^https?:\/\//, '').slice(0, 60)}<\/a><\/div>` : ''}
+          <\/td>
+        </tr>`;
+    };
 
   let majorTableBody;
   if (examSet) {
@@ -767,38 +795,26 @@ function renderCollegeDetail() {
     // 原始数据不动，只影响本次展示
     const displayMajors = dedupeByMajorName(c.majors);
     const { grouped, rest } = groupMajorsByExamGroup(displayMajors, examSet.groups);
-    const groupRow = (g) => {
-      const detailId = 'exg-' + Math.random().toString(36).slice(2, 8);
-      const form = g.form ? ` · ${g.form}` : '';
-      return `
-        <tr class="exam-group-row" data-target="${detailId}">
-          <td colspan="${colCount}">
-            <div class="exg-head">
-              <span class="exg-title">🎯 ${g.name}</span>
-              ${form ? `<span class="exg-form">${form}</span>` : ''}
-              <span class="exg-toggle">考纲 ▾</span>
-            </div>
-          </td>
-        </tr>
-        <tr class="exam-syllabus-row" id="${detailId}" style="display:none">
-          <td colspan="${colCount}">
-            <div class="exg-content">${g.content || '该校未单独公布该类别考纲，详见上方「取分规则」与「录取规则」页。'}<\/div>
-            ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${g.source.replace(/^https?:\/\//, '').slice(0, 60)}<\/a><\/div>` : ''}
-          <\/td>
-        </tr>`;
-    };
     majorTableBody =
       grouped.map((b) => groupRow(b.group) + b.majors.map(majorRowHtml).join('')).join('') +
       (rest.length ? rest.map(majorRowHtml).join('') : '');
+  } else if (catGroups && catGroups.length) {
+    // 按大类分组展示（同一大类折叠在一起，点开看该大类的说明）
+    const byName = new Map(dedupeByMajorName(c.majors).map((m) => [normMajorName(m.name), m]));
+    majorTableBody = catGroups.map((g) =>
+      groupRow(g) + (g.majors || []).map((n) => byName.get(normMajorName(n))).filter(Boolean).map(majorRowHtml).join('')
+    ).join('');
   } else {
     majorTableBody = c.majors.map(majorRowHtml).join('');
   }
   // 分组说明（数据来源与覆盖情况）
   const examNote = examSet
     ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">🎯 已按该校${examType === 'zhongzhi' ? '中职' : '普高'}校考「考试类别」分组，点击类别行可展开考纲。未归入任何类别的专业列在最后。</div>`
-    : (typeof EXAM_GROUPS !== 'undefined' && EXAM_GROUPS[c.id]
-        ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">该校${examType === 'zhongzhi' ? '中职' : '普高'}类别未公布分组，按专业平铺。</div>`
-        : '');
+    : (catGroups && catGroups.length
+        ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">📚 未查到该校考纲，已按「专业大类」归并（同一大类一般考相同或相近科目），点类别行看说明。具体科目以学校当年考纲为准。</div>`
+        : (typeof EXAM_GROUPS !== 'undefined' && EXAM_GROUPS[c.id]
+            ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">该校${examType === 'zhongzhi' ? '中职' : '普高'}类别未公布分组，按专业平铺。</div>`
+            : ''));
 
   // 2026合计已删去，仅显示分类计划明细；无明细字段时回退显示plan2026
   const planTotalHtml = planDetail.length > 0 ? '' : `<p style="font-size:16px;font-weight:600;color:var(--primary)">${c.plan2026 || '待院校公布'}</p>`;
@@ -1009,11 +1025,109 @@ function renderMajorSearch() {
   });
 }
 
+// 中职类校考分组里「出现过某个大类」的院校集合，用于回答「中职学这个能考哪些学校」
+let _zhCatCache = null;
+function zhongzhiCollegesByCategory() {
+  if (_zhCatCache) return _zhCatCache;
+  const map = {};
+  if (typeof EXAM_GROUPS !== 'undefined') {
+    for (const c of COLLEGES) {
+      const eg = EXAM_GROUPS[c.id] && EXAM_GROUPS[c.id].zhongzhi;
+      if (!eg || !Array.isArray(eg.groups)) continue;
+      const byCat = {};
+      for (const m of (c.majors || [])) {
+        const k = m.category || 'other';
+        (byCat[k] = byCat[k] || []).push(normMajorName(m.name));
+      }
+      const seen = new Set();
+      for (const g of eg.groups) {
+        const gname = normMajorName(g.name);
+        const gmajors = (g.majors || []).map(normMajorName);
+        for (const k of Object.keys(byCat)) {
+          if (seen.has(k)) continue;
+          const hit = (g.categories || []).includes(k)
+            || byCat[k].some((n) => gmajors.includes(n))
+            || gname.includes(String(getMajorCategoryName(k) || '').replace('大类', ''));
+          if (hit) {
+            seen.add(k);
+            (map[k] = map[k] || new Set()).add(c.id);
+          }
+        }
+      }
+    }
+  }
+  _zhCatCache = map;
+  return map;
+}
+
+// 搜索命中「专业大类」时的联想卡
+function renderMajorCatCards(kw, cat, all) {
+  const box = document.getElementById('major-cat-cards');
+  if (!box) return;
+  const stat = {};
+  for (const m of all) {
+    const k = m.category || 'other';
+    const s = stat[k] || (stat[k] = { majors: 0, colleges: new Set(), names: [] });
+    s.majors += 1;
+    (m.schools || []).forEach((x) => s.colleges.add(x.collegeId));
+    s.names.push(m.name);
+  }
+  if (!kw) { box.innerHTML = ''; return; }
+  const kk = kw.toLowerCase();
+  let keys = Object.keys(stat);
+  if (cat) keys = keys.filter((k) => k === cat);
+  const hits = keys.filter((k) => {
+    const cn = String(getMajorCategoryName(k) || '');
+    const nameHit = stat[k].names.some((n) => n.toLowerCase().includes(kk));
+    // 大类名命中：允许「计算机」这类行业词不完全等于官方大类名，
+    // 所以大类名包含关键词或关键词包含大类名核心词都算
+    return cn.includes(kw) || (cn && kw.length >= 2 && cn.replace('大类', '').includes(kw)) || nameHit;
+  });
+  if (!hits.length) { box.innerHTML = ''; return; }
+
+  const zh = zhongzhiCollegesByCategory();
+  hits.sort((a, b) => stat[b].majors - stat[a].majors);
+  box.innerHTML = `
+    <div class="mcat-tip">🎯 匹配到的专业大类（点一下只看该大类）</div>
+    <div class="mcat-cards">
+      ${hits.map((k) => {
+        const s = stat[k];
+        const zhN = zh[k] ? zh[k].size : 0;
+        const rel = s.names.filter((n) => n.toLowerCase().includes(kk));
+        const sample = rel.slice(0, 3).join('、');
+        return `<button class="mcat-card" data-cat="${k}">
+          <div class="mcat-name">${getMajorCategoryName(k)}</div>
+          <div class="mcat-meta">${s.majors} 个专业 · ${s.colleges.size} 所院校${zhN ? ` · 中职可报 ${zhN} 所` : ''}</div>
+          ${sample ? `<div class="mcat-sample">含 ${sample}${rel.length > 3 ? ' 等' : ''}</div>` : ''}
+        </button>`;
+      }).join('')}
+    </div>`;
+  box.querySelectorAll('.mcat-card').forEach((el) => {
+    el.addEventListener('click', () => {
+      const chip = document.querySelector(`#major-cat-filter .filter-chip[data-cat="${el.dataset.cat}"]`);
+      if (chip) chip.click();
+    });
+  });
+}
+
 function renderMajorList(kw, cat) {
   const all = getAllMajors();
   let list = all;
   if (cat) list = list.filter(m => m.category === cat);
-  if (kw) list = list.filter(m => m.name.includes(kw));
+  // 关键词同时匹配：专业名 / 专业大类名 / 专业代码
+  // —— 中职学生常按「我学的计算机」来搜，命中的是大类而不是专业名
+  if (kw) {
+    const k = kw.toLowerCase();
+    list = list.filter(m => {
+      const catName = getMajorCategoryName(m.category) || '';
+      return m.name.toLowerCase().includes(k)
+        || catName.includes(kw)
+        || String(m.code || '').includes(kw);
+    });
+  }
+
+  // 大类联想卡：告诉用户「这个方向属于哪个专业大类、能报哪些院校」
+  renderMajorCatCards(kw, cat, all);
 
   const container = document.getElementById('major-list');
   if (list.length === 0) {
@@ -2165,6 +2279,37 @@ function groupMajorsByExamGroup(majors, groups) {
     if (!hit) rest.push(m);
   }
   return { grouped: buckets.filter((b) => b.majors.length), rest };
+}
+
+/**
+ * 没有考纲/考试类别数据时的兜底：按「专业大类」归并。
+ *
+ * 说明：一所学校 30-70 个专业平铺出来，用户看不出哪些专业考同一套题；
+ * 而同一专业大类通常考相同或相近科目，按大类折叠比平铺有用得多。
+ * 这里只做「归类」，不编造任何具体考试科目——科目仍要求用户看学校考纲。
+ */
+function groupMajorsByCategory(majors) {
+  const order = (typeof MAJOR_CATEGORIES !== 'undefined' && Array.isArray(MAJOR_CATEGORIES))
+    ? MAJOR_CATEGORIES.map((x) => x.key) : [];
+  const map = new Map();
+  for (const m of majors) {
+    const k = m.category || 'other';
+    if (!map.has(k)) map.set(k, []);
+    map.get(k).push(m);
+  }
+  return [...map.entries()]
+    .sort((a, b) => {
+      const ia = order.indexOf(a[0]); const ib = order.indexOf(b[0]);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    })
+    .map(([k, ms]) => ({
+      kind: 'category',
+      name: getMajorCategoryName(k),
+      categories: [k],
+      majors: ms.map((m) => m.name),
+      content: '',
+      source: '',
+    }));
 }
 
 // 同一院校里"归一化后完全相同"的专业名只显示一行。
