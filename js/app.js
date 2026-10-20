@@ -2779,7 +2779,7 @@ function renderCompare() {
     {
       title: '联系方式',
       rows: [
-        { label: '招生办电话', fn: (c) => txt(c.phone, '待补') },
+        { label: '招生办电话', fn: (c) => txt(c.phone, '待补') + (c.phoneNote ? '<div style="font-size:11px;color:#8a8f99;margin-top:3px;line-height:1.5">' + esc(c.phoneNote) + '</div>' : '') },
       ],
     },
   ];
