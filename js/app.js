@@ -913,8 +913,7 @@ function renderCollegeDetail() {
   //       以及从专项计划页进入时被改写为「专项政策」的标签，都必须保留。
   const _specialTabActive = fromCat === 'zhuanxiang' || fromCat === 'zhuanxiang-tuiyi'
     || fromCat === 'zhuanxiang-laoxiang' || fromCat === 'zhuanxiang-xiangcun';
-  if (!c.isDuikouBenke && !_specialTabActive && score2026State(c) !== 'official' &&
-      !(c.scores && Object.values(c.scores).some((v) => v && typeof v.min === 'number'))) {
+  if (!c.isDuikouBenke && !_specialTabActive && score2026State(c) !== 'official') {
     const _scoreTab = document.querySelector('.tab-switch .tab-item[data-tab="score"]');
     const _scorePanel = document.getElementById('panel-score');
     const _wasActive = _scoreTab && _scoreTab.classList.contains('active');
@@ -1362,28 +1361,6 @@ function scoreSumHTML(c, track) {
   return boxes.length ? `<div class="sc-sum">${boxes.join('')}</div>` : '';
 }
 
-/** 历年官方最低分（仅展示带来源核实的年份；一条都没有则不渲染）
- *  数据在 c.scores = {年份: {min, src, quote}} —— 只收官网确证，见 tools/merge-scores.js */
-function historyScoresHTML(c) {
-  const s = c.scores;
-  if (!s || typeof s !== 'object') return '';
-  const years = Object.keys(s).filter((y) => s[y] && typeof s[y].min === 'number').sort();
-  if (!years.length) return '';
-  const items = years.map((y) => {
-    const it = s[y];
-    const quote = it.quote ? ` title="${String(it.quote).replace(/"/g, '&quot;')}"` : '';
-    const link = it.src
-      ? `<a href="${it.src}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-size:11.5px">来源</a>`
-      : '';
-    return `<div style="display:flex;align-items:baseline;gap:7px"${quote}>` +
-      `<span style="color:#8c8c8c;font-size:12px">${y}</span>` +
-      `<b style="color:#262626;font-size:14px">${it.min}<span style="font-weight:400;font-size:11px;color:#8c8c8c"> 分</span></b>${link}</div>`;
-  }).join('');
-  return `<div style="margin-top:14px;padding:12px 14px;border:1px solid #f0f0f0;border-radius:8px">` +
-    `<div style="font-size:12px;color:#8c8c8c;margin-bottom:8px">历年官方最低分（普高类 · 官网核实）</div>` +
-    `<div style="display:flex;flex-wrap:wrap;gap:8px 20px">${items}</div></div>`;
-}
-
 /** 详情页「2026 分数」面板：只展示 2026 年、只展示官网能查到的数字；track 限定只显示一侧 */
 function renderScore2026(c, track) {
   const el = document.getElementById('score-2026-panel');
@@ -1414,7 +1391,6 @@ function renderScore2026(c, track) {
       ${gran ? `<div style="margin-top:8px;font-size:12px;color:#8c8c8c">${gran}</div>` : ''}
       ${scoreSumHTML(c, track)}
       ${majorHTML}
-      ${historyScoresHTML(c)}
       ${rawHTML}${noteHTML}${srcHTML}`;
     return;
   }
@@ -1432,7 +1408,6 @@ function renderScore2026(c, track) {
         本站只收录官网可查证的分数，<b>不提供估算值</b>。
       </div>
     </div>
-    ${historyScoresHTML(c)}
     ${rawHTML}${noteHTML}${srcHTML}`;
 }
 
