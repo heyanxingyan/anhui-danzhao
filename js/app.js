@@ -740,81 +740,90 @@ function renderCollegeDetail() {
     { label: '中职计划', field: 'plan2026Zhongzhi' },
     { label: '专项计划', field: 'plan2026Zhuanxiang' }
   ];
-  const majorTableHeader = `<tr><th>专业名称</th><th>专业代码</th><th>所属大类</th>${showCols.map(col => `<th>${col.label}</th>`).join('')}<th>学费(元/年)</th></tr>`;
+  const majorTableHeader = `<tr><th>专业名称</th><th>专业代码</th>${showCols.map(col => `<th>${col.label}</th>`).join('')}<th>学费(元/年)</th></tr>`;
 
-  const majorRowHtml = (m) => {
+  const majorRowHtml = (m, groupId, open) => {
     const cells = showCols.map(col => {
       const val = m[col.field];
       return `<td>${c.stoppedEnrollment ? '<span style="color:#ff4d4f">停招</span>' : (val ? val + ' 人' : '—')}</td>`;
     }).join('');
-    return `<tr>
+    return `<tr${groupId ? ` class="mcg-item" data-group="${groupId}"` : ''}${open === false ? ' style="display:none"' : ''}>
       <td><a href="major-detail.html?name=${encodeURIComponent(m.name)}" style="color:var(--primary)">${m.name}</a></td>
       <td>${m.code || '—'}</td>
-      <td>${getMajorCategoryName(m.category)}</td>
       ${cells}
       <td>${m.fee ? m.fee + ' 元' : '—'}</td>
     </tr>`;
   };
 
-  // 校考考试类别分组：从当前板块推断看普高还是中职（专项默认按普高展示）
-  const examType = (fromCat && fromCat.indexOf('zhongzhi') >= 0) ? 'zhongzhi' : 'gaozhong';
-  const examSet = getExamGroups(c, examType);
-  // 查不到考纲/考试类别时，退一步按「专业大类」归并（只归类，不编造具体科目）
-  const catGroups = examSet ? null : groupMajorsByCategory(dedupeByMajorName(c.majors));
-  const colCount = 3 + showCols.length + 1;
-
-  // 分组行：考纲分组与「按大类归并」共用同一套渲染
-  const groupRow = (g) => {
-      const detailId = 'exg-' + Math.random().toString(36).slice(2, 8);
-      const isCat = g.kind === 'category';
-      const form = g.form ? ` · ${g.form}` : '';
-      const fallbackText = '该校未公布该专业类别的考试科目/考纲。同一专业大类一般考相同或相近科目，'
-        + '具体科目与大纲请以学校当年公布的《分类考试招生章程》和考试纲要为准。';
-      return `
-        <tr class="exam-group-row" data-target="${detailId}">
-          <td colspan="${colCount}">
-            <div class="exg-head">
-              <span class="exg-title">${isCat ? '📚' : '🎯'} ${g.name}</span>
-              ${isCat ? `<span class="exg-form"> · ${(g.majors || []).length} 个专业</span>` : ''}
-              ${form ? `<span class="exg-form">${form}</span>` : ''}
-              <span class="exg-toggle">${isCat ? '说明' : '考纲'} ▾</span>
-            </div>
-          </td>
-        </tr>
-        <tr class="exam-syllabus-row" id="${detailId}" style="display:none">
-          <td colspan="${colCount}">
-            <div class="exg-content">${isCat ? fallbackText : (g.content || '该校未单独公布该类别考纲，详见上方「取分规则」与「录取规则」页。')}<\/div>
-            ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${g.source.replace(/^https?:\/\//, '').slice(0, 60)}<\/a><\/div>` : ''}
-          <\/td>
-        </tr>`;
+  // ===== 校考考纲区（独立于专业表，普高/中职都列出，可折叠看原文）=====
+  const egAll = (typeof EXAM_GROUPS !== 'undefined') ? EXAM_GROUPS[c.id] : null;
+  const examSyllabusHtml = (() => {
+    if (!egAll) return '';
+    const mkTrack = (track, label) => {
+      const set = egAll[track];
+      if (!set || !Array.isArray(set.groups) || !set.groups.length) return '';
+      const rows = set.groups.map((g, gi) => {
+        const detailId = `exs-${track}-${gi}`;
+        const form = g.form ? ` · ${g.form}` : '';
+        const cnt = (g.majors && g.majors.length) ? ` · 覆盖 ${g.majors.length} 个专业` : ' · 覆盖全部专业';
+        return `
+        <div class="exg2-item" data-target="${detailId}">
+          <div class="exg2-head">
+            <span class="exg-title">🎯 ${g.name}</span>
+            <span class="exg-form">${form}${cnt}</span>
+            <span class="exg-toggle">考纲 ▾</span>
+          </div>
+          <div class="exg2-body" id="${detailId}" style="display:none">
+            <div class="exg-content">${g.content || '该校未单独公布该类别考纲，详见上方「录取规则」标签页。'}</div>
+            ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${String(g.source).replace(/^https?:\/\//, '').slice(0, 60)}</a></div>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+      return `<div class="exg2-track">${label}</div>${rows}`;
     };
+    const gz = mkTrack('gaozhong', '【普高类校考】');
+    const zz = mkTrack('zhongzhi', '【中职类校考】');
+    if (!gz && !zz) return '';
+    return `
+    <div class="about-section" style="margin:8px 12px">
+      <h3>🎯 校考考纲（${planLabel}）</h3>
+      ${gz}${zz}
+    </div>`;
+  })();
 
-  let majorTableBody;
-  if (examSet) {
-    // 同一考试类别下同名专业只保留一行（如"护理"与"护理（日语方向）"常被分到同一类别）；
-    // 原始数据不动，只影响本次展示
-    const displayMajors = dedupeByMajorName(c.majors);
-    const { grouped, rest } = groupMajorsByExamGroup(displayMajors, examSet.groups);
-    majorTableBody =
-      grouped.map((b) => groupRow(b.group) + b.majors.map(majorRowHtml).join('')).join('') +
-      (rest.length ? rest.map(majorRowHtml).join('') : '');
-  } else if (catGroups && catGroups.length) {
-    // 按大类分组展示（同一大类折叠在一起，点开看该大类的说明）
-    const byName = new Map(dedupeByMajorName(c.majors).map((m) => [normMajorName(m.name), m]));
-    majorTableBody = catGroups.map((g) =>
-      groupRow(g) + (g.majors || []).map((n) => byName.get(normMajorName(n))).filter(Boolean).map(majorRowHtml).join('')
-    ).join('');
-  } else {
-    majorTableBody = c.majors.map(majorRowHtml).join('');
-  }
-  // 分组说明（数据来源与覆盖情况）
-  const examNote = examSet
-    ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">🎯 已按该校${examType === 'zhongzhi' ? '中职' : '普高'}校考「考试类别」分组，点击类别行可展开考纲。未归入任何类别的专业列在最后。</div>`
-    : (catGroups && catGroups.length
-        ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">📚 未查到该校考纲，已按「专业大类」归并（同一大类一般考相同或相近科目），点类别行看说明。具体科目以学校当年考纲为准。</div>`
-        : (typeof EXAM_GROUPS !== 'undefined' && EXAM_GROUPS[c.id]
-            ? `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">该校${examType === 'zhongzhi' ? '中职' : '普高'}类别未公布分组，按专业平铺。</div>`
-            : ''));
+  // ===== 分专业计划表：固定按「专业大类」折叠分组 =====
+  // 专业多的学校一张平铺表要滑很久，且看不出结构；按大类折叠后一屏即可浏览全貌。
+  const displayMajors = dedupeByMajorName(c.majors);
+  const catGroups = groupMajorsByCategory(displayMajors);
+  const byName = new Map(displayMajors.map((m) => [normMajorName(m.name), m]));
+  const colCount = 2 + showCols.length + 1;
+
+  // 大类标题行：显示该大类的专业数与各列计划合计，点击展开/收起
+  const catRowHtml = (g, gi, open) => {
+    const ms = (g.majors || []).map((n) => byName.get(normMajorName(n))).filter(Boolean);
+    const sums = showCols.map((col) => {
+      const s = ms.reduce((acc, m) => acc + (m[col.field] || 0), 0);
+      return s > 0 ? `${col.label.replace('计划', '')} ${s} 人` : '';
+    }).filter(Boolean).join(' · ');
+    return `
+      <tr class="exam-group-row mcg-row${gi === 0 ? ' open' : ''}" data-target="mcg-${gi}">
+        <td colspan="${colCount}">
+          <div class="exg-head">
+            <span class="exg-title">📂 ${g.name}</span>
+            <span class="exg-form">${ms.length} 个专业${sums ? ' · ' + sums : ''}</span>
+            <span class="exg-toggle">${gi === 0 ? '收起 ▴' : '展开 ▾'}</span>
+          </div>
+        </td>
+      </tr>`;
+  };
+
+  // 默认只展开第一个大类，其余折叠
+  const majorTableBody = catGroups.map((g, gi) => {
+    const ms = (g.majors || []).map((n) => byName.get(normMajorName(n))).filter(Boolean);
+    return catRowHtml(g, gi, gi === 0) + ms.map((m) => majorRowHtml(m, `mcg-${gi}`, gi === 0)).join('');
+  }).join('');
+
+  const planNote = `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">📂 已按「专业大类」折叠分组，点大类行展开查看该类专业明细；上方「校考考纲」区可查看普高/中职各类别的考试科目与形式。</div>`;
 
   // 2026合计已删去，仅显示分类计划明细；无明细字段时回退显示plan2026
   const planTotalHtml = planDetail.length > 0 ? '' : `<p style="font-size:16px;font-weight:600;color:var(--primary)">${c.plan2026 || '待院校公布'}</p>`;
@@ -826,6 +835,7 @@ function renderCollegeDetail() {
       ${planDetailHtml}
     </div>
     ${c.stoppedEnrollment ? '<div style="background:#fff1f0;border:2px solid #ff4d4f;border-radius:8px;padding:12px;margin:8px 12px;text-align:center"><div style="font-size:16px;font-weight:700;color:#ff4d4f">⚠️ 2026年已停招，以下专业2026年均无招生计划</div><div style="font-size:12px;color:#666;margin-top:4px">2024-2025年计划数为历史数据，供参考</div></div>' : ''}
+    ${examSyllabusHtml}
     <div class="about-section" style="margin:8px 12px">
       <h3>📚 分专业招生计划（${planLabel}）${fromCat && catColMap[fromCat] ? ' · ' + catColMap[fromCat].label : ''}</h3>
     </div>
@@ -835,20 +845,30 @@ function renderCollegeDetail() {
         <tbody>${majorTableBody}</tbody>
       </table>
     </div>
-    ${examNote}
+    ${planNote}
     <div style="padding:8px 12px;font-size:12px;color:var(--text-light)">注：2026年分专业计划数据来源为各院校2026年分类考试招生章程（71 所高职院校为官方公布真实数据，安徽电气工程职业技术学院2026年已停招），实际以省教育厅下达为准</div>
   `;
 
-  // 考试类别行点击展开/收起考纲
-  document.querySelectorAll('#panel-plan .exam-group-row').forEach((rowEl) => {
+  // 专业大类行：点击展开/收起该大类的专业明细
+  document.querySelectorAll('#panel-plan .mcg-row').forEach((rowEl) => {
     rowEl.addEventListener('click', () => {
-      const detail = document.getElementById(rowEl.dataset.target);
-      if (!detail) return;
-      const open = detail.style.display !== 'none';
-      detail.style.display = open ? 'none' : 'table-row';
+      const gid = rowEl.dataset.target;
+      const items = document.querySelectorAll(`#panel-plan .mcg-item[data-group="${gid}"]`);
+      const open = rowEl.classList.toggle('open');
+      items.forEach((it) => { it.style.display = open ? '' : 'none'; });
       const toggle = rowEl.querySelector('.exg-toggle');
-      if (toggle) toggle.textContent = open ? '考纲 ▾' : '收起 ▴';
-      rowEl.classList.toggle('open', !open);
+      if (toggle) toggle.textContent = open ? '收起 ▴' : '展开 ▾';
+    });
+  });
+  // 考纲条目：点击展开/收起考纲原文
+  document.querySelectorAll('#panel-plan .exg2-item').forEach((item) => {
+    item.querySelector('.exg2-head').addEventListener('click', () => {
+      const body = item.querySelector('.exg2-body');
+      if (!body) return;
+      const open = body.style.display === 'none';
+      body.style.display = open ? '' : 'none';
+      const toggle = item.querySelector('.exg-toggle');
+      if (toggle) toggle.textContent = open ? '收起 ▴' : '考纲 ▾';
     });
   });
 

@@ -1619,6 +1619,47 @@ input, select {
   color: var(--text-light);
   word-break: break-all;
 }
+/* 考纲区（独立于专业表） */
+.exg2-track {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b45309;
+  margin: 10px 0 4px;
+}
+.exg2-item {
+  border: 1px solid #f5cf9a;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: var(--warning-light);
+  overflow: hidden;
+}
+.exg2-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.exg2-body {
+  background: #fffaf1;
+  border-top: 1px solid #f7dcae;
+  padding-top: 2px;
+}
+/* 专业大类折叠行 */
+.mcg-row td {
+  border-top: 2px solid #c7d8f5 !important;
+  border-bottom: 1px solid #dbe6f8 !important;
+  background: #eef4ff !important;
+}
+.mcg-row .exg-title {
+  color: #1d4ed8;
+}
+.mcg-row .exg-form {
+  color: #64748b;
+}
+.mcg-item td {
+  font-size: 12.5px;
+}
 
 /* ========== 院校对比表 ========== */
 .compare-table {
