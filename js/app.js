@@ -574,7 +574,7 @@ function renderCollegeListItems(reset) {
       planText = `招 ${c.planCount2024} 人`;
     }
     return `
-    <a href="college-detail.html?id=${c.id}" class="college-card">
+    <a href="college-detail.html?id=${c.id}${curCat ? `&category=${curCat}` : ''}" class="college-card">
       <div class="head">
         <div class="name">${c.name}</div>
       </div>
@@ -827,7 +827,8 @@ function renderCollegeDetail() {
     return catRowHtml(g, gi, gi === 0) + ms.map((m) => majorRowHtml(m, `mcg-${gi}`, gi === 0)).join('');
   }).join('');
 
-  const planNote = `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">📂 已按「专业大类」折叠分组，点大类行展开查看该类专业明细；上方「校考考纲」区可查看普高/中职各类别的考试科目与形式。</div>`;
+  const planNoteSyllabus = entryTrack === 'gaozhong' ? '普高类' : (entryTrack === 'zhongzhi' ? '中职类' : '普高/中职各类别');
+  const planNote = `<div style="padding:8px 12px;font-size:12px;color:var(--text-light)">📂 已按「专业大类」折叠分组，点大类行展开查看该类专业明细；上方「校考考纲」区可查看${planNoteSyllabus}的考试科目与形式。</div>`;
 
   // 2026合计已删去，仅显示分类计划明细；无明细字段时回退显示plan2026
   const planTotalHtml = planDetail.length > 0 ? '' : `<p style="font-size:16px;font-weight:600;color:var(--primary)">${c.plan2026 || '待院校公布'}</p>`;
@@ -980,7 +981,7 @@ function renderCollegeDetail() {
       ${scoreCompHtml}
       <p><b>录取规则：</b>${c.admissionRule2026 || '参考院校章程'}</p>
       <p><b>学历层次：</b>${c.isUndergraduate ? '应用型本科（对口本科）' : (c.type && c.type.indexOf('本科')>=0 ? c.type : '高职（专科）')}</p>
-      <p><b>2026录取参考分：</b><span style="color:#722ed1;font-weight:600">${c.score2026 || '—'}</span></p>
+      <p><b>2026录取参考分：</b><span style="color:#722ed1;font-weight:600">${filterScoreTextByTrack(c.score2026, entryTrack) || '—'}</span></p>
     </div>
     <div class="about-section" style="margin:8px 12px">
       <h3>📊 院校概况</h3>
@@ -1371,10 +1372,10 @@ function renderScore2026(c, track) {
       '</div>'
     : '';
   const noteHTML = c.scoreSourceNote2026
-    ? `<div style="margin-top:12px;font-size:12px;color:#8c8c8c;line-height:1.85">${c.scoreSourceNote2026}</div>`
+    ? `<div style="margin-top:12px;font-size:12px;color:#8c8c8c;line-height:1.85">${filterScoreTextByTrack(c.scoreSourceNote2026, track)}</div>`
     : '';
   const rawHTML = c.score2026
-    ? `<div style="margin-top:14px;padding:12px 14px;background:#fafafa;border-radius:8px;font-size:12.5px;color:#595959;line-height:1.9">${c.score2026}</div>`
+    ? `<div style="margin-top:14px;padding:12px 14px;background:#fafafa;border-radius:8px;font-size:12.5px;color:#595959;line-height:1.9">${filterScoreTextByTrack(c.score2026, track)}</div>`
     : '';
   const majorHTML = majorScoresHTML(c, track);
 
@@ -2295,6 +2296,36 @@ function compactScore2026(c) {
   if (any) return { text: any[1] + ' 分', tag: tag || '参考', full: raw };
   // 没有数字就只给短标签，绝不放长文
   return { text: tag || '未公布', tag: '', full: raw };
+}
+
+/* 按入口赛道过滤分数长文本：逐句（。；分隔）检查，
+ * 高中入口去掉只讲中职的句子，中职入口去掉只讲普高/高中的句子；
+ * 同时提到两条赛道的句子（如"普高/中职均未公布"）保留，否则语义会断。
+ * 只用于展示层过滤，原始数据不动。 */
+function filterScoreTextByTrack(text, track) {
+  if (!track) return text;
+  const s = String(text || '');
+  if (!s) return s;
+  const tagM = s.match(/^【[^】]+】/);
+  const tag = tagM ? tagM[0] : '';
+  const body = tag ? s.slice(tag.length) : s;
+  // 切成分句并保留分隔符
+  const parts = [];
+  let cur = '';
+  for (const ch of body) {
+    cur += ch;
+    if (ch === '。' || ch === '；' || ch === ';') { parts.push(cur); cur = ''; }
+  }
+  if (cur.trim()) parts.push(cur);
+  const isG = (p) => /普高|高中|普通类|职业适应性/.test(p);
+  const isZ = (p) => /中职|专业能力|技术技能/.test(p);
+  const kept = parts.filter((p) => {
+    const g = isG(p), z = isZ(p);
+    if (track === 'gaozhong') return !(z && !g);
+    if (track === 'zhongzhi') return !(g && !z);
+    return true;
+  });
+  return tag + kept.join('');
 }
 
 /* 对比页表头用的短校名：去掉办学层次后缀，保证在手机窄列里能一行放下。
