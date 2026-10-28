@@ -396,7 +396,7 @@ function renderIndex() {
 /* ============================================================
  * 2. 院校列表页
  * ============================================================ */
-let listState = { filtered: [], page: 1, pageSize: 8, loading: false };
+let listState = { filtered: [], page: 1, pageSize: 20, loading: false };
 
 function renderCollegeList() {
   renderTabbar('college');
@@ -1035,11 +1035,13 @@ function renderMajorSearch() {
     if (!chip) return;
     catFilter.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
     chip.classList.add('active');
+    window._majorPage = 1;
     const kw = document.getElementById('major-search').value.trim();
     renderMajorList(kw, chip.dataset.cat);
   });
 
   document.getElementById('major-search').addEventListener('input', e => {
+    window._majorPage = 1;
     const cat = document.querySelector('#major-cat-filter .filter-chip.active')?.dataset.cat || '';
     renderMajorList(e.target.value.trim(), cat);
   });
@@ -1155,7 +1157,13 @@ function renderMajorList(kw, cat) {
     return;
   }
 
-  container.innerHTML = list.map(m => `
+  // 分页：默认显示前 20 条，点「加载更多」再显示 20 条
+  const PAGE = 20;
+  if (!window._majorPage) window._majorPage = 1;
+  const showCount = Math.min(window._majorPage * PAGE, list.length);
+  const slice = list.slice(0, showCount);
+
+  container.innerHTML = slice.map(m => `
     <div class="major-item">
       <div class="top">
         <div>
@@ -1177,6 +1185,17 @@ function renderMajorList(kw, cat) {
       </div>
     </div>
   `).join('');
+
+  // 加载更多按钮
+  if (showCount < list.length) {
+    container.innerHTML += `<div style="text-align:center;padding:12px"><button id="major-load-more" style="padding:8px 24px;border:1px solid var(--primary);border-radius:6px;background:#fff;color:var(--primary);font-size:13px;cursor:pointer">加载更多（还剩 ${list.length - showCount} 条）</button></div>`;
+    document.getElementById('major-load-more').addEventListener('click', () => {
+      window._majorPage++;
+      renderMajorList(kw, cat);
+    });
+  } else {
+    window._majorPage = 1; // 重置
+  }
 }
 
 function toggleSchools(el) {
