@@ -471,12 +471,6 @@ function renderCollegeList() {
 
   searchInput.addEventListener('input', () => applyFilters(category, searchInput.value.trim()));
 
-  // 排序下拉
-  const sortSelect = document.getElementById('sort-select');
-  if (sortSelect) {
-    sortSelect.addEventListener('change', () => applyFilters(category, searchInput.value.trim()));
-  }
-
   // 下拉加载
   window.addEventListener('scroll', () => {
     if (listState.loading) return;
@@ -543,20 +537,6 @@ function applyFilters(category, kw) {
   if (rule) list = list.filter(c => (c.admissionRule2026 || '').indexOf(rule) === 0);
   if (interview === 'yes') list = list.filter(c => c.interview && c.interview.hasInterview);
   if (interview === 'no') list = list.filter(c => !c.interview || !c.interview.hasInterview);
-
-  // 排序
-  const sortVal = document.getElementById('sort-select')?.value || '';
-  if (sortVal === 'score-desc') {
-    list.sort((a, b) => (b.minScore2026 ?? -1) - (a.minScore2026 ?? -1));
-  } else if (sortVal === 'score-asc') {
-    list.sort((a, b) => (a.minScore2026 ?? 9999) - (b.minScore2026 ?? 9999));
-  } else if (sortVal === 'zz-score-desc') {
-    list.sort((a, b) => (b.minScore2026Zhongzhi ?? -1) - (a.minScore2026Zhongzhi ?? -1));
-  } else if (sortVal === 'zz-score-asc') {
-    list.sort((a, b) => (a.minScore2026Zhongzhi ?? 9999) - (b.minScore2026Zhongzhi ?? 9999));
-  } else if (sortVal === 'plan-desc') {
-    list.sort((a, b) => ((b.plan2026Gaozhong || 0) + (b.plan2026Zhongzhi || 0)) - ((a.plan2026Gaozhong || 0) + (a.plan2026Zhongzhi || 0)));
-  }
 
   listState.filtered = list;
   listState.page = 1;
@@ -1016,7 +996,44 @@ function renderCollegeDetail() {
       <p><b>官方网站：</b>${c.website ? `<a href="${c.website}" target="_blank" rel="noopener" style="color:var(--primary)">${c.website}</a>` : '—'}</p>
     </div>
   `;
-}/* ============================================================
+}
+
+/**
+ * 从 COLLEGES 提取所有专业，按「专业名+代码」去重，附带开设院校列表。
+ * 返回 [{ name, code, category, fee, schools: [{ collegeId, collegeName, city, fee }] }]
+ */
+function getAllMajors() {
+  const map = new Map();
+  COLLEGES.forEach(c => {
+    (c.majors || []).forEach(m => {
+      const key = m.name + '|' + (m.code || '');
+      if (!map.has(key)) {
+        map.set(key, {
+          name: m.name,
+          code: m.code || '',
+          category: m.category || '',
+          fee: m.fee || 0,
+          schools: [],
+        });
+      }
+      map.get(key).schools.push({
+        collegeId: c.id,
+        collegeName: c.name,
+        city: c.city || '',
+        fee: m.fee || c.fee || 0,
+      });
+    });
+  });
+  return [...map.values()];
+}
+
+function getMajorCategoryName(key) {
+  if (!key || typeof MAJOR_CATEGORIES === 'undefined') return '';
+  const found = MAJOR_CATEGORIES.find(c => c.key === key);
+  return found ? found.name : '';
+}
+
+/* ============================================================
  * 4. 专业查询/反查页
  * ============================================================ */
 function renderMajorSearch() {
