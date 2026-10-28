@@ -382,14 +382,17 @@ function renderIndex() {
     `).join('');
   }
 
-  // 分数查询搜索框
+  // 分数查询搜索框（按钮点击 + 回车都触发）
   const scoreBtn = document.getElementById('score-search-btn');
-  if (scoreBtn) {
-    scoreBtn.addEventListener('click', () => {
-      const kw = document.getElementById('score-search-input').value.trim();
+  const scoreInput = document.getElementById('score-search-input');
+  if (scoreBtn && scoreInput) {
+    const go = () => {
+      const kw = scoreInput.value.trim();
       if (!kw) { toast('请输入院校名或专业名'); return; }
       location.href = `college-list.html?kw=${encodeURIComponent(kw)}`;
-    });
+    };
+    scoreBtn.addEventListener('click', go);
+    scoreInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(); });
   }
 }
 
@@ -696,7 +699,7 @@ function renderCollegeDetail() {
     <div class="row"><div class="label">办学性质</div><div class="value">${c.nature || '—'}</div></div>
     <div class="row"><div class="label">院校类型</div><div class="value">${c.type || '—'}${c.type && c.type.indexOf('本科')>=0 ? '（本科层次）' : ''}</div></div>
     <div class="row"><div class="label">在校生规模</div><div class="value">${dash(tv('scale'), bkPh.scale, 'scale')}</div></div>
-    <div class="row"><div class="label">招生办电话</div><div class="value">${dash(tv('phone'), bkPh.phone, 'phone')}</div></div>
+    <div class="row"><div class="label">招生办电话</div><div class="value">${(() => { const p = tv('phone'); if (p && /^[\d\-—()（）\s,，、]+$/.test(p)) { const tels = p.split(/[,，、]/).map(s => s.trim()).filter(Boolean); return tels.map(t => `<a href="tel:${t.replace(/[^\d]/g, '')}" style="color:var(--primary);font-weight:600;text-decoration:none">${t}</a>`).join('、'); } return dash(p, bkPh.phone, 'phone'); })()}</div></div>
     <div class="row"><div class="label">就业率</div><div class="value">${dash(tv('employmentRate'), bkPh.employmentRate, 'employmentRate')}</div></div>
     <div class="row"><div class="label">专升本率</div><div class="value">${dash(tv('upgradeRate'), bkPh.upgradeRate, 'upgradeRate')}</div></div>
     <div class="row"><div class="label">官方网站</div><div class="value">${c.website ? `<a href="${c.website}" target="_blank" rel="noopener">${c.website.replace('https://','')}</a>` : (c.websiteNote ? `<span style="color:#8c8c8c">${c.websiteNote}</span>` : '—')}</div></div>
@@ -1464,8 +1467,9 @@ function renderScoreTrend() {
     </div>
     <div id="sc-list"></div>
     <div style="margin-top:20px">
-      <div style="font-size:13px;font-weight:700;color:#434343;margin-bottom:8px">暂未查到分数的院校（${rest.length} 所）</div>
-      <div style="font-size:12.5px;color:#8c8c8c;line-height:2">${rest.map(c => c.name).join('、')}</div>
+      <div style="font-size:13px;font-weight:700;color:#434343;margin-bottom:8px">暂未查到分数的院校（${rest.filter(c => !c.stoppedEnrollment).length} 所）</div>
+      <div style="font-size:12.5px;color:#8c8c8c;line-height:2">${rest.filter(c => !c.stoppedEnrollment).map(c => c.name).join('、')}</div>
+      ${rest.some(c => c.stoppedEnrollment) ? '<div style="font-size:12px;color:#bfbfbf;margin-top:6px">已停招院校（如安徽电气工程职业技术学院）不参与招生，不在此列。</div>' : ''}
     </div>
     <div class="note" style="margin-top:16px">
       点院校名进详情页可看该校「2026 分数」完整面板（含官网原文摘录与全部来源链接）。

@@ -204,14 +204,17 @@ function renderIndex() {
     `).join('');
   }
 
-  // 分数查询搜索框
+  // 分数查询搜索框（按钮点击 + 回车都触发）
   const scoreBtn = document.getElementById('score-search-btn');
-  if (scoreBtn) {
-    scoreBtn.addEventListener('click', () => {
-      const kw = document.getElementById('score-search-input').value.trim();
+  const scoreInput = document.getElementById('score-search-input');
+  if (scoreBtn && scoreInput) {
+    const go = () => {
+      const kw = scoreInput.value.trim();
       if (!kw) { toast('请输入院校名或专业名'); return; }
       location.href = `college-list.html?kw=${encodeURIComponent(kw)}`;
-    });
+    };
+    scoreBtn.addEventListener('click', go);
+    scoreInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(); });
   }
 }
 
