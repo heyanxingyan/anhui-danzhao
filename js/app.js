@@ -703,7 +703,7 @@ function renderCollegeDetail() {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
-      if (tab.dataset.tab === 'score') renderScore2026(c);
+      if (tab.dataset.tab === 'score') renderScore2026(c, entryTrack);
     });
   });
 
@@ -715,9 +715,12 @@ function renderCollegeDetail() {
 
   // 招生计划
   const fromCat = getQuery('category');
+  // 入口赛道：从「中职起点」板块进来只看中职口径，从「高中起点」进来只看普高口径；
+  // 默认入口（首页/搜索/收藏/对比等）不受限，两边都显示。
+  const entryTrack = fromCat === 'zhongzhi' ? 'zhongzhi' : (fromCat === 'gaozhong' ? 'gaozhong' : null);
   const planDetail = [];
-  if (c.plan2026Gaozhong) planDetail.push(`普高 ${c.plan2026Gaozhong} 人`);
-  if (c.plan2026Zhongzhi) planDetail.push(`中职 ${c.plan2026Zhongzhi} 人`);
+  if (entryTrack !== 'zhongzhi' && c.plan2026Gaozhong) planDetail.push(`普高 ${c.plan2026Gaozhong} 人`);
+  if (entryTrack !== 'gaozhong' && c.plan2026Zhongzhi) planDetail.push(`中职 ${c.plan2026Zhongzhi} 人`);
   if (fromCat === 'zhuanxiang-tuiyi' && c.plan2026RetiredMilitary) planDetail.push(`退役军人 ${c.plan2026RetiredMilitary} 人`);
   else if (fromCat === 'zhuanxiang-laoxiang' && c.plan2026RevolutionaryArea) planDetail.push(`革命老区 ${c.plan2026RevolutionaryArea} 人`);
   else if (fromCat === 'zhuanxiang-xiangcun' && c.plan2026RuralDoctor) planDetail.push(`乡村医生 ${c.plan2026RuralDoctor} 人`);
@@ -755,7 +758,7 @@ function renderCollegeDetail() {
     </tr>`;
   };
 
-  // ===== 校考考纲区（独立于专业表，普高/中职都列出，可折叠看原文）=====
+  // ===== 校考考纲区（独立于专业表，按入口赛道过滤，可折叠看原文）=====
   const egAll = (typeof EXAM_GROUPS !== 'undefined') ? EXAM_GROUPS[c.id] : null;
   const examSyllabusHtml = (() => {
     if (!egAll) return '';
@@ -781,8 +784,9 @@ function renderCollegeDetail() {
       }).join('');
       return `<div class="exg2-track">${label}</div>${rows}`;
     };
-    const gz = mkTrack('gaozhong', '【普高类校考】');
-    const zz = mkTrack('zhongzhi', '【中职类校考】');
+    // 高中板块只看普高考纲，中职板块只看中职考纲；默认入口两侧都列
+    const gz = entryTrack === 'zhongzhi' ? '' : mkTrack('gaozhong', '【普高类校考】');
+    const zz = entryTrack === 'gaozhong' ? '' : mkTrack('zhongzhi', '【中职类校考】');
     if (!gz && !zz) return '';
     return `
     <div class="about-section" style="margin:8px 12px">
@@ -1316,17 +1320,22 @@ function scoreTagHTML(tag) {
 }
 
 /** 分专业分数表：高中（普高类）/ 中职类 分列 */
-function majorScoresHTML(c) {
+function majorScoresHTML(c, track) {
   const rows = Array.isArray(c.majorScores2026) ? c.majorScores2026 : [];
   if (!rows.length) return '';
+  const showG = track !== 'zhongzhi';
+  const showZ = track !== 'gaozhong';
   const cell = (v, cls) => (v == null ? '<span class="dash">—</span>' : `<span class="${cls}">${v}</span>`);
   const body = rows.map(m => `<tr>
       <td class="sn">${m.n}</td>
-      <td>${cell(m.g, 'g')}</td>
-      <td>${cell(m.z, 'z')}</td>
+      ${showG ? `<td>${cell(m.g, 'g')}</td>` : ''}
+      ${showZ ? `<td>${cell(m.z, 'z')}</td>` : ''}
       <td>${m.p == null ? '<span class="dash">—</span>' : m.p}</td>
       <td><a href="${m.src}" target="_blank" rel="noopener">来源</a></td>
     </tr>`).join('');
+  const scoreNote = showG && showZ
+    ? '高中类满分 600，中职类满分 750，两者不可直接比较。'
+    : (showG ? '高中（普高类）满分 600。' : '中职类满分 750。');
   return `
     <div style="margin-top:16px">
       <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
@@ -1334,25 +1343,25 @@ function majorScoresHTML(c) {
         <div style="font-size:11.5px;color:#8c8c8c">共 ${rows.length} 个专业 · 逐条附该校官网来源</div>
       </div>
       <table class="sc-table">
-        <thead><tr><th style="text-align:left">专业</th><th>高中（普高类）</th><th>中职类</th><th>2026 计划</th><th>来源</th></tr></thead>
+        <thead><tr><th style="text-align:left">专业</th>${showG ? '<th>高中（普高类）</th>' : ''}${showZ ? '<th>中职类</th>' : ''}<th>2026 计划</th><th>来源</th></tr></thead>
         <tbody>${body}</tbody>
       </table>
       <div style="font-size:11.5px;color:#8c8c8c;line-height:1.8;margin-top:6px">
-        专业名沿用该校公布口径；「—」表示该校未公布该专业此类别的最低分。高中类满分 600，中职类满分 750，两者不可直接比较。
+        专业名沿用该校公布口径；「—」表示该校未公布该专业此类别的最低分。${scoreNote}
       </div>
     </div>`;
 }
 
-/** 普高 / 中职 两个数字块 */
-function scoreSumHTML(c) {
+/** 普高 / 中职 两个数字块；track='gaozhong'|'zhongzhi' 时只显示对应一侧 */
+function scoreSumHTML(c, track) {
   const boxes = [];
-  if (c.minScore2026 != null) boxes.push(`<div class="box"><div class="lab">高中（普高类）最低分</div><div class="val g">${c.minScore2026}<span class="u"> 分</span></div></div>`);
-  if (c.minScore2026Zhongzhi != null) boxes.push(`<div class="box"><div class="lab">中职类最低分</div><div class="val z">${c.minScore2026Zhongzhi}<span class="u"> 分</span></div></div>`);
+  if (track !== 'zhongzhi' && c.minScore2026 != null) boxes.push(`<div class="box"><div class="lab">高中（普高类）最低分</div><div class="val g">${c.minScore2026}<span class="u"> 分</span></div></div>`);
+  if (track !== 'gaozhong' && c.minScore2026Zhongzhi != null) boxes.push(`<div class="box"><div class="lab">中职类最低分</div><div class="val z">${c.minScore2026Zhongzhi}<span class="u"> 分</span></div></div>`);
   return boxes.length ? `<div class="sc-sum">${boxes.join('')}</div>` : '';
 }
 
-/** 详情页「2026 分数」面板：只展示 2026 年、只展示官网能查到的数字 */
-function renderScore2026(c) {
+/** 详情页「2026 分数」面板：只展示 2026 年、只展示官网能查到的数字；track 限定只显示一侧 */
+function renderScore2026(c, track) {
   const el = document.getElementById('score-2026-panel');
   if (!el) return;
   const srcs = score2026Sources(c);
@@ -1367,7 +1376,7 @@ function renderScore2026(c) {
   const rawHTML = c.score2026
     ? `<div style="margin-top:14px;padding:12px 14px;background:#fafafa;border-radius:8px;font-size:12.5px;color:#595959;line-height:1.9">${c.score2026}</div>`
     : '';
-  const majorHTML = majorScoresHTML(c);
+  const majorHTML = majorScoresHTML(c, track);
 
   if (score2026State(c) === 'official') {
     const gran = c.scoreGranularity2026 === 'by_major'
@@ -1378,8 +1387,8 @@ function renderScore2026(c) {
         <div style="font-size:13px;color:#434343;font-weight:600">2026 年最低录取分</div>
         <div style="margin-left:auto">${scoreTagHTML(c.score2026Tag || '官方')}</div>
       </div>
-      ${scoreSumHTML(c)}
       ${gran ? `<div style="margin-top:8px;font-size:12px;color:#8c8c8c">${gran}</div>` : ''}
+      ${scoreSumHTML(c, track)}
       ${majorHTML}
       ${rawHTML}${noteHTML}${srcHTML}`;
     return;
