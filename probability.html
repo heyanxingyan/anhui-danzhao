@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>录取概率测算 - 安徽单招信息查询</title>
-  <link rel="stylesheet" href="css/style.css?v=20261028p">
+  <link rel="stylesheet" href="css/style.css?v=20261028q">
   
 </head>
 <body data-page="probability">
@@ -99,10 +99,9 @@
     <div class="tabbar"></div>
   </div>
 
-  <script src="js/data-probability.js?v=20261028p" defer></script>
-  <script src="js/score-formula.js?v=20261028p" defer></script>
-  <script src="js/app.js?v=20261028p" defer></script>
-  <script src="js/low-score.js" defer></script>
+  <script src="js/data-probability.js?v=20261028q" defer></script>
+  <script src="js/score-formula.js?v=20261028q" defer></script>
+  <script src="js/app.js?v=20261028q" defer></script>
   <script>
     let currentProbType = 'gaozhong';
     let schoolList = [];
@@ -1057,7 +1056,7 @@
     // 初始化
     //
     // ⚠️ 必须等 DOMContentLoaded 之后再跑，不能在脚本解析时直接调用。
-    //    本文件的外部脚本（data.js / score-formula.js / app.js / low-score.js）都带 defer，
+    //    本文件的外部脚本（data-probability.js / score-formula.js / app.js）都带 defer，
     //    defer 脚本是在**文档解析完成之后、DOMContentLoaded 之前**按顺序执行的；
     //    而本内联脚本没有 defer、解析到就立刻执行。若在这里直接调 loadProbSchools()，
     //    它会读 COLLEGES —— 此刻 data.js 还没跑，直接抛 ReferenceError，
