@@ -432,12 +432,19 @@ function renderCollegeList() {
     types.map(t => `<button class="filter-chip" data-type="${t}">${t}</button>`).join('');
 
   // 学历层次筛选（本科/专科）
+  // 赛道入口（高中/中职/专项）下隐藏这一行：对口本科记录的 tags 只有 benke/duikou，
+  // 赛道过滤后「对口本科」片永远 0 结果（中职生点了反而看不到对口本科，误导），
+  // 「高职专科」等于全量，属于无效筛选。仅在「全部院校」入口显示。
   const levelFilter = document.getElementById('level-filter');
-  levelFilter.innerHTML = `
+  if (category) {
+    levelFilter.style.display = 'none';
+  } else {
+    levelFilter.innerHTML = `
     <button class="filter-chip active" data-level="">全部层次</button>
     <button class="filter-chip" data-level="本科">🏫 对口本科</button>
     <button class="filter-chip" data-level="专科">高职专科</button>
   `;
+  }
 
   // 录取规则筛选
   const ruleFilter = document.getElementById('rule-filter');
@@ -1046,6 +1053,7 @@ function getAllMajors() {
         collegeId: c.id,
         collegeName: c.name,
         city: c.city || '',
+        nature: c.nature || '',
         fee: m.fee || c.fee || 0,
       });
     });
@@ -1273,11 +1281,15 @@ function renderMajorDetail() {
       </div>
     </div>
     <div class="section-title"><span>开设院校（${m.schools.length}）</span></div>
-    ${m.schools.map(s => `
+    ${m.schools.map(s => {
+      // s 是 getAllMajors 的轻量条目（无分数字段），分数要回查完整院校记录，
+      // 否则 scoreLabel(s) 恒为「分数待查证」——所有卡片一个样，毫无意义。
+      const full = COLLEGES.find(x => x.id === s.collegeId);
+      return `
       <a href="college-detail.html?id=${s.collegeId}" class="college-card" style="display:block">
         <div class="head">
           <div class="name">${s.collegeName}</div>
-          <span class="score" style="color:var(--danger);font-weight:600">${scoreLabel(s)}</span>
+          <span class="score" style="color:var(--danger);font-weight:600">${full ? scoreLabel(full) : ''}</span>
         </div>
         <div class="tags">
           <span class="tag ${s.nature === '公办' ? 'tag-public' : 'tag-private'}">${s.nature}</span>
@@ -1286,8 +1298,8 @@ function renderMajorDetail() {
         <div class="meta-row">
           <span>学费：${s.fee} 元/年</span>
         </div>
-      </a>
-    `).join('')}
+      </a>`;
+    }).join('')}
   `;
 }
 
