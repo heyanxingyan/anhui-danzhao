@@ -471,6 +471,12 @@ function renderCollegeList() {
 
   searchInput.addEventListener('input', () => applyFilters(category, searchInput.value.trim()));
 
+  // 排序下拉
+  const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => applyFilters(category, searchInput.value.trim()));
+  }
+
   // 下拉加载
   window.addEventListener('scroll', () => {
     if (listState.loading) return;
@@ -537,6 +543,20 @@ function applyFilters(category, kw) {
   if (rule) list = list.filter(c => (c.admissionRule2026 || '').indexOf(rule) === 0);
   if (interview === 'yes') list = list.filter(c => c.interview && c.interview.hasInterview);
   if (interview === 'no') list = list.filter(c => !c.interview || !c.interview.hasInterview);
+
+  // 排序
+  const sortVal = document.getElementById('sort-select')?.value || '';
+  if (sortVal === 'score-desc') {
+    list.sort((a, b) => (b.minScore2026 ?? -1) - (a.minScore2026 ?? -1));
+  } else if (sortVal === 'score-asc') {
+    list.sort((a, b) => (a.minScore2026 ?? 9999) - (b.minScore2026 ?? 9999));
+  } else if (sortVal === 'zz-score-desc') {
+    list.sort((a, b) => (b.minScore2026Zhongzhi ?? -1) - (a.minScore2026Zhongzhi ?? -1));
+  } else if (sortVal === 'zz-score-asc') {
+    list.sort((a, b) => (a.minScore2026Zhongzhi ?? 9999) - (b.minScore2026Zhongzhi ?? 9999));
+  } else if (sortVal === 'plan-desc') {
+    list.sort((a, b) => ((b.plan2026Gaozhong || 0) + (b.plan2026Zhongzhi || 0)) - ((a.plan2026Gaozhong || 0) + (a.plan2026Zhongzhi || 0)));
+  }
 
   listState.filtered = list;
   listState.page = 1;
@@ -2798,6 +2818,9 @@ function renderCompare() {
 
   body.innerHTML = `
     <div class="cmp-hint">已选 ${list.length}/4 所 · 全部信息完整显示，表格可左右滑动</div>
+    <div style="margin:0 12px 8px;display:flex;gap:8px">
+      <button id="cmp-share-btn" style="flex:1;padding:6px 0;border:1px solid var(--primary);border-radius:6px;background:#fff;color:var(--primary);font-size:13px;cursor:pointer">🔗 复制分享链接</button>
+    </div>
     <label class="cmp-diffbar"><input type="checkbox" id="cmp-diff"> 只看有差异的项</label>
     <div class="table-wrap cmp-wrap">
       <table class="compare-table cmp-full-table">
@@ -2821,6 +2844,15 @@ function renderCompare() {
       body.querySelectorAll('.cmp-row.cmp-same').forEach((tr) => {
         tr.style.display = diffBox.checked ? 'none' : '';
       });
+    });
+  }
+
+  // 复制分享链接
+  const shareBtn = document.getElementById('cmp-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      const url = location.origin + location.pathname + '?ids=' + ids.join(',');
+      navigator.clipboard.writeText(url).then(() => toast('分享链接已复制')).catch(() => toast('复制失败'));
     });
   }
 
@@ -2848,7 +2880,11 @@ function renderFavorites() {
     return;
   }
 
-  body.innerHTML = list.map(c => `
+  body.innerHTML = `
+    <div style="margin:0 12px 10px;display:flex;justify-content:flex-end">
+      <button id="fav-copy-btn" style="padding:6px 14px;border:1px solid var(--primary);border-radius:6px;background:#fff;color:var(--primary);font-size:13px;cursor:pointer">📋 复制清单</button>
+    </div>
+  ` + list.map(c => `
     <div class="college-card" style="position:relative">
       <div class="head">
         <div class="name">${c.name}</div>
@@ -2865,6 +2901,16 @@ function renderFavorites() {
       </div>
     </div>
   `).join('');
+
+  // 复制清单
+  const copyBtn = document.getElementById('fav-copy-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const lines = list.map((c, i) => `${i + 1}. ${c.name}（${c.city} · ${c.nature} · ${c.type}）${scoreLabel(c) !== '分数待查证' ? ' — ' + scoreLabel(c) : ''}`);
+      const text = `我收藏了 ${list.length} 所安徽单招院校：\n${lines.join('\n')}\n\n来源：https://heyanxingyan.github.io/anhui-danzhao/`;
+      navigator.clipboard.writeText(text).then(() => toast('已复制到剪贴板')).catch(() => toast('复制失败，请手动复制'));
+    });
+  }
 
   body.querySelectorAll('.fav-remove').forEach(el => {
     el.addEventListener('click', () => {
