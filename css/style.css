@@ -2477,3 +2477,39 @@ body[data-page="compare"] .navbar {
 .cmp-link{color:var(--primary);text-decoration:none;word-break:break-all}
 .cmp-full-table .cmp-name{font-size:13.5px;font-weight:700;color:var(--text);text-decoration:none;display:inline-block;max-width:150px;white-space:normal;line-height:1.45}
 .cmp-full-table .cmp-remove{font-size:12px;color:var(--text-light);margin-left:4px;cursor:pointer}
+/* === 录取概率测算页（probability.html）=== */
+.prob-container { padding: 12px; }
+.prob-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.prob-label { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 10px; }
+.prob-input-row { display: flex; align-items: center; gap: 10px; }
+.prob-input { flex: 1; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 16px; outline: none; }
+.prob-input:focus { border-color: var(--primary); }
+.prob-unit { font-size: 14px; color: #888; }
+.prob-slider-value { font-size: 24px; font-weight: 700; color: var(--primary); text-align: center; margin-bottom: 8px; }
+.prob-slider { width: 100%; height: 6px; -webkit-appearance: none; background: #e8e8e8; border-radius: 3px; outline: none; }
+.prob-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 6px rgba(46,91,255,.4); }
+.prob-result { background: linear-gradient(135deg,var(--primary),#38bdf8); color: #fff; border-radius: 12px; padding: 20px; text-align: center; margin-top: 12px; }
+.prob-result-title { font-size: 14px; opacity: .9; margin-bottom: 8px; }
+.prob-percent { font-size: 48px; font-weight: 700; line-height: 1; }
+.prob-desc { font-size: 13px; opacity: .9; margin-top: 10px; line-height: 1.6; }
+.prob-detail { background: #fff; border-radius: 12px; padding: 16px; margin-top: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.prob-detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #f0f0f0; font-size: 13px; }
+.prob-detail-row:last-child { border-bottom: none; }
+.prob-detail-row b { color: #222; }
+.prob-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 6px; }
+.prob-badge.high { background: #f6ffed; color: #52c41a; }
+.prob-badge.mid { background: #fff7e6; color: #fa8c16; }
+.prob-badge.low { background: #fff2e8; color: #f5222d; }
+.prob-type-tabs { display: flex; gap: 10px; margin-bottom: 12px; }
+.prob-type-tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.prob-type-tab.active { background: var(--primary); color: #fff; }
+/* 可搜索下拉 */
+.search-select { position: relative; }
+.search-select-input { width: 100%; height: 44px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 15px; outline: none; box-sizing: border-box; }
+.search-select-input:focus { border-color: var(--primary); }
+.search-select-dropdown { position: absolute; top: 48px; left: 0; right: 0; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-height: 240px; overflow-y: auto; z-index: 100; display: none; }
+.search-select-dropdown.open { display: block; }
+.search-select-option { padding: 10px 12px; font-size: 14px; color: #333; cursor: pointer; border-bottom: 1px solid #f5f5f5; }
+.search-select-option:last-child { border-bottom: none; }
+.search-select-option:hover, .search-select-option.highlighted { background: var(--primary-light); }
+.search-select-empty { padding: 20px; text-align: center; color: #999; font-size: 13px; }
