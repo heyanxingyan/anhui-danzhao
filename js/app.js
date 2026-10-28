@@ -777,6 +777,7 @@ function renderCollegeDetail() {
             <span class="exg-toggle">考纲 ▾</span>
           </div>
           <div class="exg2-body" id="${detailId}" style="display:none">
+            ${(g.majors && g.majors.length) ? `<div class="exg-majors">${g.majors.map((n) => `<span class="exg-major-chip">${n}</span>`).join('')}</div>` : ''}
             <div class="exg-content">${g.content || '该校未单独公布该类别考纲，详见上方「录取规则」标签页。'}</div>
             ${g.source ? `<div class="exg-src">来源：<a href="${g.source}" target="_blank" rel="noopener">${String(g.source).replace(/^https?:\/\//, '').slice(0, 60)}</a></div>` : ''}
           </div>

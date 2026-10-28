@@ -1619,6 +1619,22 @@ input, select {
   color: var(--text-light);
   word-break: break-all;
 }
+/* 考纲覆盖专业名单（小纸片样式） */
+.exg-majors {
+  padding: 10px 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.exg-major-chip {
+  font-size: 11.5px;
+  color: #614700;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #ffe7ba;
+  border-radius: 4px;
+  padding: 2px 8px;
+  line-height: 1.6;
+}
 /* 考纲区（独立于专业表） */
 .exg2-track {
   font-size: 12px;
